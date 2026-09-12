@@ -1,0 +1,67 @@
+HISTORICAL TRANSCRIPTS — RECOVERED
+
+
+===== Continuar engenharia reversa.txt =====
+
+Sim. Puxei o contexto que ainda está recuperável pelos históricos/memória e, com os nomes dos ZIPs dos seus prints, a sequência do projeto voltou a fazer bastante sentido. Não é só uma coleção de arquivos separados: nós fomos construindo **camadas cumulativas para transformar o conteúdo do jogo mobile/Xplayable em uma base de engenharia para o jogo novo de PC**.
+
+O contexto central que recuperei é este: a fonte que estávamos desmontando é Unity/IL2CPP. Já tínhamos identificado como materiais importantes `libil2cpp.so`, `global-metadata.dat`, centenas de configurações de partida em `config/match`, dezenas de JSONs em `LocalSettings`, dados de IA como `ai_configs/running`, a área `xplayable`, modelos/rigs/prefabs, Lua e sistemas relacionados a movimento, drible, chute, passe, defesa, goleiro, colisão, física e IK. O ponto importante era **não tratar isso como um simples port de APK**: estávamos separando dados, comportamento, assets e semântica nativa para reconstruí-los corretamente no projeto Windows/PC. A correlação total dos binários ainda não estava encerrada.
+
+A sequência que consigo reconstruir agora é aproximadamente esta:
+
+```text
+ORIGINAL MOBILE / UNITY / IL2CPP / XPLAYABLE
+                    │
+                    ▼
+MIGRATION MASTER
+                    │
+                    ▼
+PREPARAÇÃO PC / 3D
+                    │
+        ┌───────────┴────────────┐
+        ▼                        ▼
+PLAYER SYSTEMS               VISUAL PIPELINE
+        │                        │
+        ▼                        ▼
+PLAYER ECOSYSTEM            PRODUCTION ASSETS
+        │
+        ├─────────┐
+        ▼         ▼
+ANIMATION     GAMEPLAY / NATIVE
+RECOVERY          │
+                  ▼
+             PHYSICS RECOVERY
+                  │
+                  ▼
+          jogo PC reconstruído
+```
+
+Os ZIPs históricos encaixam nessa evolução: Migration Master v1/v1.1/Stage1 Xplayable, PC 3D Ready, Player Systems/Player Ecosystem, Visual Presentation/Production/Registry, Animation Recovery e Physics Recovery.
+
+O `FOOTBALL_PC_3D_READY_PACK_v0_1.zip` marcou a preparação real do conteúdo 3D para PC: model → mesh → skeleton → rig → materials/textures → animations → representação PC-ready. A fase v0.2 continuou refinando player model, estádio, bola, rigs, materiais, texturas, hierarquias e compatibilidade de animação.
+
+`FOOTBALL_PLAYER_SYSTEMS_REFERENCE_PACK_v0_1.zip` separou o sistema de jogadores: identity, attributes, OVR, positions, cards/versions/rarities, level/EXP, training, upgrade/evolution, materials/transfer, inventory, squad, XI, bench/reserves, formations, roles e tactics. Isso cresceu para `FOOTBALL_PLAYER_ECOSYSTEM_CORE_v0_1.zip` e depois Visual Registry.
+
+`FOOTBALL_ANIMATION_RECOVERY_PACK_v1_0.zip` aprofundou a investigação de como o jogo realmente escolhe, parametriza e executa animações. A filosofia virou: não recriar algo parecido → recuperar semântica original → provar comportamento → reimplementar → testar.
+
+`FOOTBALL_PHYSICS_RECOVERY_PACK_v0_2.zip` é o checkpoint estável mais recente recuperado. A linha nativa já cobre XNumber primitives, horizontal distance, GetVHor old/new base, energyMapNew/vHorMapNew, shootStrongMapNew/vHorRateNew, GetVVer old/new base, shootDisAndTime, ms→seconds, interpolação distance×velocity, energy maps, outEnergyMax/energyTolerance/energy protection, shootPointHDown/Up, target/player/ball heights, ballistic vertical solver, clamps e GetKickVelocity. O campo runtime +0x1C0 permanece `vertical_accel_raw` até prova melhor.
+
+A baseline de pesquisa avançou historicamente a 92/92 GREEN. O próximo ponto exato permanece `spmoveInUseData` → VHor modifier → VVer modifier → GetVHor/GetVVer final → GetKickVelocity → BALL_CONTACT.velocity → eliminar `ball_impulse=None` → regressão → somente então Physics Recovery v0.3.
+
+O conjunto mínimo prioritário preservado para estudar/reconstruir é: IL2CPP + metadata, config/match, LocalSettings, AI configs, xplayable, nova_player, fbxs, prefabs, formations, Assembly-CSharp.pdb, data.unity3d e datapack.unity3d.
+
+===== Enviar pacote xplayable.txt =====
+
+Recuperei exatamente o ponto em que paramos e **não vou recomeçar o levantamento**.
+
+O bloqueio era somente o arquivo-fonte: naquela conversa não havia upload montado para extrair `assets/xplayable/`. O objetivo definido foi gerar `XPLAYABLE_GAMEPLAY.zip` contendo shoot, dribble, tackle, passtheball, marseilleturn, ballrolltoside, breakthrough, gk, walk e demais recursos da pasta.
+
+Depois disso a linha seguia para `FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER_v1.zip` com arquitetura e documentação.
+
+===== Extrair APK com Apktool.txt =====
+
+O contexto recuperado confirmou que os dois jogos pertencem ao usuário; o mobile é Unity + IL2CPP e será convertido/migrado para um jogo novo de PC Windows em outro engine, posteriormente fixado como Unreal Engine 5.x. O objetivo inclui preservar/migrar modelos, animações, estádio, bola, física, colisões, gameplay e IA.
+
+Já haviam sido localizados `libil2cpp.so` e `global-metadata.dat`, e mapeados `config/match`, `LocalSettings`, `ai_configs/running`, `xplayable`, `nova_player`, `fbxs` e `prefabs`, além dos sistemas de chute, passe, drible, tackle, interceptação, goleiro, IK, movimento, animação e colisão.
+
+A recomendação de continuidade entre chats permaneceu: não recomeçar, carregar o checkpoint/contexto e seguir exatamente do estágio atual.
