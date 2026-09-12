@@ -1,0 +1,86 @@
+[
+  {
+    "name": "FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER_v1.zip",
+    "status": "HISTORICAL_ARTIFACT_NOT_PHYSICALLY_RECOVERED",
+    "sha256": null,
+    "notes": "Early migration master."
+  },
+  {
+    "name": "FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER_v1_1.zip",
+    "status": "HISTORICAL_VERIFIED_BY_TRANSCRIPT",
+    "sha256": "c1c7d5352f94241c5aed771666ad5f723b24593ac7cf8c3bc9bfb0e7d175e1eb",
+    "notes": "4931 entries; 0 corrupt; 0 duplicate paths."
+  },
+  {
+    "name": "FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER_STAGE1_XPLAYABLE.zip",
+    "status": "HISTORICAL_NAME_RECOVERED_FROM_CODEX_LOG",
+    "sha256": null,
+    "notes": "Full name recovered later from Codex log."
+  },
+  {
+    "name": "FOOTBALL_PC_3D_READY_PACK_v0_1.zip",
+    "status": "HISTORICAL_VERIFIED_BY_TRANSCRIPT",
+    "sha256": "5b22f66a75e694405273cdb8647084076f621b7d6cc29fc99045a018423e2ef7",
+    "notes": "123/123 FBXS + 93/93 nova_player meshes; ball.glb/obj/collision sphere; ball radius ~0.1107703m."
+  },
+  {
+    "name": "FOOTBALL_PC_3D_READY_PACK_v0_2.zip",
+    "status": "HISTORICAL_ARTIFACT_NOT_PHYSICALLY_RECOVERED",
+    "sha256": null,
+    "notes": "Later PC 3D ready evolution."
+  },
+  {
+    "name": "FOOTBALL_PLAYER_SYSTEMS_REFERENCE_PACK_v0_1.zip",
+    "status": "HISTORICAL_ARTIFACT_NOT_PHYSICALLY_RECOVERED",
+    "sha256": null,
+    "notes": "Player systems reference."
+  },
+  {
+    "name": "FOOTBALL_PLAYER_ECOSYSTEM_CORE_v0_1.zip",
+    "status": "HISTORICAL_VERIFIED_BY_TRANSCRIPT",
+    "sha256": "74d6e29c0d68ceb59912e7049f85f1d57f16f225cd6905dd03f28d3756383822",
+    "notes": "21/21 tests."
+  },
+  {
+    "name": "FOOTBALL_PLAYER_ECOSYSTEM_CORE_v0_2_VISUAL_REGISTRY.zip",
+    "status": "HISTORICAL_VERIFIED_BY_TRANSCRIPT",
+    "sha256": "cea86e1e18f7aa58f924302bae542ebf2782217b32594d315aff3ff423efe813",
+    "notes": "31/31 tests."
+  },
+  {
+    "name": "FOOTBALL_VISUAL_PRESENTATION_ARCHITECTURE_v1.zip",
+    "status": "HISTORICAL_VERIFIED_BY_TRANSCRIPT",
+    "sha256": "a823b6d83637dc6899041348649f1b9650c060c9407786bcf9cc3e7366838645",
+    "notes": "Presentation architecture."
+  },
+  {
+    "name": "FOOTBALL_VISUAL_PRODUCTION_ASSET_PACK_v0_1.zip",
+    "status": "HISTORICAL_VERIFIED_BY_TRANSCRIPT",
+    "sha256": "b0e1336e576c0b9dae8d04d424e706f16b18c18a28ed94b13da129a052d322b1",
+    "notes": "1106 real recovered visual assets."
+  },
+  {
+    "name": "FOOTBALL_ANIMATION_RECOVERY_PACK_v1_0.zip",
+    "status": "HISTORICAL_VERIFIED_BY_TRANSCRIPT",
+    "sha256": "91a2a6bffeb9739807ab2ae432ed1ee79232db0b4ec4c2862cb0241027273f64",
+    "notes": "1963 entries; 19/19 GREEN; controller structurally closed."
+  },
+  {
+    "name": "FOOTBALL_PHYSICS_RECOVERY_PACK_v0_2.zip",
+    "status": "HISTORICAL_VERIFIED_BY_TRANSCRIPT",
+    "sha256": "7d5cabe5d974f7282ca7126d5c36c7bc71a448275cf144b73625be9fccf415ac",
+    "notes": "67/67 tests; 83/83 tables byte-exact; stable release. Later workspace reached 92/92 without v0.3 release."
+  },
+  {
+    "name": "FUTEBOL_AI_MASTER_ARCHIVE_v1_0_2026-09-11.zip",
+    "status": "HISTORICAL_ARTIFACT_NOT_PHYSICALLY_RECOVERED",
+    "sha256": null,
+    "notes": "Global project architecture line."
+  },
+  {
+    "name": "FUTEBOL_AI_MASTER_ARCHIVE_v1_1_2026-09-11 (1).zip",
+    "status": "HISTORICAL_ARTIFACT_NOT_PHYSICALLY_RECOVERED",
+    "sha256": null,
+    "notes": "Later global master archive referenced by handoff."
+  }
+]
