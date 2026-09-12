@@ -1,0 +1,33 @@
+name: Verify master recovery artifact
+
+on:
+  push:
+    paths:
+      - 'artifacts/**'
+      - 'manifests/**'
+      - '.github/workflows/verify-master.yml'
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout with Git LFS
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Verify master SHA-256 when present
+        shell: bash
+        run: |
+          set -euo pipefail
+          FILE='artifacts/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip'
+          EXPECTED='4240ae8ff93abcd582b88b65b0e58de0909a9e95ca5197931e6df656b3d3a3e2'
+          if [[ ! -f "$FILE" ]]; then
+            echo "Master artifact not uploaded yet; nothing to verify."
+            exit 0
+          fi
+          ACTUAL="$(sha256sum "$FILE" | awk '{print $1}')"
+          echo "Expected: $EXPECTED"
+          echo "Actual:   $ACTUAL"
+          test "$ACTUAL" = "$EXPECTED"
