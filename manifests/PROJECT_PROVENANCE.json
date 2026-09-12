@@ -1,0 +1,94 @@
+{
+  "bundle_name": "FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip",
+  "created_utc": "2026-09-12T17:13:48.545507+00:00",
+  "project": "mobile football game → new Windows PC Unreal football game",
+  "canonical_engine": "Unreal Engine 5.x",
+  "core_language": "C++",
+  "3d_source_of_truth": "Blender",
+  "current_physical_sources": [
+    {
+      "name": "assets.zip",
+      "status": "PHYSICAL_CURRENT_RUNTIME",
+      "size_bytes": 477288100,
+      "sha256": "5de4da26e944781a83df8ef40c5720a785aa1db3fb4fdd52e9853ced1973755a",
+      "zip_entries": 16546,
+      "zip_uncompressed_bytes": 525428410,
+      "testzip": "OK"
+    },
+    {
+      "name": "GAMEPLAY_DATA_CORE.zip",
+      "status": "PHYSICAL_CURRENT_RUNTIME",
+      "size_bytes": 6011040,
+      "sha256": "f3594c215d562404dd8399d0dd8fbdfdb7f9fe65701e447ce749044f07a098b2",
+      "zip_entries": 1187,
+      "zip_uncompressed_bytes": 10460629,
+      "testzip": "OK"
+    },
+    {
+      "name": "GAMEPLAY_MODELS_CORE.zip",
+      "status": "PHYSICAL_CURRENT_RUNTIME",
+      "size_bytes": 35870211,
+      "sha256": "b21d4f81fa90b2dea7874e5a16d47f9189b1f7de4096be28cdc4758b2571569a",
+      "zip_entries": 668,
+      "zip_uncompressed_bytes": 41841138,
+      "testzip": "OK"
+    },
+    {
+      "name": "config.arm64_v8a.zip",
+      "status": "PHYSICAL_CURRENT_RUNTIME",
+      "size_bytes": 26727487,
+      "sha256": "bb384c71f5b434ba2f04dbb02be9d4e96630f3caa4e22772d45aaca8b7d39acc",
+      "zip_entries": 15,
+      "zip_uncompressed_bytes": 89349608,
+      "testzip": "OK"
+    },
+    {
+      "name": "config.armeabi_v7a.zip",
+      "status": "PHYSICAL_CURRENT_RUNTIME",
+      "size_bytes": 25097299,
+      "sha256": "96bf6dd3fd057f83343342b7cf875f086a453d8794916f75441675e13c2234c0",
+      "zip_entries": 15,
+      "zip_uncompressed_bytes": 73665712,
+      "testzip": "OK"
+    },
+    {
+      "name": "UnityDataAssetPack.zip",
+      "status": "PHYSICAL_CURRENT_RUNTIME",
+      "size_bytes": 5520504,
+      "sha256": "de2ed92eac218b95580ea1dfaf6de48a8928fad80fc94e45f7244521f4b8ad0f",
+      "zip_entries": 75,
+      "zip_uncompressed_bytes": 5502988,
+      "testzip": "OK"
+    }
+  ],
+  "focused_regenerated": [
+    {"name":"XPLAYABLE_GAMEPLAY.zip","entries":41,"uncompressed_bytes":11163908,"sha256":"71c84e9792901cbac9a07f8b0fc5b00f959ca2279e1fc79d0af6955386c2779f","size_bytes":10247822},
+    {"name":"COFMOTIONS_SOURCE.zip","entries":1582,"uncompressed_bytes":45770186,"sha256":"419e655ed4fbb0fba876cad80fa2e8d7a70add41272265d05fb59ed33a204480","size_bytes":41616244},
+    {"name":"TIMELINE_SOURCE.zip","entries":305,"uncompressed_bytes":518875,"sha256":"9bc39ab69900b6282708500d3a86cfb436ad4db52130987ad1fb06932b11311f","size_bytes":152945},
+    {"name":"CONFIG_MATCH_SOURCE.zip","entries":247,"uncompressed_bytes":7092495,"sha256":"036983ce8fe8a8607d05140bdc39f74579ab1ddbcfc7d2ce27143e1b3aab07d3","size_bytes":5097574},
+    {"name":"LOCAL_SETTINGS_SOURCE.zip","entries":59,"uncompressed_bytes":75301,"sha256":"69b567675c142516664f541900678864596425e936109332947195add0d5851a","size_bytes":77994},
+    {"name":"AI_RUNNING_SOURCE.zip","entries":845,"uncompressed_bytes":2660615,"sha256":"4d5e7c2a0394cedf07abca9c8ff2f74cb1be76036d0ae12c1806a609ac51760e","size_bytes":574053},
+    {"name":"SCENERES_SOURCE.zip","entries":12,"uncompressed_bytes":10255435,"sha256":"6c64896aad83b99950824b6708935da19bf94b254d40ab6074f1a1d2f0144b88","size_bytes":5228315}
+  ],
+  "assets_subtrees": [
+    {"prefix":"assets/config/match/","files":247,"uncompressed_bytes":7092495,"compressed_bytes":5038004},
+    {"prefix":"assets/LocalSettings/","files":59,"uncompressed_bytes":75301,"compressed_bytes":65729},
+    {"prefix":"assets/ai_configs/running/","files":845,"uncompressed_bytes":2660615,"compressed_bytes":379078},
+    {"prefix":"assets/xplayable/","files":41,"uncompressed_bytes":11163908,"compressed_bytes":10247120},
+    {"prefix":"assets/fbxs/","files":123,"uncompressed_bytes":4545701,"compressed_bytes":3815481},
+    {"prefix":"assets/nova_player/","files":412,"uncompressed_bytes":34589362,"compressed_bytes":29951712},
+    {"prefix":"assets/prefabs/","files":196,"uncompressed_bytes":4079860,"compressed_bytes":3340096},
+    {"prefix":"assets/cofmotions/","files":1582,"uncompressed_bytes":45770186,"compressed_bytes":41276025},
+    {"prefix":"assets/timeline/","files":305,"uncompressed_bytes":518875,"compressed_bytes":89482},
+    {"prefix":"assets/sceneres/","files":12,"uncompressed_bytes":10255435,"compressed_bytes":5259904},
+    {"prefix":"assets/LuaScripts/","files":1177,"uncompressed_bytes":12480681,"compressed_bytes":10520309}
+  ],
+  "known_missing_current_bytes": [
+    "com.estar.bap.zip",
+    "global-metadata.dat",
+    "data.unity3d",
+    "historical recovery ZIP bytes",
+    "historical 92/92 workspace"
+  ],
+  "physics_release_policy": "v0.2 remains stable; do not name/generate v0.3 before spmove VHor/VVer + BALL_CONTACT velocity + regression gate"
+}
