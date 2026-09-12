@@ -1,5 +1,7 @@
 # UNREAL ENGINE FUTEBOL — Mobile → PC Recovery / Migration
 
+> **SOURCE OF TRUTH OFICIAL:** este repositório GitHub (`dgsiria71-jpg/UNREAL-ENGINE-FUTEBOL`) é a versão oficial e sempre atualizada do projeto. Chats, workspaces locais e ZIPs intermediários são auxiliares; toda evolução válida deve terminar aqui. Veja `docs/PROJECT_SOURCE_OF_TRUTH.md`.
+
 Repositório canônico do projeto de conversão/reconstrução do jogo de futebol mobile (Unity/IL2CPP) para **Windows PC + Unreal Engine 5.x + C++**, com Blender como source of truth 3D.
 
 > **Não recomeçar o projeto.** A linha de Migration Master, PC 3D Ready, Player Ecosystem, Visual Registry, Animation Recovery e Physics Recovery é cumulativa.
@@ -25,6 +27,7 @@ Repositório canônico do projeto de conversão/reconstrução do jogo de futebo
 - `manifests/` — provenance, hashes e inventários
 - `tools/` — validação, unpack e publicação dos artefatos
 - `artifacts/` — pacote mestre binário via Git LFS
+- `_CHECKPOINTS/CURRENT.md` — estado técnico oficial atual
 
 ## Pacote mestre recuperado
 
@@ -37,8 +40,22 @@ Arquivo local validado:
 
 O ZIP contém os arquivos físicos recuperados, documentação, manifests, ferramentas, inventário, transcripts e evidências. O artefato grande deve ser armazenado no repositório usando **Git LFS**; os arquivos de documentação permanecem Git normal para serem navegáveis no GitHub.
 
+**Status atual do binário master:** documentação e preparação LFS já estão no GitHub, mas `artifacts/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip` só deve ser considerado publicado quando o objeto LFS estiver fisicamente presente e o hash acima for validado.
+
 ## Autoridade de arquitetura
 
 `RECOVERED DATA → NORMALIZED DATA → C++ REFERENCE → UNREAL ADAPTER → GAMEPLAY`
 
 Parsers IL2CPP/AssetBundle não devem ficar no hot path da partida final.
+
+## Continuidade obrigatória
+
+Antes de qualquer nova rodada de trabalho, ler nesta ordem:
+
+1. `README.md`
+2. `_CHECKPOINTS/CURRENT.md`
+3. `docs/PROJECT_SOURCE_OF_TRUTH.md`
+4. `docs/UNREAL_CANONICAL_ARCHITECTURE.md`
+5. manifests pertinentes ao incremento atual
+
+Toda mudança concluída deve ser testada, documentada, checkpointada e enviada ao GitHub antes de ser tratada como versão oficial.
