@@ -1,6 +1,7 @@
 import importlib.util
 import json
 from pathlib import Path
+import tempfile
 import unittest
 
 
@@ -34,6 +35,18 @@ class ShootHelperExtractorTests(unittest.TestCase):
         wrapper = WRAPPER.read_text(encoding="utf-8").lower()
         self.assertIn("enabledelayedexpansion", wrapper)
         self.assertIn("!errorlevel!", wrapper)
+
+    def test_output_directory_is_separate_from_native_input_directory(self):
+        module = load_tool()
+        self.assertNotEqual(module.OUTPUT.parent, module.BINARY.parent)
+        self.assertEqual(module.OUTPUT.name, "shoot_helper_disassembly.txt")
+
+    def test_write_output_creates_parent_and_persists_utf8_text(self):
+        module = load_tool()
+        with tempfile.TemporaryDirectory() as temp_dir:
+            output = Path(temp_dir) / "nested" / "shoot_helper_disassembly.txt"
+            module.write_output(output, "alpha\nbeta\n")
+            self.assertEqual(output.read_text(encoding="utf-8"), "alpha\nbeta\n")
 
     def test_default_targets_cover_current_unresolved_value_helpers(self):
         module = load_tool()

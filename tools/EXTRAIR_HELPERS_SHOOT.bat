@@ -2,7 +2,7 @@
 setlocal EnableExtensions EnableDelayedExpansion
 cd /d "%~dp0.."
 set "ROOT=%CD%"
-set "OUT=%ROOT%\.local\il2cpp\shoot_helper_disassembly.txt"
+set "OUT=%ROOT%\.local\recovery-output\shoot_helper_disassembly.txt"
 set "RC=1"
 
 where py >nul 2>&1
