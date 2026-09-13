@@ -1,6 +1,6 @@
 {
   "schema_version": "football.recovery.inventory.v2",
-  "generated_at_utc": "2026-09-13T22:16:38Z",
+  "generated_at_utc": "2026-09-13T23:10:00Z",
   "repository_portability": "fresh_checkout_supported",
   "engine_target": "Unreal Engine 5.x",
   "mobile_source": "football-dream-be-a-pro-1-221-5",
@@ -31,7 +31,9 @@
     "feature_coverage": "Recovery/Normalized/feature_coverage.json",
     "playable_match_contract": "Recovery/Normalized/playable_match_contract.json",
     "unreal_import_plan": "Recovery/Normalized/unreal_import_plan.json",
-    "original_reassembly": "Recovery/Normalized/original_reassembly.json"
+    "original_reassembly": "Recovery/Normalized/original_reassembly.json",
+    "shoot_dis_and_time_trace": "Recovery/Normalized/shoot_dis_and_time_static_trace.json",
+    "shoot_dis_and_time_config_5800": "Recovery/Normalized/shoot_dis_and_time_config_5800.json"
   },
   "local_regeneration_artifacts": {
     "spmove": {
@@ -109,6 +111,21 @@
       "sha256_lf": "3556db3a9e1457ab1626c1950f4d90c44d859fadefbf142e2e60a6556b6f5bf3",
       "dump_cs_sha256": "4ba445977f2b0854b19375d69c5b30275fe36d06518efe2c5028097868579fbe",
       "global_metadata_sha256": "92fae52ec4dc570929eb7b99d2083fd6ab6016cbbaa30f87e87ac6732bb1e42e"
+    },
+    {
+      "source_id": "shoot_dis_and_time_metadata",
+      "filename": "artifacts/native-recovery/20260913-163217-9cdb54d0/02_shoot_dis_and_time_metadata.txt",
+      "status": "committed_text_evidence",
+      "sha256_lf": "2368fbaaee1a3bae0461a31603ad578adf76a963c97f9131982faa78a9838478",
+      "dump_cs_sha256": "4ba445977f2b0854b19375d69c5b30275fe36d06518efe2c5028097868579fbe"
+    },
+    {
+      "source_id": "shootspeed_config_5800",
+      "filename": "Recovery/Normalized/shoot_dis_and_time_config_5800.json",
+      "status": "committed_normalized_data",
+      "decoded_source_bytes": 133872,
+      "decoded_source_sha256": "f437f83465a541bc85f07e1cab655afd59a2fb927233302a40a1d09b6355d0ad",
+      "record_count": 28
     }
   ],
   "semantic_gates": {

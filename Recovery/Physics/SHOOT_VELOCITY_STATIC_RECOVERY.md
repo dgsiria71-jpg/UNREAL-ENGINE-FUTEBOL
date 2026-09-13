@@ -138,3 +138,19 @@ This is not yet a complete implementation because all upstream GetVVer arithmeti
 ## Gate
 
 Physics Recovery v0.3 remains **BLOCKED**. No fallback velocity is permitted. The next evidence step is to disassemble and identify the unresolved helper callees, then turn the now-bound static structure into executable fixed-point equations and validate them before touching the v0.3 release gate.
+
+
+## 2026-09-13 shootDisAndTime follow-up
+
+The nested new-GetVVer flight-time path is now instruction-bound and executable.
+It samples shootDisAndTime as a speed-by-distance table, converts serialized
+integer milliseconds with XNumber.thousand, preserves the native zero-row
+fallback, and applies the ordered fixed-point vertical solve and ySpeed clamp.
+
+Config 5800 from the hash-bound 133872-byte shootspeed payload verifies
+table[20][25]=1327 ms, flightTime raw 1359, and the historical vertical result
+vY raw 7828 for verticalDelta=1551 and vertical_accel_raw=-10035.
+
+See Recovery/Physics/SHOOT_DIS_AND_TIME_RECOVERY.md and
+Recovery/Normalized/shoot_dis_and_time_static_trace.json. This closes a kernel,
+not complete GetVVer or Physics v0.3.

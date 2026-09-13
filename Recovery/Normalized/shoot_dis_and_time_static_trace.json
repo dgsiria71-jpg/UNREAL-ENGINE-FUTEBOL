@@ -1,0 +1,60 @@
+{
+  "analysis_status": "static_normal_path_equation_confirmed",
+  "behavior_validated": false,
+  "confirmed_interpretation": [
+    "shootDisAndTime is sampled as a two-dimensional speed-by-distance table.",
+    "Serialized integer table values are milliseconds and are divided by XNumber.thousand before interpolation.",
+    "The selected flight time feeds an ordered fixed-point ballistic vertical solve.",
+    "AIParameterConfig +0x1C0 remains named vertical_accel_raw; this recovery does not relabel it as gravity."
+  ],
+  "next_gate": "compose the complete new GetVVer executable path around the recovered flight-time and vertical-solver kernel",
+  "physics_v0_3_gate": "BLOCKED",
+  "remaining_unknowns": [
+    "exception behavior for malformed, null, empty, or ragged tables outside canonical data preconditions",
+    "complete upstream target-height and energy-protection behavior as an executable reference",
+    "post-vector spmove modifiers and final GetVVer composition",
+    "full GetKickVelocity and BALL_CONTACT.velocity runtime binding"
+  ],
+  "schema_version": "football.recovery.shoot_dis_and_time_static_trace.v1",
+  "shootDisAndTime": {
+    "field": "ShootSpeedConfigItem.shootDisAndTime",
+    "field_offset": "+0x108",
+    "field_type": "List<List<int>>",
+    "inner_axis": "horizontal shoot distance, integer floor/ceiling neighbors",
+    "inner_interval": "first i where i <= distance <= i+1; no interval produces zero for that row",
+    "milliseconds_to_seconds": "XNumber(table_ms) / XNumber.thousand",
+    "normal_path_equation_recovered": true,
+    "outer_axis": "XVector3.magnitude(vHor), integer floor/ceiling neighbors",
+    "outer_ceiling": "clamp(ceiling(vHor_magnitude), 0, outer_count-1)",
+    "outer_floor": "clamp(floor(vHor_magnitude), 0, outer_count-1)",
+    "outer_interpolation": "ShootRemapClamped(vHor_magnitude, floor, ceiling, lower_row_time, upper_row_time)",
+    "row_interpolation": "ShootRemapClamped(distance, i, i+1, seconds(row[i]), seconds(row[i+1]))",
+    "table_value_unit": "integer milliseconds",
+    "zero_pair_policy": "use the nonzero row result; zero only when both row results are zero"
+  },
+  "sources": {
+    "binary_sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496",
+    "metadata_excerpt": "artifacts/native-recovery/20260913-163217-9cdb54d0/02_shoot_dis_and_time_metadata.txt",
+    "metadata_excerpt_lf_sha256": "2368fbaaee1a3bae0461a31603ad578adf76a963c97f9131982faa78a9838478",
+    "metadata_identity": "canonical Il2CppDumper dump.cs SHA-256 4ba445977f2b0854b19375d69c5b30275fe36d06518efe2c5028097868579fbe",
+    "shoot_disassembly": "artifacts/native-recovery/20260913-163217-9cdb54d0/01_disassembly_shoot.txt",
+    "shoot_disassembly_lf_sha256": "c695472c6bb7820f71c334407c4998149d8f3646bc5f0614d30f3adf80f670c4"
+  },
+  "vertical_solver": {
+    "clamp": "max(ySpeedMin, min(ySpeedMax, solved_y_speed)) using native comparison order",
+    "flight_time_source": "bilinear fixed-point shootDisAndTime lookup",
+    "formula": "(vertical_delta - fixed_mul(fixed_mul(flight_time, vertical_accel_raw), flight_time) / 2) / flight_time",
+    "operation_order": [
+      "flight_time * vertical_accel_raw",
+      "previous * flight_time",
+      "previous / integer 2",
+      "vertical_delta - previous",
+      "previous / flight_time"
+    ],
+    "vertical_accel_name": "vertical_accel_raw",
+    "vertical_accel_source": "AIParameterConfig +0x1C0",
+    "y_speed_max_source": "previously selected ySpeedMax value",
+    "y_speed_min_field": "ShootSpeedConfigItem.ySpeedMin +0x98",
+    "zero_time_result": "XNumber.zero"
+  }
+}
