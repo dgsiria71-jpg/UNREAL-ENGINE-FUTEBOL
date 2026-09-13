@@ -11,12 +11,14 @@ from typing import Any, NamedTuple
 
 ROOT = Path(__file__).resolve().parents[1]
 BINARY = ROOT / ".local" / "il2cpp" / "libil2cpp.so"
-OUTPUT = ROOT / ".local" / "il2cpp" / "shoot_helper_disassembly.txt"
+OUTPUT = ROOT / ".local" / "recovery-output" / "shoot_helper_disassembly.txt"
+
 
 class Target(NamedTuple):
     name: str
     address: int
     fallback_bytes: int
+
 
 class ResolvedRange(NamedTuple):
     target: Target
@@ -25,6 +27,7 @@ class ResolvedRange(NamedTuple):
     boundary_source: str
     exact_function_boundary: bool
     metadata_name: str | None
+
 
 DEFAULT_TARGETS = (
     Target("interpolate_remap_126BF1C", 0x126BF1C, 0x1000),
@@ -133,6 +136,12 @@ def build_summary(*, binary_sha256: str, metadata_path: Path | None, resolved_ra
     }
 
 
+def write_output(path: Path, text: str) -> None:
+    """Persist generated evidence outside the native input directory."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text, encoding="utf-8", newline="\n")
+
+
 def _metadata() -> tuple[Path | None, list[tuple[int, str]]]:
     for path in (ROOT / ".local" / "il2cpp" / "script.json", ROOT / ".local" / "tools" / "Il2CppDumper" / "script.json"):
         if path.is_file():
@@ -229,10 +238,10 @@ def main() -> int:
     summary = build_summary(binary_sha256=digest, metadata_path=metadata_path, resolved_ranges=resolved, direct_calls=calls)
     lines.append("## SUMMARY_JSON")
     lines.append(json.dumps(summary, sort_keys=True))
-    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
+    write_output(OUTPUT, "\n".join(lines) + "\n")
     print(f"SHOOT_HELPER_EXTRACTION: GREEN targets={len(resolved)} callees={emitted} output={OUTPUT}")
     return 0
+
 
 if __name__ == "__main__":
     raise SystemExit(main())
