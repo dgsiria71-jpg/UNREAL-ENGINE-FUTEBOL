@@ -1,0 +1,20 @@
+﻿FOOTBALL PROJECT AUDIT
+======================
+
+Records: 523
+Duplicate SHA groups: 101
+
+Canonical mobile:
+1-221-5
+
+Isolated comparison:
+1-226-19
+
+Absolute paths removed: YES
+Other projects removed: YES
+
+JSON:
+C:\Users\dg71\Documents\ChatGPT\JOGO DE FUTEBOL\.local\full-pc-audit\football-public\FOOTBALL_PROJECT_AUDIT.json
+
+CSV:
+C:\Users\dg71\Documents\ChatGPT\JOGO DE FUTEBOL\.local\full-pc-audit\football-public\FOOTBALL_PROJECT_AUDIT.csv

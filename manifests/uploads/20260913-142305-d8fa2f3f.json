@@ -1,0 +1,34 @@
+﻿{
+    "schema_version":  "football.github_handoff.v1",
+    "upload_id":  "20260913-142305-d8fa2f3f",
+    "created_utc":  "2026-09-13T17:25:51.2130426Z",
+    "repository":  "dgsiria71-jpg/UNREAL-ENGINE-FUTEBOL",
+    "destination_root":  "artifacts/audits",
+    "preservation_rule":  "Source files are copied/zipped; originals are not modified or deleted.",
+    "files":  [
+                  {
+                      "source_name":  "FOOTBALL_PROJECT_AUDIT.json",
+                      "source_kind":  "file",
+                      "repository_path":  "artifacts/audits/20260913-142305-d8fa2f3f/01_FOOTBALL_PROJECT_AUDIT.json",
+                      "bytes":  761515,
+                      "sha256":  "b011ea14d914b961281d774202c7bb11b51f7a3c751c9debe7f5bdac8698f5bb",
+                      "git_lfs":  false
+                  },
+                  {
+                      "source_name":  "FOOTBALL_PROJECT_AUDIT.csv",
+                      "source_kind":  "file",
+                      "repository_path":  "artifacts/audits/20260913-142305-d8fa2f3f/02_FOOTBALL_PROJECT_AUDIT.csv",
+                      "bytes":  143418,
+                      "sha256":  "b1d101bbf4eee20449422c8d9e1a685d0bee2da1399837458f2eb517042f6745",
+                      "git_lfs":  false
+                  },
+                  {
+                      "source_name":  "FOOTBALL_PROJECT_AUDIT_SUMMARY.txt",
+                      "source_kind":  "file",
+                      "repository_path":  "artifacts/audits/20260913-142305-d8fa2f3f/03_FOOTBALL_PROJECT_AUDIT_SUMMARY.txt",
+                      "bytes":  443,
+                      "sha256":  "8dd7c7d6911d7870bcb3ada77261f2f9e662c5630fae841ffcd4d2eb23024e2a",
+                      "git_lfs":  false
+                  }
+              ]
+}
