@@ -60,28 +60,26 @@ Equivalent recovered shape:
 
 ## `0x1968E24` — exact `PlayerProperty.GetShootSpeedVRate`
 
-Il2CppDumper `ScriptMethod` metadata provides an exact function boundary:
+The exact boundary remains `0x01968E24..0x0196916C`. The follow-up source-bound analysis in `Recovery/Physics/SHOOT_SPEED_V_RATE_RECOVERY.md` now closes the normal-return equation and replaces the earlier equation-unknown status.
 
-- start: `0x01968E24`
-- end: `0x0196916C`
-- metadata name: `PlayerProperty$$GetShootSpeedVRate`
+Metadata binds the signature as:
 
-The recovered body directly binds these value-producing callees:
+`GetShootSpeedVRate(XGoalTypeEnum goal_child, XNumber F, XNumber c) -> XNumber`
 
-- `0x01968C34` → `PlayerProperty$$GetShootVerRate`
-- `0x01FF58AC` → `XBaseLocalSetting<AIParameterConfig>$$get_Singleton`
-- AI parameter field observed at singleton offset `+0x80`
-- `0x0192A0C4` → `XRandom$$Range`
+It also resolves `AIParameterConfig +0x80` to the `int disArea` field. The runtime consumes this integer directly as a signed raw delta in XNumber-domain arithmetic.
 
-The old GetVVer caller is also bound:
+Let `force_ratio = F / 100` using the native `XNumber.op_Division(XNumber,int)` rule. Preserving the exact fixed-point operation order, the body computes:
 
-- `0x016EA318`: loads `ShootSpeedConfigItem +0x80` into `w3`
-- `0x016EA31C`: loads the stack argument into `w1`
-- `0x016EA320`: moves GetVVer `x20` into `x2`
-- `0x016EA324`: passes null in `x4`
-- `0x016EA330`: calls `0x1968E24`
+`base = one + fixed_mul(fixed_mul(fixed_mul(GetShootVerRate(goal_child), c), force_ratio), force_ratio)`
 
-This closes identity and the structural value chain. It does **not** yet close the complete branch-by-branch equation, input units, meaning of the AI parameter at `+0x80`, or all randomization bounds. `full_equation_recovered` therefore remains false.
+Then it selects:
+
+- `min(one, base + disArea_raw)` when `zero <= c`;
+- `max(one, base - disArea_raw)` when `zero > c`.
+
+The selected value and `c` are passed to `XRandom.Range`. That helper is now closed caller-visibly as a discrete interpolation driven by `NextInt(1001)`. The original RNG state, upstream `GetShootVerRate` property values and designer-facing `disArea` unit convention remain unresolved.
+
+Machine-readable evidence is in `Recovery/Normalized/shoot_speed_v_rate_static_trace.json`, and the sample-driven executable reference is in `Reference/FootballPhysics/ShootSpeedVRate.h`.
 
 ## `0x196807C` — exact `PlayerProperty.GetSpmoveDataRatio`
 
@@ -117,7 +115,7 @@ This is source-bound static recovery. It is not a claim of a whole-function nati
 Physics v0.3 remains **BLOCKED**. Still required:
 
 1. close the nested `shootDisAndTime` arithmetic/time path;
-2. close the full `GetShootSpeedVRate` equation/units, or prove exactly the caller-visible result behavior needed by GetVVer;
+2. supply the now-closed `GetShootSpeedVRate` equation with recovered `GetShootVerRate`, `disArea` and RNG inputs;
 3. compose executable source-bound GetVHor/GetVVer behavior and validate it against original/native evidence;
 4. close final GetKickVelocity behavior beyond the already recovered componentwise join;
 5. bind the resolved result to `BALL_CONTACT.velocity` and remove unresolved placeholder/fallback behavior;

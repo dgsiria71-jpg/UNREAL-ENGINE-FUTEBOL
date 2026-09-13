@@ -31,7 +31,8 @@ def load_tool():
 class ShootHelperSemanticRecoveryTests(unittest.TestCase):
     def test_canonical_helper_evidence_is_present(self):
         self.assertTrue(SOURCE.is_file())
-        self.assertEqual(SOURCE.stat().st_size, 184617)
+        normalized = SOURCE.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+        self.assertEqual(len(normalized), 184617)
 
     def test_analyzer_closes_normal_path_remap_semantics_without_overclaiming(self):
         module = load_tool()

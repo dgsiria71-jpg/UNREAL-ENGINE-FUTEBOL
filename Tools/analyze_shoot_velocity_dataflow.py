@@ -42,17 +42,16 @@ def verify_source_identity(path: Path) -> tuple[str, str]:
     are tolerated because exact anchors are checked separately below.
     """
     raw = path.read_bytes()
-    repository_sha = hash_bytes(raw)
-    if repository_sha == ORIGINAL_SOURCE_SHA256:
-        return ORIGINAL_SOURCE_SHA256, repository_sha
-
+    working_tree_sha = hash_bytes(raw)
     lf = raw.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    repository_sha = hash_bytes(lf)
     reconstructed_crlf = lf.replace(b"\n", b"\r\n")
     reconstructed_sha = hash_bytes(reconstructed_crlf)
     if reconstructed_sha != ORIGINAL_SOURCE_SHA256:
         raise ValueError(
             "unexpected disassembly identity: "
-            f"repository_sha={repository_sha} reconstructed_crlf_sha={reconstructed_sha}"
+            f"working_tree_sha={working_tree_sha} normalized_lf_sha={repository_sha} "
+            f"reconstructed_crlf_sha={reconstructed_sha}"
         )
     return ORIGINAL_SOURCE_SHA256, repository_sha
 

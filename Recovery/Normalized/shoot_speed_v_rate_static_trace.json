@@ -1,0 +1,71 @@
+{
+  "GetShootSpeedVRate": {
+    "ai_config_field": "AIParameterConfig.disArea",
+    "ai_config_field_offset": "+0x80",
+    "ai_config_field_runtime_use": "direct signed raw delta in XNumber-domain arithmetic",
+    "ai_config_field_storage_type": "int",
+    "arguments": {
+      "w1": "goal_child",
+      "x2": "F XNumber raw; divided by integer 100 before use",
+      "x3": "c XNumber raw; sign selects the bound branch and value is the second Range endpoint"
+    },
+    "base_formula": "one + fixed_mul(fixed_mul(fixed_mul(GetShootVerRate(goal_child), c), force_ratio), force_ratio)",
+    "force_ratio": "F / 100 using XNumber.op_Division(XNumber,int)",
+    "force_ratio_uses": 2,
+    "force_ratio_zero_behavior": "F raw zero selects XNumber.zero without division",
+    "negative_c_bound": "max(one, base - disArea_raw)",
+    "negative_c_condition": "zero > c",
+    "normal_return_equation_recovered": true,
+    "positive_c_bound": "min(one, base + disArea_raw)",
+    "positive_c_condition": "zero <= c",
+    "random_sample_resolved_without_rng_state": false,
+    "return_formula": "XRandom.Range(sign_selected_bound, c)",
+    "signature": "GetShootSpeedVRate(XGoalTypeEnum goal_child, XNumber F, XNumber c) -> XNumber",
+    "span": "0x01968E24..0x0196916C"
+  },
+  "XRandom.Range": {
+    "endpoints": {
+      "sample_0": "from",
+      "sample_1000": "to"
+    },
+    "formula": "from + divide_by_int((to - from) * sample, 1000)",
+    "product_width": "signed 32-bit wrapped multiply before division",
+    "rng_state_transition_recovered": false,
+    "sample_domain": "integer 0..1000 inclusive from Random.Range(1001)",
+    "sample_source": "XRandom.NextInt(1001)",
+    "signature": "Range(XNumber from, XNumber to) -> XNumber",
+    "span": "0x0192A0C4..0x0192A1E0"
+  },
+  "analysis_status": "static_normal_return_equation_confirmed_rng_state_unresolved",
+  "behavior_validated": false,
+  "confirmed_interpretation": [
+    "F is an XNumber parameter normalized by the integer 100 and applied twice with native fixed-point rounding.",
+    "AIParameterConfig +0x80 is metadata-bound to int disArea and is consumed directly as a signed raw fixed-point-domain delta.",
+    "The sign of c selects a one-sided bound around one before XRandom.Range interpolates from that bound to c.",
+    "XRandom.Range has a closed caller-visible discrete interpolation equation, but the random sample cannot be predicted without the original RNG state."
+  ],
+  "fixed_point": {
+    "divide_by_int_formula": "q=trunc(lhs_raw/rhs); r=lhs_raw-q*rhs; result_raw=q+trunc(2*r/rhs)",
+    "fraction_bits": 10,
+    "multiply_bias": 512,
+    "one_raw": 1024
+  },
+  "next_gate": "recover nested shootDisAndTime arithmetic/time path and compose the legacy GetVVer executable path",
+  "physics_v0_3_gate": "BLOCKED",
+  "remaining_unknowns": [
+    "GetShootVerRate property-selection semantics and all goal-child-specific source values",
+    "semantic design intent and authored unit convention of AIParameterConfig.disArea beyond its proven raw runtime use",
+    "original RNG state and sequence at each call",
+    "exception and type-initialization paths outside the normal return"
+  ],
+  "schema_version": "football.recovery.shoot_speed_v_rate_static_trace.v1",
+  "sources": {
+    "binary_sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496",
+    "helper_disassembly": "artifacts/native-recovery/shoot-helpers/20260913-175551-3fafba6a/01_shoot_helper_disassembly.txt",
+    "helper_disassembly_lf_sha256": "284964d94f4544b37612f87e79b5daec41b064d5802be1a4c8a767f37e166d58",
+    "metadata_excerpt": "artifacts/native-recovery/shoot-helpers/20260913-175551-3fafba6a/03_shoot_speed_v_rate_metadata.txt",
+    "metadata_excerpt_lf_sha256": "3556db3a9e1457ab1626c1950f4d90c44d859fadefbf142e2e60a6556b6f5bf3",
+    "support_disassembly": "artifacts/native-recovery/shoot-helpers/20260913-175551-3fafba6a/02_shoot_speed_v_rate_support_disassembly.txt",
+    "support_disassembly_lf_sha256": "64a5a6db69fe3d21f78a056fd81728f21e03465d4283581a8627d98bc6db90bd"
+  }
+}

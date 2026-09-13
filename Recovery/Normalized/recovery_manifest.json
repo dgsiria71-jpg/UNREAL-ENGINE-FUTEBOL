@@ -1,6 +1,6 @@
 {
   "schema_version": "football.recovery.inventory.v2",
-  "generated_at_utc": "2026-09-13T21:35:00Z",
+  "generated_at_utc": "2026-09-13T22:16:38Z",
   "repository_portability": "fresh_checkout_supported",
   "engine_target": "Unreal Engine 5.x",
   "mobile_source": "football-dream-be-a-pro-1-221-5",
@@ -20,6 +20,7 @@
     "velocity_base_regions_trace": "Recovery/Normalized/velocity_base_regions_static_trace.json",
     "shoot_velocity_dataflow_trace": "Recovery/Normalized/shoot_velocity_dataflow_static_trace.json",
     "shoot_helper_semantics_trace": "Recovery/Normalized/shoot_helper_semantics_static_trace.json",
+    "shoot_speed_v_rate_trace": "Recovery/Normalized/shoot_speed_v_rate_static_trace.json",
     "native_sqrt_table": "Recovery/Normalized/native_sqrt_table.json",
     "native_kernel_validation": "Recovery/Normalized/native_kernel_validation.json",
     "native_vector_validation": "Recovery/Normalized/native_vector_validation.json",
@@ -93,6 +94,21 @@
       "status": "committed_text_evidence",
       "sha256": "284964d94f4544b37612f87e79b5daec41b064d5802be1a4c8a767f37e166d58",
       "binary_sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496"
+    },
+    {
+      "source_id": "shoot_speed_v_rate_support_disassembly",
+      "filename": "artifacts/native-recovery/shoot-helpers/20260913-175551-3fafba6a/02_shoot_speed_v_rate_support_disassembly.txt",
+      "status": "committed_text_evidence",
+      "sha256_lf": "64a5a6db69fe3d21f78a056fd81728f21e03465d4283581a8627d98bc6db90bd",
+      "binary_sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496"
+    },
+    {
+      "source_id": "shoot_speed_v_rate_metadata",
+      "filename": "artifacts/native-recovery/shoot-helpers/20260913-175551-3fafba6a/03_shoot_speed_v_rate_metadata.txt",
+      "status": "committed_text_evidence",
+      "sha256_lf": "3556db3a9e1457ab1626c1950f4d90c44d859fadefbf142e2e60a6556b6f5bf3",
+      "dump_cs_sha256": "4ba445977f2b0854b19375d69c5b30275fe36d06518efe2c5028097868579fbe",
+      "global_metadata_sha256": "92fae52ec4dc570929eb7b99d2083fd6ab6016cbbaa30f87e87ac6732bb1e42e"
     }
   ],
   "semantic_gates": {
