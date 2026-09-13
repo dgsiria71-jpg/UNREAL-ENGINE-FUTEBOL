@@ -201,3 +201,10 @@ E0055: MSVC /W4 /WX reference build succeeds, C++ 18/18 GREEN. Python 47/47 OK,
 including negative stale producer-source/config binding checks. Evidence validator
 CURRENT. Unreal content provenance GREEN. Original v0.2 suite rerun 67/67 OK in
 6.593s. No historical 92-suite reconstruction, UE build or measured FPS claimed.
+
+E0056: Inventory/cache collector trace added from canonical ARM64
+XSpmoveManager::getSpmoveIdDict at RVA 0x1B71AAC. Fifteen instruction anchors
+cover cache invalidation, open-all/config enumeration, player spmoveIds +0x30,
+entry stores +0x10/+0x14 and dictionary return. Static control-flow only;
+helper types, inventory source, eligibility/RNG and +0x14 semantics remain
+unknown. Physics v0.3 remains blocked.

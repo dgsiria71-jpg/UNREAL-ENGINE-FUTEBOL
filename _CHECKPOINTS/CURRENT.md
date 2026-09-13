@@ -2,7 +2,7 @@
 
 Updated: 2026-09-13. Project NOT COMPLETE.
 Branch: codex/unreal-football-foundation.
-HEAD: resolve `git rev-parse HEAD` (checkpoint committed with its increment).
+HEAD: f078dec41f56bb06c241ecca73909dd5476ce769 (local merge commit).
 Continuation base: 4d672ab5dccbe7ba9b238de9b8202086e759931e.
 
 ## GitHub publication
@@ -11,6 +11,7 @@ Official remote: https://github.com/dgsiria71-jpg/UNREAL-ENGINE-FUTEBOL.git, mai
 Reconciled remote history from 6760d3d with local c0d761c; no history rewritten.
 Bible text and its policies preserved in Docs/Bible_v3. Raw master LFS upload
 remains unperformed; code publication does not claim binary publication.
+Remote publication confirmed via GitHub API: main -> 982f5b7dfa401ea8b390cd92e16ab3ed86a1a930.
 
 ## Authority
 
@@ -34,7 +35,8 @@ Recovery/Normalized/original_reassembly.json; Docs/MOBILE_1_221_5_SOURCE_MAP.md.
 - python Tools/verify_spmove_selection.py: 4,672/4,672 native comparisons match.
 - python Tools/verify_spmove_producer.py: 2,640/2,640 native comparisons match.
 - python Tools/check_native_evidence.py: CURRENT source bindings.
-- python -m unittest discover -s Tests -p "test_*.py": 47/47 OK.
+- python Tools/analyze_spmove_inventory_collector.py: GREEN, 15 ARM64 anchors; control-flow only.
+- python -m unittest discover -s Tests -p "test_*.py": 50/50 OK.
 - python Tools/Unreal/validate_content.py: GREEN (provenance only).
 - Original v0.2 07_TESTS: python -m unittest discover -v: 67/67 OK, 6.593s.
 - Earlier preserved native evidence: kernels 13,685, vectors 15,956, branches 7,776.
@@ -53,7 +55,7 @@ Recovery/Normalized/original_reassembly.json; Docs/MOBILE_1_221_5_SOURCE_MAP.md.
 
 ## INFERRED / UNKNOWN
 
-Upstream inventory collection/cache and complete eligibility/RNG remain open.
+Inventory cache/control flow is now anchored in 15 native instructions; upstream\ncollection, complete eligibility/RNG and runtime helper semantics remain open.
 Producer external geometry, InCollection and curve dependencies are not recovered
 by supplying test fixtures. Complete GetVHor/GetVVer bases, GetKickVelocity and
 BALL_CONTACT velocity still need native-backed integration. 92/92 original source
@@ -88,10 +90,11 @@ python -m unittest discover -s Tests -p "test_*.py"
 
 ## Next exact step
 
-Read .local/il2cpp/spmove_inventory_collector_disassembly.txt alongside dump.cs
+Read and run Tools/analyze_spmove_inventory_collector.py against
+.local/il2cpp/spmove_inventory_collector_disassembly.txt alongside dump.cs
 XSpmoveManager (getSpmoveIdDict RVA 0x1B71AAC). Recover inventory collection/cache,
 then replace producer external query boundaries progressively using native proof.
 Reuse selected-modifier kernels. Complete old/new VHor/VVer base helpers before
 joining GetKickVelocity and BALL_CONTACT. Do not create Physics v0.3 until the
 full documented gate and regression pass. Build the UE match once toolchain is
-available; do not treat current fixtures/scaffold as completed football product.
+available; do not treat current fixtures/scaffold as completed football product.\n

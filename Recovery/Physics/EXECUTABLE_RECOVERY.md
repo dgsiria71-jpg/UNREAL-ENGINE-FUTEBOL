@@ -119,3 +119,14 @@ Run Tools/build_reference.cmd then python Tools/verify_spmove_selection.py and
 python Tools/verify_spmove_producer.py. Both reports are included in the central
 source-binding validator and normalized manifest/import plan. Complete VHor/VVer
 bases and BALL_CONTACT velocity remain pending. v0.3 stays blocked.
+
+## 2026-09-13 inventory/cache collector increment
+
+`Tools/analyze_spmove_inventory_collector.py` records 15 instruction anchors from
+`XSpmoveManager::getSpmoveIdDict` (RVA 0x1B71AAC). Static evidence confirms the
+cache guard (`+0x29` initialized, `+0x28` open-all), dictionary reset at `+0x10`,
+the open-all/config-list path, and the player inventory list at `+0x30` selected
+when `matchrule_skill == -1`. Both paths construct entries with native stores at
+`+0x10` and `+0x14` before returning the dictionary. This is control-flow evidence
+only: helper types, inventory source, eligibility/RNG and the meaning of `+0x14`
+remain unresolved. The physics v0.3 gate stays blocked.
