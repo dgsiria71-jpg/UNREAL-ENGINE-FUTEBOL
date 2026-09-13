@@ -261,3 +261,9 @@ E0064: Published the spmove inventory collection increment to official GitHub
 main through the GitHub API as c1c2a452c9e1abb27c38a2e5cff9f85a2e2a06d1.
 The local terminal credential still identifies as dgrich33 and returned HTTP 403;
 the authorized GitHub connector completed a non-force fast-forward from 1044d028.
+
+E0065: Split the native GetVHor/GetVVer bases by ShootSpeedConfigItem.useNewMethod
+at +0x90 and bound 26 instructions to dump.cs fields. Zero selects the legacy
+Flist/vList/scalar families; nonzero selects the recovered map-driven fields.
+This is static field-family proof only. Equations, units, runtime output,
+GetKickVelocity and BALL_CONTACT remain blocked.

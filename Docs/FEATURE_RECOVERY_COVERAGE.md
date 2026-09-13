@@ -26,7 +26,7 @@ Gerado por Tools/audit_feature_coverage.py. Fonte recuperada, normalização, re
 ### Final kick velocity and ball contact
 
 - real-player inventory source/eligibility/RNG
-- GetVHor/GetVVer bases
+- GetVHor/GetVVer base equations after confirmed old/new path split
 - GetKickVelocity composition
 - BALL_CONTACT.velocity regression
 

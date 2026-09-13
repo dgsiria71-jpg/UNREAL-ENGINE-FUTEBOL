@@ -1,0 +1,254 @@
+{
+  "schema_version": "football.recovery.velocity_base_regions_static_trace.v1",
+  "source": ".local/il2cpp/disassembly_shoot.txt",
+  "source_sha256": "ef1b41f609e49f2d831a16f69b82e227a967c914a4ee3748cfbfbdccd161ba58",
+  "dump_cs": ".local/tools/Il2CppDumper/dump.cs",
+  "dump_cs_sha256": "4ba445977f2b0854b19375d69c5b30275fe36d06518efe2c5028097868579fbe",
+  "analysis_status": "old_new_config_path_split_static_confirmed",
+  "behavior_validated": false,
+  "method_spans": {
+    "GetVHor": {
+      "start": "0x016E6A80",
+      "end": "0x016E84A4"
+    },
+    "GetVVer": {
+      "start": "0x016E84A4",
+      "end": "0x016EA55C"
+    }
+  },
+  "anchors": {
+    "vhor_use_new_method": {
+      "method": "GetVHor",
+      "address": "0x016E6B64",
+      "instruction": "ldrb     w8, [x21, #0x90]",
+      "config_field": "useNewMethod",
+      "field_offset": "0x90"
+    },
+    "vhor_zero_selects_old": {
+      "method": "GetVHor",
+      "address": "0x016E6B70",
+      "instruction": "cbz      w8, #0x16e6c34",
+      "config_field": null,
+      "field_offset": null
+    },
+    "vhor_new_energy_map": {
+      "method": "GetVHor",
+      "address": "0x016E6B74",
+      "instruction": "ldr      x22, [x21, #0xb8]",
+      "config_field": "energyMapNew",
+      "field_offset": "0xB8"
+    },
+    "vhor_old_energy_map": {
+      "method": "GetVHor",
+      "address": "0x016E6C34",
+      "instruction": "ldr      x22, [x21, #0x18]",
+      "config_field": "Flist_vHor",
+      "field_offset": "0x18"
+    },
+    "vhor_new_speed_map": {
+      "method": "GetVHor",
+      "address": "0x016E6D3C",
+      "instruction": "ldr      x23, [x21, #0xc0]",
+      "config_field": "vHorMapNew",
+      "field_offset": "0xC0"
+    },
+    "vhor_new_strength_map": {
+      "method": "GetVHor",
+      "address": "0x016E6E20",
+      "instruction": "ldr      x26, [x21, #0xc8]",
+      "config_field": "shootStrongMapNew",
+      "field_offset": "0xC8"
+    },
+    "vhor_new_rate_map": {
+      "method": "GetVHor",
+      "address": "0x016E6F48",
+      "instruction": "ldr      x20, [x21, #0xd0]",
+      "config_field": "vHorRateNew",
+      "field_offset": "0xD0"
+    },
+    "vhor_old_speed_map": {
+      "method": "GetVHor",
+      "address": "0x016E7310",
+      "instruction": "ldr      x20, [x21, #0x20]",
+      "config_field": "vHorList",
+      "field_offset": "0x20"
+    },
+    "vhor_old_speed_scalar": {
+      "method": "GetVHor",
+      "address": "0x016E745C",
+      "instruction": "ldr      w22, [x21, #0x74]",
+      "config_field": "speed_vHor",
+      "field_offset": "0x74"
+    },
+    "vver_use_new_method": {
+      "method": "GetVVer",
+      "address": "0x016E8564",
+      "instruction": "ldrb     w8, [x22, #0x90]",
+      "config_field": "useNewMethod",
+      "field_offset": "0x90"
+    },
+    "vver_zero_selects_old": {
+      "method": "GetVVer",
+      "address": "0x016E856C",
+      "instruction": "cbz      w8, #0x16e9fcc",
+      "config_field": null,
+      "field_offset": null
+    },
+    "vver_new_distance_map": {
+      "method": "GetVVer",
+      "address": "0x016E8630",
+      "instruction": "ldr      x20, [x22, #0xe8]",
+      "config_field": "shootDisMap",
+      "field_offset": "0xE8"
+    },
+    "vver_new_output_energy_map": {
+      "method": "GetVVer",
+      "address": "0x016E8768",
+      "instruction": "ldr      x26, [x22, #0x100]",
+      "config_field": "outEnergyMaxMap",
+      "field_offset": "0x100"
+    },
+    "vver_new_y_speed_max": {
+      "method": "GetVVer",
+      "address": "0x016E8830",
+      "instruction": "ldr      x8, [x22, #0xa0]",
+      "config_field": "ySpeedMax",
+      "field_offset": "0xA0"
+    },
+    "vver_new_energy_map": {
+      "method": "GetVVer",
+      "address": "0x016E8858",
+      "instruction": "ldr      x20, [x22, #0xb8]",
+      "config_field": "energyMapNew",
+      "field_offset": "0xB8"
+    },
+    "vver_new_point_up_map": {
+      "method": "GetVVer",
+      "address": "0x016E8B2C",
+      "instruction": "ldr      x26, [x22, #0xf8]",
+      "config_field": "shootPointHUpMap",
+      "field_offset": "0xF8"
+    },
+    "vver_new_point_down_map": {
+      "method": "GetVVer",
+      "address": "0x016E8D08",
+      "instruction": "ldr      x21, [x22, #0xf0]",
+      "config_field": "shootPointHDownMap",
+      "field_offset": "0xF0"
+    },
+    "vver_new_property_map": {
+      "method": "GetVVer",
+      "address": "0x016E8DF4",
+      "instruction": "ldr      x19, [x22, #0xd8]",
+      "config_field": "shootPropertyMapNew",
+      "field_offset": "0xD8"
+    },
+    "vver_new_tolerance_map": {
+      "method": "GetVVer",
+      "address": "0x016E8F08",
+      "instruction": "ldr      x27, [x22, #0xe0]",
+      "config_field": "energyToleranceMap",
+      "field_offset": "0xE0"
+    },
+    "vver_new_protect_energy": {
+      "method": "GetVVer",
+      "address": "0x016E8FBC",
+      "instruction": "ldr      w19, [x22, #0x94]",
+      "config_field": "energyNeedProtect",
+      "field_offset": "0x94"
+    },
+    "vver_new_point_range": {
+      "method": "GetVVer",
+      "address": "0x016E91E4",
+      "instruction": "ldp      w21, w23, [x22, #0xb0]",
+      "config_field": "shootPointH",
+      "field_offset": "0xB0"
+    },
+    "vver_new_distance_time": {
+      "method": "GetVVer",
+      "address": "0x016E92E4",
+      "instruction": "ldr      x8, [x22, #0x108]",
+      "config_field": "shootDisAndTime",
+      "field_offset": "0x108"
+    },
+    "vver_new_y_speed_min": {
+      "method": "GetVVer",
+      "address": "0x016E9CB4",
+      "instruction": "ldr      w19, [x22, #0x98]",
+      "config_field": "ySpeedMin",
+      "field_offset": "0x98"
+    },
+    "vver_old_force_map": {
+      "method": "GetVVer",
+      "address": "0x016E9FCC",
+      "instruction": "ldr      x20, [x22, #0x28]",
+      "config_field": "Flist_vVer",
+      "field_offset": "0x28"
+    },
+    "vver_old_speed_map": {
+      "method": "GetVVer",
+      "address": "0x016EA0E4",
+      "instruction": "ldr      x24, [x22, #0x30]",
+      "config_field": "vVerList",
+      "field_offset": "0x30"
+    },
+    "vver_old_speed_scalar": {
+      "method": "GetVVer",
+      "address": "0x016EA318",
+      "instruction": "ldr      w3, [x22, #0x80]",
+      "config_field": "speed_vVer",
+      "field_offset": "0x80"
+    }
+  },
+  "confirmed_paths": {
+    "GetVHor": {
+      "selector": "ShootSpeedConfigItem.useNewMethod +0x90",
+      "new_when_nonzero_fields": [
+        "energyMapNew",
+        "vHorMapNew",
+        "shootStrongMapNew",
+        "vHorRateNew"
+      ],
+      "old_when_zero_fields": [
+        "Flist_vHor",
+        "vHorList",
+        "speed_vHor"
+      ]
+    },
+    "GetVVer": {
+      "selector": "ShootSpeedConfigItem.useNewMethod +0x90",
+      "new_when_nonzero_fields": [
+        "shootDisMap",
+        "outEnergyMaxMap",
+        "ySpeedMax",
+        "energyMapNew",
+        "shootPointHUpMap",
+        "shootPointHDownMap",
+        "shootPropertyMapNew",
+        "energyToleranceMap",
+        "energyNeedProtect",
+        "shootPointH",
+        "shootDisAndTime",
+        "ySpeedMin"
+      ],
+      "old_when_zero_fields": [
+        "Flist_vVer",
+        "vVerList",
+        "speed_vVer"
+      ]
+    }
+  },
+  "confirmed_interpretation": [
+    "both methods branch on the same useNewMethod field at +0x90",
+    "a zero selector enters the legacy list path in both methods",
+    "a nonzero selector enters the recovered New-suffixed/map-driven path in both methods",
+    "field-family membership is proven statically; equations and output behavior remain unresolved"
+  ],
+  "unknown": [
+    "complete interpolation and clamp sequence in each path",
+    "full units and coordinate basis",
+    "runtime representative behavior and exceptional managed paths",
+    "final spmove modifier join, GetKickVelocity composition and BALL_CONTACT velocity"
+  ],
+  "physics_gate": "blocked"
+}

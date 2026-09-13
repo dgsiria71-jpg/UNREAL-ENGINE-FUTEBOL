@@ -12,7 +12,8 @@ Official remote: https://github.com/dgsiria71-jpg/UNREAL-ENGINE-FUTEBOL.git, mai
 Reconciled remote history from 6760d3d with local c0d761c; no history rewritten.
 Bible text and its policies are preserved in Docs/Bible_v3. Raw master LFS upload
 remains unperformed; code publication does not claim binary publication.
-Remote publication confirmed through the GitHub API: main -> c1c2a452c9e1abb27c38a2e5cff9f85a2e2a06d1.
+Published spmove collector content: c1c2a452c9e1abb27c38a2e5cff9f85a2e2a06d1.
+Published checkpoint metadata: 294c322cc2953a283d9792c514cefb1924a27d0e.
 
 ## Authority
 
@@ -42,10 +43,11 @@ eligibility/ownership, odds and RNG remain explicit unresolved inputs.
 - python Tools/verify_spmove_selection.py: 4,672/4,672 native comparisons match.
 - python Tools/verify_spmove_producer.py: preserved 2,640/2,640 native report remains source-current.
 - python Tools/analyze_spmove_inventory_collector.py: GREEN, 23 ARM64 anchors plus IL2CPP layouts.
+- python Tools/analyze_velocity_base_regions.py: GREEN, 26 ARM64/config-layout anchors.
 - python Tools/collect_spmove_inventory.py: GREEN, 290 enabled configs -> 346 entries / 68 buckets.
 - python Tools/audit_feature_coverage.py: GREEN, 9 systems and 5 SHA/CRC-verified source archives.
 - python Tools/check_native_evidence.py: CURRENT source bindings.
-- python -m unittest discover -s Tests -p "test_*.py": 58/58 OK.
+- python -m unittest discover -s Tests -p "test_*.py": 62/62 OK.
 - python Tools/Unreal/validate_content.py: GREEN (provenance only).
 - Original v0.2 07_TESTS: 67/67 OK in 7.057s.
 - Earlier preserved native evidence: kernels 13,685, vectors 15,956, branches 7,776.
@@ -73,7 +75,7 @@ eligibility/ownership, odds and RNG remain explicit unresolved inputs.
 Managed allocation/exception details, real-player spmoveIds source/lifetime,
 complete eligibility/ownership and odds/RNG remain open. The open-all artifact
 uses decoded config-record order; original managed Dictionary.Values order is
-not claimed. Complete GetVHor/GetVVer bases, GetKickVelocity and BALL_CONTACT
+not claimed. GetVHor/GetVVer old/new config-family split is confirmed, but complete equations, GetKickVelocity and BALL_CONTACT
 velocity still need native-backed integration. Original 92/92 source was not
 found in the reconstructed six-part bundle; other copies remain unproven.
 
@@ -111,6 +113,7 @@ python Tools/verify_spmove_selection.py
 python Tools/verify_spmove_producer.py
 python Tools/analyze_spmove_inventory_collector.py
 python Tools/collect_spmove_inventory.py
+python Tools/analyze_velocity_base_regions.py
 python Tools/audit_feature_coverage.py
 python Tools/check_native_evidence.py
 python -m unittest discover -s Tests -p "test_*.py"
@@ -120,7 +123,7 @@ python Tools/Unreal/validate_content.py
 ## Next exact step
 
 Use `.local/il2cpp/disassembly_shoot.txt` and the existing static/native harnesses
-to split and recover the old/new base regions inside GetVHor
+to recover the interpolation, clamp and arithmetic sequences inside the now-split old/new base regions of GetVHor
 (0x016E6A80..0x016E84A4) and GetVVer (0x016E84A4..0x016EA55C), starting with
 config bindings and branch inputs before the already validated spmove modifiers.
 Use `spmove_collected_open_all.json` as a complete open-all fixture while keeping

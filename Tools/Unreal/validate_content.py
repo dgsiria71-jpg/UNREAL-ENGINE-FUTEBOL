@@ -97,6 +97,15 @@ def validate_manifest(project_dir: Path) -> list[str]:
         errors.append("missing spmove runtime static trace")
     if not (project_dir / "Recovery" / "Normalized" / "spmove_modifier_access_static_trace.json").is_file():
         errors.append("missing spmove modifier access static trace")
+    velocity_trace_path = project_dir / "Recovery" / "Normalized" / "velocity_base_regions_static_trace.json"
+    if not velocity_trace_path.is_file():
+        errors.append("missing velocity base regions static trace")
+    else:
+        velocity_trace = json.loads(velocity_trace_path.read_text(encoding="utf-8"))
+        if velocity_trace.get("analysis_status") != "old_new_config_path_split_static_confirmed":
+            errors.append("velocity base path split is not source-confirmed")
+        if velocity_trace.get("behavior_validated") is not False or velocity_trace.get("physics_gate") != "blocked":
+            errors.append("velocity base trace overclaims runtime validation")
     gameplay_contract_path = project_dir / "Recovery" / "Normalized" / "playable_match_contract.json"
     if not gameplay_contract_path.is_file():
         errors.append("missing playable match contract")

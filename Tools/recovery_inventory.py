@@ -87,6 +87,7 @@ result = {
         "spmove_deserialize_trace": "Recovery/Normalized/spmove_deserialize_static_trace.json",
         "spmove_runtime_trace": "Recovery/Normalized/spmove_runtime_static_trace.json",
         "spmove_modifier_access_trace": "Recovery/Normalized/spmove_modifier_access_static_trace.json",
+        "velocity_base_regions_trace": "Recovery/Normalized/velocity_base_regions_static_trace.json",
         "native_sqrt_table": "Recovery/Normalized/native_sqrt_table.json",
         "native_kernel_validation": "Recovery/Normalized/native_kernel_validation.json",
         "native_vector_validation": "Recovery/Normalized/native_vector_validation.json",

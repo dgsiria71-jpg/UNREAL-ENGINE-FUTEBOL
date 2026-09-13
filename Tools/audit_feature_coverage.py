@@ -48,7 +48,7 @@ def build_report() -> dict:
             ["FixedPoint", "NativeVectorMath", "13,685 kernel and 15,956 vector comparisons"], [no_ue, "native divide-by-zero fallback"]),
         row("Final kick velocity and ball contact", "partial", "inventory_shape_confirmed_velocity_partial", "collection_shape_tested_plus_partial_native_differential", "guarded_contract_scaffolded", "blocked",
             ["spmove branch/selection/producer native comparisons", "290 enabled configs -> 346 open-all inventory entries in 68 logic buckets", "BallContact rejects unresolved velocity"],
-            ["real-player inventory source/eligibility/RNG", "GetVHor/GetVVer bases", "GetKickVelocity composition", "BALL_CONTACT.velocity regression"]),
+            ["real-player inventory source/eligibility/RNG", "GetVHor/GetVVer base equations after confirmed old/new path split", "GetKickVelocity composition", "BALL_CONTACT.velocity regression"]),
         row("Animation controller and COFMotion", "confirmed_data_format", "catalogued_not_runtime_database", "exporter_and_previews_only", "planned", "not_validated",
             ["13,722 COFMotions", "20,213 states", "50,127 leaves", "40/40 xplayable clips", "48 GLB examples/previews"],
             ["2,769 logical action mappings", "bulk animation database", "retarget validation", "Pose Search/Motion Matching", "Animation Blueprint/IK/Control Rig", no_ue]),

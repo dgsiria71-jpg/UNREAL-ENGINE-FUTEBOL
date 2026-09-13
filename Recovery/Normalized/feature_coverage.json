@@ -83,7 +83,7 @@
       ],
       "gaps": [
         "real-player inventory source/eligibility/RNG",
-        "GetVHor/GetVVer bases",
+        "GetVHor/GetVVer base equations after confirmed old/new path split",
         "GetKickVelocity composition",
         "BALL_CONTACT.velocity regression"
       ]

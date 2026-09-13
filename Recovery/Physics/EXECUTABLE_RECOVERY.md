@@ -60,8 +60,8 @@ create false staleness; binary/executable hashes are byte-exact.
 1. Preserve the now implemented `getSpmoveIdDict` collection shape and the
    complete canonical open-all fixture. Recover real-player spmoveIds sourcing,
    eligibility and odds/RNG only when native evidence supports each boundary.
-2. Recover/reconstruct the missing GetVHor/GetVVer old/new base implementations
-   and their config bindings. The historical 92/92 workspace has not been found;
+2. Recover the interpolation, clamp and arithmetic sequences within the now-split
+   GetVHor/GetVVer old/new paths. The historical 92/92 workspace has not been found;
    this checkpoint does not relabel current tests as 92/92.
 3. Differentially validate complete GetVHor/GetVVer and GetKickVelocity using
    representative canonical configurations and edge cases.
@@ -166,3 +166,19 @@ synthetic config. The canonical open-all artifact contains 290 enabled configs,
 It uses decoded-record order and does not claim the old managed Dictionary.Values
 iteration order. Reference regression is 21/21 GREEN; v0.3 remains blocked by
 base GetVHor/GetVVer, final GetKickVelocity and BALL_CONTACT.
+
+## GetVHor/GetVVer old/new base-path split (2026-09-13)
+
+`Tools/analyze_velocity_base_regions.py` binds 26 ARM64 instructions to the
+`ShootSpeedConfigItem` layout in `dump.cs`. Both methods read `useNewMethod` at
+`+0x90`; zero enters the legacy paths and nonzero enters the map-driven paths.
+
+- GetVHor legacy fields: `Flist_vHor`, `vHorList`, `speed_vHor`.
+- GetVHor new fields: `energyMapNew`, `vHorMapNew`, `shootStrongMapNew`, `vHorRateNew`.
+- GetVVer legacy fields: `Flist_vVer`, `vVerList`, `speed_vVer`.
+- GetVVer new path is bound to `shootDisMap`, energy/output maps, point-height
+  maps, property/tolerance maps, `shootDisAndTime`, `ySpeedMin` and `ySpeedMax`.
+
+This closes the old/new config-family split only. Complete interpolation,
+clamping, units, runtime output, the spmove modifier join, `GetKickVelocity` and
+`BALL_CONTACT.velocity` remain unresolved, so the Physics v0.3 gate is blocked.

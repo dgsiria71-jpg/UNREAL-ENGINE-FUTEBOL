@@ -136,5 +136,21 @@ headless implementa as rotas open-all e player, com testes 21/21 GREEN.
 
 Isto fecha a forma de coleta e o fixture open-all. Não fecha a origem de
 spmoveIds de um jogador real, elegibilidade, odds/RNG, GetVHor/GetVVer,
-GetKickVelocity ou BALL_CONTACT. O próximo trabalho é separar as bases old/new
-de GetVHor e GetVVer usando o corpo ARM64 canônico.
+GetKickVelocity ou BALL_CONTACT. O próximo trabalho é recuperar a interpolação,
+clamps e aritmética de cada caminho já separado usando o corpo ARM64 canônico.
+
+## GetVHor/GetVVer old/new base-path split (2026-09-13)
+
+`Tools/analyze_velocity_base_regions.py` binds 26 ARM64 instructions to the
+`ShootSpeedConfigItem` layout in `dump.cs`. Both methods read `useNewMethod` at
+`+0x90`; zero enters the legacy paths and nonzero enters the map-driven paths.
+
+- GetVHor legacy fields: `Flist_vHor`, `vHorList`, `speed_vHor`.
+- GetVHor new fields: `energyMapNew`, `vHorMapNew`, `shootStrongMapNew`, `vHorRateNew`.
+- GetVVer legacy fields: `Flist_vVer`, `vVerList`, `speed_vVer`.
+- GetVVer new path is bound to `shootDisMap`, energy/output maps, point-height
+  maps, property/tolerance maps, `shootDisAndTime`, `ySpeedMin` and `ySpeedMax`.
+
+This closes the old/new config-family split only. Complete interpolation,
+clamping, units, runtime output, the spmove modifier join, `GetKickVelocity` and
+`BALL_CONTACT.velocity` remain unresolved, so the Physics v0.3 gate is blocked.
