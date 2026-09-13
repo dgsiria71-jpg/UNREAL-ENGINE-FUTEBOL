@@ -1,0 +1,18 @@
+﻿{
+    "schema_version":  "football.github_handoff.v1",
+    "upload_id":  "20260913-175551-3fafba6a",
+    "created_utc":  "2026-09-13T20:58:18.6260498Z",
+    "repository":  "dgsiria71-jpg/UNREAL-ENGINE-FUTEBOL",
+    "destination_root":  "artifacts/native-recovery/shoot-helpers",
+    "preservation_rule":  "Source files are copied/zipped; originals are not modified or deleted.",
+    "files":  [
+                  {
+                      "source_name":  "shoot_helper_disassembly.txt",
+                      "source_kind":  "file",
+                      "repository_path":  "artifacts/native-recovery/shoot-helpers/20260913-175551-3fafba6a/01_shoot_helper_disassembly.txt",
+                      "bytes":  184617,
+                      "sha256":  "284964d94f4544b37612f87e79b5daec41b064d5802be1a4c8a767f37e166d58",
+                      "git_lfs":  false
+                  }
+              ]
+}
