@@ -208,3 +208,9 @@ cover cache invalidation, open-all/config enumeration, player spmoveIds +0x30,
 entry stores +0x10/+0x14 and dictionary return. Static control-flow only;
 helper types, inventory source, eligibility/RNG and +0x14 semantics remain
 unknown. Physics v0.3 remains blocked.
+
+E0057: Inventory collector report now cross-checks eight generic helper targets
+against local Il2CppDumper script metadata (ContainsKey, GetEnumerator,
+constructor/Add/get_Item, SpmoveModule singleton and GetConfig). Metadata names
+are persisted with script SHA; helper object layout and eligibility remain
+unvalidated. Python inventory trace tests pass 4/4; v0.3 gate remains blocked.

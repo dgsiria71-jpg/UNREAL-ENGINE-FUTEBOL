@@ -69,6 +69,36 @@
       "instruction": "ldr      x0, [x25]"
     }
   },
+  "script_json": ".local/tools/Il2CppDumper/script.json",
+  "script_json_sha256": "d15222efc79ebfe50074f385c0f5e5af4960fb43c5cf55a383ea32cba34ae799",
+  "helper_symbols": {
+    "0x2C6A4F8": [
+      "Dictionary<int, List<SpmoveIDCombine>>$$ContainsKey",
+      "Dictionary<int, SpmoveConfigConfigItem>$$ContainsKey"
+    ],
+    "0x2F19438": [
+      "List<int>$$GetEnumerator"
+    ],
+    "0x2F26798": [
+      "List<SpmoveIDCombine>$$Add"
+    ],
+    "0x2C6A284": [
+      "Dictionary<int, List<SpmoveIDCombine>>$$Add"
+    ],
+    "0x1E34BE4": [
+      "ModuleSingleton<SpmoveModule>$$get_Instance"
+    ],
+    "0x1449858": [
+      "SpmoveModule$$GetConfig"
+    ],
+    "0x2F25B64": [
+      "List<SpmoveIDCombine>$$.ctor"
+    ],
+    "0x2C6A188": [
+      "Dictionary<int, List<SpmoveIDCombine>>$$get_Item"
+    ]
+  },
+  "helper_symbol_status": "metadata_names_only",
   "confirmed_data_flow": [
     {
       "operation": "cache_guard",

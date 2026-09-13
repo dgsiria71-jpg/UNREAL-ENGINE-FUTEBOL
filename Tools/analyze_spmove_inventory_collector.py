@@ -15,6 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 INPUT = ROOT / ".local" / "il2cpp" / "spmove_inventory_collector_disassembly.txt"
 OUTPUT = ROOT / "Recovery" / "Normalized" / "spmove_inventory_collector_static_trace.json"
+SCRIPT = ROOT / ".local" / "tools" / "Il2CppDumper" / "script.json"
 LINE_RE = re.compile(r"^(?P<address>[0-9A-Fa-f]+):\s+(?P<instruction>.*)$")
 
 def parse() -> list[dict[str, str]]:
@@ -37,6 +38,27 @@ def require(entries, address: str, fragment: str):
 
 def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+def helper_symbols() -> dict[str, list[str]]:
+    if not SCRIPT.is_file():
+        return {}
+    methods = json.loads(SCRIPT.read_text(encoding="utf-8"))["ScriptMethod"]
+    wanted = {
+        "0x2C6A4F8": ["Dictionary<int, List<SpmoveIDCombine>>$$ContainsKey", "Dictionary<int, SpmoveConfigConfigItem>$$ContainsKey"],
+        "0x2F19438": ["List<int>$$GetEnumerator"],
+        "0x2F26798": ["List<SpmoveIDCombine>$$Add"],
+        "0x2C6A284": ["Dictionary<int, List<SpmoveIDCombine>>$$Add"],
+        "0x1E34BE4": ["ModuleSingleton<SpmoveModule>$$get_Instance"],
+        "0x1449858": ["SpmoveModule$$GetConfig"],
+        "0x2F25B64": ["List<SpmoveIDCombine>$$.ctor"],
+        "0x2C6A188": ["Dictionary<int, List<SpmoveIDCombine>>$$get_Item"],
+    }
+    found = {}
+    for address, names in wanted.items():
+        addr = int(address, 16)
+        available = {item.get("Name") for item in methods if item.get("Address") == addr}
+        found[address] = [name for name in names if any(name in candidate for candidate in available)]
+    return found
 
 def main() -> int:
     entries = parse()
@@ -69,6 +91,7 @@ def main() -> int:
             print("SPMOVE_INVENTORY_TRACE_ERROR: " + error)
         return 1
     binary = ROOT / ".local" / "il2cpp" / "libil2cpp.so"
+    symbols = helper_symbols()
     report = {
         "schema_version": "football.recovery.spmove_inventory_collector_static_trace.v1",
         "source": ".local/il2cpp/spmove_inventory_collector_disassembly.txt",
@@ -79,6 +102,10 @@ def main() -> int:
         "analysis_status": "inventory_cache_control_flow_only",
         "behavior_validated": False,
         "anchors": anchors,
+        "script_json": ".local/tools/Il2CppDumper/script.json",
+        "script_json_sha256": sha256(SCRIPT) if SCRIPT.is_file() else None,
+        "helper_symbols": symbols,
+        "helper_symbol_status": "metadata_names_only",
         "confirmed_data_flow": [
             {"operation": "cache_guard",
              "flow": "cached initialized flag +0x29 and open-all state +0x28 guard reuse; changed state clears dictionary +0x10 and marks initialized",
@@ -118,5 +145,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
-

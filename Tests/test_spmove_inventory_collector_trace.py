@@ -31,6 +31,12 @@ class SpmoveInventoryCollectorTraceTests(unittest.TestCase):
         self.assertEqual(anchors["config_children_list"]["address"], "0x01B71CBC")
         self.assertEqual(self.report["physics_gate"], "blocked")
 
+    def test_generic_helper_names_are_metadata_anchored(self):
+        symbols = self.report["helper_symbols"]
+        self.assertIn("List<int>$$GetEnumerator", symbols["0x2F19438"])
+        self.assertIn("List<SpmoveIDCombine>$$Add", symbols["0x2F26798"])
+        self.assertIn("SpmoveModule$$GetConfig", symbols["0x1449858"])
+        self.assertEqual(self.report["helper_symbol_status"], "metadata_names_only")
     def test_unknowns_prevent_velocity_overclaim(self):
         unknown = self.report["unknown"]
         self.assertIn("eligibility, ownership, level, odds, and RNG filters after inventory collection", unknown)
@@ -39,4 +45,3 @@ class SpmoveInventoryCollectorTraceTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

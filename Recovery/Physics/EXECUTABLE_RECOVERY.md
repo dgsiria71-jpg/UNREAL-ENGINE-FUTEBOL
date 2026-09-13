@@ -130,3 +130,10 @@ when `matchrule_skill == -1`. Both paths construct entries with native stores at
 `+0x10` and `+0x14` before returning the dictionary. This is control-flow evidence
 only: helper types, inventory source, eligibility/RNG and the meaning of `+0x14`
 remain unresolved. The physics v0.3 gate stays blocked.
+
+The same trace cross-checks generic helper names in the local Il2CppDumper
+`script.json`: `List<int>::GetEnumerator`, `List<SpmoveIDCombine>::.ctor/Add`,
+`Dictionary<int,List<SpmoveIDCombine>>::ContainsKey/get_Item/Add`,
+`ModuleSingleton<SpmoveModule>::get_Instance` and `SpmoveModule::GetConfig`.
+This identifies call targets at the metadata layer only; it is not proof of
+managed object layout or eligibility behavior.

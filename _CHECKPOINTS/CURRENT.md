@@ -35,8 +35,8 @@ Recovery/Normalized/original_reassembly.json; Docs/MOBILE_1_221_5_SOURCE_MAP.md.
 - python Tools/verify_spmove_selection.py: 4,672/4,672 native comparisons match.
 - python Tools/verify_spmove_producer.py: 2,640/2,640 native comparisons match.
 - python Tools/check_native_evidence.py: CURRENT source bindings.
-- python Tools/analyze_spmove_inventory_collector.py: GREEN, 15 ARM64 anchors; control-flow only.
-- python -m unittest discover -s Tests -p "test_*.py": 50/50 OK.
+- python Tools/analyze_spmove_inventory_collector.py: GREEN, 15 ARM64 anchors; control-flow only; helper names cross-checked against script metadata.
+- python -m unittest discover -s Tests -p "test_*.py": 51/51 OK.
 - python Tools/Unreal/validate_content.py: GREEN (provenance only).
 - Original v0.2 07_TESTS: python -m unittest discover -v: 67/67 OK, 6.593s.
 - Earlier preserved native evidence: kernels 13,685, vectors 15,956, branches 7,776.
@@ -98,4 +98,3 @@ Reuse selected-modifier kernels. Complete old/new VHor/VVer base helpers before
 joining GetKickVelocity and BALL_CONTACT. Do not create Physics v0.3 until the
 full documented gate and regression pass. Build the UE match once toolchain is
 available; do not treat current fixtures/scaffold as completed football product.\n
-
