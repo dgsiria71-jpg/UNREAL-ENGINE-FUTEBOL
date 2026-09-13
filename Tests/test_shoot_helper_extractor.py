@@ -43,19 +43,41 @@ class ShootHelperExtractorTests(unittest.TestCase):
         self.assertEqual(targets["player_spmove_data_ratio_196807C"].address, 0x196807C)
         self.assertGreaterEqual(targets["interpolate_remap_126BF1C"].fallback_bytes, 0x400)
 
-    def test_script_json_method_collection_accepts_nested_il2cppdumper_shape(self):
+    def test_script_json_method_collection_accepts_nested_scriptmethod_groups(self):
         module = load_tool()
         payload = {
             "ScriptMethod": [
                 {"Address": 0x126BF1C, "Name": "InterpolationHelper"},
                 {"Address": 0x126C080, "Name": "NextMethod"},
             ],
-            "nested": {"items": [{"Address": "0x1968E24", "Name": "OldVVerHelper"}]},
+            "nested": {
+                "ScriptMethod": [
+                    {"Address": "0x1968E24", "Name": "OldVVerHelper"},
+                ]
+            },
         }
         methods = module.collect_script_methods(payload)
         self.assertIn((0x126BF1C, "InterpolationHelper"), methods)
         self.assertIn((0x126C080, "NextMethod"), methods)
         self.assertIn((0x1968E24, "OldVVerHelper"), methods)
+
+    def test_non_method_metadata_addresses_cannot_become_function_boundaries(self):
+        module = load_tool()
+        payload = {
+            "ScriptMethod": [
+                {"Address": 0x126BF1C, "Name": "InterpolationHelper"},
+                {"Address": 0x126C080, "Name": "NextMethod"},
+            ],
+            "ScriptMetadata": [
+                {"Address": 0x126BF80, "Name": "NotAMethodBoundary"},
+            ],
+        }
+        methods = module.collect_script_methods(payload)
+        self.assertNotIn((0x126BF80, "NotAMethodBoundary"), methods)
+        resolved = module.resolve_target_range(
+            module.Target("probe", 0x126BF1C, 0x800), methods
+        )
+        self.assertEqual(resolved.end, 0x126C080)
 
     def test_resolve_range_uses_next_known_method_when_available(self):
         module = load_tool()
