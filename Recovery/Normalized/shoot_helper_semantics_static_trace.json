@@ -1,0 +1,94 @@
+{
+  "analysis_status": "static_helper_semantics_partial_confirmed",
+  "behavior_validated": false,
+  "binary_sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496",
+  "lerp_0x126C3FC": {
+    "confidence": "confirmed normal-return arithmetic; extraction window itself is not a metadata-proven function boundary",
+    "extraction_window": [
+      "0x0126C3FC",
+      "0x0126C5FC"
+    ],
+    "formula": "out_min + fixed_mul(out_max - out_min, clamp(t, 0, 1024))",
+    "fraction_bits": 10,
+    "metadata_exact_boundary": false,
+    "multiply_bias": 512,
+    "normal_return_end": "0x0126C534",
+    "t_clamp_raw": [
+      0,
+      1024
+    ]
+  },
+  "old_vver_0x1968E24": {
+    "caller_callsite": "0x016EA330",
+    "caller_registers": {
+      "w1": "GetVVer stack argument +0x54",
+      "w3": "ShootSpeedConfigItem +0x80",
+      "x2": "GetVVer x20",
+      "x4": "null"
+    },
+    "caller_speed_vver_load": "0x016EA318:+0x80->w3",
+    "config_field_offset": "+0x80",
+    "config_singleton_address": "0x01FF58AC",
+    "config_singleton_callee": "XBaseLocalSetting<AIParameterConfig>$$get_Singleton",
+    "end": "0x0196916C",
+    "exact_function_boundary": true,
+    "first_value_callee": "PlayerProperty$$GetShootVerRate",
+    "first_value_callee_address": "0x01968C34",
+    "full_equation_recovered": false,
+    "metadata_name": "PlayerProperty$$GetShootSpeedVRate",
+    "random_callee": "XRandom$$Range",
+    "random_callee_address": "0x0192A0C4",
+    "remaining_unknowns": [
+      "semantic units/ranges of all GetShootSpeedVRate inputs",
+      "semantic name/units of AIParameterConfig field +0x80",
+      "complete branch-by-branch equation and randomization bounds"
+    ],
+    "start": "0x01968E24"
+  },
+  "physics_v0_3_gate": "BLOCKED",
+  "remap_0x126BF1C": {
+    "arguments": {
+      "x0": "input",
+      "x1": "in_min",
+      "x2": "in_max",
+      "x3": "out_min",
+      "x4": "out_max"
+    },
+    "confidence": "confirmed normal-return arithmetic; extraction window itself is not a metadata-proven function boundary",
+    "equal_input_bounds": "return_out_min",
+    "extraction_window": [
+      "0x0126BF1C",
+      "0x0126CF1C"
+    ],
+    "formula": "lerp(out_min, out_max, inverse_lerp_fixed(input,in_min,in_max) after native sequential clamp)",
+    "input_clamp": "input < in_min ? in_min : (input > in_max ? in_max : input)",
+    "lerp_helper": "0x0126C3FC",
+    "metadata_exact_boundary": false,
+    "normal_path_formula_recovered": true,
+    "normal_return_end": "0x0126C074",
+    "ratio_formula": "n=(bounded-in_min)*1024; d=in_max-in_min; q=trunc(n/d); r=n-q*d; ratio=q + trunc(2*r/d)",
+    "ratio_fraction_bits": 10,
+    "ratio_zero_raw": 0
+  },
+  "schema_version": "football.recovery.shoot_helper_semantics_static_trace.v1",
+  "source": "artifacts/native-recovery/shoot-helpers/20260913-175551-3fafba6a/01_shoot_helper_disassembly.txt",
+  "source_sha256": "284964d94f4544b37612f87e79b5daec41b064d5802be1a4c8a767f37e166d58",
+  "spmove_ratio_0x196807C": {
+    "end": "0x0196808C",
+    "exact_function_boundary": true,
+    "forwarding_semantics_recovered": true,
+    "manager_offset": "+0x28",
+    "metadata_name": "PlayerProperty$$GetSpmoveDataRatio",
+    "no_ratio_mask": 1,
+    "start": "0x0196807C",
+    "tail_semantics": "SpmoveManager.GetSpmoveDataNoRatio",
+    "tail_target": "0x01B72814"
+  },
+  "still_required": [
+    "close nested shootDisAndTime arithmetic/time path",
+    "close the full GetShootSpeedVRate equation/units or prove the exact needed caller result behavior",
+    "turn GetVHor/GetVVer into executable source-bound equations and validate",
+    "close final GetKickVelocity behavior and bind BALL_CONTACT.velocity",
+    "complete regression before packaging v0.3"
+  ]
+}
