@@ -1,0 +1,43 @@
+{
+  "schema_version": "football.recovery.native_spmove_producer.v1",
+  "cases": 2640,
+  "mismatches": 0,
+  "binary_sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496",
+  "metadata_sha256": "92fae52ec4dc570929eb7b99d2083fd6ab6016cbbaa30f87e87ac6732bb1e42e",
+  "native_span": [
+    "0x14c5548",
+    "0x14c5aa4"
+  ],
+  "hooked_boundaries": {
+    "0x1254100": "disturbance query",
+    "0x13b01dc": "goal collection membership",
+    "0x1968070": "Player.GetSpmoveData result including unresolved odds",
+    "0x1382664": "shoot ball position",
+    "0x16db8f4": "CheckBallPos geometry",
+    "0x14defa8": "goal up position",
+    "0x14def74": "goal down position",
+    "0x14df68c": "goal center",
+    "0x126c078": "angle helper",
+    "0x1ff58ac": "config singleton",
+    "0x1566ab4": "distance curve interpolation"
+  },
+  "cpp_source_sha256": {
+    "Reference/FootballCore/FixedPoint.h": "f837a471dc9b9fd98aee28378c556295c5f09a1d098b800404608700cca195a8",
+    "Reference/FootballPhysics/NativeVectorMath.h": "ec744857741b468f333a3a1dff10479e488d0c3369b3d41b08ba1bd939b82541",
+    "Reference/FootballPhysics/NativeSqrtTable.h": "fccea12b0e3881841c02bf27b302fa0f22e1c1fa65b9f6854f9b4e081d006ebb",
+    "Reference/FootballPhysics/SpmoveProducer.h": "e52f60dd5b409fa39fc60443882dac39fc526e06bc5aeec37cb482b38cedb461",
+    "Tests/spmove_producer_probe.cpp": "83d5e887d3f5021f7b9777a12e2023f3383189b6bb5290fc857a4c9f22470c90"
+  },
+  "verification_source_sha256": {
+    "Tools/verify_spmove_producer.py": "31571b4712750b334367ce81bdb2447154ecdb3d57fb08ba97b4200c59d14f1c",
+    "Tools/verify_native_vector_math.py": "ea5754bd6f4f9b5621903e1cdd2ffb6c041edd3d6c15e5d4363c1b32af6f270b",
+    "Tools/verify_native_kernels.py": "d3cff735bf89569f36aeecbd60b308bf8f0d064fac8538142418fca864a5707f",
+    "Tools/recover_native_sqrt_table.py": "34d75fa9034be5a6f2a03b51a9bb47bf43392a7a2354a7fe592665b673f27748",
+    "Tools/disassemble_spmove_runtime.py": "5b160ac9ee83de68150fdb6c910dfe543c669508ddf2822fa5af9cea2e6df28f"
+  },
+  "input_sha256": "b6c0d63cd744e256782f733f02e62cab151b5468adadca1883145599432ecd7f",
+  "native_output_sha256": "1d75a74abecbaeb5fd2265f6774c29051d3cef4fb1225297f24ad3c8227ec37e",
+  "cpp_executable_sha256": "1cb8d4f104e7b9d5eeed1e60b1223efec6a64d2907911a9c0e3f659a5a598b81",
+  "physics_v0_3_gate": "blocked",
+  "scope": "Original reset and full producer control flow, squared distance/sqrt, flags and property query set. External geometry, collection membership, curve interpolation and GetSpmoveData odds outcomes are supplied; not full eligibility proof."
+}

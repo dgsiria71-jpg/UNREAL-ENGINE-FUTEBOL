@@ -1,0 +1,235 @@
+{
+  "schema_version": "football.recovery.spmove_modifier_access_static_trace.v1",
+  "source": ".local/il2cpp/disassembly_shoot.txt",
+  "source_sha256": "ef1b41f609e49f2d831a16f69b82e227a967c914a4ee3748cfbfbdccd161ba58",
+  "binary": ".local/il2cpp/libil2cpp.so",
+  "binary_sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496",
+  "source_scope": "canonical Android ARM64 libil2cpp.so",
+  "analysis_status": "raw_param_index_and_fixed_point_operation_shape_only",
+  "behavior_validated": false,
+  "method_spans": [
+    {
+      "name": "GetVHor",
+      "start": "0x016E6A80",
+      "end": "0x016E84A4"
+    },
+    {
+      "name": "GetVVer",
+      "start": "0x016E84A4",
+      "end": "0x016EA55C"
+    }
+  ],
+  "anchors": {
+    "vhor_shoot_first_list_size": {
+      "section": "GetVHor",
+      "address": "0x016E70C8",
+      "instruction": "ldr      w8, [x26, #0x18]"
+    },
+    "vhor_shoot_first_param0": {
+      "section": "GetVHor",
+      "address": "0x016E70E8",
+      "instruction": "ldr      w20, [x8, #0x20]"
+    },
+    "vhor_shoot_first_add_sqrt": {
+      "section": "GetVHor",
+      "address": "0x016E7104",
+      "instruction": "add      x20, x20, x22"
+    },
+    "vhor_long_kick_list_size": {
+      "section": "GetVHor",
+      "address": "0x016E7200",
+      "instruction": "ldr      w8, [x25, #0x18]"
+    },
+    "vhor_long_kick_param1": {
+      "section": "GetVHor",
+      "address": "0x016E7224",
+      "instruction": "ldr      w20, [x8, #0x24]"
+    },
+    "vhor_long_kick_add_sqrt": {
+      "section": "GetVHor",
+      "address": "0x016E7240",
+      "instruction": "add      x20, x20, x22"
+    },
+    "vver_long_kick_items": {
+      "section": "GetVVer",
+      "address": "0x016E9E28",
+      "instruction": "ldr      x8, [x19, #0x10]"
+    },
+    "vver_long_kick_param2": {
+      "section": "GetVVer",
+      "address": "0x016E9E30",
+      "instruction": "ldrsw    x19, [x8, #0x28]"
+    },
+    "vver_long_kick_multiply": {
+      "section": "GetVVer",
+      "address": "0x016E9E58",
+      "instruction": "madd     x8, x8, x19, x9"
+    },
+    "vver_shoot_push_items": {
+      "section": "GetVVer",
+      "address": "0x016E9F5C",
+      "instruction": "ldr      x8, [x19, #0x10]"
+    },
+    "vver_shoot_push_param2": {
+      "section": "GetVVer",
+      "address": "0x016E9F64",
+      "instruction": "ldrsw    x19, [x8, #0x28]"
+    },
+    "vver_shoot_push_multiply": {
+      "section": "GetVVer",
+      "address": "0x016E9F98",
+      "instruction": "madd     x8, x8, x19, x9"
+    },
+    "vver_head_items": {
+      "section": "GetVVer",
+      "address": "0x016EA4B8",
+      "instruction": "ldr      x8, [x22, #0x10]"
+    },
+    "vver_head_param2": {
+      "section": "GetVVer",
+      "address": "0x016EA4C0",
+      "instruction": "ldr      w22, [x8, #0x28]"
+    },
+    "vver_head_multiply": {
+      "section": "GetVVer",
+      "address": "0x016EA50C",
+      "instruction": "madd     x8, x9, x8, x10"
+    }
+  },
+  "modifier_accesses": {
+    "0x3FE": {
+      "logic_id": 1022,
+      "method": "GetVHor",
+      "flag": "ShootFirst",
+      "param_index": 0,
+      "list_data_offset": "0x20",
+      "combination": "param[0] + sqrt_long(vector_sqr_raw)",
+      "canonical_record_count": 5,
+      "canonical_levels": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "canonical_param_at_index": [
+        1500,
+        2000,
+        2500,
+        3000,
+        3500
+      ],
+      "status": "list_index_and_operation_shape_only"
+    },
+    "0x3FC_vhor": {
+      "logic_id": 1020,
+      "method": "GetVHor",
+      "flag": "ShootLongKick",
+      "param_index": 1,
+      "list_data_offset": "0x24",
+      "combination": "param[1] + sqrt_long(vector_sqr_raw)",
+      "canonical_record_count": 5,
+      "canonical_levels": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "canonical_param_at_index": [
+        4000,
+        4500,
+        5000,
+        5500,
+        6000
+      ],
+      "status": "list_index_and_operation_shape_only"
+    },
+    "0x3FC_vver": {
+      "logic_id": 1020,
+      "method": "GetVVer",
+      "flag": "ShootLongKick",
+      "param_index": 2,
+      "list_data_offset": "0x28",
+      "combination": "fixed_point_vector_multiply_shape",
+      "canonical_record_count": 5,
+      "canonical_levels": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "canonical_param_at_index": [
+        900,
+        800,
+        700,
+        600,
+        500
+      ],
+      "status": "list_index_and_operation_shape_only"
+    },
+    "0x41A_vver": {
+      "logic_id": 1050,
+      "method": "GetVVer",
+      "flag": "shootPush",
+      "param_index": 2,
+      "list_data_offset": "0x28",
+      "combination": "fixed_point_vector_multiply_shape",
+      "canonical_record_count": 5,
+      "canonical_levels": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "canonical_param_at_index": [
+        900,
+        800,
+        700,
+        600,
+        500
+      ],
+      "status": "list_index_and_operation_shape_only"
+    },
+    "0x3FB_vver": {
+      "logic_id": 1019,
+      "method": "GetVVer",
+      "flag": "Head",
+      "param_index": 2,
+      "list_data_offset": "0x28",
+      "combination": "fixed_point_vector_multiply_shape",
+      "canonical_record_count": 5,
+      "canonical_levels": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "canonical_param_at_index": [
+        300,
+        600,
+        900,
+        1200,
+        1500
+      ],
+      "status": "list_index_and_operation_shape_only"
+    }
+  },
+  "confirmed_interpretation": [
+    "GetVHor ShootFirst branch reads param_Xnumber list item index 0 at list-data offset +0x20 and adds it to a sqrt-derived raw value",
+    "GetVHor ShootLongKick branch reads list item index 1 at list-data offset +0x24 and adds it to a sqrt-derived raw value",
+    "GetVVer ShootLongKick, shootPush, and Head branches read list item index 2 at list-data offset +0x28 and feed fixed-point multiply-shaped code",
+    "the normalized canonical groups preserve the raw parameter at each observed index for five levels where present"
+  ],
+  "unknown": [
+    "whether the list values are scaled, clamped, or transformed later",
+    "exact vector basis and meaning of the sqrt-derived value",
+    "which config level the manager selects at runtime",
+    "exact VHor/VVer equations and GetKickVelocity composition",
+    "units and behavior on representative inputs"
+  ],
+  "physics_gate": "blocked"
+}

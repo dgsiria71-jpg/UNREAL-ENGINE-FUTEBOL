@@ -1,50 +1,97 @@
-# CURRENT CHECKPOINT — 2026-09-12
+# Current checkpoint
 
-## Autoridade
-- **GitHub oficial/source of truth:** `dgsiria71-jpg/UNREAL-ENGINE-FUTEBOL` branch `main`.
-- Engine final: Unreal Engine 5.x (travada).
-- Windows PC.
-- C++ modular.
-- Blender source of truth 3D.
-- Mobile Unity/IL2CPP = fonte/recovery, não runtime final.
-- Toda evolução válida deve terminar no GitHub; chats/workspaces/ZIPs intermediários são auxiliares.
+Updated: 2026-09-13. Project NOT COMPLETE.
+Branch: codex/unreal-football-foundation.
+HEAD: resolve `git rev-parse HEAD` (checkpoint committed with its increment).
+Continuation base: 4d672ab5dccbe7ba9b238de9b8202086e759931e.
 
-## Estado do repositório oficial
-- README canônico publicado.
-- Arquitetura Unreal, recovery, migração, manifests, tools e histórico publicados.
-- `docs/PROJECT_SOURCE_OF_TRUTH.md` publicado e define a política oficial de continuidade.
-- `.gitattributes` preparado para Git LFS.
-- workflow de verificação do master preparado.
-- **Pendente:** o objeto binário grande `artifacts/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip` ainda não está fisicamente presente no GitHub/LFS; não considerar o master publicado até o upload e validação do hash.
+## GitHub publication
 
-## Master recovery esperado
-`FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip`
+Official remote: https://github.com/dgsiria71-jpg/UNREAL-ENGINE-FUTEBOL.git, main.
+Reconciled remote history from 6760d3d with local c0d761c; no history rewritten.
+Bible text and its policies preserved in Docs/Bible_v3. Raw master LFS upload
+remains unperformed; code publication does not claim binary publication.
 
-- tamanho: 794.639.566 bytes (~757,83 MiB)
-- SHA-256: `4240ae8ff93abcd582b88b65b0e58de0909a9e95ca5197931e6df656b3d3a3e2`
+## Authority
 
-## Último release físico estável conhecido
-`FOOTBALL_PHYSICS_RECOVERY_PACK_v0_2.zip` — SHA256 `7d5cabe5d974f7282ca7126d5c36c7bc71a448275cf144b73625be9fccf415ac`.
+User explicitly adopted Bible v3, its Quickstart and Source Policy after full
+reading. Latest direct user corrections remain highest authority; current binary,
+hash and test evidence overrides stale technical claims. Windows UE5.x/C++ final,
+Blueprint complementary, Blender source of truth, Neymar v1.9 PAUSED. New source
+discovery only Downloads/Videos. 1-221-5 current; do not consume 1-226-19.
 
-## Último checkpoint de pesquisa conhecido
-92/92 testes GREEN (histórico), posterior ao v0.2; workspace byte-a-byte ainda não recuperado nesta consolidação.
+## Current task and discovery
 
-## Próxima tarefa técnica real
-1. publicar/validar o master recovery no Git LFS quando possível;
-2. recuperar/reconstruir workspace 92/92 a partir dos releases/fontes;
-3. `spmoveInUseData` VHor modifier;
-4. `spmoveInUseData` VVer modifier;
-5. GetVHor/GetVVer final;
-6. GetKickVelocity final;
-7. BALL_CONTACT.velocity;
-8. eliminar `ball_impulse=None`;
-9. regressão completa;
-10. somente então Physics Recovery v0.3;
-11. normalização engine-independent;
-12. Unreal runtime integration.
+Continue recovered physics from current code, not from an assumed 92/92 archive.
+The six found parts were successfully assembled and verified, but the result is
+Master Recovery source consolidation. It explicitly lists original 92/92 bytes as
+missing. Original suite cannot be reproduced from these parts. Evidence:
+Recovery/Normalized/original_reassembly.json; Docs/MOBILE_1_221_5_SOURCE_MAP.md.
 
-## Não refazer
-controller.ctrl; XNumber; Animation Recovery; Player Ecosystem; Visual Registry; trabalho de parsing já comprovado.
+## Latest executed GREEN
 
-## Gaps físicos desta consolidação
-Os bytes dos releases históricos Animation/Physics/Player/Visual não estavam presentes no runtime atual. Seus nomes, hashes e estados foram preservados por históricos/transcrições. O `com.estar.bap.zip` também foi upload anterior, mas não está fisicamente montado agora; por isso `global-metadata.dat` e `data.unity3d` não foram inventados nem incluídos.
+- Tools/build_reference.cmd: five executables compiled, C++17 /W4 /WX, 18/18 GREEN.
+- python Tools/verify_spmove_selection.py: 4,672/4,672 native comparisons match.
+- python Tools/verify_spmove_producer.py: 2,640/2,640 native comparisons match.
+- python Tools/check_native_evidence.py: CURRENT source bindings.
+- python -m unittest discover -s Tests -p "test_*.py": 47/47 OK.
+- python Tools/Unreal/validate_content.py: GREEN (provenance only).
+- Original v0.2 07_TESTS: python -m unittest discover -v: 67/67 OK, 6.593s.
+- Earlier preserved native evidence: kernels 13,685, vectors 15,956, branches 7,776.
+  These older suites were not rerun in this increment; bound sources remain current.
+
+## CONFIRMED
+
+- Source matrix: 122 critical/archive observations and 22 identical groups.
+  Videos ARM64 and metadata hashes match the current recovery binary/metadata.
+- Selection: highest signed child ID wins, not level/order/odds; positive father
+  tie rule; noRatio low bit; missing highest config has no fallback.
+- Producer: original reset/seven flags/strict comparisons/native distance math
+  match C++ with explicit external geometry/curve/membership/property outcomes.
+- Stable v0.2 SHA: 7d5cabe5d974f7282ca7126d5c36c7bc71a448275cf144b73625be9fccf415ac.
+- Runtime +0x1C0 remains vertical_accel_raw.
+
+## INFERRED / UNKNOWN
+
+Upstream inventory collection/cache and complete eligibility/RNG remain open.
+Producer external geometry, InCollection and curve dependencies are not recovered
+by supplying test fixtures. Complete GetVHor/GetVVer bases, GetKickVelocity and
+BALL_CONTACT velocity still need native-backed integration. 92/92 original source
+not found in the reconstructed six-part bundle; other copies remain unproven.
+
+Unreal installation not located: Epic launcher InstallationList empty and no
+custom registry builds. No UE compile/package/rendered match or FPS result.
+Current C++ headless gameplay uses explicit NewGameAuthored tuning where marked.
+
+## Files changed in this increment
+
+SpmoveSelection/SpmoveProducer C++ headers; selector/producer probes and Python
+native differential tools; source audit tool and matrix; reassembly receipt;
+reference regression and stale-evidence tests; CMake/build launcher; central
+source-binding validator; normalized manifest and Unreal import plan; AGENTS;
+source-map/review/executable-recovery docs; this checkpoint and EVIDENCE.
+No raw archives/binaries/assets or Neymar edits are included in Git.
+
+## Exact resume commands
+
+```powershell
+git status --short
+git rev-parse HEAD
+Get-Content _CHECKPOINTS/CURRENT.md
+Get-Content Recovery/Physics/EXECUTABLE_RECOVERY.md
+Tools/build_reference.cmd
+python Tools/verify_spmove_selection.py
+python Tools/verify_spmove_producer.py
+python Tools/check_native_evidence.py
+python -m unittest discover -s Tests -p "test_*.py"
+```
+
+## Next exact step
+
+Read .local/il2cpp/spmove_inventory_collector_disassembly.txt alongside dump.cs
+XSpmoveManager (getSpmoveIdDict RVA 0x1B71AAC). Recover inventory collection/cache,
+then replace producer external query boundaries progressively using native proof.
+Reuse selected-modifier kernels. Complete old/new VHor/VVer base helpers before
+joining GetKickVelocity and BALL_CONTACT. Do not create Physics v0.3 until the
+full documented gate and regression pass. Build the UE match once toolchain is
+available; do not treat current fixtures/scaffold as completed football product.

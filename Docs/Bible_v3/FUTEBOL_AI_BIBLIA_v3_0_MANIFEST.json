@@ -1,0 +1,45 @@
+{
+  "project": "FUTEBOL AI — novo jogo de futebol para Windows PC",
+  "bible_version": "3.0",
+  "date": "2026-09-12",
+  "engine": "Unreal Engine 5.x",
+  "core": "C++ modular",
+  "3d_source_of_truth": "Blender",
+  "development_model": "AI-first",
+  "mobile_baseline_build": "football-dream-be-a-pro-1-221-5",
+  "source_discovery_roots_for_next_codex_session": [
+    "C:\\Users\\dg71\\Downloads",
+    "C:\\Users\\dg71\\Videos"
+  ],
+  "important_mobile_tree_pending_direct_audit": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5",
+  "recovered_92_92_state": "original historical workspace recovered by owner in split parts in Downloads; assembler/mount instruction also in Downloads; remount/integrity/current 92/92 rerun pending",
+  "future_mobile_build": "football-dream-be-a-pro-1-226-19 — keep separate; compare only after 1-221-5 baseline is stable/integrated",
+  "physics_v0_3": "DOES_NOT_EXIST_YET",
+  "docx_visual_qa": {
+    "rendered_pages": 47,
+    "all_pages_inspected": true,
+    "qa_dir": "internal only"
+  },
+  "files": [
+    {
+      "filename": "FUTEBOL_AI_BIBLIA_MESTRE_CANONICA_TOTAL_UNREAL_v3_0_2026-09-12.docx",
+      "bytes": 86724,
+      "sha256": "f80683fe36e8182e0753972714b841073316d0e61c9d3f5c1ea2e31fec7c8ce1"
+    },
+    {
+      "filename": "FUTEBOL_AI_BIBLIA_MESTRE_CANONICA_TOTAL_UNREAL_v3_0_2026-09-12.md",
+      "bytes": 87127,
+      "sha256": "0e6033ecc2383d8b6698a678caf57a5d8a345ca2731495d32257b3b21fdcecb1"
+    },
+    {
+      "filename": "FUTEBOL_AI_CODEX_QUICKSTART_v3_0.md",
+      "bytes": 2398,
+      "sha256": "ab113aa08c8b810789b0bb6f2d251adae1a8e59a4e209af19bbf98e7c49ea156"
+    },
+    {
+      "filename": "FUTEBOL_AI_SOURCE_POLICY_v3_0.md",
+      "bytes": 1160,
+      "sha256": "0c1d99bf6ff18634863ed213394a6ecef17f91e0164eff03e526dee9c5fbb54e"
+    }
+  ]
+}

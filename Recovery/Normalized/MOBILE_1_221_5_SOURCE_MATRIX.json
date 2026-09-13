@@ -1,0 +1,1189 @@
+{
+  "schema_version": "football.source_matrix.v1",
+  "build_scope": "1-221-5",
+  "future_build_consumed": false,
+  "records": [
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\com.estar.bap\\AndroidManifest.xml",
+      "kind": "AndroidManifest.xml",
+      "bytes": 39520,
+      "sha256": "869e3b6b56862a934caa984e7f753d4309098910ade4d3abaa415c99afac5b4d"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\config.arm64_v8a\\AndroidManifest.xml",
+      "kind": "AndroidManifest.xml",
+      "bytes": 1024,
+      "sha256": "d6669a25febf683d564df35a49f8dc17c0ead0b2c071e8274afbc7935155e3c9"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\UnityStreamingAssetsPack\\AndroidManifest.xml",
+      "kind": "AndroidManifest.xml",
+      "bytes": 1624,
+      "sha256": "8c087ec48a919a82631a07a7dac2ddac30a11cdb09c53c35f7da1f53f6e51e7a"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\com.estar.bap\\assets\\bin\\Data\\data.unity3d",
+      "kind": "data.unity3d",
+      "bytes": 736976,
+      "sha256": "bbf78b15398634e814803c13b6cfac89f4060374ee842707f04e290ea755f5c5"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\com.estar.bap\\assets\\bin\\Data\\Managed\\Metadata\\global-metadata.dat",
+      "kind": "global-metadata.dat",
+      "bytes": 12210028,
+      "sha256": "92fae52ec4dc570929eb7b99d2083fd6ab6016cbbaa30f87e87ac6732bb1e42e"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\config.arm64_v8a\\lib\\arm64-v8a\\libil2cpp.so",
+      "kind": "libil2cpp.so",
+      "bytes": 70602416,
+      "sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\GAMEPLAY_CORE_EXTRACT\\GAMEPLAY_DATA\\match\\shootspeed",
+      "kind": "shootspeed",
+      "bytes": 4889,
+      "sha256": "7fb67efd7d91031b6dd5ba5267978935d6d4a238fa3eb41b50a4941980659bf9"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\GAMEPLAY_CORE_EXTRACT\\GAMEPLAY_DATA\\match\\spmoveactiondata",
+      "kind": "spmoveactiondata",
+      "bytes": 2163,
+      "sha256": "f319f154e3782b28c4110d6aae9f30039a4042a09b82664362f05c1b28124135"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\GAMEPLAY_CORE_EXTRACT\\GAMEPLAY_DATA\\match\\spmoveconfig",
+      "kind": "spmoveconfig",
+      "bytes": 3587,
+      "sha256": "d724201b499a9fa6c3d86b8b6fcb850dcc2d3c8e86d6a403a3d466db1a1d394a"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\UnityStreamingAssetsPack\\assets\\cofmotions\\controller\\controller.ctrl",
+      "kind": "controller.ctrl",
+      "bytes": 990249,
+      "sha256": "21ab2bcb48ac64f62533a75860bcc4155b214ceb97145912dc0c739876d6b514"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\UnityStreamingAssetsPack\\assets\\config\\match\\shootspeed",
+      "kind": "shootspeed",
+      "bytes": 4889,
+      "sha256": "7fb67efd7d91031b6dd5ba5267978935d6d4a238fa3eb41b50a4941980659bf9"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\UnityStreamingAssetsPack\\assets\\config\\match\\spmoveactiondata",
+      "kind": "spmoveactiondata",
+      "bytes": 2163,
+      "sha256": "f319f154e3782b28c4110d6aae9f30039a4042a09b82664362f05c1b28124135"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\UnityStreamingAssetsPack\\assets\\config\\match\\spmoveconfig",
+      "kind": "spmoveconfig",
+      "bytes": 3587,
+      "sha256": "d724201b499a9fa6c3d86b8b6fcb850dcc2d3c8e86d6a403a3d466db1a1d394a"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\com.estar.bap.zip",
+      "kind": "archive",
+      "bytes": 19657951,
+      "sha256": "808955bd503be85e35158482e3787e505cecd2f6d469e2b9f14156d224fdcdca"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\com.estar.bap.zip!/AndroidManifest.xml",
+      "kind": "AndroidManifest.xml",
+      "bytes": 39520,
+      "sha256": "869e3b6b56862a934caa984e7f753d4309098910ade4d3abaa415c99afac5b4d"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\com.estar.bap.zip!/assets/bin/Data/Managed/Metadata/global-metadata.dat",
+      "kind": "global-metadata.dat",
+      "bytes": 12210028,
+      "sha256": "92fae52ec4dc570929eb7b99d2083fd6ab6016cbbaa30f87e87ac6732bb1e42e"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\com.estar.bap.zip!/assets/bin/Data/data.unity3d",
+      "kind": "data.unity3d",
+      "bytes": 736976,
+      "sha256": "bbf78b15398634e814803c13b6cfac89f4060374ee842707f04e290ea755f5c5"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\config.arm64_v8a.zip",
+      "kind": "archive",
+      "bytes": 26727487,
+      "sha256": "bb384c71f5b434ba2f04dbb02be9d4e96630f3caa4e22772d45aaca8b7d39acc"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\config.arm64_v8a.zip!/AndroidManifest.xml",
+      "kind": "AndroidManifest.xml",
+      "bytes": 1024,
+      "sha256": "d6669a25febf683d564df35a49f8dc17c0ead0b2c071e8274afbc7935155e3c9"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\config.arm64_v8a.zip!/lib/arm64-v8a/libil2cpp.so",
+      "kind": "libil2cpp.so",
+      "bytes": 70602416,
+      "sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\config.armeabi_v7a.zip",
+      "kind": "archive",
+      "bytes": 25097299,
+      "sha256": "96bf6dd3fd057f83343342b7cf875f086a453d8794916f75441675e13c2234c0"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\config.armeabi_v7a.zip!/AndroidManifest.xml",
+      "kind": "AndroidManifest.xml",
+      "bytes": 1028,
+      "sha256": "ffca8479478ed2ede264e80e73d7e2913cf4e015f3f294cb6452f002c95cfce9"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\config.armeabi_v7a.zip!/lib/armeabi-v7a/libil2cpp.so",
+      "kind": "libil2cpp.so",
+      "bytes": 59187808,
+      "sha256": "8f3fe210960e3fda2ff7982ebe0c3c53c1e6ba464c334440dbfd1d933eb27f65"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\GAMEPLAY_DATA_CORE.zip",
+      "kind": "archive",
+      "bytes": 6011040,
+      "sha256": "f3594c215d562404dd8399d0dd8fbdfdb7f9fe65701e447ce749044f07a098b2"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\GAMEPLAY_DATA_CORE.zip!/GAMEPLAY_DATA/match/shootspeed",
+      "kind": "shootspeed",
+      "bytes": 4889,
+      "sha256": "7fb67efd7d91031b6dd5ba5267978935d6d4a238fa3eb41b50a4941980659bf9"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\GAMEPLAY_DATA_CORE.zip!/GAMEPLAY_DATA/match/spmoveactiondata",
+      "kind": "spmoveactiondata",
+      "bytes": 2163,
+      "sha256": "f319f154e3782b28c4110d6aae9f30039a4042a09b82664362f05c1b28124135"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\GAMEPLAY_DATA_CORE.zip!/GAMEPLAY_DATA/match/spmoveconfig",
+      "kind": "spmoveconfig",
+      "bytes": 3587,
+      "sha256": "d724201b499a9fa6c3d86b8b6fcb850dcc2d3c8e86d6a403a3d466db1a1d394a"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\GAMEPLAY_MODELS_CORE.zip",
+      "kind": "archive",
+      "bytes": 35870211,
+      "sha256": "b21d4f81fa90b2dea7874e5a16d47f9189b1f7de4096be28cdc4758b2571569a"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\UnityDataAssetPack.zip",
+      "kind": "archive",
+      "bytes": 5520504,
+      "sha256": "de2ed92eac218b95580ea1dfaf6de48a8928fad80fc94e45f7244521f4b8ad0f"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\UnityDataAssetPack.zip!/AndroidManifest.xml",
+      "kind": "AndroidManifest.xml",
+      "bytes": 1612,
+      "sha256": "82cb41806c29a2ae515f15f38a626bf27817fd2fdaf8bab4847ec1063bb92b70"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\UnityDataAssetPack.zip!/assets/bin/Data/datapack.unity3d",
+      "kind": "datapack.unity3d",
+      "bytes": 24258,
+      "sha256": "0dbc8b282cf93af0536dbc152974901f5ec4c3ddc9c71596cd2450a0aa2eba99"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\UnityStreamingAssetsPack.zip",
+      "kind": "archive",
+      "bytes": 528961370,
+      "sha256": "a39461d1e4cc67dca983101c2cdf75a62e16dcfdd07090d8c028bb3a89c0834a"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\UnityStreamingAssetsPack.zip!/AndroidManifest.xml",
+      "kind": "AndroidManifest.xml",
+      "bytes": 1624,
+      "sha256": "8c087ec48a919a82631a07a7dac2ddac30a11cdb09c53c35f7da1f53f6e51e7a"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\UnityStreamingAssetsPack.zip!/assets/cofmotions/controller/controller.ctrl",
+      "kind": "controller.ctrl",
+      "bytes": 990249,
+      "sha256": "21ab2bcb48ac64f62533a75860bcc4155b214ceb97145912dc0c739876d6b514"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\UnityStreamingAssetsPack.zip!/assets/config/match/shootspeed",
+      "kind": "shootspeed",
+      "bytes": 4889,
+      "sha256": "7fb67efd7d91031b6dd5ba5267978935d6d4a238fa3eb41b50a4941980659bf9"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\UnityStreamingAssetsPack.zip!/assets/config/match/spmoveactiondata",
+      "kind": "spmoveactiondata",
+      "bytes": 2163,
+      "sha256": "f319f154e3782b28c4110d6aae9f30039a4042a09b82664362f05c1b28124135"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\UnityStreamingAssetsPack.zip!/assets/config/match/spmoveconfig",
+      "kind": "spmoveconfig",
+      "bytes": 3587,
+      "sha256": "d724201b499a9fa6c3d86b8b6fcb850dcc2d3c8e86d6a403a3d466db1a1d394a"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\XPLAYABLE_GAMEPLAY.zip",
+      "kind": "archive",
+      "bytes": 10245198,
+      "sha256": "d43dd4d36e5e59a5858a98281c07177f2b5ab3c01fbb579100dd8c72379b519e"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk",
+      "kind": "archive",
+      "bytes": 509799714,
+      "sha256": "630a6f1b203bdce7ef2f8053801ee2afe0c77ffceef6bb3e3a23a9d196da3d56"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/com.estar.bap.apk",
+      "kind": "archive",
+      "bytes": 19657951,
+      "sha256": "808955bd503be85e35158482e3787e505cecd2f6d469e2b9f14156d224fdcdca"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/com.estar.bap.apk!/AndroidManifest.xml",
+      "kind": "AndroidManifest.xml",
+      "bytes": 39520,
+      "sha256": "869e3b6b56862a934caa984e7f753d4309098910ade4d3abaa415c99afac5b4d"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/com.estar.bap.apk!/assets/bin/Data/Managed/Metadata/global-metadata.dat",
+      "kind": "global-metadata.dat",
+      "bytes": 12210028,
+      "sha256": "92fae52ec4dc570929eb7b99d2083fd6ab6016cbbaa30f87e87ac6732bb1e42e"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/com.estar.bap.apk!/assets/bin/Data/data.unity3d",
+      "kind": "data.unity3d",
+      "bytes": 736976,
+      "sha256": "bbf78b15398634e814803c13b6cfac89f4060374ee842707f04e290ea755f5c5"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/UnityStreamingAssetsPack.apk",
+      "kind": "archive",
+      "bytes": 528961370,
+      "sha256": "a39461d1e4cc67dca983101c2cdf75a62e16dcfdd07090d8c028bb3a89c0834a"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/UnityStreamingAssetsPack.apk!/AndroidManifest.xml",
+      "kind": "AndroidManifest.xml",
+      "bytes": 1624,
+      "sha256": "8c087ec48a919a82631a07a7dac2ddac30a11cdb09c53c35f7da1f53f6e51e7a"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/UnityStreamingAssetsPack.apk!/assets/cofmotions/controller/controller.ctrl",
+      "kind": "controller.ctrl",
+      "bytes": 990249,
+      "sha256": "21ab2bcb48ac64f62533a75860bcc4155b214ceb97145912dc0c739876d6b514"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/UnityStreamingAssetsPack.apk!/assets/config/match/shootspeed",
+      "kind": "shootspeed",
+      "bytes": 4889,
+      "sha256": "7fb67efd7d91031b6dd5ba5267978935d6d4a238fa3eb41b50a4941980659bf9"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/UnityStreamingAssetsPack.apk!/assets/config/match/spmoveactiondata",
+      "kind": "spmoveactiondata",
+      "bytes": 2163,
+      "sha256": "f319f154e3782b28c4110d6aae9f30039a4042a09b82664362f05c1b28124135"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/UnityStreamingAssetsPack.apk!/assets/config/match/spmoveconfig",
+      "kind": "spmoveconfig",
+      "bytes": 3587,
+      "sha256": "d724201b499a9fa6c3d86b8b6fcb850dcc2d3c8e86d6a403a3d466db1a1d394a"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/config.armeabi_v7a.apk",
+      "kind": "archive",
+      "bytes": 25097299,
+      "sha256": "96bf6dd3fd057f83343342b7cf875f086a453d8794916f75441675e13c2234c0"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/config.armeabi_v7a.apk!/AndroidManifest.xml",
+      "kind": "AndroidManifest.xml",
+      "bytes": 1028,
+      "sha256": "ffca8479478ed2ede264e80e73d7e2913cf4e015f3f294cb6452f002c95cfce9"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/config.armeabi_v7a.apk!/lib/armeabi-v7a/libil2cpp.so",
+      "kind": "libil2cpp.so",
+      "bytes": 59187808,
+      "sha256": "8f3fe210960e3fda2ff7982ebe0c3c53c1e6ba464c334440dbfd1d933eb27f65"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/UnityDataAssetPack.apk",
+      "kind": "archive",
+      "bytes": 5520504,
+      "sha256": "de2ed92eac218b95580ea1dfaf6de48a8928fad80fc94e45f7244521f4b8ad0f"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/UnityDataAssetPack.apk!/AndroidManifest.xml",
+      "kind": "AndroidManifest.xml",
+      "bytes": 1612,
+      "sha256": "82cb41806c29a2ae515f15f38a626bf27817fd2fdaf8bab4847ec1063bb92b70"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/UnityDataAssetPack.apk!/assets/bin/Data/datapack.unity3d",
+      "kind": "datapack.unity3d",
+      "bytes": 24258,
+      "sha256": "0dbc8b282cf93af0536dbc152974901f5ec4c3ddc9c71596cd2450a0aa2eba99"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/config.arm64_v8a.apk",
+      "kind": "archive",
+      "bytes": 26727487,
+      "sha256": "bb384c71f5b434ba2f04dbb02be9d4e96630f3caa4e22772d45aaca8b7d39acc"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/config.arm64_v8a.apk!/AndroidManifest.xml",
+      "kind": "AndroidManifest.xml",
+      "bytes": 1024,
+      "sha256": "d6669a25febf683d564df35a49f8dc17c0ead0b2c071e8274afbc7935155e3c9"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/config.arm64_v8a.apk!/lib/arm64-v8a/libil2cpp.so",
+      "kind": "libil2cpp.so",
+      "bytes": 70602416,
+      "sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip",
+      "kind": "archive",
+      "bytes": 509799714,
+      "sha256": "630a6f1b203bdce7ef2f8053801ee2afe0c77ffceef6bb3e3a23a9d196da3d56"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/com.estar.bap.apk",
+      "kind": "archive",
+      "bytes": 19657951,
+      "sha256": "808955bd503be85e35158482e3787e505cecd2f6d469e2b9f14156d224fdcdca"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/com.estar.bap.apk!/AndroidManifest.xml",
+      "kind": "AndroidManifest.xml",
+      "bytes": 39520,
+      "sha256": "869e3b6b56862a934caa984e7f753d4309098910ade4d3abaa415c99afac5b4d"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/com.estar.bap.apk!/assets/bin/Data/Managed/Metadata/global-metadata.dat",
+      "kind": "global-metadata.dat",
+      "bytes": 12210028,
+      "sha256": "92fae52ec4dc570929eb7b99d2083fd6ab6016cbbaa30f87e87ac6732bb1e42e"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/com.estar.bap.apk!/assets/bin/Data/data.unity3d",
+      "kind": "data.unity3d",
+      "bytes": 736976,
+      "sha256": "bbf78b15398634e814803c13b6cfac89f4060374ee842707f04e290ea755f5c5"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/UnityStreamingAssetsPack.apk",
+      "kind": "archive",
+      "bytes": 528961370,
+      "sha256": "a39461d1e4cc67dca983101c2cdf75a62e16dcfdd07090d8c028bb3a89c0834a"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/UnityStreamingAssetsPack.apk!/AndroidManifest.xml",
+      "kind": "AndroidManifest.xml",
+      "bytes": 1624,
+      "sha256": "8c087ec48a919a82631a07a7dac2ddac30a11cdb09c53c35f7da1f53f6e51e7a"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/UnityStreamingAssetsPack.apk!/assets/cofmotions/controller/controller.ctrl",
+      "kind": "controller.ctrl",
+      "bytes": 990249,
+      "sha256": "21ab2bcb48ac64f62533a75860bcc4155b214ceb97145912dc0c739876d6b514"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/UnityStreamingAssetsPack.apk!/assets/config/match/shootspeed",
+      "kind": "shootspeed",
+      "bytes": 4889,
+      "sha256": "7fb67efd7d91031b6dd5ba5267978935d6d4a238fa3eb41b50a4941980659bf9"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/UnityStreamingAssetsPack.apk!/assets/config/match/spmoveactiondata",
+      "kind": "spmoveactiondata",
+      "bytes": 2163,
+      "sha256": "f319f154e3782b28c4110d6aae9f30039a4042a09b82664362f05c1b28124135"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/UnityStreamingAssetsPack.apk!/assets/config/match/spmoveconfig",
+      "kind": "spmoveconfig",
+      "bytes": 3587,
+      "sha256": "d724201b499a9fa6c3d86b8b6fcb850dcc2d3c8e86d6a403a3d466db1a1d394a"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/config.armeabi_v7a.apk",
+      "kind": "archive",
+      "bytes": 25097299,
+      "sha256": "96bf6dd3fd057f83343342b7cf875f086a453d8794916f75441675e13c2234c0"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/config.armeabi_v7a.apk!/AndroidManifest.xml",
+      "kind": "AndroidManifest.xml",
+      "bytes": 1028,
+      "sha256": "ffca8479478ed2ede264e80e73d7e2913cf4e015f3f294cb6452f002c95cfce9"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/config.armeabi_v7a.apk!/lib/armeabi-v7a/libil2cpp.so",
+      "kind": "libil2cpp.so",
+      "bytes": 59187808,
+      "sha256": "8f3fe210960e3fda2ff7982ebe0c3c53c1e6ba464c334440dbfd1d933eb27f65"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/UnityDataAssetPack.apk",
+      "kind": "archive",
+      "bytes": 5520504,
+      "sha256": "de2ed92eac218b95580ea1dfaf6de48a8928fad80fc94e45f7244521f4b8ad0f"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/UnityDataAssetPack.apk!/AndroidManifest.xml",
+      "kind": "AndroidManifest.xml",
+      "bytes": 1612,
+      "sha256": "82cb41806c29a2ae515f15f38a626bf27817fd2fdaf8bab4847ec1063bb92b70"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/UnityDataAssetPack.apk!/assets/bin/Data/datapack.unity3d",
+      "kind": "datapack.unity3d",
+      "bytes": 24258,
+      "sha256": "0dbc8b282cf93af0536dbc152974901f5ec4c3ddc9c71596cd2450a0aa2eba99"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/config.arm64_v8a.apk",
+      "kind": "archive",
+      "bytes": 26727487,
+      "sha256": "bb384c71f5b434ba2f04dbb02be9d4e96630f3caa4e22772d45aaca8b7d39acc"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/config.arm64_v8a.apk!/AndroidManifest.xml",
+      "kind": "AndroidManifest.xml",
+      "bytes": 1024,
+      "sha256": "d6669a25febf683d564df35a49f8dc17c0ead0b2c071e8274afbc7935155e3c9"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/config.arm64_v8a.apk!/lib/arm64-v8a/libil2cpp.so",
+      "kind": "libil2cpp.so",
+      "bytes": 70602416,
+      "sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER_v1_1.zip",
+      "kind": "archive",
+      "bytes": 157288676,
+      "sha256": "c1c7d5352f94241c5aed771666ad5f723b24593ac7cf8c3bc9bfb0e7d175e1eb"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER_v1_1.zip!/FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER/01_IL2CPP_SOURCE/global-metadata.dat",
+      "kind": "global-metadata.dat",
+      "bytes": 12210028,
+      "sha256": "92fae52ec4dc570929eb7b99d2083fd6ab6016cbbaa30f87e87ac6732bb1e42e"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER_v1_1.zip!/FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER/01_IL2CPP_SOURCE/libil2cpp.so",
+      "kind": "libil2cpp.so",
+      "bytes": 70602416,
+      "sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER_v1_1.zip!/FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER/02_GAMEPLAY_DATA/config/match/shootspeed",
+      "kind": "shootspeed",
+      "bytes": 4889,
+      "sha256": "7fb67efd7d91031b6dd5ba5267978935d6d4a238fa3eb41b50a4941980659bf9"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER_v1_1.zip!/FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER/02_GAMEPLAY_DATA/config/match/spmoveactiondata",
+      "kind": "spmoveactiondata",
+      "bytes": 2163,
+      "sha256": "f319f154e3782b28c4110d6aae9f30039a4042a09b82664362f05c1b28124135"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER_v1_1.zip!/FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER/02_GAMEPLAY_DATA/config/match/spmoveconfig",
+      "kind": "spmoveconfig",
+      "bytes": 3587,
+      "sha256": "d724201b499a9fa6c3d86b8b6fcb850dcc2d3c8e86d6a403a3d466db1a1d394a"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER_v1_1.zip!/FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER/07_UNITY_ORIGINAL_REFERENCE/data.unity3d",
+      "kind": "data.unity3d",
+      "bytes": 736976,
+      "sha256": "bbf78b15398634e814803c13b6cfac89f4060374ee842707f04e290ea755f5c5"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER_v1_1.zip!/FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER/07_UNITY_ORIGINAL_REFERENCE/datapack.unity3d",
+      "kind": "datapack.unity3d",
+      "bytes": 24258,
+      "sha256": "0dbc8b282cf93af0536dbc152974901f5ec4c3ddc9c71596cd2450a0aa2eba99"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER_v1_1.zip!/FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER/04_ANIMATION/cofmotions/controller/controller.ctrl",
+      "kind": "controller.ctrl",
+      "bytes": 990249,
+      "sha256": "21ab2bcb48ac64f62533a75860bcc4155b214ceb97145912dc0c739876d6b514"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip",
+      "kind": "archive",
+      "bytes": 794639566,
+      "sha256": "4240ae8ff93abcd582b88b65b0e58de0909a9e95ca5197931e6df656b3d3a3e2"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/GAMEPLAY_DATA_CORE.zip",
+      "kind": "archive",
+      "bytes": 6011040,
+      "sha256": "f3594c215d562404dd8399d0dd8fbdfdb7f9fe65701e447ce749044f07a098b2"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/GAMEPLAY_DATA_CORE.zip!/GAMEPLAY_DATA/match/shootspeed",
+      "kind": "shootspeed",
+      "bytes": 4889,
+      "sha256": "7fb67efd7d91031b6dd5ba5267978935d6d4a238fa3eb41b50a4941980659bf9"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/GAMEPLAY_DATA_CORE.zip!/GAMEPLAY_DATA/match/spmoveactiondata",
+      "kind": "spmoveactiondata",
+      "bytes": 2163,
+      "sha256": "f319f154e3782b28c4110d6aae9f30039a4042a09b82664362f05c1b28124135"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/GAMEPLAY_DATA_CORE.zip!/GAMEPLAY_DATA/match/spmoveconfig",
+      "kind": "spmoveconfig",
+      "bytes": 3587,
+      "sha256": "d724201b499a9fa6c3d86b8b6fcb850dcc2d3c8e86d6a403a3d466db1a1d394a"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/GAMEPLAY_MODELS_CORE.zip",
+      "kind": "archive",
+      "bytes": 35870211,
+      "sha256": "b21d4f81fa90b2dea7874e5a16d47f9189b1f7de4096be28cdc4758b2571569a"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/UnityDataAssetPack.zip",
+      "kind": "archive",
+      "bytes": 5520504,
+      "sha256": "de2ed92eac218b95580ea1dfaf6de48a8928fad80fc94e45f7244521f4b8ad0f"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/UnityDataAssetPack.zip!/AndroidManifest.xml",
+      "kind": "AndroidManifest.xml",
+      "bytes": 1612,
+      "sha256": "82cb41806c29a2ae515f15f38a626bf27817fd2fdaf8bab4847ec1063bb92b70"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/UnityDataAssetPack.zip!/assets/bin/Data/datapack.unity3d",
+      "kind": "datapack.unity3d",
+      "bytes": 24258,
+      "sha256": "0dbc8b282cf93af0536dbc152974901f5ec4c3ddc9c71596cd2450a0aa2eba99"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/assets.zip",
+      "kind": "archive",
+      "bytes": 477288100,
+      "sha256": "5de4da26e944781a83df8ef40c5720a785aa1db3fb4fdd52e9853ced1973755a"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/assets.zip!/assets/cofmotions/controller/controller.ctrl",
+      "kind": "controller.ctrl",
+      "bytes": 990249,
+      "sha256": "21ab2bcb48ac64f62533a75860bcc4155b214ceb97145912dc0c739876d6b514"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/assets.zip!/assets/config/match/shootspeed",
+      "kind": "shootspeed",
+      "bytes": 4889,
+      "sha256": "7fb67efd7d91031b6dd5ba5267978935d6d4a238fa3eb41b50a4941980659bf9"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/assets.zip!/assets/config/match/spmoveactiondata",
+      "kind": "spmoveactiondata",
+      "bytes": 2163,
+      "sha256": "f319f154e3782b28c4110d6aae9f30039a4042a09b82664362f05c1b28124135"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/assets.zip!/assets/config/match/spmoveconfig",
+      "kind": "spmoveconfig",
+      "bytes": 3587,
+      "sha256": "d724201b499a9fa6c3d86b8b6fcb850dcc2d3c8e86d6a403a3d466db1a1d394a"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/config.arm64_v8a.zip",
+      "kind": "archive",
+      "bytes": 26727487,
+      "sha256": "bb384c71f5b434ba2f04dbb02be9d4e96630f3caa4e22772d45aaca8b7d39acc"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/config.arm64_v8a.zip!/AndroidManifest.xml",
+      "kind": "AndroidManifest.xml",
+      "bytes": 1024,
+      "sha256": "d6669a25febf683d564df35a49f8dc17c0ead0b2c071e8274afbc7935155e3c9"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/config.arm64_v8a.zip!/lib/arm64-v8a/libil2cpp.so",
+      "kind": "libil2cpp.so",
+      "bytes": 70602416,
+      "sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/config.armeabi_v7a.zip",
+      "kind": "archive",
+      "bytes": 25097299,
+      "sha256": "96bf6dd3fd057f83343342b7cf875f086a453d8794916f75441675e13c2234c0"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/config.armeabi_v7a.zip!/AndroidManifest.xml",
+      "kind": "AndroidManifest.xml",
+      "bytes": 1028,
+      "sha256": "ffca8479478ed2ede264e80e73d7e2913cf4e015f3f294cb6452f002c95cfce9"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/config.armeabi_v7a.zip!/lib/armeabi-v7a/libil2cpp.so",
+      "kind": "libil2cpp.so",
+      "bytes": 59187808,
+      "sha256": "8f3fe210960e3fda2ff7982ebe0c3c53c1e6ba464c334440dbfd1d933eb27f65"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/01_RECOVERED_CORE/AI_RUNNING_SOURCE.zip",
+      "kind": "archive",
+      "bytes": 574053,
+      "sha256": "4d5e7c2a0394cedf07abca9c8ff2f74cb1be76036d0ae12c1806a609ac51760e"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/01_RECOVERED_CORE/Animation/controller.ctrl",
+      "kind": "controller.ctrl",
+      "bytes": 990249,
+      "sha256": "21ab2bcb48ac64f62533a75860bcc4155b214ceb97145912dc0c739876d6b514"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/01_RECOVERED_CORE/COFMOTIONS_SOURCE.zip",
+      "kind": "archive",
+      "bytes": 41616244,
+      "sha256": "419e655ed4fbb0fba876cad80fa2e8d7a70add41272265d05fb59ed33a204480"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/01_RECOVERED_CORE/COFMOTIONS_SOURCE.zip!/UnityStreamingAssetsPack/assets/cofmotions/controller/controller.ctrl",
+      "kind": "controller.ctrl",
+      "bytes": 990249,
+      "sha256": "21ab2bcb48ac64f62533a75860bcc4155b214ceb97145912dc0c739876d6b514"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/01_RECOVERED_CORE/CONFIG_MATCH_SOURCE.zip",
+      "kind": "archive",
+      "bytes": 5097574,
+      "sha256": "036983ce8fe8a8607d05140bdc39f74579ab1ddbcfc7d2ce27143e1b3aab07d3"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/01_RECOVERED_CORE/CONFIG_MATCH_SOURCE.zip!/UnityStreamingAssetsPack/assets/config/match/shootspeed",
+      "kind": "shootspeed",
+      "bytes": 4889,
+      "sha256": "7fb67efd7d91031b6dd5ba5267978935d6d4a238fa3eb41b50a4941980659bf9"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/01_RECOVERED_CORE/CONFIG_MATCH_SOURCE.zip!/UnityStreamingAssetsPack/assets/config/match/spmoveactiondata",
+      "kind": "spmoveactiondata",
+      "bytes": 2163,
+      "sha256": "f319f154e3782b28c4110d6aae9f30039a4042a09b82664362f05c1b28124135"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/01_RECOVERED_CORE/CONFIG_MATCH_SOURCE.zip!/UnityStreamingAssetsPack/assets/config/match/spmoveconfig",
+      "kind": "spmoveconfig",
+      "bytes": 3587,
+      "sha256": "d724201b499a9fa6c3d86b8b6fcb850dcc2d3c8e86d6a403a3d466db1a1d394a"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/01_RECOVERED_CORE/LOCAL_SETTINGS_SOURCE.zip",
+      "kind": "archive",
+      "bytes": 77994,
+      "sha256": "69b567675c142516664f541900678864596425e936109332947195add0d5851a"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/01_RECOVERED_CORE/Native/arm64/libil2cpp.so",
+      "kind": "libil2cpp.so",
+      "bytes": 70602416,
+      "sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/01_RECOVERED_CORE/Native/armeabi_v7a/libil2cpp.so",
+      "kind": "libil2cpp.so",
+      "bytes": 59187808,
+      "sha256": "8f3fe210960e3fda2ff7982ebe0c3c53c1e6ba464c334440dbfd1d933eb27f65"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/01_RECOVERED_CORE/SCENERES_SOURCE.zip",
+      "kind": "archive",
+      "bytes": 5228315,
+      "sha256": "6c64896aad83b99950824b6708935da19bf94b254d40ab6074f1a1d2f0144b88"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/01_RECOVERED_CORE/TIMELINE_SOURCE.zip",
+      "kind": "archive",
+      "bytes": 152945,
+      "sha256": "9bc39ab69900b6282708500d3a86cfb436ad4db52130987ad1fb06932b11311f"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/01_RECOVERED_CORE/Unity/datapack.unity3d",
+      "kind": "datapack.unity3d",
+      "bytes": 24258,
+      "sha256": "0dbc8b282cf93af0536dbc152974901f5ec4c3ddc9c71596cd2450a0aa2eba99"
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/01_RECOVERED_CORE/XPLAYABLE_GAMEPLAY.zip",
+      "kind": "archive",
+      "bytes": 10247822,
+      "sha256": "71c84e9792901cbac9a07f8b0fc5b00f959ca2279e1fc79d0af6955386c2779f"
+    }
+  ],
+  "inventories": [
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5",
+      "files": 19451,
+      "bytes": 1840026135
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\com.estar.bap.zip",
+      "entries": 1030,
+      "uncompressed_bytes": 33570565
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\config.arm64_v8a.zip",
+      "entries": 15,
+      "uncompressed_bytes": 89349608
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\config.armeabi_v7a.zip",
+      "entries": 15,
+      "uncompressed_bytes": 73665712
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\GAMEPLAY_DATA_CORE.zip",
+      "entries": 1187,
+      "uncompressed_bytes": 10460629
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\GAMEPLAY_MODELS_CORE.zip",
+      "entries": 668,
+      "uncompressed_bytes": 41841138
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\UnityDataAssetPack.zip",
+      "entries": 75,
+      "uncompressed_bytes": 5502988
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\UnityStreamingAssetsPack.zip",
+      "entries": 16551,
+      "uncompressed_bytes": 528509298
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\XPLAYABLE_GAMEPLAY.zip",
+      "entries": 41,
+      "uncompressed_bytes": 11163908
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk",
+      "entries": 5,
+      "uncompressed_bytes": 605964611
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/com.estar.bap.apk",
+      "entries": 1030,
+      "uncompressed_bytes": 33570565
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/UnityStreamingAssetsPack.apk",
+      "entries": 16551,
+      "uncompressed_bytes": 528509298
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/config.armeabi_v7a.apk",
+      "entries": 15,
+      "uncompressed_bytes": 73665712
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/UnityDataAssetPack.apk",
+      "entries": 75,
+      "uncompressed_bytes": 5502988
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/config.arm64_v8a.apk",
+      "entries": 15,
+      "uncompressed_bytes": 89349608
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip",
+      "entries": 5,
+      "uncompressed_bytes": 605964611
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/com.estar.bap.apk",
+      "entries": 1030,
+      "uncompressed_bytes": 33570565
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/UnityStreamingAssetsPack.apk",
+      "entries": 16551,
+      "uncompressed_bytes": 528509298
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/config.armeabi_v7a.apk",
+      "entries": 15,
+      "uncompressed_bytes": 73665712
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/UnityDataAssetPack.apk",
+      "entries": 75,
+      "uncompressed_bytes": 5502988
+    },
+    {
+      "path": "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/config.arm64_v8a.apk",
+      "entries": 15,
+      "uncompressed_bytes": 89349608
+    },
+    {
+      "path": "C:\\Users\\dg71\\Downloads\\FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER_v1_1.zip",
+      "entries": 4931,
+      "uncompressed_bytes": 288907223
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip",
+      "entries": 62,
+      "uncompressed_bytes": 794622168
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/GAMEPLAY_DATA_CORE.zip",
+      "entries": 1187,
+      "uncompressed_bytes": 10460629
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/GAMEPLAY_MODELS_CORE.zip",
+      "entries": 668,
+      "uncompressed_bytes": 41841138
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/UnityDataAssetPack.zip",
+      "entries": 75,
+      "uncompressed_bytes": 5502988
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/assets.zip",
+      "entries": 16782,
+      "uncompressed_bytes": 525428410
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/config.arm64_v8a.zip",
+      "entries": 15,
+      "uncompressed_bytes": 89349608
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/config.armeabi_v7a.zip",
+      "entries": 15,
+      "uncompressed_bytes": 73665712
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/01_RECOVERED_CORE/AI_RUNNING_SOURCE.zip",
+      "entries": 845,
+      "uncompressed_bytes": 2660615
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/01_RECOVERED_CORE/COFMOTIONS_SOURCE.zip",
+      "entries": 1582,
+      "uncompressed_bytes": 45770186
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/01_RECOVERED_CORE/CONFIG_MATCH_SOURCE.zip",
+      "entries": 247,
+      "uncompressed_bytes": 7092495
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/01_RECOVERED_CORE/LOCAL_SETTINGS_SOURCE.zip",
+      "entries": 59,
+      "uncompressed_bytes": 75301
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/01_RECOVERED_CORE/SCENERES_SOURCE.zip",
+      "entries": 12,
+      "uncompressed_bytes": 10255435
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/01_RECOVERED_CORE/TIMELINE_SOURCE.zip",
+      "entries": 305,
+      "uncompressed_bytes": 518875
+    },
+    {
+      "path": "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/01_RECOVERED_CORE/XPLAYABLE_GAMEPLAY.zip",
+      "entries": 41,
+      "uncompressed_bytes": 11163908
+    }
+  ],
+  "identical_groups": [
+    {
+      "kind": "AndroidManifest.xml",
+      "sha256": "869e3b6b56862a934caa984e7f753d4309098910ade4d3abaa415c99afac5b4d",
+      "classification": "DUPLICATE_IDENTICAL_COPY",
+      "paths": [
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\com.estar.bap\\AndroidManifest.xml",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\com.estar.bap.zip!/AndroidManifest.xml",
+        "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/com.estar.bap.apk!/AndroidManifest.xml",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/com.estar.bap.apk!/AndroidManifest.xml"
+      ]
+    },
+    {
+      "kind": "AndroidManifest.xml",
+      "sha256": "d6669a25febf683d564df35a49f8dc17c0ead0b2c071e8274afbc7935155e3c9",
+      "classification": "DUPLICATE_IDENTICAL_COPY",
+      "paths": [
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\config.arm64_v8a\\AndroidManifest.xml",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\config.arm64_v8a.zip!/AndroidManifest.xml",
+        "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/config.arm64_v8a.apk!/AndroidManifest.xml",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/config.arm64_v8a.apk!/AndroidManifest.xml",
+        "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/config.arm64_v8a.zip!/AndroidManifest.xml"
+      ]
+    },
+    {
+      "kind": "AndroidManifest.xml",
+      "sha256": "8c087ec48a919a82631a07a7dac2ddac30a11cdb09c53c35f7da1f53f6e51e7a",
+      "classification": "DUPLICATE_IDENTICAL_COPY",
+      "paths": [
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\UnityStreamingAssetsPack\\AndroidManifest.xml",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\UnityStreamingAssetsPack.zip!/AndroidManifest.xml",
+        "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/UnityStreamingAssetsPack.apk!/AndroidManifest.xml",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/UnityStreamingAssetsPack.apk!/AndroidManifest.xml"
+      ]
+    },
+    {
+      "kind": "data.unity3d",
+      "sha256": "bbf78b15398634e814803c13b6cfac89f4060374ee842707f04e290ea755f5c5",
+      "classification": "DUPLICATE_IDENTICAL_COPY",
+      "paths": [
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\com.estar.bap\\assets\\bin\\Data\\data.unity3d",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\com.estar.bap.zip!/assets/bin/Data/data.unity3d",
+        "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/com.estar.bap.apk!/assets/bin/Data/data.unity3d",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/com.estar.bap.apk!/assets/bin/Data/data.unity3d",
+        "C:\\Users\\dg71\\Downloads\\FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER_v1_1.zip!/FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER/07_UNITY_ORIGINAL_REFERENCE/data.unity3d"
+      ]
+    },
+    {
+      "kind": "global-metadata.dat",
+      "sha256": "92fae52ec4dc570929eb7b99d2083fd6ab6016cbbaa30f87e87ac6732bb1e42e",
+      "classification": "DUPLICATE_IDENTICAL_COPY",
+      "paths": [
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\com.estar.bap\\assets\\bin\\Data\\Managed\\Metadata\\global-metadata.dat",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\com.estar.bap.zip!/assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/com.estar.bap.apk!/assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/com.estar.bap.apk!/assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "C:\\Users\\dg71\\Downloads\\FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER_v1_1.zip!/FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER/01_IL2CPP_SOURCE/global-metadata.dat"
+      ]
+    },
+    {
+      "kind": "libil2cpp.so",
+      "sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496",
+      "classification": "DUPLICATE_IDENTICAL_COPY",
+      "paths": [
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\config.arm64_v8a\\lib\\arm64-v8a\\libil2cpp.so",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\config.arm64_v8a.zip!/lib/arm64-v8a/libil2cpp.so",
+        "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/config.arm64_v8a.apk!/lib/arm64-v8a/libil2cpp.so",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/config.arm64_v8a.apk!/lib/arm64-v8a/libil2cpp.so",
+        "C:\\Users\\dg71\\Downloads\\FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER_v1_1.zip!/FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER/01_IL2CPP_SOURCE/libil2cpp.so",
+        "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/config.arm64_v8a.zip!/lib/arm64-v8a/libil2cpp.so",
+        "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/01_RECOVERED_CORE/Native/arm64/libil2cpp.so"
+      ]
+    },
+    {
+      "kind": "shootspeed",
+      "sha256": "7fb67efd7d91031b6dd5ba5267978935d6d4a238fa3eb41b50a4941980659bf9",
+      "classification": "DUPLICATE_IDENTICAL_COPY",
+      "paths": [
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\GAMEPLAY_CORE_EXTRACT\\GAMEPLAY_DATA\\match\\shootspeed",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\UnityStreamingAssetsPack\\assets\\config\\match\\shootspeed",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\GAMEPLAY_DATA_CORE.zip!/GAMEPLAY_DATA/match/shootspeed",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\UnityStreamingAssetsPack.zip!/assets/config/match/shootspeed",
+        "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/UnityStreamingAssetsPack.apk!/assets/config/match/shootspeed",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/UnityStreamingAssetsPack.apk!/assets/config/match/shootspeed",
+        "C:\\Users\\dg71\\Downloads\\FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER_v1_1.zip!/FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER/02_GAMEPLAY_DATA/config/match/shootspeed",
+        "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/GAMEPLAY_DATA_CORE.zip!/GAMEPLAY_DATA/match/shootspeed",
+        "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/assets.zip!/assets/config/match/shootspeed",
+        "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/01_RECOVERED_CORE/CONFIG_MATCH_SOURCE.zip!/UnityStreamingAssetsPack/assets/config/match/shootspeed"
+      ]
+    },
+    {
+      "kind": "spmoveactiondata",
+      "sha256": "f319f154e3782b28c4110d6aae9f30039a4042a09b82664362f05c1b28124135",
+      "classification": "DUPLICATE_IDENTICAL_COPY",
+      "paths": [
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\GAMEPLAY_CORE_EXTRACT\\GAMEPLAY_DATA\\match\\spmoveactiondata",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\UnityStreamingAssetsPack\\assets\\config\\match\\spmoveactiondata",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\GAMEPLAY_DATA_CORE.zip!/GAMEPLAY_DATA/match/spmoveactiondata",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\UnityStreamingAssetsPack.zip!/assets/config/match/spmoveactiondata",
+        "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/UnityStreamingAssetsPack.apk!/assets/config/match/spmoveactiondata",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/UnityStreamingAssetsPack.apk!/assets/config/match/spmoveactiondata",
+        "C:\\Users\\dg71\\Downloads\\FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER_v1_1.zip!/FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER/02_GAMEPLAY_DATA/config/match/spmoveactiondata",
+        "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/GAMEPLAY_DATA_CORE.zip!/GAMEPLAY_DATA/match/spmoveactiondata",
+        "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/assets.zip!/assets/config/match/spmoveactiondata",
+        "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/01_RECOVERED_CORE/CONFIG_MATCH_SOURCE.zip!/UnityStreamingAssetsPack/assets/config/match/spmoveactiondata"
+      ]
+    },
+    {
+      "kind": "spmoveconfig",
+      "sha256": "d724201b499a9fa6c3d86b8b6fcb850dcc2d3c8e86d6a403a3d466db1a1d394a",
+      "classification": "DUPLICATE_IDENTICAL_COPY",
+      "paths": [
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\GAMEPLAY_CORE_EXTRACT\\GAMEPLAY_DATA\\match\\spmoveconfig",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\UnityStreamingAssetsPack\\assets\\config\\match\\spmoveconfig",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\GAMEPLAY_DATA_CORE.zip!/GAMEPLAY_DATA/match/spmoveconfig",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\UnityStreamingAssetsPack.zip!/assets/config/match/spmoveconfig",
+        "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/UnityStreamingAssetsPack.apk!/assets/config/match/spmoveconfig",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/UnityStreamingAssetsPack.apk!/assets/config/match/spmoveconfig",
+        "C:\\Users\\dg71\\Downloads\\FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER_v1_1.zip!/FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER/02_GAMEPLAY_DATA/config/match/spmoveconfig",
+        "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/GAMEPLAY_DATA_CORE.zip!/GAMEPLAY_DATA/match/spmoveconfig",
+        "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/assets.zip!/assets/config/match/spmoveconfig",
+        "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/01_RECOVERED_CORE/CONFIG_MATCH_SOURCE.zip!/UnityStreamingAssetsPack/assets/config/match/spmoveconfig"
+      ]
+    },
+    {
+      "kind": "controller.ctrl",
+      "sha256": "21ab2bcb48ac64f62533a75860bcc4155b214ceb97145912dc0c739876d6b514",
+      "classification": "DUPLICATE_IDENTICAL_COPY",
+      "paths": [
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\UnityStreamingAssetsPack\\assets\\cofmotions\\controller\\controller.ctrl",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\UnityStreamingAssetsPack.zip!/assets/cofmotions/controller/controller.ctrl",
+        "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/UnityStreamingAssetsPack.apk!/assets/cofmotions/controller/controller.ctrl",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/UnityStreamingAssetsPack.apk!/assets/cofmotions/controller/controller.ctrl",
+        "C:\\Users\\dg71\\Downloads\\FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER_v1_1.zip!/FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER/04_ANIMATION/cofmotions/controller/controller.ctrl",
+        "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/assets.zip!/assets/cofmotions/controller/controller.ctrl",
+        "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/01_RECOVERED_CORE/Animation/controller.ctrl",
+        "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/01_RECOVERED_CORE/COFMOTIONS_SOURCE.zip!/UnityStreamingAssetsPack/assets/cofmotions/controller/controller.ctrl"
+      ]
+    },
+    {
+      "kind": "archive",
+      "sha256": "808955bd503be85e35158482e3787e505cecd2f6d469e2b9f14156d224fdcdca",
+      "classification": "DUPLICATE_IDENTICAL_COPY",
+      "paths": [
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\com.estar.bap.zip",
+        "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/com.estar.bap.apk",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/com.estar.bap.apk"
+      ]
+    },
+    {
+      "kind": "archive",
+      "sha256": "bb384c71f5b434ba2f04dbb02be9d4e96630f3caa4e22772d45aaca8b7d39acc",
+      "classification": "DUPLICATE_IDENTICAL_COPY",
+      "paths": [
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\config.arm64_v8a.zip",
+        "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/config.arm64_v8a.apk",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/config.arm64_v8a.apk",
+        "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/config.arm64_v8a.zip"
+      ]
+    },
+    {
+      "kind": "archive",
+      "sha256": "96bf6dd3fd057f83343342b7cf875f086a453d8794916f75441675e13c2234c0",
+      "classification": "DUPLICATE_IDENTICAL_COPY",
+      "paths": [
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\config.armeabi_v7a.zip",
+        "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/config.armeabi_v7a.apk",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/config.armeabi_v7a.apk",
+        "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/config.armeabi_v7a.zip"
+      ]
+    },
+    {
+      "kind": "AndroidManifest.xml",
+      "sha256": "ffca8479478ed2ede264e80e73d7e2913cf4e015f3f294cb6452f002c95cfce9",
+      "classification": "DUPLICATE_IDENTICAL_COPY",
+      "paths": [
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\config.armeabi_v7a.zip!/AndroidManifest.xml",
+        "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/config.armeabi_v7a.apk!/AndroidManifest.xml",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/config.armeabi_v7a.apk!/AndroidManifest.xml",
+        "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/config.armeabi_v7a.zip!/AndroidManifest.xml"
+      ]
+    },
+    {
+      "kind": "libil2cpp.so",
+      "sha256": "8f3fe210960e3fda2ff7982ebe0c3c53c1e6ba464c334440dbfd1d933eb27f65",
+      "classification": "DUPLICATE_IDENTICAL_COPY",
+      "paths": [
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\config.armeabi_v7a.zip!/lib/armeabi-v7a/libil2cpp.so",
+        "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/config.armeabi_v7a.apk!/lib/armeabi-v7a/libil2cpp.so",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/config.armeabi_v7a.apk!/lib/armeabi-v7a/libil2cpp.so",
+        "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/config.armeabi_v7a.zip!/lib/armeabi-v7a/libil2cpp.so",
+        "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/01_RECOVERED_CORE/Native/armeabi_v7a/libil2cpp.so"
+      ]
+    },
+    {
+      "kind": "archive",
+      "sha256": "f3594c215d562404dd8399d0dd8fbdfdb7f9fe65701e447ce749044f07a098b2",
+      "classification": "DUPLICATE_IDENTICAL_COPY",
+      "paths": [
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\GAMEPLAY_DATA_CORE.zip",
+        "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/GAMEPLAY_DATA_CORE.zip"
+      ]
+    },
+    {
+      "kind": "archive",
+      "sha256": "b21d4f81fa90b2dea7874e5a16d47f9189b1f7de4096be28cdc4758b2571569a",
+      "classification": "DUPLICATE_IDENTICAL_COPY",
+      "paths": [
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\GAMEPLAY_MODELS_CORE.zip",
+        "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/GAMEPLAY_MODELS_CORE.zip"
+      ]
+    },
+    {
+      "kind": "archive",
+      "sha256": "de2ed92eac218b95580ea1dfaf6de48a8928fad80fc94e45f7244521f4b8ad0f",
+      "classification": "DUPLICATE_IDENTICAL_COPY",
+      "paths": [
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\UnityDataAssetPack.zip",
+        "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/UnityDataAssetPack.apk",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/UnityDataAssetPack.apk",
+        "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/UnityDataAssetPack.zip"
+      ]
+    },
+    {
+      "kind": "AndroidManifest.xml",
+      "sha256": "82cb41806c29a2ae515f15f38a626bf27817fd2fdaf8bab4847ec1063bb92b70",
+      "classification": "DUPLICATE_IDENTICAL_COPY",
+      "paths": [
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\UnityDataAssetPack.zip!/AndroidManifest.xml",
+        "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/UnityDataAssetPack.apk!/AndroidManifest.xml",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/UnityDataAssetPack.apk!/AndroidManifest.xml",
+        "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/UnityDataAssetPack.zip!/AndroidManifest.xml"
+      ]
+    },
+    {
+      "kind": "datapack.unity3d",
+      "sha256": "0dbc8b282cf93af0536dbc152974901f5ec4c3ddc9c71596cd2450a0aa2eba99",
+      "classification": "DUPLICATE_IDENTICAL_COPY",
+      "paths": [
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\UnityDataAssetPack.zip!/assets/bin/Data/datapack.unity3d",
+        "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/UnityDataAssetPack.apk!/assets/bin/Data/datapack.unity3d",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/UnityDataAssetPack.apk!/assets/bin/Data/datapack.unity3d",
+        "C:\\Users\\dg71\\Downloads\\FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER_v1_1.zip!/FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER/07_UNITY_ORIGINAL_REFERENCE/datapack.unity3d",
+        "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/00_SOURCE_ARCHIVES/UnityDataAssetPack.zip!/assets/bin/Data/datapack.unity3d",
+        "C:\\Users\\dg71\\Documents\\ChatGPT\\JOGO DE FUTEBOL\\.local\\recovered-original\\FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip!/FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12/01_RECOVERED_CORE/Unity/datapack.unity3d"
+      ]
+    },
+    {
+      "kind": "archive",
+      "sha256": "a39461d1e4cc67dca983101c2cdf75a62e16dcfdd07090d8c028bb3a89c0834a",
+      "classification": "DUPLICATE_IDENTICAL_COPY",
+      "paths": [
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5\\UnityStreamingAssetsPack.zip",
+        "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk!/UnityStreamingAssetsPack.apk",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip!/UnityStreamingAssetsPack.apk"
+      ]
+    },
+    {
+      "kind": "archive",
+      "sha256": "630a6f1b203bdce7ef2f8053801ee2afe0c77ffceef6bb3e3a23a9d196da3d56",
+      "classification": "DUPLICATE_IDENTICAL_COPY",
+      "paths": [
+        "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-221-5.xapk",
+        "C:\\Users\\dg71\\Videos\\football-dream-be-a-pro-1-221-5.zip"
+      ]
+    }
+  ],
+  "note": "Different hashes require variant investigation; archive compression and CPU ABI differences are not by themselves different gameplay builds. Build labels do not replace package metadata."
+}

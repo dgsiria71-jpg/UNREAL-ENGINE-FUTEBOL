@@ -1,0 +1,100 @@
+{
+  "schema_version": "football.recovery.native_kernel_validation.v1",
+  "oracle": "Unicorn ARM64 executing unmodified canonical machine-code spans",
+  "unicorn_version": "2.1.4",
+  "binary_sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496",
+  "cpp_source_sha256": {
+    "Reference/FootballCore/FixedPoint.h": "f837a471dc9b9fd98aee28378c556295c5f09a1d098b800404608700cca195a8",
+    "Reference/FootballPhysics/SpmoveModifiers.h": "d33353920b7c1359028a3e1f74707cb0ed137a43a143b61855e4f3ec85dd4dfe",
+    "Reference/FootballPhysics/NativeVectorMath.h": "ec744857741b468f333a3a1dff10479e488d0c3369b3d41b08ba1bd939b82541",
+    "Reference/FootballPhysics/NativeSqrtTable.h": "fccea12b0e3881841c02bf27b302fa0f22e1c1fa65b9f6854f9b4e081d006ebb",
+    "Tests/recovered_kernel_probe.cpp": "1026d6eeda9ebea656c1cef55b77a5979e973374cb75ce0b324e9e3ca711c2e8",
+    "Tools/verify_native_kernels.py": "d3cff735bf89569f36aeecbd60b308bf8f0d064fac8538142418fca864a5707f"
+  },
+  "cpp_executable_sha256": "3b3af08589db50a37e958d9a199da32568a280e927d460a9475c492801b79454",
+  "status": "kernel_differential_pass",
+  "cases": 13685,
+  "kernels": {
+    "multiply": {
+      "start": "0x1b6b2b0",
+      "end_exclusive": "0x1b6b2c4",
+      "instruction_bytes_sha256": "f032cca3d9f876f41abad91cd8ef6559cda5ad619c8301b7b5f38f59a5df750c",
+      "cases": 1625,
+      "mismatches": 0,
+      "input_sha256": "15523a7c575aeeb1244bb74280b8a4c88ebf401dffef3e857da7192d776b2aba",
+      "oracle_output_sha256": "16ff13789483845795500da21a4f95c1a3fa6a866b7e1b8739e989b42a3e6cdf"
+    },
+    "divide": {
+      "start": "0x1b6b31c",
+      "end_exclusive": "0x1b6b338",
+      "instruction_bytes_sha256": "1b3268dd823e4381e304f64fa672de32438716755422c47fdbfcbc3d165dabbf",
+      "cases": 1600,
+      "mismatches": 0,
+      "input_sha256": "cd47855eff4e2ce0fc9e727d5819f29681b0af3222572164752b20eed1072572",
+      "oracle_output_sha256": "d0ac055887be7f8f6230c93384d454a582209f93911f4f01b9ef7b82af512297"
+    },
+    "vhor_first": {
+      "start": "0x16e7104",
+      "end_exclusive": "0x16e715c",
+      "instruction_bytes_sha256": "6333f19537c09c9ab8fac1ed6e7b3c514ee66a26acfe5326d8c6411d15078e59",
+      "cases": 2092,
+      "mismatches": 0,
+      "input_sha256": "179dc82191e0fb708d10356d800ab091db2f54e76bb8dfd1fc114afbbbe7b8f9",
+      "oracle_output_sha256": "44c94cda3503b937708fc7da08c5ae6450f170d4b5f02b5ff993440d2bc62c23"
+    },
+    "vhor_long": {
+      "start": "0x16e7240",
+      "end_exclusive": "0x16e7294",
+      "instruction_bytes_sha256": "e5349f1ad4e3fc739d0f7a1a44371fecde67b78545aa2711bd74a4943033238f",
+      "cases": 2092,
+      "mismatches": 0,
+      "input_sha256": "0bcde241299de98b948be8db7e03355e8a3cbd5b0849cc523a2ba68438a9dc76",
+      "oracle_output_sha256": "44c94cda3503b937708fc7da08c5ae6450f170d4b5f02b5ff993440d2bc62c23"
+    },
+    "vver_long": {
+      "start": "0x16e9e4c",
+      "end_exclusive": "0x16e9e84",
+      "instruction_bytes_sha256": "e6e042d217d8e1d54a97dc29eb831c8ebbbc1886829044253f62f1e2d88e1fb6",
+      "cases": 2092,
+      "mismatches": 0,
+      "input_sha256": "e14eae905a774627d1cdbf3b9b89d24b9219e1007307c9962224adf9040d66b2",
+      "oracle_output_sha256": "32673d5cd9ff2a2b9b8d9c41391a9a6c80420eb85c396a58c86edc621862c151"
+    },
+    "vver_push": {
+      "start": "0x16e9f84",
+      "end_exclusive": "0x16e9fb8",
+      "instruction_bytes_sha256": "71e3af28fc3dd26d70463ed268e9c178858adc7da7744abb56b97b0a07586871",
+      "cases": 2092,
+      "mismatches": 0,
+      "input_sha256": "ddb24047ab638d17ac95ec021089ad004a0d5f83ac45dfdb487860887ed8353a",
+      "oracle_output_sha256": "32673d5cd9ff2a2b9b8d9c41391a9a6c80420eb85c396a58c86edc621862c151"
+    },
+    "vver_head": {
+      "start": "0x16ea4d4",
+      "end_exclusive": "0x16ea52c",
+      "instruction_bytes_sha256": "bd2a53e036b887b935c43d05b417d4bfaf3cae889f6e41564610dd2fcf67c17e",
+      "cases": 2092,
+      "mismatches": 0,
+      "input_sha256": "d2a560ec053d6401901b7417b5191af6aefecd8cc50c868d41731cacb8c1e01a",
+      "oracle_output_sha256": "393a39fa73f6609f097fa6461118fe1a077ef110e52cf01378e9b050f83fefd7"
+    }
+  },
+  "scope": "arithmetic after branch/property/normalization boundary",
+  "excluded": [
+    "whole GetVHor/GetVVer/GetKickVelocity",
+    "property level selection",
+    "native normalization and sqrt",
+    "zero-divisor static fallback",
+    "BALL_CONTACT runtime integration",
+    "Unreal execution/performance"
+  ],
+  "physics_v0_3_gate": "blocked",
+  "text_digest_canonicalization": "UTF-8 without BOM, LF line endings",
+  "verification_source_sha256": {
+    "Tools/disassemble_spmove_runtime.py": "5b160ac9ee83de68150fdb6c910dfe543c669508ddf2822fa5af9cea2e6df28f",
+    "Tools/recover_native_sqrt_table.py": "34d75fa9034be5a6f2a03b51a9bb47bf43392a7a2354a7fe592665b673f27748",
+    "Tools/verify_native_kernels.py": "d3cff735bf89569f36aeecbd60b308bf8f0d064fac8538142418fca864a5707f",
+    "Tools/verify_native_vector_math.py": "ea5754bd6f4f9b5621903e1cdd2ffb6c041edd3d6c15e5d4363c1b32af6f270b",
+    "Tools/verify_spmove_branches.py": "44e72024ec36e0cd7b0abd29c68c3f94dcee8cafac20b3679cd451f33c5cebb2"
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "engine": "Unreal Engine 5.x",
+  "source_of_truth_3d": "Blender",
+  "physics_runtime": "authoritative_server",
+  "sources": {
+    "physics_v0_2": {
+      "filename": "FOOTBALL_PHYSICS_RECOVERY_PACK_v0_2.zip",
+      "bytes": 14956086,
+      "sha256": "7d5cabe5d974f7282ca7126d5c36c7bc71a448275cf144b73625be9fccf415ac",
+      "zip_entries": 375
+    },
+    "animation_v1_0": {
+      "filename": "FOOTBALL_ANIMATION_RECOVERY_PACK_v1_0.zip",
+      "bytes": 104588601,
+      "sha256": "91a2a6bffeb9739807ab2ae432ed1ee79232db0b4ec4c2862cb0241027273f64",
+      "zip_entries": 1963
+    },
+    "migration_v1_1": {
+      "filename": "FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER_v1_1.zip",
+      "bytes": 157288676,
+      "sha256": "c1c7d5352f94241c5aed771666ad5f723b24593ac7cf8c3bc9bfb0e7d175e1eb",
+      "zip_entries": 4931
+    },
+    "pc_3d_v0_2": {
+      "filename": "FOOTBALL_PC_3D_READY_PACK_v0_2.zip",
+      "bytes": 15126093,
+      "sha256": "e287e1140dd704479292e5516996484641ed326a027f5c8302577eadd3393226",
+      "zip_entries": 277
+    },
+    "ecosystem_v0_2": {
+      "filename": "FOOTBALL_PLAYER_ECOSYSTEM_CORE_v0_2_VISUAL_REGISTRY.zip",
+      "bytes": 2591557,
+      "sha256": "cea86e1e18f7aa58f924302bae542ebf2782217b32594d315aff3ff423efe813",
+      "zip_entries": 139
+    },
+    "visual_assets_v0_1": {
+      "filename": "FOOTBALL_VISUAL_PRODUCTION_ASSET_PACK_v0_1.zip",
+      "bytes": 73269452,
+      "sha256": "b0e1336e576c0b9dae8d04d424e706f16b18c18a28ed94b13da129a052d322b1",
+      "zip_entries": 1119
+    }
+  },
+  "semantic_gates": {
+    "physics_v0_3": "blocked_until_spmove_VHor_VVer_GetVHor_GetVVer_GetKickVelocity_BALL_CONTACT_regression",
+    "vertical_accel_field": "vertical_accel_raw",
+    "neymar": "v1.9_preserved_paused"
+  },
+  "normalized_artifacts": {
+    "spmove": "Recovery/Normalized/spmove_normalized.json",
+    "physics_contract": "Recovery/Normalized/physics_runtime_contract.json",
+    "native_static_trace": "Recovery/Normalized/native_static_trace.json",
+    "cal_spmove_trace": "Recovery/Normalized/cal_spmove_static_trace.json",
+    "spmove_manager_trace": "Recovery/Normalized/spmove_manager_static_trace.json",
+    "spmove_deserialize_trace": "Recovery/Normalized/spmove_deserialize_static_trace.json",
+    "spmove_runtime_trace": "Recovery/Normalized/spmove_runtime_static_trace.json",
+    "spmove_modifier_access_trace": "Recovery/Normalized/spmove_modifier_access_static_trace.json",
+    "native_sqrt_table": "Recovery/Normalized/native_sqrt_table.json",
+    "native_kernel_validation": "Recovery/Normalized/native_kernel_validation.json",
+    "native_vector_validation": "Recovery/Normalized/native_vector_validation.json",
+    "native_spmove_branch_validation": "Recovery/Normalized/native_spmove_branch_validation.json",
+    "native_spmove_selection_validation": "Recovery/Normalized/native_spmove_selection_validation.json",
+    "native_spmove_producer_validation": "Recovery/Normalized/native_spmove_producer_validation.json",
+    "mobile_source_matrix": "Recovery/Normalized/MOBILE_1_221_5_SOURCE_MATRIX.json",
+    "archive_catalog": "Recovery/Normalized/archive_catalog.json",
+    "playable_match_contract": "Recovery/Normalized/playable_match_contract.json"
+  },
+  "normalized_schema": {
+    "codec": "LZ4 raw block",
+    "canonical_action_records": 48,
+    "canonical_config_records": 292,
+    "candidate_config_records_isolated": 312,
+    "velocity_semantics": "unresolved",
+    "runtime_property_derivation": "partially_anchored_param_Xnumber_population_and_property_calls"
+  },
+  "playable_match": {
+    "contract": "Recovery/Normalized/playable_match_contract.json",
+    "available": true,
+    "provenance": {
+      "kind": "new_game_authored",
+      "version": "playable_match_tuning_v0",
+      "mobile_recovery_semantics": "blocked_until_physics_v0_3_gate"
+    }
+  },
+  "blocked": [
+    "spmove inventory/eligibility dependencies, GetVHor/GetVVer bases and final contact velocity remain unresolved",
+    "do not emit BALL_CONTACT velocity for unresolved actions"
+  ],
+  "next_importable": [
+    "fixed-point XNumber primitives",
+    "provenance-tagged animation metadata",
+    "recovered clips after coordinate/unit validation"
+  ]
+}

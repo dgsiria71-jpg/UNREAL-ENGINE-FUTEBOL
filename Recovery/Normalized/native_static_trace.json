@@ -1,0 +1,1302 @@
+{
+  "schema_version": "football.recovery.native_static_trace.v1",
+  "source": ".local/il2cpp/disassembly_shoot.txt",
+  "source_scope": "canonical Android ARM64 libil2cpp.so",
+  "analysis_status": "control_flow_and_literal_masks_only",
+  "behavior_validated": false,
+  "method_spans": [
+    {
+      "name": "GetVHor",
+      "start": "0x016E6A80",
+      "end": "0x016E84A4",
+      "instruction_count": 1673,
+      "call_targets": [
+        {
+          "target": "0X11C66B8",
+          "count": 13
+        },
+        {
+          "target": "0X11C6764",
+          "count": 73
+        },
+        {
+          "target": "0X11C6788",
+          "count": 1
+        },
+        {
+          "target": "0X1229264",
+          "count": 3
+        },
+        {
+          "target": "0X122BA0C",
+          "count": 2
+        },
+        {
+          "target": "0X126BF1C",
+          "count": 4
+        },
+        {
+          "target": "0X12BB68C",
+          "count": 1
+        },
+        {
+          "target": "0X12C79A0",
+          "count": 1
+        },
+        {
+          "target": "0X1379748",
+          "count": 2
+        },
+        {
+          "target": "0X13B01DC",
+          "count": 1
+        },
+        {
+          "target": "0X1566AB4",
+          "count": 1
+        },
+        {
+          "target": "0X1566CB0",
+          "count": 3
+        },
+        {
+          "target": "0X192A0C4",
+          "count": 1
+        },
+        {
+          "target": "0X19353C8",
+          "count": 1
+        },
+        {
+          "target": "0X19354C4",
+          "count": 1
+        },
+        {
+          "target": "0X19355E4",
+          "count": 1
+        },
+        {
+          "target": "0X1936B4C",
+          "count": 4
+        },
+        {
+          "target": "0X196807C",
+          "count": 4
+        },
+        {
+          "target": "0X1AC82D8",
+          "count": 2
+        },
+        {
+          "target": "0X1B64760",
+          "count": 9
+        },
+        {
+          "target": "0X1FF58AC",
+          "count": 14
+        },
+        {
+          "target": "0X24F6EC4",
+          "count": 28
+        }
+      ],
+      "literal_mask_operands": [
+        {
+          "mask": "0X20",
+          "count": 10
+        },
+        {
+          "mask": "0XA",
+          "count": 8
+        },
+        {
+          "mask": "0XFF000000",
+          "count": 2
+        },
+        {
+          "mask": "0XFF0000000000",
+          "count": 2
+        },
+        {
+          "mask": "0XFFFFFFFF",
+          "count": 4
+        },
+        {
+          "mask": "0XFFFFFFFF00000000",
+          "count": 3
+        }
+      ],
+      "branch_mnemonics": [
+        {
+          "mnemonic": "b",
+          "count": 20
+        },
+        {
+          "mnemonic": "b.eq",
+          "count": 4
+        },
+        {
+          "mnemonic": "b.ge",
+          "count": 9
+        },
+        {
+          "mnemonic": "b.hi",
+          "count": 18
+        },
+        {
+          "mnemonic": "b.le",
+          "count": 7
+        },
+        {
+          "mnemonic": "b.lo",
+          "count": 8
+        },
+        {
+          "mnemonic": "b.ne",
+          "count": 1
+        },
+        {
+          "mnemonic": "bfi",
+          "count": 1
+        },
+        {
+          "mnemonic": "bfxil",
+          "count": 5
+        },
+        {
+          "mnemonic": "bl",
+          "count": 170
+        },
+        {
+          "mnemonic": "blr",
+          "count": 1
+        }
+      ],
+      "memory_offsets": [
+        {
+          "offset": "0X10",
+          "count": 31
+        },
+        {
+          "offset": "0X108",
+          "count": 3
+        },
+        {
+          "offset": "0X12F",
+          "count": 73
+        },
+        {
+          "offset": "0X178",
+          "count": 1
+        },
+        {
+          "offset": "0X18",
+          "count": 34
+        },
+        {
+          "offset": "0X1A8",
+          "count": 1
+        },
+        {
+          "offset": "0X1AC",
+          "count": 1
+        },
+        {
+          "offset": "0X1B0",
+          "count": 5
+        },
+        {
+          "offset": "0X1C",
+          "count": 3
+        },
+        {
+          "offset": "0X20",
+          "count": 34
+        },
+        {
+          "offset": "0X214",
+          "count": 1
+        },
+        {
+          "offset": "0X218",
+          "count": 2
+        },
+        {
+          "offset": "0X21C",
+          "count": 1
+        },
+        {
+          "offset": "0X220",
+          "count": 1
+        },
+        {
+          "offset": "0X224",
+          "count": 1
+        },
+        {
+          "offset": "0X228",
+          "count": 1
+        },
+        {
+          "offset": "0X238",
+          "count": 1
+        },
+        {
+          "offset": "0X24",
+          "count": 2
+        },
+        {
+          "offset": "0X26",
+          "count": 1
+        },
+        {
+          "offset": "0X264",
+          "count": 1
+        },
+        {
+          "offset": "0X26C",
+          "count": 1
+        },
+        {
+          "offset": "0X28",
+          "count": 14
+        },
+        {
+          "offset": "0X2E8",
+          "count": 14
+        },
+        {
+          "offset": "0X30",
+          "count": 9
+        },
+        {
+          "offset": "0X38",
+          "count": 2
+        },
+        {
+          "offset": "0X390",
+          "count": 1
+        },
+        {
+          "offset": "0X398",
+          "count": 1
+        },
+        {
+          "offset": "0X40",
+          "count": 3
+        },
+        {
+          "offset": "0X420",
+          "count": 1
+        },
+        {
+          "offset": "0X478",
+          "count": 3
+        },
+        {
+          "offset": "0X48",
+          "count": 17
+        },
+        {
+          "offset": "0X4C",
+          "count": 2
+        },
+        {
+          "offset": "0X50",
+          "count": 19
+        },
+        {
+          "offset": "0X518",
+          "count": 1
+        },
+        {
+          "offset": "0X58",
+          "count": 3
+        },
+        {
+          "offset": "0X60",
+          "count": 2
+        },
+        {
+          "offset": "0X638",
+          "count": 3
+        },
+        {
+          "offset": "0X6C8",
+          "count": 1
+        },
+        {
+          "offset": "0X70",
+          "count": 2
+        },
+        {
+          "offset": "0X728",
+          "count": 2
+        },
+        {
+          "offset": "0X74",
+          "count": 1
+        },
+        {
+          "offset": "0X78",
+          "count": 1
+        },
+        {
+          "offset": "0X80",
+          "count": 2
+        },
+        {
+          "offset": "0X8D8",
+          "count": 2
+        },
+        {
+          "offset": "0X90",
+          "count": 4
+        },
+        {
+          "offset": "0X90A",
+          "count": 2
+        },
+        {
+          "offset": "0X98",
+          "count": 2
+        },
+        {
+          "offset": "0X9B0",
+          "count": 1
+        },
+        {
+          "offset": "0X9E8",
+          "count": 8
+        },
+        {
+          "offset": "0XA0",
+          "count": 2
+        },
+        {
+          "offset": "0XA8",
+          "count": 1
+        },
+        {
+          "offset": "0XB0",
+          "count": 3
+        },
+        {
+          "offset": "0XB4",
+          "count": 1
+        },
+        {
+          "offset": "0XB8",
+          "count": 16
+        },
+        {
+          "offset": "0XC",
+          "count": 2
+        },
+        {
+          "offset": "0XC0",
+          "count": 3
+        },
+        {
+          "offset": "0XC48",
+          "count": 7
+        },
+        {
+          "offset": "0XC8",
+          "count": 10
+        },
+        {
+          "offset": "0XC80",
+          "count": 2
+        },
+        {
+          "offset": "0XCA8",
+          "count": 3
+        },
+        {
+          "offset": "0XD0",
+          "count": 4
+        },
+        {
+          "offset": "0XDC8",
+          "count": 1
+        },
+        {
+          "offset": "0XE0",
+          "count": 73
+        },
+        {
+          "offset": "0XE1A",
+          "count": 4
+        },
+        {
+          "offset": "0XE1E",
+          "count": 2
+        },
+        {
+          "offset": "0XE20",
+          "count": 4
+        },
+        {
+          "offset": "0XE29",
+          "count": 14
+        },
+        {
+          "offset": "0XE4",
+          "count": 1
+        },
+        {
+          "offset": "0XEC",
+          "count": 1
+        },
+        {
+          "offset": "0XFD0",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "GetVVer",
+      "start": "0x016E84A4",
+      "end": "0x016EA55C",
+      "instruction_count": 2094,
+      "call_targets": [
+        {
+          "target": "0X11C66B8",
+          "count": 18
+        },
+        {
+          "target": "0X11C6764",
+          "count": 86
+        },
+        {
+          "target": "0X11C6788",
+          "count": 1
+        },
+        {
+          "target": "0X126BF1C",
+          "count": 10
+        },
+        {
+          "target": "0X14DEFDC",
+          "count": 1
+        },
+        {
+          "target": "0X192A0C4",
+          "count": 1
+        },
+        {
+          "target": "0X1936B4C",
+          "count": 1
+        },
+        {
+          "target": "0X196807C",
+          "count": 3
+        },
+        {
+          "target": "0X1968398",
+          "count": 1
+        },
+        {
+          "target": "0X1968E24",
+          "count": 1
+        },
+        {
+          "target": "0X1B60CC8",
+          "count": 2
+        },
+        {
+          "target": "0X1B64760",
+          "count": 7
+        },
+        {
+          "target": "0X1FF58AC",
+          "count": 1
+        },
+        {
+          "target": "0X24F6EC4",
+          "count": 49
+        }
+      ],
+      "literal_mask_operands": [
+        {
+          "mask": "0X20",
+          "count": 9
+        },
+        {
+          "mask": "0XA",
+          "count": 5
+        },
+        {
+          "mask": "0XFF",
+          "count": 1
+        },
+        {
+          "mask": "0XFF00000000",
+          "count": 1
+        },
+        {
+          "mask": "0XFF0000000000",
+          "count": 1
+        },
+        {
+          "mask": "0XFFFFFFFE",
+          "count": 1
+        },
+        {
+          "mask": "0XFFFFFFFF",
+          "count": 9
+        },
+        {
+          "mask": "0XFFFFFFFF00000000",
+          "count": 1
+        }
+      ],
+      "branch_mnemonics": [
+        {
+          "mnemonic": "b",
+          "count": 30
+        },
+        {
+          "mnemonic": "b.eq",
+          "count": 4
+        },
+        {
+          "mnemonic": "b.ge",
+          "count": 18
+        },
+        {
+          "mnemonic": "b.hi",
+          "count": 37
+        },
+        {
+          "mnemonic": "b.le",
+          "count": 9
+        },
+        {
+          "mnemonic": "b.lo",
+          "count": 12
+        },
+        {
+          "mnemonic": "b.lt",
+          "count": 3
+        },
+        {
+          "mnemonic": "b.ne",
+          "count": 3
+        },
+        {
+          "mnemonic": "bfi",
+          "count": 2
+        },
+        {
+          "mnemonic": "bfxil",
+          "count": 5
+        },
+        {
+          "mnemonic": "bl",
+          "count": 182
+        }
+      ],
+      "memory_offsets": [
+        {
+          "offset": "0X10",
+          "count": 52
+        },
+        {
+          "offset": "0X100",
+          "count": 2
+        },
+        {
+          "offset": "0X108",
+          "count": 10
+        },
+        {
+          "offset": "0X120",
+          "count": 1
+        },
+        {
+          "offset": "0X12E",
+          "count": 1
+        },
+        {
+          "offset": "0X12F",
+          "count": 84
+        },
+        {
+          "offset": "0X18",
+          "count": 57
+        },
+        {
+          "offset": "0X1B0",
+          "count": 5
+        },
+        {
+          "offset": "0X1C0",
+          "count": 2
+        },
+        {
+          "offset": "0X20",
+          "count": 51
+        },
+        {
+          "offset": "0X28",
+          "count": 12
+        },
+        {
+          "offset": "0X2E8",
+          "count": 20
+        },
+        {
+          "offset": "0X30",
+          "count": 5
+        },
+        {
+          "offset": "0X38",
+          "count": 3
+        },
+        {
+          "offset": "0X40",
+          "count": 3
+        },
+        {
+          "offset": "0X420",
+          "count": 2
+        },
+        {
+          "offset": "0X478",
+          "count": 1
+        },
+        {
+          "offset": "0X48",
+          "count": 6
+        },
+        {
+          "offset": "0X4C",
+          "count": 1
+        },
+        {
+          "offset": "0X50",
+          "count": 5
+        },
+        {
+          "offset": "0X518",
+          "count": 2
+        },
+        {
+          "offset": "0X54",
+          "count": 3
+        },
+        {
+          "offset": "0X58",
+          "count": 6
+        },
+        {
+          "offset": "0X60",
+          "count": 10
+        },
+        {
+          "offset": "0X638",
+          "count": 1
+        },
+        {
+          "offset": "0X68",
+          "count": 4
+        },
+        {
+          "offset": "0X70",
+          "count": 8
+        },
+        {
+          "offset": "0X720",
+          "count": 1
+        },
+        {
+          "offset": "0X728",
+          "count": 5
+        },
+        {
+          "offset": "0X78",
+          "count": 15
+        },
+        {
+          "offset": "0X80",
+          "count": 1
+        },
+        {
+          "offset": "0X858",
+          "count": 1
+        },
+        {
+          "offset": "0X90",
+          "count": 1
+        },
+        {
+          "offset": "0X90B",
+          "count": 2
+        },
+        {
+          "offset": "0X94",
+          "count": 2
+        },
+        {
+          "offset": "0X98",
+          "count": 1
+        },
+        {
+          "offset": "0X9C8",
+          "count": 1
+        },
+        {
+          "offset": "0X9E8",
+          "count": 5
+        },
+        {
+          "offset": "0XA0",
+          "count": 8
+        },
+        {
+          "offset": "0XB0",
+          "count": 3
+        },
+        {
+          "offset": "0XB8",
+          "count": 28
+        },
+        {
+          "offset": "0XC0",
+          "count": 2
+        },
+        {
+          "offset": "0XC48",
+          "count": 6
+        },
+        {
+          "offset": "0XC80",
+          "count": 1
+        },
+        {
+          "offset": "0XD0",
+          "count": 2
+        },
+        {
+          "offset": "0XD8",
+          "count": 5
+        },
+        {
+          "offset": "0XDD8",
+          "count": 1
+        },
+        {
+          "offset": "0XE0",
+          "count": 90
+        },
+        {
+          "offset": "0XE19",
+          "count": 2
+        },
+        {
+          "offset": "0XE1A",
+          "count": 10
+        },
+        {
+          "offset": "0XE1E",
+          "count": 4
+        },
+        {
+          "offset": "0XE20",
+          "count": 2
+        },
+        {
+          "offset": "0XE26",
+          "count": 2
+        },
+        {
+          "offset": "0XE29",
+          "count": 12
+        },
+        {
+          "offset": "0XE8",
+          "count": 15
+        },
+        {
+          "offset": "0XF0",
+          "count": 4
+        },
+        {
+          "offset": "0XF8",
+          "count": 2
+        },
+        {
+          "offset": "0XFF0",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "GetKickVelocity",
+      "start": "0x016EBAD8",
+      "end": "0x016EBF14",
+      "instruction_count": 271,
+      "call_targets": [
+        {
+          "target": "0X11C66B8",
+          "count": 1
+        },
+        {
+          "target": "0X11C6764",
+          "count": 10
+        },
+        {
+          "target": "0X11C6788",
+          "count": 1
+        },
+        {
+          "target": "0X122B23C",
+          "count": 2
+        },
+        {
+          "target": "0X126C078",
+          "count": 2
+        },
+        {
+          "target": "0X1380C40",
+          "count": 1
+        },
+        {
+          "target": "0X1382664",
+          "count": 1
+        },
+        {
+          "target": "0X13B01DC",
+          "count": 1
+        },
+        {
+          "target": "0X14DEF74",
+          "count": 1
+        },
+        {
+          "target": "0X14DF68C",
+          "count": 1
+        },
+        {
+          "target": "0X16DA81C",
+          "count": 1
+        },
+        {
+          "target": "0X16E6A80",
+          "count": 1
+        },
+        {
+          "target": "0X16E84A4",
+          "count": 1
+        },
+        {
+          "target": "0X17E5C64",
+          "count": 1
+        },
+        {
+          "target": "0X1E34BE4",
+          "count": 1
+        },
+        {
+          "target": "0X1FF58AC",
+          "count": 1
+        },
+        {
+          "target": "0X28869B8",
+          "count": 1
+        }
+      ],
+      "literal_mask_operands": [
+        {
+          "mask": "0X20",
+          "count": 8
+        },
+        {
+          "mask": "0XA",
+          "count": 2
+        },
+        {
+          "mask": "0XFF",
+          "count": 1
+        },
+        {
+          "mask": "0XFFFFFFFF",
+          "count": 4
+        },
+        {
+          "mask": "0XFFFFFFFF00000000",
+          "count": 2
+        },
+        {
+          "mask": "0XFFFFFFFFFFFFFF",
+          "count": 1
+        }
+      ],
+      "branch_mnemonics": [
+        {
+          "mnemonic": "b",
+          "count": 1
+        },
+        {
+          "mnemonic": "b.eq",
+          "count": 2
+        },
+        {
+          "mnemonic": "b.ge",
+          "count": 1
+        },
+        {
+          "mnemonic": "b.lt",
+          "count": 1
+        },
+        {
+          "mnemonic": "bfi",
+          "count": 3
+        },
+        {
+          "mnemonic": "bl",
+          "count": 28
+        }
+      ],
+      "memory_offsets": [
+        {
+          "offset": "0X10",
+          "count": 1
+        },
+        {
+          "offset": "0X108",
+          "count": 1
+        },
+        {
+          "offset": "0X120",
+          "count": 2
+        },
+        {
+          "offset": "0X12F",
+          "count": 10
+        },
+        {
+          "offset": "0X180",
+          "count": 1
+        },
+        {
+          "offset": "0X1C8",
+          "count": 1
+        },
+        {
+          "offset": "0X1F0",
+          "count": 1
+        },
+        {
+          "offset": "0X20",
+          "count": 2
+        },
+        {
+          "offset": "0X28",
+          "count": 3
+        },
+        {
+          "offset": "0X2B4",
+          "count": 1
+        },
+        {
+          "offset": "0X30",
+          "count": 1
+        },
+        {
+          "offset": "0X38",
+          "count": 3
+        },
+        {
+          "offset": "0X40",
+          "count": 1
+        },
+        {
+          "offset": "0X420",
+          "count": 1
+        },
+        {
+          "offset": "0X478",
+          "count": 2
+        },
+        {
+          "offset": "0X48",
+          "count": 1
+        },
+        {
+          "offset": "0X50",
+          "count": 4
+        },
+        {
+          "offset": "0X508",
+          "count": 2
+        },
+        {
+          "offset": "0X58",
+          "count": 2
+        },
+        {
+          "offset": "0X60",
+          "count": 2
+        },
+        {
+          "offset": "0X70",
+          "count": 2
+        },
+        {
+          "offset": "0X788",
+          "count": 1
+        },
+        {
+          "offset": "0X80",
+          "count": 2
+        },
+        {
+          "offset": "0X84",
+          "count": 1
+        },
+        {
+          "offset": "0X88",
+          "count": 1
+        },
+        {
+          "offset": "0X8D8",
+          "count": 1
+        },
+        {
+          "offset": "0X90",
+          "count": 2
+        },
+        {
+          "offset": "0X912",
+          "count": 2
+        },
+        {
+          "offset": "0X988",
+          "count": 1
+        },
+        {
+          "offset": "0X9E8",
+          "count": 2
+        },
+        {
+          "offset": "0XA0",
+          "count": 2
+        },
+        {
+          "offset": "0XB0",
+          "count": 2
+        },
+        {
+          "offset": "0XB8",
+          "count": 2
+        },
+        {
+          "offset": "0XCA8",
+          "count": 1
+        },
+        {
+          "offset": "0XE0",
+          "count": 10
+        }
+      ]
+    },
+    {
+      "name": "GetKickHorSpd",
+      "start": "0x016EB860",
+      "end": "0x016EBAD8",
+      "instruction_count": 158,
+      "call_targets": [
+        {
+          "target": "0X11C66B8",
+          "count": 1
+        },
+        {
+          "target": "0X11C6764",
+          "count": 6
+        },
+        {
+          "target": "0X11C6788",
+          "count": 1
+        },
+        {
+          "target": "0X122B23C",
+          "count": 2
+        },
+        {
+          "target": "0X126C078",
+          "count": 2
+        },
+        {
+          "target": "0X13B01DC",
+          "count": 1
+        },
+        {
+          "target": "0X16DA81C",
+          "count": 1
+        },
+        {
+          "target": "0X16E6A80",
+          "count": 1
+        },
+        {
+          "target": "0X1E34BE4",
+          "count": 1
+        },
+        {
+          "target": "0X1FF58AC",
+          "count": 1
+        }
+      ],
+      "literal_mask_operands": [
+        {
+          "mask": "0X20",
+          "count": 7
+        },
+        {
+          "mask": "0XA",
+          "count": 3
+        },
+        {
+          "mask": "0XFFFFFFFF",
+          "count": 3
+        },
+        {
+          "mask": "0XFFFFFFFFFFFFFF",
+          "count": 1
+        }
+      ],
+      "branch_mnemonics": [
+        {
+          "mnemonic": "b.eq",
+          "count": 1
+        },
+        {
+          "mnemonic": "b.ge",
+          "count": 1
+        },
+        {
+          "mnemonic": "b.lt",
+          "count": 1
+        },
+        {
+          "mnemonic": "bfi",
+          "count": 2
+        },
+        {
+          "mnemonic": "bl",
+          "count": 17
+        }
+      ],
+      "memory_offsets": [
+        {
+          "offset": "0X10",
+          "count": 2
+        },
+        {
+          "offset": "0X108",
+          "count": 1
+        },
+        {
+          "offset": "0X12F",
+          "count": 6
+        },
+        {
+          "offset": "0X180",
+          "count": 1
+        },
+        {
+          "offset": "0X1F0",
+          "count": 1
+        },
+        {
+          "offset": "0X20",
+          "count": 2
+        },
+        {
+          "offset": "0X2B4",
+          "count": 1
+        },
+        {
+          "offset": "0X30",
+          "count": 2
+        },
+        {
+          "offset": "0X40",
+          "count": 2
+        },
+        {
+          "offset": "0X420",
+          "count": 1
+        },
+        {
+          "offset": "0X478",
+          "count": 1
+        },
+        {
+          "offset": "0X50",
+          "count": 2
+        },
+        {
+          "offset": "0X508",
+          "count": 1
+        },
+        {
+          "offset": "0X60",
+          "count": 2
+        },
+        {
+          "offset": "0X700",
+          "count": 1
+        },
+        {
+          "offset": "0X788",
+          "count": 1
+        },
+        {
+          "offset": "0X84",
+          "count": 1
+        },
+        {
+          "offset": "0X88",
+          "count": 1
+        },
+        {
+          "offset": "0X8D8",
+          "count": 1
+        },
+        {
+          "offset": "0X911",
+          "count": 2
+        },
+        {
+          "offset": "0X9E8",
+          "count": 1
+        },
+        {
+          "offset": "0XC",
+          "count": 2
+        },
+        {
+          "offset": "0XE0",
+          "count": 6
+        }
+      ]
+    }
+  ],
+  "confirmed_interpretation": [
+    "GetKickVelocity contains direct calls to GetVHor and GetVVer",
+    "literal masks are recorded without assigning equation semantics",
+    "branch and memory-offset lists are hints for manual review only"
+  ],
+  "unknown": [
+    "arithmetic equations",
+    "config record selection",
+    "spmoveInUseData producer semantics",
+    "coordinate basis and units",
+    "runtime behavior on representative inputs"
+  ],
+  "physics_gate": "blocked"
+}

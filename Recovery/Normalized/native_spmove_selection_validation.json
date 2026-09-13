@@ -1,0 +1,113 @@
+{
+  "schema_version": "football.recovery.native_spmove_selection.v1",
+  "status": "inventory_snapshot_selection_and_modifiers_differential_pass",
+  "binary_sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496",
+  "metadata_sha256": "92fae52ec4dc570929eb7b99d2083fd6ab6016cbbaa30f87e87ac6732bb1e42e",
+  "cases": 4672,
+  "groups": {
+    "max": {
+      "cases": 1632,
+      "mismatches": 0,
+      "input_sha256": "63a51aa225a9ea90208f4aa1af815d948a82a1b726e01968b1a0760d3db958ba",
+      "native_output_sha256": "f4514cc3f235c5f38489550d8a7d00cf0ab9316a2ba95866eeb8c54c90b36dd8"
+    },
+    "config": {
+      "cases": 400,
+      "mismatches": 0,
+      "input_sha256": "4dc5a284a6bd3c3fffda281f16bd610c12b9a2a4bc86d17a3c9a812d3bdb0f4c",
+      "native_output_sha256": "80d5a46f77b8a870a07385b5e7936aefca2069dfa5f15f51037b120438266026"
+    },
+    "params": {
+      "cases": 2000,
+      "mismatches": 0,
+      "input_sha256": "49c82eedd48ce2582bfa0084ed2d392ef5692b94e0863fd0622f660faeef34f0",
+      "native_output_sha256": "2a6a228a548c7a073c9e374d2359d95d15e3287876878371d9d91605d4ab5663"
+    },
+    "canonical_modifiers": {
+      "cases": 640,
+      "mismatches": 0,
+      "input_sha256": "98aff5dd94645dc8dfcd5513e9bffdf0fac9265901855ad097e761825c981110",
+      "native_output_sha256": "3fcfce32ad9d6ba7fd3d5d24a9dd9d0a9f4d2834af8a5f17207a8411d506d332"
+    }
+  },
+  "native_methods": {
+    "max_id": {
+      "start": "0x1b72fd4",
+      "end_exclusive": "0x1b73100"
+    },
+    "max_config": {
+      "start": "0x1b7264c",
+      "end_exclusive": "0x1b726c0"
+    },
+    "config_by_logic": {
+      "start": "0x1b72794",
+      "end_exclusive": "0x1b72814"
+    },
+    "data_no_ratio": {
+      "start": "0x1b72814",
+      "end_exclusive": "0x1b72848"
+    },
+    "ids": {
+      "start": "0x1b72da8",
+      "end_exclusive": "0x1b72e40"
+    },
+    "module_config": {
+      "start": "0x1449858",
+      "end_exclusive": "0x1449940"
+    },
+    "player_data": {
+      "start": "0x196807c",
+      "end_exclusive": "0x196808c"
+    }
+  },
+  "hooked_boundaries": {
+    "0x1b71aac": "getSpmoveIdDict snapshot",
+    "0x2c6a4f8": "Dictionary.ContainsKey",
+    "0x2c6a188": "Dictionary.get_Item",
+    "0x2c6be94": "Dictionary.TryGetValue",
+    "0x1e34be4": "SpmoveModule singleton",
+    "0x11c6780": "object allocation",
+    "0x14494f4": "empty SpmoveIDCombine constructor",
+    "0x2f2737c": "List.GetEnumerator",
+    "0x1c2bc58": "List.Enumerator.MoveNext",
+    "0x1c2bc54": "List.Enumerator.Dispose",
+    "0x11c6774": "diagnostic boxing",
+    "0x215a3fc": "diagnostic formatting",
+    "0x29e1700": "diagnostic logging"
+  },
+  "cpp_source_sha256": {
+    "Reference/FootballCore/FixedPoint.h": "f837a471dc9b9fd98aee28378c556295c5f09a1d098b800404608700cca195a8",
+    "Reference/FootballPhysics/NativeSqrtTable.h": "fccea12b0e3881841c02bf27b302fa0f22e1c1fa65b9f6854f9b4e081d006ebb",
+    "Reference/FootballPhysics/NativeVectorMath.h": "ec744857741b468f333a3a1dff10479e488d0c3369b3d41b08ba1bd939b82541",
+    "Reference/FootballPhysics/SpmoveBranches.h": "7418cb3eec3882fad30efce110d56438445c827b5d13c9f74705ad19918b2afb",
+    "Reference/FootballPhysics/SpmoveModifiers.h": "d33353920b7c1359028a3e1f74707cb0ed137a43a143b61855e4f3ec85dd4dfe",
+    "Reference/FootballPhysics/SpmoveProducer.h": "e52f60dd5b409fa39fc60443882dac39fc526e06bc5aeec37cb482b38cedb461",
+    "Reference/FootballPhysics/SpmoveSelection.h": "51a57459edbe49ef8b89cd7857d81cc4065953ff2f8d6c56762e7187b1458123",
+    "Tests/spmove_selection_probe.cpp": "94a7c17757eda9eadffdc368e253cc7660c66a298e05307c88658e24abb93c43"
+  },
+  "verification_source_sha256": {
+    "Tools/verify_spmove_selection.py": "ae4642eba11d0970b400d8838e939981f61d78f94caf88e8c345b5355cda640d",
+    "Tools/verify_spmove_branches.py": "44e72024ec36e0cd7b0abd29c68c3f94dcee8cafac20b3679cd451f33c5cebb2",
+    "Tools/verify_native_vector_math.py": "ea5754bd6f4f9b5621903e1cdd2ffb6c041edd3d6c15e5d4363c1b32af6f270b",
+    "Tools/verify_native_kernels.py": "d3cff735bf89569f36aeecbd60b308bf8f0d064fac8538142418fca864a5707f",
+    "Tools/recover_native_sqrt_table.py": "34d75fa9034be5a6f2a03b51a9bb47bf43392a7a2354a7fe592665b673f27748",
+    "Tools/disassemble_spmove_runtime.py": "5b160ac9ee83de68150fdb6c910dfe543c669508ddf2822fa5af9cea2e6df28f"
+  },
+  "normalized_config_sha256": "6f013b7f32dfcd329f389fea0ae75acf127a06d4e93b7447d7c7f099fb809414",
+  "cpp_executable_sha256": "8af1cdb8c55e3906511bb508b18df4cc7d2b96f1027643309a2c9366a0599810",
+  "text_digest_canonicalization": "UTF-8 without BOM, LF line endings",
+  "confirmed": [
+    "highest signed child ID, not level/order/odds",
+    "showFather positive tie preference and return",
+    "noRatio low bit controls parameter return without RNG",
+    "missing maximum config does not fall back to lower candidates",
+    "inventory -> native selection -> canonical parameters -> modifier execution"
+  ],
+  "excluded": [
+    "getSpmoveIdDict inventory collection/cache/eligibility",
+    "calSpmoveInUse producer",
+    "full GetVHor/GetVVer bases",
+    "GetKickVelocity/BALL_CONTACT"
+  ],
+  "physics_v0_3_gate": "blocked"
+}

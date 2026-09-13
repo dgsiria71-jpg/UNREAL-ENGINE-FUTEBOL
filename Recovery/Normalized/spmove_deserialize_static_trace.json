@@ -1,0 +1,221 @@
+{
+  "schema_version": "football.recovery.spmove_deserialize_static_trace.v1",
+  "source": ".local/il2cpp/spmove_deserialize_disassembly.txt",
+  "source_sha256": "d2fc5e4f7ed99d9b9262a0040259ff6d069e4895c5b4035000e804e2712b271f",
+  "binary": ".local/il2cpp/libil2cpp.so",
+  "binary_sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496",
+  "source_scope": "canonical Android ARM64 libil2cpp.so",
+  "analysis_status": "deserializer_field_writes_only",
+  "behavior_validated": false,
+  "method_spans": [
+    {
+      "name": "SpmoveActionDataConfigItemBuffer.deserialize",
+      "start": "0x01F7DCDC",
+      "end": "0x01F7DEAC"
+    },
+    {
+      "name": "SpmoveConfigConfigItemBuffer.deserialize",
+      "start": "0x01F7DEAC",
+      "end": "0x01F7E0AC"
+    }
+  ],
+  "anchors": {
+    "action_id": {
+      "section": "SpmoveActionDataConfigItemBuffer.deserialize",
+      "address": "0x01F7DD84",
+      "instruction": "str      w0, [x21, #0x10]"
+    },
+    "action_gear": {
+      "section": "SpmoveActionDataConfigItemBuffer.deserialize",
+      "address": "0x01F7DDA8",
+      "instruction": "str      w0, [x21, #0x14]"
+    },
+    "action_condition": {
+      "section": "SpmoveActionDataConfigItemBuffer.deserialize",
+      "address": "0x01F7DDCC",
+      "instruction": "str      w0, [x21, #0x18]"
+    },
+    "action_anim_list": {
+      "section": "SpmoveActionDataConfigItemBuffer.deserialize",
+      "address": "0x01F7DDF4",
+      "instruction": "str      x0, [x21, #0x20]"
+    },
+    "action_fancyId": {
+      "section": "SpmoveActionDataConfigItemBuffer.deserialize",
+      "address": "0x01F7DE18",
+      "instruction": "str      w0, [x21, #0x28]"
+    },
+    "action_spmove_check_ids": {
+      "section": "SpmoveActionDataConfigItemBuffer.deserialize",
+      "address": "0x01F7DE38",
+      "instruction": "str      x0, [x21, #0x30]"
+    },
+    "action_speed_fix_rate": {
+      "section": "SpmoveActionDataConfigItemBuffer.deserialize",
+      "address": "0x01F7DE84",
+      "instruction": "str      x0, [x21, #0x38]"
+    },
+    "config_id": {
+      "section": "SpmoveConfigConfigItemBuffer.deserialize",
+      "address": "0x01F7DF54",
+      "instruction": "str      w0, [x21, #0x18]"
+    },
+    "config_enable": {
+      "section": "SpmoveConfigConfigItemBuffer.deserialize",
+      "address": "0x01F7DF78",
+      "instruction": "str      w0, [x21, #0x1c]"
+    },
+    "config_logicId": {
+      "section": "SpmoveConfigConfigItemBuffer.deserialize",
+      "address": "0x01F7DF9C",
+      "instruction": "str      w0, [x21, #0x20]"
+    },
+    "config_childSpmoveIds": {
+      "section": "SpmoveConfigConfigItemBuffer.deserialize",
+      "address": "0x01F7DFC4",
+      "instruction": "str      x0, [x21, #0x28]"
+    },
+    "config_level": {
+      "section": "SpmoveConfigConfigItemBuffer.deserialize",
+      "address": "0x01F7DFE8",
+      "instruction": "str      w0, [x21, #0x30]"
+    },
+    "config_odds": {
+      "section": "SpmoveConfigConfigItemBuffer.deserialize",
+      "address": "0x01F7E00C",
+      "instruction": "str      w0, [x21, #0x34]"
+    },
+    "config_param": {
+      "section": "SpmoveConfigConfigItemBuffer.deserialize",
+      "address": "0x01F7E02C",
+      "instruction": "str      x0, [x21, #0x38]"
+    },
+    "config_buffId": {
+      "section": "SpmoveConfigConfigItemBuffer.deserialize",
+      "address": "0x01F7E050",
+      "instruction": "str      w0, [x21, #0x40]"
+    },
+    "config_IsBuffId": {
+      "section": "SpmoveConfigConfigItemBuffer.deserialize",
+      "address": "0x01F7E068",
+      "instruction": "strb     w8, [x21, #0x44]"
+    },
+    "config_order": {
+      "section": "SpmoveConfigConfigItemBuffer.deserialize",
+      "address": "0x01F7E08C",
+      "instruction": "str      w0, [x21, #0x48]"
+    }
+  },
+  "serialized_fields": {
+    "spmoveactiondata": [
+      {
+        "name": "id",
+        "offset": "0x10",
+        "store": "0x01F7DD84"
+      },
+      {
+        "name": "gear",
+        "offset": "0x14",
+        "store": "0x01F7DDA8"
+      },
+      {
+        "name": "condition",
+        "offset": "0x18",
+        "store": "0x01F7DDCC"
+      },
+      {
+        "name": "anim_list",
+        "offset": "0x20",
+        "store": "0x01F7DDF4"
+      },
+      {
+        "name": "fancyId",
+        "offset": "0x28",
+        "store": "0x01F7DE18"
+      },
+      {
+        "name": "spmove_check_ids",
+        "offset": "0x30",
+        "store": "0x01F7DE38"
+      },
+      {
+        "name": "speed_fix_rate",
+        "offset": "0x38",
+        "store": "0x01F7DE84"
+      }
+    ],
+    "spmoveconfig": [
+      {
+        "name": "id",
+        "offset": "0x18",
+        "store": "0x01F7DF54"
+      },
+      {
+        "name": "enable",
+        "offset": "0x1C",
+        "store": "0x01F7DF78"
+      },
+      {
+        "name": "logicId",
+        "offset": "0x20",
+        "store": "0x01F7DF9C"
+      },
+      {
+        "name": "childSpmoveIds",
+        "offset": "0x28",
+        "store": "0x01F7DFC4"
+      },
+      {
+        "name": "level",
+        "offset": "0x30",
+        "store": "0x01F7DFE8"
+      },
+      {
+        "name": "odds",
+        "offset": "0x34",
+        "store": "0x01F7E00C"
+      },
+      {
+        "name": "param",
+        "offset": "0x38",
+        "store": "0x01F7E02C"
+      },
+      {
+        "name": "buffId",
+        "offset": "0x40",
+        "store": "0x01F7E050"
+      },
+      {
+        "name": "IsBuffId",
+        "offset": "0x44",
+        "store": "0x01F7E068"
+      },
+      {
+        "name": "order",
+        "offset": "0x48",
+        "store": "0x01F7E08C"
+      }
+    ]
+  },
+  "omitted_runtime_fields": [
+    {
+      "name": "param_Xnumber",
+      "offset": "0x10",
+      "type_evidence": "SpmoveConfigConfigItem.param_Xnumber",
+      "deserializer_evidence": "no store at +0x10 in SpmoveConfigConfigItemBuffer.deserialize",
+      "status": "runtime_field_not_serialized_in_this_buffer"
+    }
+  ],
+  "confirmed_interpretation": [
+    "the config buffer reader writes id, enable, logicId, childSpmoveIds, level, odds, param, buffId, IsBuffId, and order",
+    "the config buffer reader does not write param_Xnumber at offset 0x10",
+    "action buffer field writes match the normalized byte-consumption schema"
+  ],
+  "unknown": [
+    "whether a constructor or manager post-processing populates param_Xnumber",
+    "the source and units of any runtime-derived XNumber list",
+    "selection, odds, level, and buff application semantics",
+    "runtime behavior on representative inputs"
+  ],
+  "physics_gate": "blocked"
+}

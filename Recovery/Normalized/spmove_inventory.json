@@ -1,0 +1,64 @@
+{
+  "schema_version": "football.recovery.spmove.inventory.v1",
+  "generated_at_utc": "2026-09-12T03:15:22.202936+00:00",
+  "semantic_status": "raw_identity_only",
+  "explicit_unknowns": [
+    "spmove binary record schema",
+    "spmoveInUseData VHor modifier",
+    "spmoveInUseData VVer modifier",
+    "GetVHor/GetVVer indexing and interpolation",
+    "GetKickVelocity composition"
+  ],
+  "sources": [
+    {
+      "source_id": "migration_v1_1_canonical",
+      "archive": "C:\\Users\\dg71\\Downloads\\FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER_v1_1.zip",
+      "relation": "canonical_baseline",
+      "archive_present": true,
+      "entries": [
+        {
+          "path": "FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER/02_GAMEPLAY_DATA/config/match/spmoveactiondata",
+          "present": true,
+          "bytes": 2163,
+          "sha256": "f319f154e3782b28c4110d6aae9f30039a4042a09b82664362f05c1b28124135",
+          "prefix_hex": "933000000001000000030800fb560f000000197301001b7301001d7301001f73",
+          "suffix_hex": "0f580006170b58000fe0031d0444001b0c44000fe00319803305000066050000"
+        },
+        {
+          "path": "FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER/02_GAMEPLAY_DATA/config/match/spmoveconfig",
+          "present": true,
+          "bytes": 3587,
+          "sha256": "d724201b499a9fa6c3d86b8b6fcb850dcc2d3c8e86d6a403a3d466db1a1d394a",
+          "prefix_hex": "f100240100006987010001000000e703000100000c0012640b00600089bf0d00",
+          "suffix_hex": "2d00133f2d000010071f3d8c03051b9e2d00000c071f3e8c0300500001000000"
+        }
+      ],
+      "archive_bytes": 157288676
+    },
+    {
+      "source_id": "football_dream_candidate",
+      "archive": "C:\\Users\\dg71\\Downloads\\football-dream-be-a-pro-1-226-19.zip",
+      "relation": "separate_hash_different_mobile_build",
+      "archive_present": true,
+      "entries": [
+        {
+          "path": "assets/config/match/spmoveactiondata",
+          "present": true,
+          "bytes": 2163,
+          "sha256": "f319f154e3782b28c4110d6aae9f30039a4042a09b82664362f05c1b28124135",
+          "prefix_hex": "933000000001000000030800fb560f000000197301001b7301001d7301001f73",
+          "suffix_hex": "0f580006170b58000fe0031d0444001b0c44000fe00319803305000066050000"
+        },
+        {
+          "path": "assets/config/match/spmoveconfig",
+          "present": true,
+          "bytes": 3856,
+          "sha256": "6e9d61aa1aa8a7d655c73aaf159cc0e2e7ff48f4f3c9c214267111533314f2c3",
+          "prefix_hex": "f100380100006987010001000000e703000100000c0012640b00600089bf0d00",
+          "suffix_hex": "001304de0e042900149bcd001b312900044f0204cd0090839a01000101000000"
+        }
+      ],
+      "archive_bytes": 166757441
+    }
+  ]
+}

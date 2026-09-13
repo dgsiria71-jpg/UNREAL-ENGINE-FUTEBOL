@@ -1,0 +1,632 @@
+{
+  "schema_version": "football.recovery.spmove_runtime_static_trace.v1",
+  "source": ".local/il2cpp/spmove_runtime_disassembly.txt",
+  "source_sha256": "c792be12c307425a14ef8f109e74d363f4a52ec017bf7ff5144387c1831df495",
+  "shoot_source": ".local/il2cpp/disassembly_shoot.txt",
+  "shoot_source_sha256": "ef1b41f609e49f2d831a16f69b82e227a967c914a4ee3748cfbfbdccd161ba58",
+  "binary": ".local/il2cpp/libil2cpp.so",
+  "binary_sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496",
+  "source_scope": "canonical Android ARM64 libil2cpp.so",
+  "analysis_status": "param_runtime_population_and_property_call_sites_only",
+  "behavior_validated": false,
+  "method_spans": [
+    {
+      "name": "SpmoveModule.OnGameStart",
+      "start": "0x01449504",
+      "end": "0x01449858"
+    },
+    {
+      "name": "SpmoveConfigConfigItem.getSuccessByOdds",
+      "start": "0x019A4394",
+      "end": "0x019A4424"
+    },
+    {
+      "name": "Player.GetSpmoveData",
+      "start": "0x01968070",
+      "end": "0x0196807C"
+    },
+    {
+      "name": "Player.GetSpmoveDataRatio",
+      "start": "0x0196807C",
+      "end": "0x0196808C"
+    }
+  ],
+  "anchors": {
+    "on_game_start_enabled_guard": {
+      "section": "SpmoveModule.OnGameStart",
+      "address": "0x0144960C",
+      "instruction": "ldr      w8, [x20, #0x1c]"
+    },
+    "on_game_start_skip_disabled": {
+      "section": "SpmoveModule.OnGameStart",
+      "address": "0x01449610",
+      "instruction": "cbz      w8, #0x14495f4"
+    },
+    "on_game_start_list_constructor": {
+      "section": "SpmoveModule.OnGameStart",
+      "address": "0x01449630",
+      "instruction": "bl       #0x2c0c8f0"
+    },
+    "on_game_start_param_load": {
+      "section": "SpmoveModule.OnGameStart",
+      "address": "0x01449634",
+      "instruction": "ldr      x0, [x20, #0x38]"
+    },
+    "on_game_start_param_xnumber_store": {
+      "section": "SpmoveModule.OnGameStart",
+      "address": "0x01449638",
+      "instruction": "str      x21, [x20, #0x10]"
+    },
+    "on_game_start_param_enumerator": {
+      "section": "SpmoveModule.OnGameStart",
+      "address": "0x0144964C",
+      "instruction": "sub      x8, x29, #0xa8"
+    },
+    "on_game_start_param_current_raw": {
+      "section": "SpmoveModule.OnGameStart",
+      "address": "0x01449678",
+      "instruction": "ldur     w21, [x29, #-0x80]"
+    },
+    "on_game_start_param_add": {
+      "section": "SpmoveModule.OnGameStart",
+      "address": "0x014496A4",
+      "instruction": "bl       #0x2c0d5c4"
+    },
+    "odds_load": {
+      "section": "SpmoveConfigConfigItem.getSuccessByOdds",
+      "address": "0x019A43D0",
+      "instruction": "ldr      w19, [x19, #0x34]"
+    },
+    "odds_xnumber_scale": {
+      "section": "SpmoveConfigConfigItem.getSuccessByOdds",
+      "address": "0x019A43F4",
+      "instruction": "lsl      w19, w19, #0xa"
+    },
+    "odds_opaque_helper": {
+      "section": "SpmoveConfigConfigItem.getSuccessByOdds",
+      "address": "0x019A4420",
+      "instruction": "b        #0x192a1e0"
+    },
+    "player_manager_load": {
+      "section": "Player.GetSpmoveData",
+      "address": "0x01968070",
+      "instruction": "ldr      x0, [x0, #0x28]"
+    },
+    "player_manager_forward": {
+      "section": "Player.GetSpmoveData",
+      "address": "0x01968078",
+      "instruction": "b        #0x1b72758"
+    },
+    "player_ratio_mask": {
+      "section": "Player.GetSpmoveDataRatio",
+      "address": "0x01968080",
+      "instruction": "and      w2, w2, #1"
+    },
+    "player_ratio_forward": {
+      "section": "Player.GetSpmoveDataRatio",
+      "address": "0x01968088",
+      "instruction": "b        #0x1b72814"
+    }
+  },
+  "param_runtime_population": {
+    "enabled_guard": {
+      "field": "SpmoveConfigConfigItem.enable",
+      "offset": "0x1C",
+      "behavior": "disabled records branch around runtime-list construction",
+      "evidence": [
+        "0x0144960C",
+        "0x01449610"
+      ]
+    },
+    "list_creation": {
+      "field": "SpmoveConfigConfigItem.param_Xnumber",
+      "offset": "0x10",
+      "constructor_target": "0x2C0C8F0",
+      "assignment": "new List<XNumber> stored at item+0x10",
+      "evidence": [
+        "0x01449630",
+        "0x01449638"
+      ]
+    },
+    "serialized_param_copy": {
+      "source_field": "SpmoveConfigConfigItem.param",
+      "source_offset": "0x38",
+      "operation": "enumerate serialized param list and add each raw int to List<XNumber>",
+      "enumerator_evidence": [
+        "0x01449634",
+        "0x0144964C",
+        "0x0144966C"
+      ],
+      "raw_value_evidence": "0x01449678 loads w21 from enumerator current",
+      "list_add_target": "0x2C0D5C4",
+      "list_add_evidence": "0x0144969C-0x014496A4"
+    },
+    "canonical_observation": {
+      "config_record_count": 292,
+      "records_with_empty_param_raw": 183,
+      "status": "serialized_canonical_param_lists_are_empty_in_normalized_archive",
+      "caveat": "this proves the archive representation only; later runtime mutation or another source is not excluded"
+    }
+  },
+  "odds_path": {
+    "field": "SpmoveConfigConfigItem.odds",
+    "offset": "0x34",
+    "operation": "load odds, shift left 10 bits, branch to opaque helper",
+    "scale": "odds << 10 (XNumber raw scaling; 1024 factor)",
+    "helper_target": "0x192A1E0",
+    "evidence": [
+      "0x019A43D0",
+      "0x019A43F4",
+      "0x019A4420"
+    ],
+    "semantics": "helper/RNG threshold meaning unresolved"
+  },
+  "player_forwarding": {
+    "manager_field": "Player+0x28",
+    "get_spmove_data": "load manager then tail-call XSpmoveManager.GetSpmoveData (0x1B72758)",
+    "get_spmove_data_ratio": "mask noRatio to bit 0, clear x3, tail-call GetSpmoveDataNoRatio (0x1B72814)",
+    "evidence": [
+      "0x01968070",
+      "0x01968078",
+      "0x01968080",
+      "0x01968088"
+    ]
+  },
+  "property_call_sites": [
+    {
+      "shoot_method": "GetVHor",
+      "call_address": "0x016E7044",
+      "target": "0x196807C",
+      "property_id": 1022,
+      "property_id_address": "0x016E7038",
+      "flag_mask": "0xFF000000",
+      "flag_mask_address": "0x016E7024",
+      "ratio_argument": "w2=1",
+      "fourth_argument": "x3=0",
+      "null_result_checked_next": true,
+      "property_name_hint": "ShootFirst branch property"
+    },
+    {
+      "shoot_method": "GetVHor",
+      "call_address": "0x016E717C",
+      "target": "0x196807C",
+      "property_id": 1020,
+      "property_id_address": "0x016E7170",
+      "flag_mask": "0xFF0000000000",
+      "flag_mask_address": "0x016E715C",
+      "ratio_argument": "w2=1",
+      "fourth_argument": "x3=0",
+      "null_result_checked_next": true,
+      "property_name_hint": "ShootLongKick branch property"
+    },
+    {
+      "shoot_method": "GetVHor",
+      "call_address": "0x016E76D0",
+      "target": "0x196807C",
+      "property_id": 1022,
+      "property_id_address": "0x016E76C4",
+      "flag_mask": "0xFF000000",
+      "flag_mask_address": "0x016E76B0",
+      "ratio_argument": "w2=1",
+      "fourth_argument": "x3=0",
+      "null_result_checked_next": true,
+      "property_name_hint": "ShootFirst branch property"
+    },
+    {
+      "shoot_method": "GetVHor",
+      "call_address": "0x016E7808",
+      "target": "0x196807C",
+      "property_id": 1020,
+      "property_id_address": "0x016E77FC",
+      "flag_mask": "0xFF0000000000",
+      "flag_mask_address": "0x016E77E8",
+      "ratio_argument": "w2=1",
+      "fourth_argument": "x3=0",
+      "null_result_checked_next": true,
+      "property_name_hint": "ShootLongKick branch property"
+    },
+    {
+      "shoot_method": "GetVVer",
+      "call_address": "0x016E9DFC",
+      "target": "0x196807C",
+      "property_id": 1020,
+      "property_id_address": "0x016E9DF0",
+      "flag_mask": null,
+      "flag_mask_address": null,
+      "ratio_argument": "w2=1",
+      "fourth_argument": "x3=0",
+      "null_result_checked_next": true,
+      "property_name_hint": "ShootLongKick branch property"
+    },
+    {
+      "shoot_method": "GetVVer",
+      "call_address": "0x016E9F3C",
+      "target": "0x196807C",
+      "property_id": 1050,
+      "property_id_address": "0x016E9F30",
+      "flag_mask": null,
+      "flag_mask_address": null,
+      "ratio_argument": "w2=1",
+      "fourth_argument": "x3=0",
+      "null_result_checked_next": true,
+      "property_name_hint": "shootPush branch property"
+    },
+    {
+      "shoot_method": "GetVVer",
+      "call_address": "0x016EA424",
+      "target": "0x196807C",
+      "property_id": 1019,
+      "property_id_address": "0x016EA418",
+      "flag_mask": null,
+      "flag_mask_address": null,
+      "ratio_argument": "w2=1",
+      "fourth_argument": "x3=0",
+      "null_result_checked_next": true,
+      "property_name_hint": "Head branch property"
+    }
+  ],
+  "property_logic_id_alignment": {
+    "0x417": {
+      "property_id_decimal": 1047,
+      "canonical_logic_id": 1047,
+      "record_count": 5,
+      "record_ids": [
+        104701,
+        104702,
+        104703,
+        104704,
+        104705
+      ],
+      "levels": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "odds": [
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "param_raw_by_level": [
+        [
+          400
+        ],
+        [
+          300
+        ],
+        [
+          200
+        ],
+        [
+          100
+        ],
+        [
+          0
+        ]
+      ],
+      "status": "numeric_property_to_logic_id_alignment_only"
+    },
+    "0x418": {
+      "property_id_decimal": 1048,
+      "canonical_logic_id": 1048,
+      "record_count": 5,
+      "record_ids": [
+        104801,
+        104802,
+        104803,
+        104804,
+        104805
+      ],
+      "levels": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "odds": [
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "param_raw_by_level": [
+        [
+          400
+        ],
+        [
+          300
+        ],
+        [
+          200
+        ],
+        [
+          100
+        ],
+        [
+          0
+        ]
+      ],
+      "status": "numeric_property_to_logic_id_alignment_only"
+    },
+    "0x3FE": {
+      "property_id_decimal": 1022,
+      "canonical_logic_id": 1022,
+      "record_count": 5,
+      "record_ids": [
+        102201,
+        102202,
+        102203,
+        102204,
+        102205
+      ],
+      "levels": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "odds": [
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "param_raw_by_level": [
+        [
+          1500,
+          150
+        ],
+        [
+          2000,
+          300
+        ],
+        [
+          2500,
+          450
+        ],
+        [
+          3000,
+          600
+        ],
+        [
+          3500,
+          750
+        ]
+      ],
+      "status": "numeric_property_to_logic_id_alignment_only"
+    },
+    "0x3FC": {
+      "property_id_decimal": 1020,
+      "canonical_logic_id": 1020,
+      "record_count": 5,
+      "record_ids": [
+        102001,
+        102002,
+        102003,
+        102004,
+        102005
+      ],
+      "levels": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "odds": [
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "param_raw_by_level": [
+        [
+          120,
+          4000,
+          900
+        ],
+        [
+          240,
+          4500,
+          800
+        ],
+        [
+          360,
+          5000,
+          700
+        ],
+        [
+          480,
+          5500,
+          600
+        ],
+        [
+          600,
+          6000,
+          500
+        ]
+      ],
+      "status": "numeric_property_to_logic_id_alignment_only"
+    },
+    "0x41A": {
+      "property_id_decimal": 1050,
+      "canonical_logic_id": 1050,
+      "record_count": 5,
+      "record_ids": [
+        105001,
+        105002,
+        105003,
+        105004,
+        105005
+      ],
+      "levels": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "odds": [
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "param_raw_by_level": [
+        [
+          1500,
+          60,
+          900
+        ],
+        [
+          3000,
+          120,
+          800
+        ],
+        [
+          4500,
+          180,
+          700
+        ],
+        [
+          6000,
+          240,
+          600
+        ],
+        [
+          7500,
+          300,
+          500
+        ]
+      ],
+      "status": "numeric_property_to_logic_id_alignment_only"
+    },
+    "0x3FB": {
+      "property_id_decimal": 1019,
+      "canonical_logic_id": 1019,
+      "record_count": 5,
+      "record_ids": [
+        101901,
+        101902,
+        101903,
+        101904,
+        101905
+      ],
+      "levels": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "odds": [
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "param_raw_by_level": [
+        [
+          1500,
+          500,
+          300
+        ],
+        [
+          3000,
+          1000,
+          600
+        ],
+        [
+          4500,
+          1500,
+          900
+        ],
+        [
+          6000,
+          2000,
+          1200
+        ],
+        [
+          7500,
+          2500,
+          1500
+        ]
+      ],
+      "status": "numeric_property_to_logic_id_alignment_only"
+    },
+    "0x40B": {
+      "property_id_decimal": 1035,
+      "canonical_logic_id": 1035,
+      "record_count": 5,
+      "record_ids": [
+        103501,
+        103502,
+        103503,
+        103504,
+        103505
+      ],
+      "levels": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "odds": [
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "param_raw_by_level": [
+        [
+          200
+        ],
+        [
+          400
+        ],
+        [
+          600
+        ],
+        [
+          800
+        ],
+        [
+          1000
+        ]
+      ],
+      "status": "numeric_property_to_logic_id_alignment_only"
+    }
+  },
+  "confirmed_interpretation": [
+    "enabled config items receive a runtime List<XNumber> at +0x10 in OnGameStart",
+    "serialized param values are copied as raw integer XNumber values when a param list exists",
+    "canonical normalized config records currently have empty param_raw lists, subject to the stated later-mutation caveat",
+    "getSuccessByOdds applies a 10-bit left shift before an opaque helper",
+    "Player.GetSpmoveDataRatio forwards the noRatio flag and manager selector used by ShootUtility",
+    "the canonical normalized records contain five levels for each logic ID aligned numerically with property IDs 0x417, 0x418, 0x3FE, 0x3FC, 0x41A, 0x3FB, and 0x40B",
+    "ShootUtility has seven instruction-anchored property call sites with IDs 0x3FE, 0x3FC, 0x41A, and 0x3FB"
+  ],
+  "unknown": [
+    "exact List<XNumber> object/class construction details beyond the observed constructor and Add calls",
+    "whether another post-processing path mutates param_Xnumber after OnGameStart",
+    "meaning of helper 0x192A1E0, RNG source, and odds threshold semantics",
+    "selected config for each logic ID and level/odds resolution",
+    "whether numeric property-ID and logic-ID alignment is intentional across all runtime builds",
+    "property units and mapping from param_Xnumber to VHor/VVer/GetKickVelocity modifiers",
+    "arithmetic equations, coordinate basis, and runtime behavior on representative inputs"
+  ],
+  "physics_gate": "blocked"
+}

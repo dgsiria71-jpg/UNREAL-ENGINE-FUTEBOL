@@ -1,0 +1,266 @@
+{
+  "schema_version": "0.1",
+  "status": "partial_executable_recovery_full_velocity_pending",
+  "engine_target": "Unreal Engine 5.x",
+  "source_runtime": "Unity/IL2CPP mobile archive (offline recovery only)",
+  "fixed_point": {
+    "type": "XNumber",
+    "one_raw": 1024,
+    "fraction_bits": 10,
+    "status": "multiply_and_nonzero_divide_differential_verified",
+    "multiply_raw": "int32(extract_bits_10_through_41(int64(a_raw)*b_raw+512))",
+    "divide_nonzero_raw": "int32(q + trunc(2*r/b_raw)); q=trunc(a_raw*1024/b_raw); r=a_raw*1024-q*b_raw",
+    "zero_divisor": "C++ host guard throws; original static-field fallback not yet recovered",
+    "normalization_3d": "native lookup sqrt, near-unit band, small-vector precision and rounding recovered",
+    "normalization_2d": "existing C++ Normalize(XVector2) remains floating-point authored fixture; not claimed native"
+  },
+  "animation_timing": {
+    "clip_sample_rate_fps": 30,
+    "kick_contact_time": "kickOutFrame / 30.0",
+    "status": "confirmed_from_v0_2_runtime_bridge"
+  },
+  "runtime_fields": {
+    "0x1C0": {
+      "name": "vertical_accel_raw",
+      "semantic_status": "unknown",
+      "rename_policy": "do_not_rename_before_native_proof"
+    }
+  },
+  "ball_contact": {
+    "required": [
+      "authoritative",
+      "semantic_complete",
+      "velocity_resolved",
+      "recovered_velocity"
+    ],
+    "unresolved_fallback": "forbidden",
+    "ball_impulse": "not_emitted_until_velocity_is_proven"
+  },
+  "spmove": {
+    "input_field": "spmoveInUseData",
+    "vhor": "selected_property_modifier_regions_differential_verified",
+    "vver": "selected_property_modifier_regions_differential_verified",
+    "get_vhor": "unknown",
+    "get_vver": "unknown",
+    "get_kick_velocity": "unknown",
+    "gate": "blocked",
+    "schema": {
+      "status": "record_schema_confirmed_velocity_semantics_unresolved",
+      "codec": "LZ4 raw block",
+      "byte_exact_against_v0_2_pairs": "83/83 GREEN",
+      "canonical_action": {
+        "compressed_bytes": 2163,
+        "decoded_bytes": 4332,
+        "record_count": 48,
+        "decoded_sha256": "09f9c6f09998b53881768e86f89e797121bf695b5bceecfddb419691ecdbea6d"
+      },
+      "canonical_config": {
+        "compressed_bytes": 3587,
+        "decoded_bytes": 11880,
+        "record_count": 292,
+        "decoded_sha256": "ac5e0b52a63f962e41be1b55a64ca720e261667ab2146352ecf17b0311d56b3a"
+      },
+      "separate_candidate_config_records": 312,
+      "param_Xnumber": "runtime_field_not_serialized",
+      "normalized_report": "Recovery/Normalized/spmove_normalized.json"
+    },
+    "native_static_evidence": {
+      "status": "partial_source_backed_non_executable_on_windows_x64",
+      "architecture": "Android ARM64",
+      "tool": "Il2CppDumper v6.7.46 plus Capstone",
+      "record": "Recovery/Physics/NATIVE_STATIC_EVIDENCE.md",
+      "methods": {
+        "GetVHor": "0x16E6A80",
+        "GetVVer": "0x16E84A4",
+        "GetKickHorSpd": "0x16EB860",
+        "GetKickVelocity": "0x16EBAD8",
+        "calSpmoveInUse": "0x14C5548"
+      },
+      "behavior_validated": false
+    },
+    "producer_trace": {
+      "status": "field_writes_instruction_anchored_semantics_partial",
+      "report": "Recovery/Normalized/cal_spmove_static_trace.json",
+      "method_rva": "0x14C5548",
+      "flags_written": [
+        "shootPush",
+        "CalmShoot",
+        "SAngleShoot",
+        "ShootFirst",
+        "Head",
+        "ShootLongKick",
+        "SwantonBomb"
+      ],
+      "behavior_validated": false
+    },
+    "manager_static_evidence": {
+      "status": "selection_control_flow_only_runtime_boundary_confirmed",
+      "record": "Recovery/Normalized/spmove_manager_static_trace.json",
+      "report": "Recovery/Physics/NATIVE_STATIC_EVIDENCE.md",
+      "behavior_validated": false,
+      "param_Xnumber": {
+        "record_offset": "0x10",
+        "status": "runtime_field_not_serialized",
+        "implication": "spmoveconfig tables alone cannot provide GetSpmoveData velocity/property values"
+      },
+      "selection_chain": [
+        "GetSpmoveData",
+        "GetSpmoveConfigByLogicId",
+        "GetSpmoveIds",
+        "GetMaxSpmoveConfigByIds"
+      ]
+    },
+    "deserializer_static_evidence": {
+      "status": "serialized_field_writes_anchored_runtime_field_omitted",
+      "record": "Recovery/Normalized/spmove_deserialize_static_trace.json",
+      "behavior_validated": false,
+      "param_Xnumber": {
+        "offset": "0x10",
+        "deserializer_store": "absent",
+        "status": "runtime_field_not_serialized_in_buffer_reader",
+        "caveat": "constructor_or_manager_post_processing may still populate it"
+      }
+    },
+    "runtime_static_evidence": {
+      "status": "param_runtime_population_and_property_call_sites_only",
+      "record": "Recovery/Normalized/spmove_runtime_static_trace.json",
+      "behavior_validated": false,
+      "source": "canonical Android ARM64 libil2cpp.so",
+      "param_Xnumber": {
+        "offset": "0x10",
+        "on_game_start": "enabled config receives List<XNumber>; serialized param values are added as raw integers when present",
+        "serialized_param_offset": "0x38",
+        "canonical_empty_param_records": "183/292",
+        "caveat": "normalized archive observation only; later runtime mutation or another source is not excluded"
+      },
+      "odds": {
+        "offset": "0x34",
+        "scale": "odds << 10",
+        "helper": "0x192A1E0",
+        "semantics": "unresolved"
+      },
+      "player_forwarding": {
+        "manager_field": "Player+0x28",
+        "get_spmove_data": "0x1968070 -> 0x1B72758",
+        "get_spmove_data_ratio": "0x196807C masks noRatio and forwards to 0x1B72814"
+      },
+      "property_call_site_count": 7,
+      "property_ids": [
+        "0x3FE",
+        "0x3FC",
+        "0x3FE",
+        "0x3FC",
+        "0x3FC",
+        "0x41A",
+        "0x3FB"
+      ],
+      "physics_gate": "blocked",
+      "property_logic_id_alignment": {
+        "status": "numeric_property_to_logic_id_alignment_only",
+        "property_ids": [
+          "0x417",
+          "0x418",
+          "0x3FE",
+          "0x3FC",
+          "0x41A",
+          "0x3FB",
+          "0x40B"
+        ],
+        "canonical_logic_ids_decimal": [
+          1047,
+          1048,
+          1022,
+          1020,
+          1050,
+          1019,
+          1035
+        ],
+        "levels_per_group": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "selection_semantics": "unknown",
+        "units_and_equations": "unknown"
+      },
+      "modifier_access_evidence": {
+        "status": "raw_param_index_and_fixed_point_operation_shape_only",
+        "record": "Recovery/Normalized/spmove_modifier_access_static_trace.json",
+        "behavior_validated": false,
+        "vhor": {
+          "shoot_first": {
+            "property_id": "0x3FE",
+            "param_index": 0,
+            "list_data_offset": "0x20",
+            "operation": "param[0] + sqrt_long(vector_sqr_raw)"
+          },
+          "shoot_long_kick": {
+            "property_id": "0x3FC",
+            "param_index": 1,
+            "list_data_offset": "0x24",
+            "operation": "param[1] + sqrt_long(vector_sqr_raw)"
+          }
+        },
+        "vver": {
+          "shoot_long_kick": {
+            "property_id": "0x3FC",
+            "param_index": 2,
+            "list_data_offset": "0x28",
+            "operation": "fixed_point_vector_multiply_shape"
+          },
+          "shoot_push": {
+            "property_id": "0x41A",
+            "param_index": 2,
+            "list_data_offset": "0x28",
+            "operation": "fixed_point_vector_multiply_shape"
+          },
+          "head": {
+            "property_id": "0x3FB",
+            "param_index": 2,
+            "list_data_offset": "0x28",
+            "operation": "fixed_point_vector_multiply_shape"
+          }
+        },
+        "gate": "blocked"
+      }
+    },
+    "executable_evidence": {
+      "kernel_report": "Recovery/Normalized/native_kernel_validation.json",
+      "vector_report": "Recovery/Normalized/native_vector_validation.json",
+      "branch_report": "Recovery/Normalized/native_spmove_branch_validation.json",
+      "sqrt_table": "Recovery/Normalized/native_sqrt_table.json",
+      "cpp_implementation": "Reference/FootballPhysics/SpmoveBranches.h",
+      "oracle": "canonical ARM64 machine instructions in Unicorn 2.1.4",
+      "vhor_order": [
+        "ShootFirst byte 3 -> param[0] magnitude increase",
+        "ShootLongKick byte 5 -> param[1] magnitude increase"
+      ],
+      "vver_ballistic_order": [
+        "ShootLongKick byte 5 -> param[2] scale with magnitude guard",
+        "shootPush byte 0 -> param[2] scale with reevaluated magnitude guard"
+      ],
+      "vver_head": "separate base branch: Head byte 4 -> normalize(v) * (magnitude(v)-param[2]); no invented clamp",
+      "injected_boundary": "Player.GetSpmoveDataRatio returns selected fixture list/null; selection is not validated",
+      "whole_method_behavior_validated": false,
+      "remaining": [
+        "calSpmoveInUse eligibility",
+        "manager property selection",
+        "GetVHor/GetVVer base calculations",
+        "GetKickVelocity composition",
+        "BALL_CONTACT integration and complete regression"
+      ]
+    }
+  },
+  "source_metadata": {
+    "get_vhor_token": "0x06000559",
+    "get_vver_token": "0x0600055A",
+    "get_kick_velocity_token": "0x06000561",
+    "spmove_action_data_bytes": 2163,
+    "spmove_config_bytes": 3587
+  },
+  "neymar": {
+    "status": "v1.9_preserved_paused"
+  }
+}

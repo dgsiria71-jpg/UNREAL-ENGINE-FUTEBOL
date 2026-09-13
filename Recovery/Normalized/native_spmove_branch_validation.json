@@ -1,0 +1,93 @@
+{
+  "schema_version": "football.recovery.native_spmove_branches.v1",
+  "status": "selected_property_branch_differential_pass",
+  "binary_sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496",
+  "metadata_sha256": "92fae52ec4dc570929eb7b99d2083fd6ab6016cbbaa30f87e87ac6732bb1e42e",
+  "groups": {
+    "vhor_a": {
+      "start": "0x16e7020",
+      "end_exclusive": "0x16e7294",
+      "cases": 1944,
+      "mismatches": 0,
+      "observed_property_sequences": {
+        "none": 803,
+        "0x3fe": 326,
+        "0x3fc": 494,
+        "0x3fe,0x3fc": 321
+      },
+      "input_sha256": "3095a6c062831304739d5577757776f0fe39afa701f0a80d18e92b63cc08487c",
+      "native_output_sha256": "f8c74a01254b384586939278e2d29cf92d048a1e425438fb5af351a188315e34"
+    },
+    "vhor_b": {
+      "start": "0x16e76ac",
+      "end_exclusive": "0x16e7920",
+      "cases": 1944,
+      "mismatches": 0,
+      "observed_property_sequences": {
+        "none": 803,
+        "0x3fe": 326,
+        "0x3fc": 494,
+        "0x3fe,0x3fc": 321
+      },
+      "input_sha256": "71f3431b011c8bc38d9316d4c04e26629793a8828efdfd4fcc678a60105d000d",
+      "native_output_sha256": "f8c74a01254b384586939278e2d29cf92d048a1e425438fb5af351a188315e34"
+    },
+    "vver_ballistic": {
+      "start": "0x16e9d4c",
+      "end_exclusive": "0x16e9fc4",
+      "cases": 1944,
+      "mismatches": 0,
+      "observed_property_sequences": {
+        "none": 1013,
+        "0x41a": 276,
+        "0x3fc": 404,
+        "0x3fc,0x41a": 251
+      },
+      "input_sha256": "da55838727e27fa77321507d1ed286074ec940f2c1e19d702ebc9d10f5162d17",
+      "native_output_sha256": "3b0c17056cc387f60d159033efa86961164d59f8767d1300c0b788bb4c77b2a5"
+    },
+    "vver_head": {
+      "start": "0x16ea364",
+      "end_exclusive": "0x16ea52c",
+      "cases": 1944,
+      "mismatches": 0,
+      "observed_property_sequences": {
+        "none": 1580,
+        "0x3fb": 364
+      },
+      "input_sha256": "d006ffe14e64f0be21be3ca6758d50e570f12e522e9abffc7486f5d3732b5b15",
+      "native_output_sha256": "0870a06899d84f5975a3caa228b39ec2243f46a4e3531842a8b7bfb59b616b56"
+    }
+  },
+  "cases": 7776,
+  "hooked_boundary": {
+    "address": "0x196807c",
+    "method": "Player.GetSpmoveDataRatio",
+    "behavior": "injected already-selected List<XNumber> or null; noRatio ABI asserted"
+  },
+  "cpp_source_sha256": {
+    "Reference/FootballCore/FixedPoint.h": "f837a471dc9b9fd98aee28378c556295c5f09a1d098b800404608700cca195a8",
+    "Reference/FootballPhysics/SpmoveModifiers.h": "d33353920b7c1359028a3e1f74707cb0ed137a43a143b61855e4f3ec85dd4dfe",
+    "Reference/FootballPhysics/NativeVectorMath.h": "ec744857741b468f333a3a1dff10479e488d0c3369b3d41b08ba1bd939b82541",
+    "Reference/FootballPhysics/NativeSqrtTable.h": "fccea12b0e3881841c02bf27b302fa0f22e1c1fa65b9f6854f9b4e081d006ebb",
+    "Reference/FootballPhysics/SpmoveBranches.h": "7418cb3eec3882fad30efce110d56438445c827b5d13c9f74705ad19918b2afb",
+    "Tests/spmove_branches_probe.cpp": "741c21bbecc57efa70286332d66e9078216ab2f7caf7657986eecf23455bb528"
+  },
+  "cpp_executable_sha256": "6d2645ce68a1957772073a49bd97c16c834fbee5691ba56090310f50dc7dac2d",
+  "tool_sha256": "44e72024ec36e0cd7b0abd29c68c3f94dcee8cafac20b3679cd451f33c5cebb2",
+  "excluded": [
+    "which level/record is selected",
+    "calSpmoveInUse eligibility",
+    "GetVHor/GetVVer base calculation",
+    "GetKickVelocity/BALL_CONTACT"
+  ],
+  "physics_v0_3_gate": "blocked",
+  "text_digest_canonicalization": "UTF-8 without BOM, LF line endings",
+  "verification_source_sha256": {
+    "Tools/disassemble_spmove_runtime.py": "5b160ac9ee83de68150fdb6c910dfe543c669508ddf2822fa5af9cea2e6df28f",
+    "Tools/recover_native_sqrt_table.py": "34d75fa9034be5a6f2a03b51a9bb47bf43392a7a2354a7fe592665b673f27748",
+    "Tools/verify_native_kernels.py": "d3cff735bf89569f36aeecbd60b308bf8f0d064fac8538142418fca864a5707f",
+    "Tools/verify_native_vector_math.py": "ea5754bd6f4f9b5621903e1cdd2ffb6c041edd3d6c15e5d4363c1b32af6f270b",
+    "Tools/verify_spmove_branches.py": "44e72024ec36e0cd7b0abd29c68c3f94dcee8cafac20b3679cd451f33c5cebb2"
+  }
+}

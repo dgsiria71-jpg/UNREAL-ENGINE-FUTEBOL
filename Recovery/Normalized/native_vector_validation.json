@@ -1,0 +1,70 @@
+{
+  "schema_version": "football.recovery.native_vector_validation.v1",
+  "binary_sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496",
+  "metadata_sha256": "92fae52ec4dc570929eb7b99d2083fd6ab6016cbbaa30f87e87ac6732bb1e42e",
+  "table_sha256": "3874d640b10c011383ae39af98a0700a1e20266404218ad973caa918f9d0ee4a",
+  "unicorn_version": "2.1.4",
+  "native_regions": [
+    {
+      "start": "0x1b64760",
+      "end_exclusive": "0x1b64e50"
+    },
+    {
+      "start": "0x1936b4c",
+      "end_exclusive": "0x1936c88"
+    }
+  ],
+  "status": "native_vector_differential_pass",
+  "cases": 15956,
+  "groups": {
+    "sqrt_long": {
+      "cases": 6620,
+      "mismatches": 0,
+      "input_sha256": "9ba1d5acc6edd23d4881ddcb1570bc0da1f26e0db8327f8c2bc30b21d4aefacf",
+      "oracle_output_sha256": "d1f2873326ac2f5abf73370a19e2645e1df0c1b096760ba8adbccbc767b2bb98"
+    },
+    "normalize3": {
+      "cases": 3112,
+      "mismatches": 0,
+      "input_sha256": "d00b9eaa01599e8888fc329d00605140b9000b25d10bb7ad462138c727b3c3cb",
+      "oracle_output_sha256": "9383e5f2c3ea20e63c95f86b68375aff15c83ec397e8684b3e15c3305d86f475"
+    },
+    "vhor_prepared": {
+      "cases": 3112,
+      "mismatches": 0,
+      "input_sha256": "5afe6dc9333c6d19b356f6ce39cfe43c98deaba6e20ea089ff8f6f1a1741efb0",
+      "oracle_output_sha256": "8803d69733dceb913bf3d38672ada92761e7d00b3117c0935d79b1dc7f9ce464"
+    },
+    "head_prepared": {
+      "cases": 3112,
+      "mismatches": 0,
+      "input_sha256": "c3fd8a879e2f4a5c762b835c759df2983ed340499e478067674cfd234371915b",
+      "oracle_output_sha256": "0ac265e1be70a07b17de831b34131f2ce2d19589735ac8014c66bc4153931a29"
+    }
+  },
+  "cpp_source_sha256": {
+    "Reference/FootballCore/FixedPoint.h": "f837a471dc9b9fd98aee28378c556295c5f09a1d098b800404608700cca195a8",
+    "Reference/FootballPhysics/SpmoveModifiers.h": "d33353920b7c1359028a3e1f74707cb0ed137a43a143b61855e4f3ec85dd4dfe",
+    "Reference/FootballPhysics/NativeVectorMath.h": "ec744857741b468f333a3a1dff10479e488d0c3369b3d41b08ba1bd939b82541",
+    "Reference/FootballPhysics/NativeSqrtTable.h": "fccea12b0e3881841c02bf27b302fa0f22e1c1fa65b9f6854f9b4e081d006ebb",
+    "Tests/recovered_kernel_probe.cpp": "1026d6eeda9ebea656c1cef55b77a5979e973374cb75ce0b324e9e3ca711c2e8"
+  },
+  "tool_sha256": "ea5754bd6f4f9b5621903e1cdd2ffb6c041edd3d6c15e5d4363c1b32af6f270b",
+  "cpp_executable_sha256": "3b3af08589db50a37e958d9a199da32568a280e927d460a9475c492801b79454",
+  "scope": "full Sqrt_Long/get_normalized bodies with initialized static fixtures; composed modifier kernels",
+  "excluded": [
+    "IL2CPP startup",
+    "spmove selection and branch eligibility",
+    "whole GetVHor/GetVVer/GetKickVelocity",
+    "BALL_CONTACT integration"
+  ],
+  "physics_v0_3_gate": "blocked",
+  "text_digest_canonicalization": "UTF-8 without BOM, LF line endings",
+  "verification_source_sha256": {
+    "Tools/disassemble_spmove_runtime.py": "5b160ac9ee83de68150fdb6c910dfe543c669508ddf2822fa5af9cea2e6df28f",
+    "Tools/recover_native_sqrt_table.py": "34d75fa9034be5a6f2a03b51a9bb47bf43392a7a2354a7fe592665b673f27748",
+    "Tools/verify_native_kernels.py": "d3cff735bf89569f36aeecbd60b308bf8f0d064fac8538142418fca864a5707f",
+    "Tools/verify_native_vector_math.py": "ea5754bd6f4f9b5621903e1cdd2ffb6c041edd3d6c15e5d4363c1b32af6f270b",
+    "Tools/verify_spmove_branches.py": "44e72024ec36e0cd7b0abd29c68c3f94dcee8cafac20b3679cd451f33c5cebb2"
+  }
+}

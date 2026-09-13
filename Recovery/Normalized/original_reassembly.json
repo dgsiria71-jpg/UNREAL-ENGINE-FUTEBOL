@@ -1,0 +1,46 @@
+{
+  "schema_version": "football.reassembly.v1",
+  "assembled_sha256": "4240ae8ff93abcd582b88b65b0e58de0909a9e95ca5197931e6df656b3d3a3e2",
+  "expected_hash_source": "Downloads/JUNTAR_PARTES.ps1",
+  "parts": [
+    {
+      "name": "FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip.part001",
+      "sha256": "ecf22b5c918339485d7b0fd4d61cfcfb0881a0ee8bd3ae4430c26cd1e1586a1f",
+      "bytes": 157286400
+    },
+    {
+      "name": "FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip.part002",
+      "sha256": "b4e04aa31915c041212e6e6bb97c7315370577955bf736b16e440ce0a8c64101",
+      "bytes": 157286400
+    },
+    {
+      "name": "FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip.part003",
+      "sha256": "829ca92ebe5f5180eb4e2574b81d9079d6593cbe4399dad6ed6631725c15a961",
+      "bytes": 157286400
+    },
+    {
+      "name": "FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip.part004",
+      "sha256": "3a340e0c4f0d2397b6984a6cff8f8062672143a9f737ee63995fa772c428fad5",
+      "bytes": 157286400
+    },
+    {
+      "name": "FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip.part005",
+      "sha256": "8159412362e1a6d073ec9111e3ac0e5025fa1493cda41aa08c3209a17ffb2c13",
+      "bytes": 157286400
+    },
+    {
+      "name": "FOOTBALL_MOBILE_TO_PC_UNREAL_MASTER_RECOVERY_2026-09-12.zip.part006",
+      "sha256": "fed12f80fae74c75b152e743306a47cdc31862def76a542e936f47294bdacc59",
+      "bytes": 8207566
+    }
+  ],
+  "zip_entries": 62,
+  "crc": "pass",
+  "historical_92_workspace_present": false,
+  "evidence": [
+    "02_DOCUMENTATION/PHYSICS_RECOVERY_STATUS.md explicitly excludes original workspace",
+    "03_MANIFESTS/PROJECT_PROVENANCE.json known_missing_current_bytes includes historical 92/92 workspace",
+    "_CHECKPOINTS/CURRENT.md says byte-for-byte workspace not recovered"
+  ],
+  "policy": "Original split files preserved. Assembly is a new local copy, not a v0.3 release."
+}

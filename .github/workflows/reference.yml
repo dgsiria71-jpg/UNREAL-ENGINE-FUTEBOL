@@ -1,0 +1,19 @@
+name: Reference code validation
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  reference:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile C++ reference and probes
+        run: |
+          cmake -S Tests -B .local/build/ci -DCMAKE_BUILD_TYPE=Release
+          cmake --build .local/build/ci --parallel 2
+          ctest --test-dir .local/build/ci --output-on-failure
+      - name: Validate contracts and persisted evidence
+        run: |
+          python3 -m unittest discover -s Tests -p 'test_*.py'
+          python3 Tools/check_native_evidence.py
+          python3 Tools/Unreal/validate_content.py
