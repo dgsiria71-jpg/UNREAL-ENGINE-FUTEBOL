@@ -219,3 +219,10 @@ E0058: Added engine-independent SpmoveInventoryCache adapter. It mirrors only
 proven cache invalidation (initialized +0x29/open-all +0x28) and accepts explicit
 unresolved source snapshots; no eligibility or RNG behavior is invented. MSVC
 reference regression is now 19/19 GREEN.
+
+E0059: Added generated feature coverage audit separating source recovery,
+normalization, executable reference, Unreal integration and runtime validation.
+Five critical archives (animation, physics, migration, PC 3D, ecosystem) are
+physically present, SHA-bound and CRC GREEN. Audit confirms no complete-game,
+complete-animation, mobile-AI or camera-runtime claim. Python suite is 54/54 OK;
+Unreal content validation remains provenance-only GREEN.

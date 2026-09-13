@@ -91,6 +91,11 @@ result = {
         "native_vector_validation": "Recovery/Normalized/native_vector_validation.json",
         "native_spmove_branch_validation": "Recovery/Normalized/native_spmove_branch_validation.json",
         "archive_catalog": "Recovery/Normalized/archive_catalog.json",
+        "native_spmove_selection_validation": "Recovery/Normalized/native_spmove_selection_validation.json",
+        "native_spmove_producer_validation": "Recovery/Normalized/native_spmove_producer_validation.json",
+        "mobile_source_matrix": "Recovery/Normalized/MOBILE_1_221_5_SOURCE_MATRIX.json",
+        "feature_coverage": "Recovery/Normalized/feature_coverage.json",
+        "playable_match_contract": "Recovery/Normalized/playable_match_contract.json",
     },
     "sources": records,
     "semantic_gates": {

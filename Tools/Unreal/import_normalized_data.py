@@ -56,6 +56,7 @@ def build_plan(project_dir: Path) -> dict:
             "mobile_source_matrix": "Recovery/Normalized/MOBILE_1_221_5_SOURCE_MATRIX.json",
             "archive_catalog": "Recovery/Normalized/archive_catalog.json",
             "playable_match_contract": "Recovery/Normalized/playable_match_contract.json",
+            "feature_coverage": "Recovery/Normalized/feature_coverage.json",
         },
         "normalized_schema": {
             "codec": "LZ4 raw block",

@@ -1,0 +1,234 @@
+{
+  "schema_version": "football.recovery.feature_coverage.v1",
+  "mobile_source": "football-dream-be-a-pro-1-221-5",
+  "engine_target": "Unreal Engine 5.x",
+  "overall_status": "partial_recovery_and_headless_foundation_not_a_complete_game",
+  "unreal_available": false,
+  "archives": {
+    "animation": {
+      "name": "FOOTBALL_ANIMATION_RECOVERY_PACK_v1_0.zip",
+      "present": true,
+      "bytes": 104588601,
+      "sha256": "91a2a6bffeb9739807ab2ae432ed1ee79232db0b4ec4c2862cb0241027273f64",
+      "hash_matches": true,
+      "entries": 1963,
+      "crc": "green"
+    },
+    "physics": {
+      "name": "FOOTBALL_PHYSICS_RECOVERY_PACK_v0_2.zip",
+      "present": true,
+      "bytes": 14956086,
+      "sha256": "7d5cabe5d974f7282ca7126d5c36c7bc71a448275cf144b73625be9fccf415ac",
+      "hash_matches": true,
+      "entries": 375,
+      "crc": "green"
+    },
+    "migration": {
+      "name": "FOOTBALL_MOBILE_TO_PC_MIGRATION_MASTER_v1_1.zip",
+      "present": true,
+      "bytes": 157288676,
+      "sha256": "c1c7d5352f94241c5aed771666ad5f723b24593ac7cf8c3bc9bfb0e7d175e1eb",
+      "hash_matches": true,
+      "entries": 4931,
+      "crc": "green"
+    },
+    "pc_3d": {
+      "name": "FOOTBALL_PC_3D_READY_PACK_v0_2.zip",
+      "present": true,
+      "bytes": 15126093,
+      "sha256": "e287e1140dd704479292e5516996484641ed326a027f5c8302577eadd3393226",
+      "hash_matches": true,
+      "entries": 277,
+      "crc": "green"
+    },
+    "ecosystem": {
+      "name": "FOOTBALL_PLAYER_ECOSYSTEM_CORE_v0_2_VISUAL_REGISTRY.zip",
+      "present": true,
+      "bytes": 2591557,
+      "sha256": "cea86e1e18f7aa58f924302bae542ebf2782217b32594d315aff3ff423efe813",
+      "hash_matches": true,
+      "entries": 139,
+      "crc": "green"
+    }
+  },
+  "features": [
+    {
+      "feature": "Fixed-point physics and vectors",
+      "source_recovery": "confirmed",
+      "normalized": "confirmed",
+      "executable_reference": "native_differential_green",
+      "unreal_integration": "contracts_scaffolded",
+      "runtime_validated": "headless_only",
+      "evidence": [
+        "FixedPoint",
+        "NativeVectorMath",
+        "13,685 kernel and 15,956 vector comparisons"
+      ],
+      "gaps": [
+        "not compiled or played in Unreal Editor on this machine",
+        "native divide-by-zero fallback"
+      ]
+    },
+    {
+      "feature": "Final kick velocity and ball contact",
+      "source_recovery": "partial",
+      "normalized": "partial",
+      "executable_reference": "partial_native_differential",
+      "unreal_integration": "guarded_contract_scaffolded",
+      "runtime_validated": "blocked",
+      "evidence": [
+        "spmove branch/selection/producer native comparisons",
+        "BallContact rejects unresolved velocity"
+      ],
+      "gaps": [
+        "full inventory eligibility/RNG",
+        "GetVHor/GetVVer bases",
+        "GetKickVelocity composition",
+        "BALL_CONTACT.velocity regression"
+      ]
+    },
+    {
+      "feature": "Animation controller and COFMotion",
+      "source_recovery": "confirmed_data_format",
+      "normalized": "catalogued_not_runtime_database",
+      "executable_reference": "exporter_and_previews_only",
+      "unreal_integration": "planned",
+      "runtime_validated": "not_validated",
+      "evidence": [
+        "13,722 COFMotions",
+        "20,213 states",
+        "50,127 leaves",
+        "40/40 xplayable clips",
+        "48 GLB examples/previews"
+      ],
+      "gaps": [
+        "2,769 logical action mappings",
+        "bulk animation database",
+        "retarget validation",
+        "Pose Search/Motion Matching",
+        "Animation Blueprint/IK/Control Rig",
+        "not compiled or played in Unreal Editor on this machine"
+      ]
+    },
+    {
+      "feature": "Collision, tackle, interception and goalkeeper",
+      "source_recovery": "confirmed_tables",
+      "normalized": "archive_schema_only",
+      "executable_reference": "simple_authored_headless_behaviour",
+      "unreal_integration": "contracts_scaffolded",
+      "runtime_validated": "not_mobile_equivalent",
+      "evidence": [
+        "collision/tackle/intercept/GK source tables",
+        "PlayableMatch fixture"
+      ],
+      "gaps": [
+        "recovered collision resolution",
+        "contact windows",
+        "fouls/cards/advantage",
+        "goalkeeper recovered equations"
+      ]
+    },
+    {
+      "feature": "Pass, shot, dribble and defense",
+      "source_recovery": "confirmed_source_tables",
+      "normalized": "partial",
+      "executable_reference": "simple_authored_headless_behaviour",
+      "unreal_integration": "input_and_simulation_scaffolded",
+      "runtime_validated": "not_mobile_equivalent",
+      "evidence": [
+        "ActionFit/ActionSpeed/ShootSpeed/PassSpeed/Dribble/Tackle sources",
+        "six PlayableMatch actions"
+      ],
+      "gaps": [
+        "mobile action selection/tuning",
+        "first touch/through pass/cross/volley/header",
+        "placed/curved/chipped/lob shots",
+        "complete dribbles and defense"
+      ]
+    },
+    {
+      "feature": "3D players, ball and stadium",
+      "source_recovery": "confirmed_partial_pc_exports",
+      "normalized": "asset_packages_only",
+      "executable_reference": "not_executed",
+      "unreal_integration": "not_imported",
+      "runtime_validated": "not_validated",
+      "evidence": [
+        "ball.glb",
+        "player_cristiano_rigged_named.glb",
+        "placed stadium core GLBs"
+      ],
+      "gaps": [
+        "ASTC texture transcode",
+        "PBR materials",
+        "deformable cloth",
+        "complete crowd/flags/railings",
+        "LODs/physics assets",
+        "Unreal import/review"
+      ]
+    },
+    {
+      "feature": "Game AI",
+      "source_recovery": "config_sources_present",
+      "normalized": "not_normalized_as_complete_ai",
+      "executable_reference": "not_implemented",
+      "unreal_integration": "module_architecture_only",
+      "runtime_validated": "not_validated",
+      "evidence": [
+        "AI/config entries in migration archive",
+        "AI architecture documentation"
+      ],
+      "gaps": [
+        "Player/Team/Tactical/GK AI",
+        "Manager/Club/Background AI",
+        "difficulty and performance tests"
+      ]
+    },
+    {
+      "feature": "Cameras and field views",
+      "source_recovery": "mobile_camera_sources_present",
+      "normalized": "not_normalized",
+      "executable_reference": "not_implemented",
+      "unreal_integration": "planned",
+      "runtime_validated": "not_validated",
+      "evidence": [
+        "camera-named migration sources",
+        "Broadcast and Player Career camera requirements"
+      ],
+      "gaps": [
+        "Broadcast camera",
+        "Player Career camera",
+        "ball awareness/occlusion/comfort/transitions",
+        "in-motion review"
+      ]
+    },
+    {
+      "feature": "Match modes",
+      "source_recovery": "design_and_mobile_sources_present",
+      "normalized": "mode_roster_contract",
+      "executable_reference": "3v3_5v5_11v11_headless_fixture",
+      "unreal_integration": "gameplay_scaffold_only",
+      "runtime_validated": "headless_only",
+      "evidence": [
+        "PlayableMatch",
+        "playable_match_contract.json"
+      ],
+      "gaps": [
+        "complete rules/restarts",
+        "rendered field/cameras",
+        "AI rosters",
+        "real 5v5/11v11",
+        "Career/co-op/Dedicated Server"
+      ]
+    }
+  ],
+  "summary": {
+    "all_requested_systems_recovered": false,
+    "all_requested_systems_integrated": false,
+    "playable_unreal_match": false,
+    "animation_runtime_complete": false,
+    "mobile_ai_runtime_recovered": false,
+    "camera_runtime_complete": false,
+    "physics_v0_3_gate": "blocked"
+  }
+}

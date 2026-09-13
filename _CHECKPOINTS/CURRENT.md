@@ -2,7 +2,7 @@
 
 Updated: 2026-09-13. Project NOT COMPLETE.
 Branch: codex/unreal-football-foundation.
-HEAD: 59414b32403a2824187c5a7155634e42b64e9e38 (latest local checkpoint commit).
+HEAD before metadata commit: 6774bffc7e6159312f6ba962d89df5f21933fcf3 (run `git rev-parse HEAD` for the current checkpoint commit).
 Continuation base: 4d672ab5dccbe7ba9b238de9b8202086e759931e.
 
 ## GitHub publication
@@ -11,7 +11,7 @@ Official remote: https://github.com/dgsiria71-jpg/UNREAL-ENGINE-FUTEBOL.git, mai
 Reconciled remote history from 6760d3d with local c0d761c; no history rewritten.
 Bible text and its policies preserved in Docs/Bible_v3. Raw master LFS upload
 remains unperformed; code publication does not claim binary publication.
-Remote publication confirmed via GitHub API: main -> c037b9139cdb3ba2cddcc45741822370b6ec07a7.
+Remote publication confirmed via GitHub API: main -> 5190af546416040e60301c995c33d0fc4810706e.
 
 ## Authority
 
@@ -33,16 +33,15 @@ Recovery/Normalized/original_reassembly.json; Docs/MOBILE_1_221_5_SOURCE_MAP.md.
 
 - Tools/build_reference.cmd: five executables compiled, C++17 /W4 /WX, 19/19 GREEN.
 - python Tools/verify_spmove_selection.py: 4,672/4,672 native comparisons match.
-- python Tools/verify_spmove_producer.py
-python Tools/analyze_spmove_inventory_collector.py: 2,640/2,640 native comparisons match.
+- python Tools/verify_spmove_producer.py: 2,640/2,640 native comparisons match.
 - python Tools/check_native_evidence.py: CURRENT source bindings.
 - python Tools/analyze_spmove_inventory_collector.py: GREEN, 15 ARM64 anchors; control-flow only; helper names cross-checked against script metadata.
-- python -m unittest discover -s Tests -p "test_*.py": 51/51 OK.
+- python Tools/audit_feature_coverage.py: GREEN, 9 systems and 5 SHA/CRC-verified source archives.
+- python -m unittest discover -s Tests -p "test_*.py": 54/54 OK.
 - python Tools/Unreal/validate_content.py: GREEN (provenance only).
 - Original v0.2 07_TESTS: python -m unittest discover -v: 67/67 OK, 6.593s.
 - Earlier preserved native evidence: kernels 13,685, vectors 15,956, branches 7,776.
   These older suites were not rerun in this increment; bound sources remain current.
-
 ## CONFIRMED
 
 - Source matrix: 122 critical/archive observations and 22 identical groups.
@@ -53,6 +52,7 @@ python Tools/analyze_spmove_inventory_collector.py: 2,640/2,640 native compariso
   match C++ with explicit external geometry/curve/membership/property outcomes.
 - Stable v0.2 SHA: 7d5cabe5d974f7282ca7126d5c36c7bc71a448275cf144b73625be9fccf415ac.
 - Runtime +0x1C0 remains vertical_accel_raw.
+- Feature audit explicitly separates recovered source, normalization, executable reference, Unreal integration and runtime validation.
 
 ## INFERRED / UNKNOWN
 
@@ -87,6 +87,7 @@ Tools/build_reference.cmd
 python Tools/verify_spmove_selection.py
 python Tools/verify_spmove_producer.py
 python Tools/analyze_spmove_inventory_collector.py
+python Tools/audit_feature_coverage.py
 python Tools/check_native_evidence.py
 python -m unittest discover -s Tests -p "test_*.py"
 ```
@@ -101,4 +102,3 @@ Reuse selected-modifier kernels. Complete old/new VHor/VVer base helpers before
 joining GetKickVelocity and BALL_CONTACT. Do not create Physics v0.3 until the
 full documented gate and regression pass. Build the UE match once toolchain is
 available; do not treat current fixtures/scaffold as completed football product.
-

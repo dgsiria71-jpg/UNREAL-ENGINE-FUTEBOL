@@ -103,6 +103,17 @@ def validate_manifest(project_dir: Path) -> list[str]:
     if not (project_dir / "Recovery" / "Physics" / "NATIVE_STATIC_EVIDENCE.md").is_file():
         errors.append("missing durable native static evidence record")
 
+    coverage_path = project_dir / "Recovery" / "Normalized" / "feature_coverage.json"
+    if not coverage_path.is_file():
+        errors.append("missing feature recovery coverage report")
+    else:
+        coverage = json.loads(coverage_path.read_text(encoding="utf-8"))
+        summary = coverage.get("summary", {})
+        if summary.get("all_requested_systems_integrated") is not False:
+            errors.append("feature coverage overclaims complete integration")
+        if summary.get("physics_v0_3_gate") != "blocked":
+            errors.append("feature coverage changed physics gate")
+
     return errors
 
 
