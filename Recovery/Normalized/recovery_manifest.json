@@ -21,6 +21,9 @@
     "shoot_velocity_dataflow_trace": "Recovery/Normalized/shoot_velocity_dataflow_static_trace.json",
     "shoot_helper_semantics_trace": "Recovery/Normalized/shoot_helper_semantics_static_trace.json",
     "shoot_speed_v_rate_trace": "Recovery/Normalized/shoot_speed_v_rate_static_trace.json",
+    "shoot_dis_and_time_trace": "Recovery/Normalized/shoot_dis_and_time_static_trace.json",
+    "shoot_dis_and_time_config_5800": "Recovery/Normalized/shoot_dis_and_time_config_5800.json",
+    "getvver_new_path_composition_trace": "Recovery/Normalized/getvver_new_path_composition_static_trace.json",
     "native_sqrt_table": "Recovery/Normalized/native_sqrt_table.json",
     "native_kernel_validation": "Recovery/Normalized/native_kernel_validation.json",
     "native_vector_validation": "Recovery/Normalized/native_vector_validation.json",
@@ -31,9 +34,7 @@
     "feature_coverage": "Recovery/Normalized/feature_coverage.json",
     "playable_match_contract": "Recovery/Normalized/playable_match_contract.json",
     "unreal_import_plan": "Recovery/Normalized/unreal_import_plan.json",
-    "original_reassembly": "Recovery/Normalized/original_reassembly.json",
-    "shoot_dis_and_time_trace": "Recovery/Normalized/shoot_dis_and_time_static_trace.json",
-    "shoot_dis_and_time_config_5800": "Recovery/Normalized/shoot_dis_and_time_config_5800.json"
+    "original_reassembly": "Recovery/Normalized/original_reassembly.json"
   },
   "local_regeneration_artifacts": {
     "spmove": {
