@@ -30,6 +30,11 @@ class ShootHelperExtractorTests(unittest.TestCase):
         self.assertIn("where python", wrapper)
         self.assertIn("publicar_inbox_no_github.ps1", wrapper)
 
+    def test_wrapper_captures_runtime_errorlevel_inside_parenthesized_py_branch(self):
+        wrapper = WRAPPER.read_text(encoding="utf-8").lower()
+        self.assertIn("enabledelayedexpansion", wrapper)
+        self.assertIn("!errorlevel!", wrapper)
+
     def test_default_targets_cover_current_unresolved_value_helpers(self):
         module = load_tool()
         targets = {target.name: target for target in module.DEFAULT_TARGETS}
