@@ -1,10 +1,10 @@
 {
   "schema_version": "football.recovery.inventory.v2",
-  "generated_at_utc": "2026-09-13T16:10:00Z",
+  "generated_at_utc": "2026-09-13T20:09:00Z",
   "repository_portability": "fresh_checkout_supported",
   "engine_target": "Unreal Engine 5.x",
   "mobile_source": "football-dream-be-a-pro-1-221-5",
-  "normalization_status": "schema_confirmed_velocity_unresolved",
+  "normalization_status": "shoot_velocity_static_dataflow_bound_full_equations_unresolved",
   "source_of_truth": "verified mobile recovery archives plus committed normalized evidence and Blender source assets",
   "normalized_artifacts": {
     "spmove_collected_open_all": "Recovery/Normalized/spmove_collected_open_all.json",
@@ -18,6 +18,7 @@
     "spmove_inventory_collector_trace": "Recovery/Normalized/spmove_inventory_collector_static_trace.json",
     "spmove_inventory": "Recovery/Normalized/spmove_inventory.json",
     "velocity_base_regions_trace": "Recovery/Normalized/velocity_base_regions_static_trace.json",
+    "shoot_velocity_dataflow_trace": "Recovery/Normalized/shoot_velocity_dataflow_static_trace.json",
     "native_sqrt_table": "Recovery/Normalized/native_sqrt_table.json",
     "native_kernel_validation": "Recovery/Normalized/native_kernel_validation.json",
     "native_vector_validation": "Recovery/Normalized/native_vector_validation.json",
@@ -77,10 +78,17 @@
       "filename": "FOOTBALL_PLAYER_ECOSYSTEM_CORE_v0_2_VISUAL_REGISTRY.zip",
       "status": "verified_local_archive_not_committed",
       "sha256": "cea86e1e18f7aa58f924302bae542ebf2782217b32594d315aff3ff423efe813"
+    },
+    {
+      "source_id": "canonical_shoot_disassembly",
+      "filename": "artifacts/native-recovery/20260913-163217-9cdb54d0/01_disassembly_shoot.txt",
+      "status": "committed_text_evidence",
+      "sha256_original_windows": "ef1b41f609e49f2d831a16f69b82e227a967c914a4ee3748cfbfbdccd161ba58",
+      "sha256_git_lf": "c695472c6bb7820f71c334407c4998149d8f3646bc5f0614d30f3adf80f670c4"
     }
   ],
   "semantic_gates": {
-    "physics_v0_3": "blocked_until_spmove_VHor_VVer_GetVHor_GetVVer_GetKickVelocity_BALL_CONTACT_regression",
+    "physics_v0_3": "blocked_until_full_GetVVer_helpers_GetKickVelocity_BALL_CONTACT_regression",
     "vertical_accel_field": "vertical_accel_raw",
     "neymar": "v1.9_preserved_paused"
   }
