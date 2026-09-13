@@ -1,0 +1,128 @@
+FOOTBALL SHOOT HELPER STATIC EXTRACTION
+BINARY_SHA256: 2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496
+METADATA: C:/Users/dg71/Documents/ChatGPT/JOGO DE FUTEBOL/.local/tools/Il2CppDumper/script.json
+POLICY: READ_ONLY; exact=false means bounded inspection window, not a proven full body
+
+### TARGET xnumber_div_int 01B6B37C-01B6B418 boundary=script.json:next-method exact=true
+METADATA_NAME: XNumber$$op_Division
+01B6B37C: str      x21, [sp, #-0x30]!
+01B6B380: stp      x20, x19, [sp, #0x10]
+01B6B384: stp      x29, x30, [sp, #0x20]
+01B6B388: add      x29, sp, #0x20
+01B6B38C: adrp     x21, #0x4369000
+01B6B390: ldrb     w8, [x21, #0xe2a]
+01B6B394: mov      w19, w1
+01B6B398: mov      x20, x0
+01B6B39C: tbnz     w8, #0, #0x1b6b3b8
+01B6B3A0: adrp     x8, #0x4093000
+01B6B3A4: ldr      x8, [x8, #0xf10]
+01B6B3A8: ldr      w0, [x8]
+01B6B3AC: bl       #0x11c66b8
+01B6B3B0: mov      w8, #1
+01B6B3B4: strb     w8, [x21, #0xe2a]
+01B6B3B8: cbz      w20, #0x1b6b3d8
+01B6B3BC: cbz      w19, #0x1b6b3d8
+01B6B3C0: sdiv     w8, w20, w19
+01B6B3C4: msub     w9, w8, w19, w20
+01B6B3C8: lsl      w9, w9, #1
+01B6B3CC: sdiv     w9, w9, w19
+01B6B3D0: add      w8, w9, w8
+01B6B3D4: b        #0x1b6b404
+01B6B3D8: adrp     x19, #0x40ef000
+01B6B3DC: ldr      x19, [x19, #0x420]
+01B6B3E0: ldr      x0, [x19]
+01B6B3E4: ldrb     w8, [x0, #0x12f]
+01B6B3E8: tbz      w8, #1, #0x1b6b3fc
+01B6B3EC: ldr      w8, [x0, #0xe0]
+01B6B3F0: cbnz     w8, #0x1b6b3fc
+01B6B3F4: bl       #0x11c6764
+01B6B3F8: ldr      x0, [x19]
+01B6B3FC: ldr      x8, [x0, #0xb8]
+01B6B400: ldr      w8, [x8, #8]
+01B6B404: ldp      x29, x30, [sp, #0x20]
+01B6B408: ldp      x20, x19, [sp, #0x10]
+01B6B40C: mov      w0, w8
+01B6B410: ldr      x21, [sp], #0x30
+01B6B414: ret
+DIRECT_CALL_TARGETS: 0x011C66B8, 0x011C6764
+
+### TARGET xrandom_next_int 01929D88-01929EA4 boundary=script.json:next-method exact=true
+METADATA_NAME: XRandom$$NextInt
+01929D88: str      x21, [sp, #-0x30]!
+01929D8C: stp      x20, x19, [sp, #0x10]
+01929D90: stp      x29, x30, [sp, #0x20]
+01929D94: add      x29, sp, #0x20
+01929D98: adrp     x20, #0x4368000
+01929D9C: ldrb     w8, [x20, #0xdf9]
+01929DA0: mov      w19, w0
+01929DA4: tbnz     w8, #0, #0x1929dc0
+01929DA8: adrp     x8, #0x40ce000
+01929DAC: ldr      x8, [x8, #0x748]
+01929DB0: ldr      w0, [x8]
+01929DB4: bl       #0x11c66b8
+01929DB8: mov      w8, #1
+01929DBC: strb     w8, [x20, #0xdf9]
+01929DC0: cmp      w19, #0
+01929DC4: b.le     #0x1929e68
+01929DC8: neg      w8, w19
+01929DCC: bics     wzr, w19, w8
+01929DD0: b.ne     #0x1929e10
+01929DD4: adrp     x8, #0x4108000
+01929DD8: ldr      x8, [x8, #0x638]
+01929DDC: ldr      x0, [x8]
+01929DE0: ldrb     w8, [x0, #0x12f]
+01929DE4: tbz      w8, #1, #0x1929df4
+01929DE8: ldr      w8, [x0, #0xe0]
+01929DEC: cbnz     w8, #0x1929df4
+01929DF0: bl       #0x11c6764
+01929DF4: mov      w0, #0x1f
+01929DF8: bl       #0x192a378
+01929DFC: sxtw     x8, w19
+01929E00: mov      w9, w0
+01929E04: mul      x8, x9, x8
+01929E08: lsr      x0, x8, #0x1f
+01929E0C: b        #0x1929e58
+01929E10: adrp     x21, #0x4108000
+01929E14: ldr      x21, [x21, #0x638]
+01929E18: sub      w8, w19, #1
+01929E1C: sxtw     x20, w8
+01929E20: ldr      x0, [x21]
+01929E24: ldrb     w8, [x0, #0x12f]
+01929E28: tbz      w8, #1, #0x1929e38
+01929E2C: ldr      w8, [x0, #0xe0]
+01929E30: cbnz     w8, #0x1929e38
+01929E34: bl       #0x11c6764
+01929E38: mov      w0, #0x1f
+01929E3C: bl       #0x192a378
+01929E40: mov      w8, w0
+01929E44: udiv     w9, w0, w19
+01929E48: msub     w0, w9, w19, w0
+01929E4C: add      x8, x20, w8, uxtw
+01929E50: cmp      x8, x0
+01929E54: b.lt     #0x1929e20
+01929E58: ldp      x29, x30, [sp, #0x20]
+01929E5C: ldp      x20, x19, [sp, #0x10]
+01929E60: ldr      x21, [sp], #0x30
+01929E64: ret
+01929E68: adrp     x8, #0x40d7000
+01929E6C: ldr      x8, [x8, #0x800]
+01929E70: ldr      x0, [x8]
+01929E74: bl       #0x11c6780
+01929E78: adrp     x8, #0x413e000
+01929E7C: ldr      x8, [x8, #0xa70]
+01929E80: mov      x2, xzr
+01929E84: mov      x19, x0
+01929E88: ldr      x1, [x8]
+01929E8C: bl       #0x2560614
+01929E90: adrp     x8, #0x40df000
+01929E94: ldr      x8, [x8, #0xa78]
+01929E98: mov      x0, x19
+01929E9C: ldr      x1, [x8]
+01929EA0: bl       #0x11c6754
+DIRECT_CALL_TARGETS: 0x011C66B8, 0x011C6754, 0x011C6764, 0x011C6780, 0x0192A378, 0x02560614
+
+## FIRST_LEVEL_DIRECT_CALLEE_WINDOWS
+FIRST_LEVEL_CALLEES_EMITTED: 0
+
+## SUMMARY_JSON
+{"adjacent_callee_limit": 0, "adjacent_window_bytes": 512, "binary_sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496", "metadata": "C:/Users/dg71/Documents/ChatGPT/JOGO DE FUTEBOL/.local/tools/Il2CppDumper/script.json", "policy": "static read-only extraction; fallback windows never claim exact function boundaries", "schema_version": "football.recovery.shoot_helper_disassembly.v1", "targets": [{"boundary_source": "script.json:next-method", "direct_call_targets": ["0x011C66B8", "0x011C6764"], "end": "0x01B6B418", "exact_function_boundary": true, "metadata_name": "XNumber$$op_Division", "name": "xnumber_div_int", "start": "0x01B6B37C"}, {"boundary_source": "script.json:next-method", "direct_call_targets": ["0x011C66B8", "0x011C6754", "0x011C6764", "0x011C6780", "0x0192A378", "0x02560614"], "end": "0x01929EA4", "exact_function_boundary": true, "metadata_name": "XRandom$$NextInt", "name": "xrandom_next_int", "start": "0x01929D88"}]}

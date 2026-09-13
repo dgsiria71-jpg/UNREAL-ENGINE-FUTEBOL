@@ -57,7 +57,9 @@ def _norm(instruction: str) -> str:
 
 
 def _sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    raw = path.read_bytes()
+    normalized_lf = raw.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    return hashlib.sha256(normalized_lf).hexdigest()
 
 
 def load_json(path: Path):
@@ -340,10 +342,11 @@ def analyze(path: Path = SOURCE) -> dict:
             "caller_callsite": "0x016EA330",
             "caller_registers": {"w1": "GetVVer stack argument +0x54", "x2": "GetVVer x20", "w3": "ShootSpeedConfigItem +0x80", "x4": "null"},
             "full_equation_recovered": False,
+            "normal_equation_superseded_by": "Recovery/Normalized/shoot_speed_v_rate_static_trace.json",
             "remaining_unknowns": [
-                "semantic units/ranges of all GetShootSpeedVRate inputs",
-                "semantic name/units of AIParameterConfig field +0x80",
-                "complete branch-by-branch equation and randomization bounds",
+                "this older trace does not independently verify the follow-up equation",
+                "GetShootVerRate property values and AIParameterConfig.disArea authored convention",
+                "original RNG state and accepted sample",
             ],
         },
         "spmove_ratio_0x196807C": {
@@ -360,7 +363,7 @@ def analyze(path: Path = SOURCE) -> dict:
         "physics_v0_3_gate": "BLOCKED",
         "still_required": [
             "close nested shootDisAndTime arithmetic/time path",
-            "close the full GetShootSpeedVRate equation/units or prove the exact needed caller result behavior",
+            "use the follow-up GetShootSpeedVRate equation trace and recover its upstream property values/RNG state",
             "turn GetVHor/GetVVer into executable source-bound equations and validate",
             "close final GetKickVelocity behavior and bind BALL_CONTACT.velocity",
             "complete regression before packaging v0.3",

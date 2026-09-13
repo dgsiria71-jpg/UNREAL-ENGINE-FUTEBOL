@@ -4,6 +4,74 @@ Updated: 2026-09-13. Project NOT COMPLETE.
 Official branch after reviewed merge: `main`.
 GitHub is the canonical source of truth.
 
+## Active recovery increment
+
+- worktree branch: `codex/shoot-speed-v-rate`
+- base HEAD: `3cba2fe04681110a99d20a394b1fbb158949aeb1` (`origin/main`)
+- task completed in this increment: source-bound normal-return equation for `PlayerProperty.GetShootSpeedVRate` plus sample-driven executable reference
+- current next task: nested `shootDisAndTime` arithmetic/time path in new GetVVer
+- Physics v0.3 remains BLOCKED
+
+Files changed by this increment:
+
+- `Tools/analyze_shoot_speed_v_rate.py`
+- `Tools/disassemble_shoot_speed_v_rate_support.py`
+- `Tools/extract_shoot_speed_v_rate_metadata.py`
+- `Reference/FootballPhysics/ShootSpeedVRate.h`
+- `Tests/test_shoot_speed_v_rate_semantics.py`
+- `Tests/shoot_speed_v_rate_semantics_test.cpp`
+- `Tests/CMakeLists.txt`
+- `Recovery/Normalized/shoot_speed_v_rate_static_trace.json`
+- `Recovery/Physics/SHOOT_SPEED_V_RATE_RECOVERY.md`
+- the two bounded support/metadata evidence files beside the canonical helper listing
+- manifest/helper documentation/checkpoint updates
+- Windows line-ending portability fixes in the two existing shoot analyzers and helper test
+
+Latest local validation:
+
+- focused RED: 4 expected failures while analyzer, evidence and trace were absent
+- focused GREEN: 4/4 `test_shoot_speed_v_rate_semantics`
+- full Python discovery: 94 tests GREEN, 5 skipped because their optional local fixtures are absent
+- native evidence bindings: CURRENT
+- Unreal persisted content validation: GREEN
+- C++ local build: MSVC 19.51 via Visual Studio 18 bundled CMake; 3/3 CTests GREEN, including `ShootSpeedVRateSemantics`
+
+Confirmed in this increment:
+
+- signature: `GetShootSpeedVRate(XGoalTypeEnum goal_child, XNumber F, XNumber c)`
+- `AIParameterConfig +0x80` is metadata-bound to `int disArea`
+- `F / 100` uses the native `XNumber / int` rule and is applied twice, with fixed-point rounding after each multiply
+- positive/negative `c` branches select `min(one, base+disArea_raw)` or `max(one, base-disArea_raw)`
+- normal return is `XRandom.Range(selected_bound, c)`
+- `XRandom.Range` uses an accepted `NextInt(1001)` sample and discrete interpolation across samples 0..1000
+- Windows CRLF checkout portability is repaired for both committed shoot disassembly analyzers
+
+Still unknown:
+
+- `GetShootVerRate` property-selection values by goal type
+- designer-facing authored unit/intent of `disArea` beyond its proven direct raw runtime use
+- original RNG state and selected sample at a match tick
+- nested `shootDisAndTime` equation
+- full executable/differential GetVVer/GetKickVelocity and BALL_CONTACT binding
+
+Known preserved dirty baseline outside this increment:
+
+- `Docs/ARCHIVE_LINEAGE_AND_HASHES.md`
+- `Docs/PROJECT_SOURCE_OF_TRUTH.md`
+- `Tools/PUBLICAR_MASTER_NO_GITHUB.bat`
+- `Tools/PUBLICAR_MASTER_NO_GITHUB.ps1`
+
+These four paths are Windows case-collision/user-state files and must not be staged by this branch.
+
+Exact resume command:
+
+```powershell
+Set-Location 'C:\Users\dg71\Documents\ChatGPT\JOGO DE FUTEBOL\.local\worktrees\shoot-speed-v-rate'
+git status --short --branch
+python Tools/analyze_shoot_speed_v_rate.py
+python -m unittest discover -s Tests -p 'test_*.py'
+```
+
 ## Canonical architecture and source policy
 
 - Windows PC / Unreal Engine 5.x
@@ -140,7 +208,7 @@ Directly bound value-producing callees include:
 
 The old GetVVer caller is also bound at `0x016EA318..0x016EA330`, including the `ShootSpeedConfigItem +0x80` load into `w3` and the call to `0x1968E24`.
 
-This closes identity and structural value flow. The complete `GetShootSpeedVRate` branch equation, argument units, semantic meaning/units of the AI config field `+0x80`, and all randomization bounds remain unresolved; `full_equation_recovered` is therefore still `false`.
+The follow-up trace `Recovery/Normalized/shoot_speed_v_rate_static_trace.json` now closes the normal-return equation, binds `+0x80` to `int disArea`, and closes the caller-visible discrete range interpolation. Upstream `GetShootVerRate` values, designer-facing `disArea` convention and original RNG state remain unresolved.
 
 ### `0x196807C` exact forwarding semantics
 
@@ -169,7 +237,7 @@ The four-instruction body loads the manager from `PlayerProperty +0x28`, masks t
 Do not package v0.3 yet. Remaining required evidence includes:
 
 1. close the nested `shootDisAndTime` arithmetic/time path in new GetVVer;
-2. close the full `GetShootSpeedVRate` equation/units, or prove the exact caller-visible result behavior required by GetVVer;
+2. supply the now-closed `GetShootSpeedVRate` equation with recovered upstream property/config/RNG inputs;
 3. compose executable source-bound GetVHor/GetVVer behavior and validate it against original/native evidence;
 4. close final GetKickVelocity behavior, not just the static componentwise join;
 5. bind the resolved result to `BALL_CONTACT.velocity`, remove unresolved fallback/placeholder behavior, and run complete regression;

@@ -28,6 +28,20 @@ class RecoveryManifestTests(unittest.TestCase):
         for relative in artifacts.values():
             self.assertTrue((ROOT / relative).is_file(), relative)
 
+    def test_manifest_registers_shoot_speed_v_rate_evidence(self):
+        artifacts = self.manifest["normalized_artifacts"]
+        self.assertEqual(
+            artifacts["shoot_speed_v_rate_trace"],
+            "Recovery/Normalized/shoot_speed_v_rate_static_trace.json",
+        )
+        sources = {item["source_id"]: item for item in self.manifest["sources"]}
+        self.assertIn("shoot_speed_v_rate_support_disassembly", sources)
+        self.assertIn("shoot_speed_v_rate_metadata", sources)
+        self.assertEqual(
+            sources["shoot_speed_v_rate_metadata"]["global_metadata_sha256"],
+            "92fae52ec4dc570929eb7b99d2083fd6ab6016cbbaa30f87e87ac6732bb1e42e",
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

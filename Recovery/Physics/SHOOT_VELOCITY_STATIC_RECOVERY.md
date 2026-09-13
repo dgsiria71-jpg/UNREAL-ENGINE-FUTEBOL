@@ -103,7 +103,7 @@ Their canonical index-2 parameter families remain the previously recovered value
 - `vVerList +0x30` at `0x016EA0E4`;
 - base interpolation/remap call at `0x016EA188`;
 - base vector construction at `0x016EA1B0..0x016EA1F0`;
-- `speed_vVer +0x80` at `0x016EA318`, entering external call `0x1968E24` at `0x016EA330`;
+- `speed_vVer +0x80` at `0x016EA318`, entering `PlayerProperty.GetShootSpeedVRate` at `0x016EA330`; its normal-return equation is now closed in `SHOOT_SPEED_V_RATE_RECOVERY.md`;
 - optional `0x3FB` spmove block starts at `0x016EA418` and its final rewritten vector at `0x016EA4F0..0x016EA528` survives to return.
 
 Shared return range: `0x016EA52C..0x016EA554`.
@@ -131,7 +131,7 @@ This is not yet a complete implementation because all upstream GetVVer arithmeti
 
 - exact arithmetic semantics of every `0x126BF1C` remap/interpolation call;
 - the complete `shootDisAndTime` nested lookup/time arithmetic in the new GetVVer path;
-- semantic identity/equations of external calls such as `0x1968E24` in the old path;
+- upstream `GetShootVerRate` property values, `disArea` authored convention and original RNG state required to instantiate the now-closed `GetShootSpeedVRate` equation;
 - exceptional-path behavior for manager/property calls;
 - final `BALL_CONTACT.velocity` integration and original-runtime differential equivalence.
 
