@@ -26,3 +26,13 @@ _RELEASES/
 *.umap
 /assets/generated/.game-dev/
 /assets/generated/.jobs/
+
+# Canonical publication exception: selected source/recovery artifacts may be
+# committed under artifacts/ and are routed to Git LFS by .gitattributes.
+!artifacts/
+!artifacts/**
+
+# Upload manifests are ordinary text and stay in Git.
+!manifests/
+!manifests/uploads/
+!manifests/uploads/**
