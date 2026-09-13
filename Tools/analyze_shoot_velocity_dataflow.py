@@ -24,11 +24,37 @@ OUTPUT = ROOT / "Recovery" / "Normalized" / "shoot_velocity_dataflow_static_trac
 
 HEADER_RE = re.compile(r"^###\s+(?P<name>.+?)\s+(?P<start>[0-9A-Fa-f]+)-(?P<end>[0-9A-Fa-f]+)\s*$")
 LINE_RE = re.compile(r"^(?P<address>[0-9A-Fa-f]+):\s+(?P<instruction>.*)$")
-EXPECTED_SHA256 = "ef1b41f609e49f2d831a16f69b82e227a967c914a4ee3748cfbfbdccd161ba58"
+ORIGINAL_SOURCE_SHA256 = "ef1b41f609e49f2d831a16f69b82e227a967c914a4ee3748cfbfbdccd161ba58"
 
 
-def sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+def hash_bytes(data: bytes) -> str:
+    return hashlib.sha256(data).hexdigest()
+
+
+def verify_source_identity(path: Path) -> tuple[str, str]:
+    """Return (original_source_sha, repository_content_sha).
+
+    The Windows source was uploaded with CRLF line endings and the upload manifest
+    records ORIGINAL_SOURCE_SHA256. Git's normal text clean filter stored this .txt
+    with LF line endings, so a fresh Linux checkout has a different byte SHA. We
+    verify identity by reconstructing CRLF from the repository text and requiring
+    that hash to match the upload-manifest/source SHA. No instruction text changes
+    are tolerated because exact anchors are checked separately below.
+    """
+    raw = path.read_bytes()
+    repository_sha = hash_bytes(raw)
+    if repository_sha == ORIGINAL_SOURCE_SHA256:
+        return ORIGINAL_SOURCE_SHA256, repository_sha
+
+    lf = raw.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    reconstructed_crlf = lf.replace(b"\n", b"\r\n")
+    reconstructed_sha = hash_bytes(reconstructed_crlf)
+    if reconstructed_sha != ORIGINAL_SOURCE_SHA256:
+        raise ValueError(
+            "unexpected disassembly identity: "
+            f"repository_sha={repository_sha} reconstructed_crlf_sha={reconstructed_sha}"
+        )
+    return ORIGINAL_SOURCE_SHA256, repository_sha
 
 
 def parse(path: Path) -> tuple[dict[str, tuple[str, str]], dict[str, tuple[str, str]]]:
@@ -64,9 +90,7 @@ def require(
 
 
 def analyze(path: Path = SOURCE) -> dict:
-    digest = sha256(path)
-    if digest != EXPECTED_SHA256:
-        raise ValueError(f"unexpected disassembly SHA-256: {digest}")
+    source_sha, repository_sha = verify_source_identity(path)
 
     ins, sections = parse(path)
     if sections.get("GetVHor") != ("0x016E6A80", "0x016E84A4"):
@@ -115,7 +139,9 @@ def analyze(path: Path = SOURCE) -> dict:
     return {
         "schema_version": "football.recovery.shoot_velocity_dataflow_static_trace.v1",
         "source": "artifacts/native-recovery/20260913-163217-9cdb54d0/01_disassembly_shoot.txt",
-        "source_sha256": digest,
+        "source_sha256": source_sha,
+        "repository_content_sha256": repository_sha,
+        "repository_text_normalization": "Git LF checkout verified against original CRLF source SHA",
         "analysis_status": "static_dataflow_partial_confirmed",
         "behavior_validated": False,
         "GetVHor": {
