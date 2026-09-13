@@ -1,0 +1,139 @@
+{
+  "schema_version": "football.recovery.shoot_velocity_dataflow_static_trace.v1",
+  "source": "artifacts/native-recovery/20260913-163217-9cdb54d0/01_disassembly_shoot.txt",
+  "source_sha256": "ef1b41f609e49f2d831a16f69b82e227a967c914a4ee3748cfbfbdccd161ba58",
+  "repository_content_sha256": "c695472c6bb7820f71c334407c4998149d8f3646bc5f0614d30f3adf80f670c4",
+  "repository_text_normalization": "Git LF checkout verified against original CRLF source SHA",
+  "analysis_status": "static_dataflow_partial_confirmed",
+  "behavior_validated": false,
+  "GetVHor": {
+    "span": "0x016E6A80..0x016E84A4",
+    "new_path": {
+      "energy_to_vhor_interpolate_call": "0x016E6DE0",
+      "interpolate_helper": "0x126BF1C",
+      "player_property_id": "0x3B",
+      "strength_to_rate_interpolate_call": "0x016E6FEC",
+      "clamp_bounds_load": "0x016E72C0",
+      "clamp_bounds_offset": "+0xA8"
+    },
+    "old_path": {
+      "energy_to_vhor_interpolate_call": "0x016E73B0",
+      "interpolate_helper": "0x126BF1C",
+      "speed_vHor_load": "0x016E745C",
+      "clamp_bounds_load": "0x016E794C",
+      "clamp_bounds_offset": "+0x78"
+    },
+    "base_vector": {
+      "clamp_range": "0x016E7988..0x016E7998",
+      "construction_range": "0x016E79B0..0x016E79D8",
+      "fixed_point_bias": 512,
+      "fraction_bits": 10,
+      "return_slots_write": [
+        "0x016E79D4",
+        "0x016E79D8"
+      ],
+      "layout": "XVector3(x=dir0*speed,y=0,z=dir1*speed)"
+    },
+    "pre_base_spmove_blocks": {
+      "logic_ids": [
+        "0x3FE",
+        "0x3FC"
+      ],
+      "new_path_logic_id_loads": [
+        "0x016E7038",
+        "0x016E7170"
+      ],
+      "old_path_logic_id_loads": [
+        "0x016E76C4",
+        "0x016E77FC"
+      ],
+      "normal_return_value_contribution": false,
+      "overwritten_by": [
+        "0x016E79D4",
+        "0x016E79D8"
+      ],
+      "calls_may_still_throw_or_have_side_effects": true,
+      "interpretation": "The blocks rewrite the temporary vector slots before the shared base-vector construction. On the normal return path those slots are overwritten by the writes at 0x016E79D4/0x016E79D8. This proves no surviving value contribution, not that the calls are semantically removable."
+    }
+  },
+  "GetVVer": {
+    "span": "0x016E84A4..0x016EA55C",
+    "status": "structural_static_dataflow_bound_full_equations_unresolved",
+    "new_path": {
+      "shoot_distance_source_range": "0x016E85C8..0x016E85FC",
+      "shoot_distance_map_load": "0x016E8630",
+      "out_energy_max_map_load": "0x016E8768",
+      "shoot_distance_to_out_energy_interpolate_call": "0x016E8804",
+      "y_speed_max_map_load": "0x016E8830",
+      "energy_map_new_load": "0x016E8908",
+      "energy_to_y_speed_max_interpolate_call": "0x016E89F4",
+      "shoot_point_h_up_map_load": "0x016E8B2C",
+      "shoot_distance_to_point_up_interpolate_call": "0x016E8BC8",
+      "shoot_point_h_down_map_load": "0x016E8D08",
+      "shoot_distance_to_point_down_interpolate_call": "0x016E8DA4",
+      "shoot_property_map_new_load": "0x016E8DF4",
+      "energy_tolerance_map_load": "0x016E8F08",
+      "property_to_energy_tolerance_interpolate_call": "0x016E8FA8",
+      "energy_need_protect_load": "0x016E8FBC",
+      "shoot_point_h_clamp_range": "0x016E91E4..0x016E921C",
+      "shoot_dis_and_time_load": "0x016E92E4",
+      "y_speed_min_load": "0x016E9CB4",
+      "vector_construction_range": "0x016E9D08..0x016E9D48",
+      "post_vector_spmove_modifiers": {
+        "logic_ids": [
+          "0x3FC",
+          "0x41A"
+        ],
+        "logic_id_loads": [
+          "0x016E9DF0",
+          "0x016E9F30"
+        ],
+        "normal_return_value_contribution": true,
+        "return_target": "0x016EA52C",
+        "interpretation": "Both modifier blocks operate on the already constructed vertical vector and their rewritten vector state remains live into the shared return path."
+      }
+    },
+    "old_path": {
+      "Flist_vVer_load": "0x016E9FCC",
+      "vVerList_load": "0x016EA0E4",
+      "base_interpolate_call": "0x016EA188",
+      "vector_construction_range": "0x016EA1B0..0x016EA1F0",
+      "speed_vVer_load": "0x016EA318",
+      "speed_vVer_external_call": "0x016EA330",
+      "post_vector_spmove_modifier": {
+        "logic_id": "0x3FB",
+        "logic_id_load": "0x016EA418",
+        "normal_return_value_contribution": true,
+        "final_write_range": "0x016EA4F0..0x016EA528"
+      }
+    },
+    "return_range": "0x016EA52C..0x016EA554",
+    "return_abi": "XVector3 packed as x0(low32=x, high32=y) plus w1=z"
+  },
+  "GetKickVelocity": {
+    "span": "0x016EBAD8..0x016EBF14",
+    "GetVHor_call": "0x016EBBA8",
+    "GetVHor_target": "0x016E6A80",
+    "GetVVer_call": "0x016EBEAC",
+    "GetVVer_target": "0x016E84A4",
+    "horizontal_postprocessing_before_GetVVer": true,
+    "final_join_range": "0x016EBED8..0x016EBF04",
+    "final_join": "adjusted_GetVHor + GetVVer componentwise",
+    "return_abi": "XVector3 packed as x0(low32=x, high32=y) plus w1=z"
+  },
+  "confirmed_interpretation": [
+    "GetVHor new and old paths both converge on a shared clamped horizontal-vector constructor.",
+    "The shared horizontal constructor uses fixed-point multiply with +512 bias and 10 fraction bits.",
+    "Pre-base 0x3FE/0x3FC spmove vector rewrites do not survive the normal GetVHor return-value path because the vector slots are overwritten later.",
+    "GetVVer new path statically binds the distance/energy/point-height/property map chain, clamp, base vector construction, and surviving 0x3FC/0x41A vector modifiers.",
+    "GetVVer old path statically binds Flist_vVer/vVerList interpolation, speed_vVer use, base vector construction, and the surviving 0x3FB vector modifier.",
+    "GetKickVelocity calls GetVHor, post-processes that horizontal vector, calls GetVVer, then adds the two vectors componentwise."
+  ],
+  "unknown": [
+    "full GetVVer arithmetic/interpolation/clamp equations",
+    "semantic identity of all external calls in GetVHor/GetVVer/GetKickVelocity",
+    "exceptional-path behavior beyond the anchored static dataflow",
+    "BALL_CONTACT.velocity binding and end-to-end runtime equivalence"
+  ],
+  "physics_gate": "blocked"
+}
