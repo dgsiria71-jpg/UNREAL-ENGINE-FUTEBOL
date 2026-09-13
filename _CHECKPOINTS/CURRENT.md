@@ -36,7 +36,7 @@ The original historical 92/92 advanced workspace bytes are still **not** proven 
 - spmove producer: preserved 2,640/2,640 native comparisons match
 - open-all collector boundary: 292 serialized configs, 290 enabled, 2 disabled, 56 child refs, 68 logic buckets, 346 entries
 
-## Canonical shoot disassembly is now committed
+## Canonical shoot disassembly
 
 Source:
 
@@ -49,11 +49,11 @@ Source:
 - persisted evidence: `Recovery/Normalized/shoot_velocity_dataflow_static_trace.json`
 - detailed handoff: `Recovery/Physics/SHOOT_VELOCITY_STATIC_RECOVERY.md`
 
-## New GetVHor recovery
+## GetVHor recovery
 
 Function `0x016E6A80..0x016E84A4`.
 
-Old/new field families remain confirmed. The static dataflow now binds both interpolation/remap stages, clamp bounds and the shared fixed-point horizontal vector constructor.
+Old/new field families remain confirmed. The static dataflow binds both interpolation/remap stages, clamp bounds and the shared fixed-point horizontal vector constructor.
 
 Critical correction: the pre-base `0x3FE`/`0x3FC` spmove vector rewrites previously identified in GetVHor are overwritten by the shared normal-return constructor at `0x016E79D4/0x016E79D8`. Therefore they have **no surviving value contribution on the normal GetVHor return path**. Their callees may still throw or have side effects; this is not a dead-call/removal claim.
 
@@ -61,11 +61,11 @@ The surviving base vector uses fixed-point `+512` then `>>10` multiplication and
 
 `XVector3(x = dir0 * speed, y = 0, z = dir1 * speed)`.
 
-## New GetVVer recovery
+## GetVVer recovery
 
 Function `0x016E84A4..0x016EA55C`.
 
-The new path is now statically bound through:
+The new path is statically bound through:
 
 `shootDisMap -> outEnergyMaxMap -> energyMapNew/ySpeedMax -> shootPointHUpMap -> shootPointHDownMap -> shootPropertyMapNew/energyToleranceMap -> energyNeedProtect -> shootPointH clamp -> shootDisAndTime -> ySpeedMin -> base vector`.
 
@@ -75,7 +75,7 @@ Post-vector new-path spmove modifiers `0x3FC` and `0x41A` **do survive** into th
 
 Shared GetVVer return is `0x016EA52C..0x016EA554`; ABI is packed `XVector3` in `x0(low32=x, high32=y)` plus `w1=z`.
 
-The complete arithmetic semantics are **not** yet claimed recovered.
+The complete GetVVer arithmetic semantics are **not** yet claimed recovered.
 
 ## GetKickVelocity composition
 
@@ -88,64 +88,93 @@ Function `0x016EBAD8..0x016EBF14`:
 
 This closes the static final-join shape, not the full original runtime behavior.
 
-## TDD / validation evidence for the static recovery increment
+## Published shoot-helper extraction and new semantic recovery
 
-Branch work follows RED -> GREEN:
+The one-click extractor has now been executed successfully against the user's canonical local ARM64 `libil2cpp.so` and its output is committed:
 
-- `bd9b5ce1...`: RED because canonical shoot analyzer did not exist.
-- `04d697999f42b2e04e08213c38e13babfde63cd1`: first static GetVHor/GetKickVelocity analyzer GREEN on Actions run `34779420198`.
-- `0c220280137110c3e07eddbfa0402e5e56b8d1df`: GetVVer RED with four expected missing-field errors.
-- `ad9bd0f1cb63bcdb05eeeced9d5a12c85f15d7f6`: GetVVer structural bindings GREEN on Actions run `34779664099`.
-- `22e712a1698f7c806d7d01e669b9fb444979e695`: persisted-evidence RED solely because the new JSON did not yet exist.
-- `cb6d6f7a0c949146d3329acee71315630121c66b`: persisted trace exact-equality gate GREEN on Actions run `34779833106`.
+`artifacts/native-recovery/shoot-helpers/20260913-175551-3fafba6a/01_shoot_helper_disassembly.txt`
 
-## One-click shoot-helper extraction handoff
+- text SHA-256: `284964d94f4544b37612f87e79b5daec41b064d5802be1a4c8a767f37e166d58`
+- binary SHA-256 recorded by the extractor: `2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496`
+- analyzer: `Tools/analyze_shoot_helper_semantics.py`
+- persisted trace: `Recovery/Normalized/shoot_helper_semantics_static_trace.json`
+- detailed evidence note: `Recovery/Physics/SHOOT_HELPER_SEMANTICS.md`
 
-The next local evidence acquisition step is now implemented without changing runtime physics:
+The Windows handoff now writes generated evidence to `.local/recovery-output/shoot_helper_disassembly.txt`, separate from the native-input directory, and publishes it through the generic GitHub uploader. The original `libil2cpp.so` remains read-only and unmodified.
 
-- extractor: `Tools/disassemble_shoot_helpers.py`
-- one-click Windows entry point: `tools/EXTRAIR_HELPERS_SHOOT.bat`
-- local input: `.local/il2cpp/libil2cpp.so`
-- optional Il2CppDumper metadata: `.local/il2cpp/script.json` or `.local/tools/Il2CppDumper/script.json`
-- local output: `.local/il2cpp/shoot_helper_disassembly.txt`
-- primary targets: `0x126BF1C`, `0x1968E24`, and `0x196807C`
-- first-level `bl` targets observed inside the extracted primary windows are also emitted, capped at 48, using 0x200-byte bounded windows when an exact method boundary is unavailable
-- an exact function boundary is claimed only from Il2CppDumper `ScriptMethod` entries when the target itself is present and the next-method boundary is sane/aligned; address-bearing `ScriptMetadata` and other groups are ignored for method boundaries; every fallback is labelled `exact=false`
-- the ELF is validated as 64-bit little-endian AArch64 before extraction
-- the mobile binary is read only; it is never executed or modified
-- the BAT supports both the Windows `py -3` launcher and a `python` fallback, propagates the real runtime exit code, verifies that the TXT was produced, and then calls `PUBLICAR_INBOX_NO_GITHUB.ps1`
-- publication destination pattern: `artifacts/native-recovery/shoot-helpers/<upload-id>/`
-- the generic publisher also writes `manifests/uploads/<upload-id>.json` and preserves the local original/output
+### `0x126BF1C` normal-path remap arithmetic
 
-TDD evidence for this handoff:
+The extraction window remains conservatively labelled `exact=false` because no trustworthy `ScriptMethod` boundary was available. The normal return is nevertheless instruction-bound at `0x0126C074`, with a new independent prologue at `0x0126C078`.
 
-- `ca3b94e1ca47ba0b8d69a34c7e09ea08f3454161`: initial RED; six expected failures because extractor/wrapper did not exist, Actions `34780953362`.
-- `912ea7594babbff509e401f77fcb4f678266c5d3`: first bounded extractor GREEN, Actions `34781115819`.
-- `211246958767195f6ee9a869b0a7f7d98a1eb228`: RED for missing first-level callee extraction and launcher fallback, Actions `34781161520`.
-- `a91311615fc8eb8e5ba8249f177043e7c2a48a44`: callee extraction + launcher fallback GREEN, Actions `34781221264`.
-- `790ba3a1aeadf354d5419c8ad52bd89fdfe637a4`: RED exposing stale `%ERRORLEVEL%` capture inside the parenthesized `py -3` branch, Actions `34781298854`.
-- `43b315125309f1a771caff6037e9c29ddd2832cc`: runtime errorlevel capture fixed with delayed expansion; Actions `34781345344` SUCCESS.
-- `fc4e6974819cbed75b426d2699e966bf285a1eab`: RED proving generic address-bearing metadata could be mistaken for a method boundary, Actions `34781471122`.
-- `40bee53e0573f2b59956d8bce69976354933638f`: exact-boundary candidates restricted to `ScriptMethod`; Actions `34781512632` SUCCESS.
+Recovered normal behavior:
 
-This tool has **not yet been executed against the user's local `libil2cpp.so` in this checkpoint**. Therefore no new helper body, helper semantic identity, or physics equation is claimed here. The next user-side action after pulling `main` is exactly:
+- arguments map to `(input, in_min, in_max, out_min, out_max)` in `x0..x4`;
+- equal input bounds return `out_min` directly;
+- input is clamped using the native comparison order;
+- the 10-bit fixed-point inverse-lerp ratio uses the recovered divide shape `q + trunc(2*r/d)`;
+- a zero numerator selects raw ratio zero without dividing;
+- the result is passed to helper `0x126C3FC`.
 
-`tools\EXTRAIR_HELPERS_SHOOT.bat`
+`0x126C3FC` is also a bounded extraction window rather than a metadata-proven function boundary, but its normal return is closed at `0x0126C534`. It clamps `t` to raw `[0,1024]` and computes:
 
-After its publication succeeds, consume the resulting TXT from GitHub and continue the helper-level recovery from that evidence.
+`out_min + fixed_mul(out_max - out_min, t)`
+
+with the already recovered `+512`, `>>10` fixed multiply.
+
+A source-bound implementation now exists at `Reference/FootballPhysics/ShootRemap.h`. It is intentionally separate from the older generic `FootballCore::RemapClamped`: the latter remains whole-file SHA-bound by existing native differential evidence, so changing it without regenerating those native reports would invalidate provenance. `Tests/remap_native_semantics_test.cpp` covers equal bounds, lower clamp, upper clamp and midpoint behavior for the shoot-specific helper while preserving the older generic evidence boundary.
+
+### `0x1968E24` exact identity and value chain
+
+Il2CppDumper `ScriptMethod` metadata provides an exact boundary:
+
+- start `0x01968E24`
+- end `0x0196916C`
+- `PlayerProperty$$GetShootSpeedVRate`
+
+Directly bound value-producing callees include:
+
+- `0x01968C34` -> `PlayerProperty$$GetShootVerRate`
+- `0x01FF58AC` -> `XBaseLocalSetting<AIParameterConfig>$$get_Singleton`
+- observed AI config field at singleton offset `+0x80`
+- `0x0192A0C4` -> `XRandom$$Range`
+
+The old GetVVer caller is also bound at `0x016EA318..0x016EA330`, including the `ShootSpeedConfigItem +0x80` load into `w3` and the call to `0x1968E24`.
+
+This closes identity and structural value flow. The complete `GetShootSpeedVRate` branch equation, argument units, semantic meaning/units of the AI config field `+0x80`, and all randomization bounds remain unresolved; `full_equation_recovered` is therefore still `false`.
+
+### `0x196807C` exact forwarding semantics
+
+Exact metadata boundary:
+
+- start `0x0196807C`
+- end `0x0196808C`
+- `PlayerProperty$$GetSpmoveDataRatio`
+
+The four-instruction body loads the manager from `PlayerProperty +0x28`, masks the low bit of the no-ratio argument, zeroes `x3`, and tail-calls the already recovered `SpmoveManager.GetSpmoveDataNoRatio` at `0x01B72814`.
+
+## TDD / verification evidence for helper-semantic increment
+
+- `a0693931147de82a4f5d452d4bf9bc49c5ba4621`: RED because the semantic analyzer/persisted evidence did not yet exist.
+- `da92bf249f26455046296450afd99068ea677f28`: semantic anchors pass; only persisted-trace gate remains RED.
+- `c0211fb9df40e605d358b473f7bd2bfe37d0f65f`: persisted trace exact-equality gate GREEN, Actions run `34784114057` SUCCESS.
+- `bd9bab264b8fbca8202c9f9e1e742f0d065a98a1`: CTest RED proves the older generic `RemapClamped` does not have the native shoot equal-bound behavior; it throws on divide-by-zero.
+- `c3d022de7c2fd728a1fe3b88f7875bceabc44cbb`: exploratory generic-helper edit makes the new CTest pass but correctly trips five stale native-evidence bindings for `FixedPoint.h`; this change was not accepted as the final architecture.
+- `e1f3280a923e9633f61e949c5dc07c25f0f02a85`: restores the previously validated `FixedPoint.h` evidence boundary.
+- `800b3a69a9dd7331c8b5ca8ec5b89370fcaf8d63`: scoped RED for missing `Reference/FootballPhysics/ShootRemap.h`, Actions run `34784265785`.
+- `e49a16a4b0e561c60977952bd7e0ed7e2099bba0`: source-bound shoot remap GREEN, Actions run `34784291595` SUCCESS; C++ build, two CTests, Python/native evidence checks and Unreal persisted-content validation all pass.
+- `2be52efc63182592db3f048725ff53d55ea949a9`: helper semantic trace registered in the recovery manifest, Actions run `34784415498` SUCCESS.
 
 ## Physics v0.3 gate remains BLOCKED
 
 Do not package v0.3 yet. Remaining required evidence includes:
 
-1. identify/recover the exact semantics of interpolation/remap helper `0x126BF1C`;
-2. close the nested `shootDisAndTime` arithmetic/time path in new GetVVer;
-3. identify/recover external old-path helper `0x1968E24` and any other value-producing opaque callees;
-4. turn the source-bound structure into executable fixed-point GetVHor/GetVVer equations and validate them against native/original evidence;
-5. close final GetKickVelocity behavior, not just the static componentwise join;
-6. bind resolved result to `BALL_CONTACT.velocity`, remove unresolved fallback/placeholder behavior, and run complete regression;
-7. only then consider `FOOTBALL_PHYSICS_RECOVERY_PACK_v0_3.zip`.
+1. close the nested `shootDisAndTime` arithmetic/time path in new GetVVer;
+2. close the full `GetShootSpeedVRate` equation/units, or prove the exact caller-visible result behavior required by GetVVer;
+3. compose executable source-bound GetVHor/GetVVer behavior and validate it against original/native evidence;
+4. close final GetKickVelocity behavior, not just the static componentwise join;
+5. bind the resolved result to `BALL_CONTACT.velocity`, remove unresolved fallback/placeholder behavior, and run complete regression;
+6. only then consider `FOOTBALL_PHYSICS_RECOVERY_PACK_v0_3.zip`.
 
 ## Resume rule
 
-Do not restart architecture. Continue from `Recovery/Physics/SHOOT_VELOCITY_STATIC_RECOVERY.md`, `Recovery/Normalized/shoot_velocity_dataflow_static_trace.json`, and the next published `shoot_helper_disassembly.txt`. Historical documentation never overrides current binary/instruction evidence. Preserve provenance and keep `1-226-19` isolated.
+Do not restart architecture. Continue from `Recovery/Physics/SHOOT_VELOCITY_STATIC_RECOVERY.md`, `Recovery/Physics/SHOOT_HELPER_SEMANTICS.md`, `Recovery/Normalized/shoot_velocity_dataflow_static_trace.json`, `Recovery/Normalized/shoot_helper_semantics_static_trace.json`, and the committed helper disassembly. Historical documentation never overrides current binary/instruction evidence. Preserve provenance and keep `1-226-19` isolated.

@@ -13,15 +13,21 @@ add_executable(FootballReferenceTests
 )
 target_include_directories(FootballReferenceTests PRIVATE ../Reference)
 
+add_executable(RemapNativeSemanticsTest remap_native_semantics_test.cpp)
+target_include_directories(RemapNativeSemanticsTest PRIVATE ../Reference)
+
 add_executable(RecoveredKernelProbe recovered_kernel_probe.cpp)
 add_executable(SpmoveBranchesProbe spmove_branches_probe.cpp)
 if(MSVC)
     target_compile_options(FootballReferenceTests PRIVATE /UNDEBUG)
+    target_compile_options(RemapNativeSemanticsTest PRIVATE /UNDEBUG)
 else()
     target_compile_options(FootballReferenceTests PRIVATE -UNDEBUG)
+    target_compile_options(RemapNativeSemanticsTest PRIVATE -UNDEBUG)
 endif()
 enable_testing()
 add_test(NAME FootballReference COMMAND FootballReferenceTests)
+add_test(NAME RemapNativeSemantics COMMAND RemapNativeSemanticsTest)
 
 add_executable(SpmoveSelectionProbe spmove_selection_probe.cpp)
 
