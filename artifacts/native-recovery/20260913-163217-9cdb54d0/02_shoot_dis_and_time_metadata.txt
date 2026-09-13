@@ -1,0 +1,17 @@
+FOOTBALL SHOOT DIS AND TIME IL2CPP METADATA EXCERPT
+POLICY: exact textual facts copied from canonical Il2CppDumper dump.cs; names do not prove behavior without ARM64 dataflow
+LIBIL2CPP_SHA256: 2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496
+GLOBAL_METADATA_SHA256: 92fae52ec4dc570929eb7b99d2083fd6ab6016cbbaa30f87e87ac6732bb1e42e
+DUMP_CS_SHA256: 4ba445977f2b0854b19375d69c5b30275fe36d06518efe2c5028097868579fbe
+SCRIPT_JSON_SHA256: d15222efc79ebfe50074f385c0f5e5af4960fb43c5cf55a383ea32cba34ae799
+
+### ShootSpeedConfigItem
+public class ShootSpeedConfigItem // TypeDefIndex: 7953
+public XNumber ySpeedMin; // 0x98
+public List<XNumber> ySpeedMax; // 0xA0
+public List<List<int>> shootDisAndTime; // 0x108
+
+### XNumber
+public static readonly XNumber zero; // 0x8
+public static readonly XNumber thousand; // 0x50
+public static XNumber op_Division(XNumber lhs, XNumber rhs) { }

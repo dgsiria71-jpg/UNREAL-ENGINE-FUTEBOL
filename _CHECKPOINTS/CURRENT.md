@@ -6,53 +6,54 @@ GitHub is the canonical source of truth.
 
 ## Active recovery increment
 
-- worktree branch: `codex/shoot-speed-v-rate`
-- base HEAD: `3cba2fe04681110a99d20a394b1fbb158949aeb1` (`origin/main`)
-- task completed in this increment: source-bound normal-return equation for `PlayerProperty.GetShootSpeedVRate` plus sample-driven executable reference
-- current next task: nested `shootDisAndTime` arithmetic/time path in new GetVVer
+- worktree branch: `codex/shoot-dis-and-time`
+- base HEAD: `1870232f51aaab412ca1d2c3a4a79d3a016b03da` (`origin/main`)
+- task completed in this increment: source-bound `shootDisAndTime` lookup, milliseconds conversion, ballistic vertical kernel and native-order clamp
+- current next task: compose the complete executable new-path GetVVer around the recovered upstream target-height/energy path and surviving spmove modifiers
 - Physics v0.3 remains BLOCKED
 
 Files changed by this increment:
 
-- `Tools/analyze_shoot_speed_v_rate.py`
-- `Tools/disassemble_shoot_speed_v_rate_support.py`
-- `Tools/extract_shoot_speed_v_rate_metadata.py`
-- `Reference/FootballPhysics/ShootSpeedVRate.h`
-- `Tests/test_shoot_speed_v_rate_semantics.py`
-- `Tests/shoot_speed_v_rate_semantics_test.cpp`
+- `Tools/analyze_shoot_dis_and_time.py`
+- `Tools/extract_shoot_dis_and_time_metadata.py`
+- `Tools/normalize_shoot_dis_and_time.py`
+- `Reference/FootballPhysics/ShootDisAndTime.h`
+- `Tests/test_shoot_dis_and_time_semantics.py`
+- `Tests/shoot_dis_and_time_semantics_test.cpp`
 - `Tests/CMakeLists.txt`
-- `Recovery/Normalized/shoot_speed_v_rate_static_trace.json`
-- `Recovery/Physics/SHOOT_SPEED_V_RATE_RECOVERY.md`
-- the two bounded support/metadata evidence files beside the canonical helper listing
-- manifest/helper documentation/checkpoint updates
-- Windows line-ending portability fixes in the two existing shoot analyzers and helper test
+- `Recovery/Normalized/shoot_dis_and_time_static_trace.json`
+- `Recovery/Normalized/shoot_dis_and_time_config_5800.json`
+- `Recovery/Physics/SHOOT_DIS_AND_TIME_RECOVERY.md`
+- the source-bound metadata excerpt beside the canonical shoot listing
+- recovery manifest, physics handoffs and this checkpoint
 
 Latest local validation:
 
-- focused RED: 4 expected failures while analyzer, evidence and trace were absent
-- focused GREEN: 4/4 `test_shoot_speed_v_rate_semantics`
-- full Python discovery: 94 tests GREEN, 5 skipped because their optional local fixtures are absent
+- focused RED: 4 expected failures while analyzer, reference and persisted evidence were absent
+- focused GREEN: 5/5 `test_shoot_dis_and_time_semantics`
+- C++ local build: MSVC 19.51; 4/4 CTests GREEN, including `ShootDisAndTimeSemantics`
+- full Python discovery: 99 tests GREEN, 5 skipped because their optional local fixtures are absent
 - native evidence bindings: CURRENT
 - Unreal persisted content validation: GREEN
-- C++ local build: MSVC 19.51 via Visual Studio 18 bundled CMake; 3/3 CTests GREEN, including `ShootSpeedVRateSemantics`
 
 Confirmed in this increment:
 
-- signature: `GetShootSpeedVRate(XGoalTypeEnum goal_child, XNumber F, XNumber c)`
-- `AIParameterConfig +0x80` is metadata-bound to `int disArea`
-- `F / 100` uses the native `XNumber / int` rule and is applied twice, with fixed-point rounding after each multiply
-- positive/negative `c` branches select `min(one, base+disArea_raw)` or `max(one, base-disArea_raw)`
-- normal return is `XRandom.Range(selected_bound, c)`
-- `XRandom.Range` uses an accepted `NextInt(1001)` sample and discrete interpolation across samples 0..1000
-- Windows CRLF checkout portability is repaired for both committed shoot disassembly analyzers
+- `ShootSpeedConfigItem +0x108` is metadata-bound to `List<List<int>> shootDisAndTime`
+- outer table axis uses floor/ceiling neighbors of `XVector3.magnitude(vHor)`
+- inner row axis uses integer neighbors of horizontal shoot distance
+- table values are integer milliseconds converted through `XNumber.thousand`
+- missing row intervals yield zero; paired row times use the nonzero sample when only one is zero
+- final flight time is fixed-point interpolated across distance and horizontal speed
+- vertical solve preserves `(delta_y - vertical_accel_raw*t*t/2)/t` operation order
+- final y speed uses the native `ySpeedMin/ySpeedMax` comparison order
+- canonical config 5800 source anchor `[20][25]=1327 ms` reproduces `flightTime raw=1359` and `vY raw=7828`
 
 Still unknown:
 
-- `GetShootVerRate` property-selection values by goal type
-- designer-facing authored unit/intent of `disArea` beyond its proven direct raw runtime use
-- original RNG state and selected sample at a match tick
-- nested `shootDisAndTime` equation
-- full executable/differential GetVVer/GetKickVelocity and BALL_CONTACT binding
+- complete executable upstream target-height/energy-protection path
+- surviving post-vector spmove modifiers `0x3FC` and `0x41A` in complete GetVVer
+- full GetKickVelocity runtime behavior and BALL_CONTACT binding
+- malformed/null table exception behavior outside canonical data preconditions
 
 Known preserved dirty baseline outside this increment:
 
@@ -66,9 +67,9 @@ These four paths are Windows case-collision/user-state files and must not be sta
 Exact resume command:
 
 ```powershell
-Set-Location 'C:\Users\dg71\Documents\ChatGPT\JOGO DE FUTEBOL\.local\worktrees\shoot-speed-v-rate'
+Set-Location 'C:\Users\dg71\Documents\ChatGPT\JOGO DE FUTEBOL\.local\worktrees\shoot-dis-and-time'
 git status --short --branch
-python Tools/analyze_shoot_speed_v_rate.py
+python Tools/analyze_shoot_dis_and_time.py
 python -m unittest discover -s Tests -p 'test_*.py'
 ```
 

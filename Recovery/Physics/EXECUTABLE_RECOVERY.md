@@ -182,3 +182,19 @@ base GetVHor/GetVVer, final GetKickVelocity and BALL_CONTACT.
 This closes the old/new config-family split only. Complete interpolation,
 clamping, units, runtime output, the spmove modifier join, `GetKickVelocity` and
 `BALL_CONTACT.velocity` remain unresolved, so the Physics v0.3 gate is blocked.
+
+
+## 2026-09-13 shootDisAndTime follow-up
+
+The nested new-GetVVer flight-time path is now instruction-bound and executable.
+It samples shootDisAndTime as a speed-by-distance table, converts serialized
+integer milliseconds with XNumber.thousand, preserves the native zero-row
+fallback, and applies the ordered fixed-point vertical solve and ySpeed clamp.
+
+Config 5800 from the hash-bound 133872-byte shootspeed payload verifies
+table[20][25]=1327 ms, flightTime raw 1359, and the historical vertical result
+vY raw 7828 for verticalDelta=1551 and vertical_accel_raw=-10035.
+
+See Recovery/Physics/SHOOT_DIS_AND_TIME_RECOVERY.md and
+Recovery/Normalized/shoot_dis_and_time_static_trace.json. This closes a kernel,
+not complete GetVVer or Physics v0.3.
