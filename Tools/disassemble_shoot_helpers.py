@@ -52,18 +52,50 @@ def _as_address(value: Any) -> int | None:
 
 
 def collect_script_methods(payload: Any) -> list[tuple[int, str]]:
+    """Collect only entries that live under Il2CppDumper ScriptMethod groups.
+
+    script.json also contains address-bearing groups such as ScriptMetadata.
+    Those addresses are deliberately ignored because they are not trustworthy
+    method-boundary candidates for this extractor.
+    """
     found: set[tuple[int, str]] = set()
+
+    def add_group(group: Any) -> None:
+        items = group if isinstance(group, list) else [group]
+        for item in items:
+            if not isinstance(item, dict):
+                continue
+            address = next(
+                (
+                    _as_address(item[key])
+                    for key in ("Address", "address", "RVA", "rva")
+                    if key in item and _as_address(item[key]) is not None
+                ),
+                None,
+            )
+            if address is None:
+                continue
+            name = next(
+                (
+                    str(item[key]).strip()
+                    for key in ("Name", "name", "Signature")
+                    if item.get(key)
+                ),
+                f"method_0x{address:X}",
+            )
+            found.add((address, name))
+
     def walk(node: Any) -> None:
         if isinstance(node, dict):
-            address = next((_as_address(node[k]) for k in ("Address", "address", "RVA", "rva") if k in node and _as_address(node[k]) is not None), None)
-            if address is not None:
-                name = next((str(node[k]).strip() for k in ("Name", "name", "Signature") if node.get(k)), f"method_0x{address:X}")
-                found.add((address, name))
-            for value in node.values():
-                walk(value)
+            for key, value in node.items():
+                if key.lower() == "scriptmethod":
+                    add_group(value)
+                else:
+                    walk(value)
         elif isinstance(node, list):
             for value in node:
                 walk(value)
+
     walk(payload)
     return sorted(found)
 
