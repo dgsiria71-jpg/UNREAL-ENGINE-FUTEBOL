@@ -24,6 +24,12 @@ class ShootHelperExtractorTests(unittest.TestCase):
         self.assertTrue(TOOL.is_file(), "Tools/disassemble_shoot_helpers.py is missing")
         self.assertTrue(WRAPPER.is_file(), "tools/EXTRAIR_HELPERS_SHOOT.bat is missing")
 
+    def test_wrapper_supports_py_launcher_and_python_fallback(self):
+        wrapper = WRAPPER.read_text(encoding="utf-8").lower()
+        self.assertIn("where py", wrapper)
+        self.assertIn("where python", wrapper)
+        self.assertIn("publicar_inbox_no_github.ps1", wrapper)
+
     def test_default_targets_cover_current_unresolved_value_helpers(self):
         module = load_tool()
         targets = {target.name: target for target in module.DEFAULT_TARGETS}
@@ -67,6 +73,18 @@ class ShootHelperExtractorTests(unittest.TestCase):
         self.assertEqual(resolved.start, 0x1968E24)
         self.assertEqual(resolved.end, 0x1969424)
         self.assertEqual(resolved.boundary_source, "bounded-fallback-window")
+
+    def test_first_level_callee_selection_is_deduplicated_and_excludes_primary_targets(self):
+        module = load_tool()
+        self.assertGreaterEqual(module.ADJACENT_WINDOW_BYTES, 0x100)
+        selected = module.select_first_level_callees(
+            {
+                "one": [0x1000, 0x2000, 0x3000],
+                "two": [0x2000, 0x4000],
+            },
+            primary_starts={0x1000, 0x4000},
+        )
+        self.assertEqual(selected, [0x2000, 0x3000])
 
     def test_summary_is_machine_readable_and_does_not_claim_exact_body_for_fallback(self):
         module = load_tool()
