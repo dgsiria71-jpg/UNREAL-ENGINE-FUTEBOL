@@ -72,6 +72,19 @@ def validate_manifest(project_dir: Path) -> list[str]:
             errors.append("canonical spmoveconfig record count changed")
         if normalized.get("semantic_status") != "record_schema_confirmed_velocity_semantics_unresolved":
             errors.append("spmove semantic gate changed without review")
+    collected_path = project_dir / "Recovery" / "Normalized" / "spmove_collected_open_all.json"
+    if not collected_path.is_file():
+        errors.append("missing normalized open-all spmove inventory")
+    else:
+        collected = json.loads(collected_path.read_text(encoding="utf-8"))
+        counts = collected.get("counts", {})
+        if counts.get("enabled_config_records") != 290:
+            errors.append("enabled open-all spmove count changed")
+        if counts.get("missing_child_configs") != 0:
+            errors.append("open-all spmove inventory has missing child configs")
+        if collected.get("physics_v0_3_gate") != "blocked":
+            errors.append("collected inventory overclaims the physics gate")
+
     if not (project_dir / "Recovery" / "Normalized" / "native_static_trace.json").is_file():
         errors.append("missing native static trace report")
     if not (project_dir / "Recovery" / "Normalized" / "cal_spmove_static_trace.json").is_file():

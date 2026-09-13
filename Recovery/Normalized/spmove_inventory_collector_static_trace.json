@@ -5,7 +5,7 @@
   "binary": ".local/il2cpp/libil2cpp.so",
   "binary_sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496",
   "source_scope": "canonical Android ARM64 XSpmoveManager::getSpmoveIdDict",
-  "analysis_status": "inventory_cache_control_flow_only",
+  "analysis_status": "inventory_collection_shape_static_confirmed",
   "behavior_validated": false,
   "anchors": {
     "manager_cache_flag": {
@@ -40,13 +40,29 @@
       "address": "0x01B71CBC",
       "instruction": "ldr      x0, [x19, #0x28]"
     },
+    "child_logic_id": {
+      "address": "0x01B71D40",
+      "instruction": "ldr      w1, [x21, #0x20]"
+    },
     "child_id_store": {
       "address": "0x01B71DD4",
       "instruction": "str      w20, [x22, #0x10]"
     },
+    "parent_id_load": {
+      "address": "0x01B71DD8",
+      "instruction": "ldr      w8, [x19, #0x18]"
+    },
     "child_parent_store": {
       "address": "0x01B71DDC",
       "instruction": "str      w8, [x22, #0x14]"
+    },
+    "self_id_load": {
+      "address": "0x01B71E9C",
+      "instruction": "ldr      w8, [x19, #0x18]"
+    },
+    "self_id_store": {
+      "address": "0x01B71EA0",
+      "instruction": "str      w8, [x21, #0x10]"
     },
     "player_inventory_field": {
       "address": "0x01B71FA8",
@@ -56,13 +72,29 @@
       "address": "0x01B72028",
       "instruction": "ldr      w1, [x19, #0x20]"
     },
+    "inventory_child_logic_id": {
+      "address": "0x01B72100",
+      "instruction": "ldr      w1, [x21, #0x20]"
+    },
     "inventory_child_id_store": {
       "address": "0x01B721A4",
       "instruction": "str      w20, [x22, #0x10]"
     },
+    "inventory_parent_id_load": {
+      "address": "0x01B721A8",
+      "instruction": "ldr      w8, [x19, #0x18]"
+    },
     "inventory_parent_store": {
       "address": "0x01B721AC",
       "instruction": "str      w8, [x22, #0x14]"
+    },
+    "inventory_self_id_load": {
+      "address": "0x01B72278",
+      "instruction": "ldr      w8, [x19, #0x18]"
+    },
+    "inventory_self_id_store": {
+      "address": "0x01B7227C",
+      "instruction": "str      w8, [x21, #0x10]"
     },
     "return_dictionary": {
       "address": "0x01B7235C",
@@ -71,6 +103,15 @@
   },
   "script_json": ".local/tools/Il2CppDumper/script.json",
   "script_json_sha256": "d15222efc79ebfe50074f385c0f5e5af4960fb43c5cf55a383ea32cba34ae799",
+  "dump_cs": ".local/tools/Il2CppDumper/dump.cs",
+  "dump_cs_sha256": "4ba445977f2b0854b19375d69c5b30275fe36d06518efe2c5028097868579fbe",
+  "layout_evidence": {
+    "config_id": "public int id; // 0x18",
+    "config_logic_id": "public int logicId; // 0x20",
+    "config_children": "public List<int> childSpmoveIds; // 0x28",
+    "combine_child_id": "public int childId; // 0x10",
+    "combine_father_id": "public int fatherId; // 0x14"
+  },
   "helper_symbols": {
     "0x2C6A4F8": [
       "Dictionary<int, List<SpmoveIDCombine>>$$ContainsKey",
@@ -113,24 +154,33 @@
     },
     {
       "operation": "all_config_path",
-      "flow": "open-all or matchrule_skill==1 enumerates config records by logic id and builds child entries with id and parent/level fields",
+      "flow": "open-all or matchrule_skill==1 enumerates configs; each root adds (root.id, 0) to root.logicId and each listed child adds (childId, root.id) to the child config logicId bucket",
       "evidence": [
         "0x01B71BB4",
         "0x01B71C60",
         "0x01B71CC0",
+        "0x01B71D40",
         "0x01B71DD4",
-        "0x01B71DDC"
+        "0x01B71DD8",
+        "0x01B71DDC",
+        "0x01B71E9C",
+        "0x01B71EA0"
       ]
     },
     {
       "operation": "player_inventory_path",
-      "flow": "matchrule_skill==-1 reads manager spmoveIds list +0x30 and builds the same normalized child-entry shape",
+      "flow": "matchrule_skill==-1 reads manager spmoveIds +0x30; missing roots are skipped, while resolved roots use the same self/child expansion shape",
       "evidence": [
         "0x01B71F98",
         "0x01B71FA8",
-        "0x01B72024",
+        "0x01B72018",
+        "0x01B72028",
+        "0x01B72100",
         "0x01B721A4",
-        "0x01B721AC"
+        "0x01B721A8",
+        "0x01B721AC",
+        "0x01B72278",
+        "0x01B7227C"
       ]
     },
     {
@@ -150,17 +200,21 @@
       "spmove_ids": "+0x30",
       "matchrule_skill": "+0x38"
     },
-    "entry_fields": {
-      "spmove_id": "+0x10",
-      "parent_or_level": "+0x14"
+    "config_fields": {
+      "id": "+0x18",
+      "logic_id": "+0x20",
+      "child_spmove_ids": "+0x28"
     },
-    "status": "collection_and_runtime_types_unresolved",
-    "safe_action": "preserve manager/cache metadata and require native-backed inventory fixtures before using eligibility in velocity recovery"
+    "entry_fields": {
+      "child_id": "+0x10",
+      "father_id": "+0x14"
+    },
+    "status": "collection_shape_confirmed_runtime_source_unresolved",
+    "safe_action": "implement the engine-independent collection shape while keeping player inventory source and later eligibility/RNG explicit"
   },
   "unknown": [
-    "exact helper types and dictionary/list allocation semantics",
-    "upstream source of config_list and player spmoveIds at runtime",
-    "meaning of entry +0x14 (parent id versus level) on every path",
+    "exact managed dictionary/list allocation and exception semantics",
+    "upstream source and lifetime of player spmoveIds at runtime",
     "eligibility, ownership, level, odds, and RNG filters after inventory collection",
     "cache lifetime and invalidation outside this method",
     "representative runtime behavior on real player inventories"

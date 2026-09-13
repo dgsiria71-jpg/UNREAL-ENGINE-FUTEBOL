@@ -226,3 +226,33 @@ Five critical archives (animation, physics, migration, PC 3D, ecosystem) are
 physically present, SHA-bound and CRC GREEN. Audit confirms no complete-game,
 complete-animation, mobile-AI or camera-runtime claim. Python suite is 54/54 OK;
 Unreal content validation remains provenance-only GREEN.
+
+
+E0060: `getSpmoveIdDict` static analysis expanded from 15 to 23 ARM64 anchors and
+was cross-checked against dump.cs layouts. `SpmoveIDCombine +0x10/+0x14` is now
+confirmed as childId/fatherId; config +0x18/+0x20/+0x28 is id/logicId/children.
+Both native paths add self `(id,0)` and child `(childId,parent.id)` entries to the
+appropriate logic bucket. `behavior_validated=false`; allocation, exceptions and
+real-player source remain outside the claim.
+
+E0061: `Tools/collect_spmove_inventory.py` combined the collector trace with the
+previous OnGameStart enabled guard. Canonical open-all result: 292 serialized,
+290 enabled, 2 disabled, 56 child references, zero missing child configs, 68
+logic buckets and 346 inventory entries. Engine-independent C++ collector tests
+cover open-all, player-root skipping, empty matchrule path and malformed child
+rejection. MSVC C++17 /W4 /WX reference result: 21/21 GREEN.
+
+E0062: Post-collector verification: selection native differential rerun
+4,672/4,672 MATCH; source bindings CURRENT; Python repository suite 58/58 OK;
+feature archive audit GREEN; Unreal content provenance GREEN; original extracted
+Physics v0.2 suite 67/67 OK in 6.600s. GetVHor/GetVVer bases, final kick velocity,
+BALL_CONTACT and v0.3 remain blocked.
+
+E0063: User-authorized local tooling installation: official tagged
+`@theisegoria/game-development-studio` source v1.0.2 compiled and installed as
+global `game-dev`; version/capabilities/doctor run and doctor reports healthy.
+Permanent main skill installed at C:\Users\dg71\.codex\skills\game-development-studio
+with packaged content SHA-256 e11d373f4aef10e10b13f1aa2a1d00e2a467373951ecfe839ccc6208be464409.
+The npm registry package returned 404, so installation used the official Git tag.
+Upstream full tests are not GREEN on Windows: 387 passed, 78 failed, 22 skipped;
+failures include POSIX process fixtures, directory fsync EPERM and missing openssl.

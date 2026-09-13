@@ -40,6 +40,7 @@ def build_plan(project_dir: Path) -> dict:
         "semantic_gates": manifest.get("semantic_gates", {}),
         "normalized_artifacts": {
             "spmove": "Recovery/Normalized/spmove_normalized.json",
+            "spmove_collected_open_all": "Recovery/Normalized/spmove_collected_open_all.json",
             "physics_contract": "Recovery/Normalized/physics_runtime_contract.json",
             "native_static_trace": "Recovery/Normalized/native_static_trace.json",
             "cal_spmove_trace": "Recovery/Normalized/cal_spmove_static_trace.json",
@@ -62,6 +63,9 @@ def build_plan(project_dir: Path) -> dict:
             "codec": "LZ4 raw block",
             "canonical_action_records": 48,
             "canonical_config_records": 292,
+            "enabled_open_all_configs": 290,
+            "open_all_logic_buckets": 68,
+            "open_all_inventory_entries": 346,
             "candidate_config_records_isolated": 312,
             "velocity_semantics": "unresolved",
             "runtime_property_derivation": "partially_anchored_param_Xnumber_population_and_property_calls",
@@ -72,7 +76,7 @@ def build_plan(project_dir: Path) -> dict:
             "provenance": gameplay_contract.get("provenance") if gameplay_contract else None,
         },
         "blocked": [
-            "spmove inventory/eligibility dependencies, GetVHor/GetVVer bases and final contact velocity remain unresolved",
+            "real-player spmove source/eligibility, GetVHor/GetVVer bases and final contact velocity remain unresolved",
             "do not emit BALL_CONTACT velocity for unresolved actions",
         ],
         "next_importable": [

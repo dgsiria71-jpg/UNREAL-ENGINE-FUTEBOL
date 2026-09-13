@@ -319,6 +319,70 @@ static void test_spmove_selection_preserves_native_priority_and_nulls() {
     assert(selector.Config(12345) == nullptr);
 }
 
+static football::physics::recovered::SpmoveConfigMap collector_configs() {
+    using namespace football::physics::recovered;
+    SpmoveConfigMap configs;
+    configs.emplace(10, SpmoveConfigRecord{10, 1, 0, 0, 1, std::nullopt,
+                                            100, std::vector<std::int32_t>{20}});
+    configs.emplace(20, SpmoveConfigRecord{20, 2, 0, 0, 1, std::nullopt,
+                                            200, std::vector<std::int32_t>{}});
+    configs.emplace(30, SpmoveConfigRecord{30, 1, 0, 0, 1, std::nullopt,
+                                            100, std::nullopt});
+    configs.emplace(40, SpmoveConfigRecord{40, 1, 0, 0, 0, std::nullopt,
+                                            300, std::nullopt});
+    return configs;
+}
+
+static void test_spmove_inventory_collector_expands_native_shape() {
+    using namespace football::physics::recovered;
+    const auto configs = collector_configs();
+    const auto result = CollectAllSpmoves(configs, {10, 20, 30, 40});
+    assert(result.complete());
+    assert(result.entries.at(100).size() == 2);
+    assert(result.entries.at(100)[0].child_id == 10);
+    assert(result.entries.at(100)[0].father_id == 0);
+    assert(result.entries.at(100)[1].child_id == 30);
+    assert(result.entries.at(200).size() == 2);
+    assert(result.entries.at(200)[0].child_id == 20);
+    assert(result.entries.at(200)[0].father_id == 10);
+    assert(result.entries.at(200)[1].child_id == 20);
+    assert(result.entries.at(200)[1].father_id == 0);
+    assert(result.entries.find(300) == result.entries.end());
+}
+
+static void test_spmove_inventory_collector_preserves_manager_paths() {
+    using namespace football::physics::recovered;
+    auto configs = collector_configs();
+    auto result = CollectSpmovesForManager(false, -1, configs, {}, {999, 10});
+    assert(result.complete()); // missing player roots are skipped by the native path
+    assert(result.entries.at(100).size() == 1);
+    assert(result.entries.at(200).size() == 1);
+    assert(result.entries.at(200)[0].father_id == 10);
+
+    result = CollectSpmovesForManager(false, 0, configs, {10, 20, 30}, {10});
+    assert(result.complete() && result.entries.empty());
+
+    result = CollectPlayerSpmoves(configs, {40});
+    assert(result.complete() && result.entries.empty());
+
+    configs.at(10).child_spmove_ids = std::vector<std::int32_t>{40};
+    result = CollectPlayerSpmoves(configs, {10});
+    assert(!result.complete());
+    assert(result.status == SpmoveCollectionStatus::MissingChildConfig);
+    assert(result.missing_config_id == 40);
+
+    configs.at(10).child_spmove_ids = std::vector<std::int32_t>{404};
+    result = CollectPlayerSpmoves(configs, {10});
+    assert(!result.complete());
+    assert(result.status == SpmoveCollectionStatus::MissingChildConfig);
+    assert(result.missing_config_id == 404);
+
+    result = CollectAllSpmoves(configs, {777});
+    assert(!result.complete());
+    assert(result.status == SpmoveCollectionStatus::MissingAllConfigRoot);
+    assert(result.missing_config_id == 777);
+}
+
 static void test_spmove_inventory_cache_boundary() {
     using namespace football::physics::recovered;
     SpmoveInventoryCache cache;
@@ -358,6 +422,8 @@ static void test_spmove_producer_strict_boundaries_and_reset() {
 
 int main() {
     test_spmove_producer_strict_boundaries_and_reset();
+    test_spmove_inventory_collector_preserves_manager_paths();
+    test_spmove_inventory_collector_expands_native_shape();
     test_spmove_inventory_cache_boundary();
     test_spmove_selection_preserves_native_priority_and_nulls();
     test_recovered_fractional_rounding();
@@ -376,5 +442,5 @@ int main() {
     test_tackle_wins_possession_from_nearby_opponent();
     test_goalkeeper_save_captures_nearby_ball();
     test_goal_and_restart_are_deterministic();
-    std::cout << "FOOTBALL_REFERENCE_TESTS: 19/19 GREEN\n";
+    std::cout << "FOOTBALL_REFERENCE_TESTS: 21/21 GREEN\n";
 }

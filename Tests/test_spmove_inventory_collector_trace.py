@@ -13,7 +13,7 @@ class SpmoveInventoryCollectorTraceTests(unittest.TestCase):
         )
 
     def test_cache_and_manager_offsets_are_preserved(self):
-        self.assertEqual(self.report["analysis_status"], "inventory_cache_control_flow_only")
+        self.assertEqual(self.report["analysis_status"], "inventory_collection_shape_static_confirmed")
         self.assertFalse(self.report["behavior_validated"])
         fields = self.report["normalized_boundary"]["manager_fields"]
         self.assertEqual(fields["dictionary"], "+0x10")
@@ -29,6 +29,11 @@ class SpmoveInventoryCollectorTraceTests(unittest.TestCase):
         anchors = self.report["anchors"]
         self.assertEqual(anchors["player_inventory_field"]["address"], "0x01B71FA8")
         self.assertEqual(anchors["config_children_list"]["address"], "0x01B71CBC")
+        entry_fields = self.report["normalized_boundary"]["entry_fields"]
+        self.assertEqual(entry_fields["child_id"], "+0x10")
+        self.assertEqual(entry_fields["father_id"], "+0x14")
+        self.assertEqual(self.report["anchors"]["self_id_store"]["address"], "0x01B71EA0")
+        self.assertEqual(self.report["anchors"]["inventory_self_id_store"]["address"], "0x01B7227C")
         self.assertEqual(self.report["physics_gate"], "blocked")
 
     def test_generic_helper_names_are_metadata_anchored(self):
@@ -37,6 +42,14 @@ class SpmoveInventoryCollectorTraceTests(unittest.TestCase):
         self.assertIn("List<SpmoveIDCombine>$$Add", symbols["0x2F26798"])
         self.assertIn("SpmoveModule$$GetConfig", symbols["0x1449858"])
         self.assertEqual(self.report["helper_symbol_status"], "metadata_names_only")
+
+    def test_dump_layout_names_close_combine_semantics(self):
+        layout = self.report["layout_evidence"]
+        self.assertIn("childId", layout["combine_child_id"])
+        self.assertIn("fatherId", layout["combine_father_id"])
+        self.assertIn("logicId", layout["config_logic_id"])
+        self.assertTrue(self.report["dump_cs_sha256"])
+
     def test_unknowns_prevent_velocity_overclaim(self):
         unknown = self.report["unknown"]
         self.assertIn("eligibility, ownership, level, odds, and RNG filters after inventory collection", unknown)

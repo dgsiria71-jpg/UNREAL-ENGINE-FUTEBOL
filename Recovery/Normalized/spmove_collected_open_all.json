@@ -1,0 +1,1776 @@
+{
+  "schema_version": "football.recovery.spmove_collected_inventory.v1",
+  "status": "open_all_collection_shape_complete",
+  "source": {
+    "path": "Recovery/Normalized/spmove_normalized.json",
+    "sha256": "6f013b7f32dfcd329f389fea0ae75acf127a06d4e93b7447d7c7f099fb809414",
+    "source_id": "migration_v1_1_canonical",
+    "config_records": 290
+  },
+  "native_trace": {
+    "collector_path": "Recovery/Normalized/spmove_inventory_collector_static_trace.json",
+    "collector_sha256": "66096f0ad195f80bbb42a3618ead961078a5ca9da6d0a95c7a0023348dbe3d4b",
+    "runtime_path": "Recovery/Normalized/spmove_runtime_static_trace.json",
+    "runtime_sha256": "35f28ae6921f05f7e321536942e33eea145e88ad27cfcc15793d347be6063677",
+    "method": "canonical Android ARM64 XSpmoveManager::getSpmoveIdDict",
+    "enabled_guard": {
+      "field": "SpmoveConfigConfigItem.enable",
+      "offset": "0x1C",
+      "behavior": "disabled records branch around runtime-list construction",
+      "evidence": [
+        "0x0144960C",
+        "0x01449610"
+      ]
+    },
+    "behavior_validated": false
+  },
+  "collection_mode": "open_all",
+  "ordering": {
+    "root_order": "canonical decoded spmoveconfig record order",
+    "runtime_dictionary_values_order": "unproven",
+    "selection_impact": "normal velocity selector uses maximum signed child_id"
+  },
+  "counts": {
+    "serialized_config_records": 292,
+    "enabled_config_records": 290,
+    "disabled_config_records": 2,
+    "child_references": 56,
+    "logic_buckets": 68,
+    "inventory_entries": 346,
+    "missing_child_configs": 0
+  },
+  "buckets": [
+    {
+      "logic_id": 999,
+      "entries": [
+        {
+          "child_id": 100201,
+          "father_id": 0
+        },
+        {
+          "child_id": 100301,
+          "father_id": 0
+        },
+        {
+          "child_id": 100401,
+          "father_id": 0
+        },
+        {
+          "child_id": 100601,
+          "father_id": 0
+        },
+        {
+          "child_id": 100701,
+          "father_id": 0
+        },
+        {
+          "child_id": 101201,
+          "father_id": 0
+        },
+        {
+          "child_id": 100202,
+          "father_id": 0
+        },
+        {
+          "child_id": 100302,
+          "father_id": 0
+        },
+        {
+          "child_id": 100402,
+          "father_id": 0
+        },
+        {
+          "child_id": 100602,
+          "father_id": 0
+        },
+        {
+          "child_id": 100702,
+          "father_id": 0
+        },
+        {
+          "child_id": 101202,
+          "father_id": 0
+        },
+        {
+          "child_id": 100203,
+          "father_id": 0
+        },
+        {
+          "child_id": 100303,
+          "father_id": 0
+        },
+        {
+          "child_id": 100403,
+          "father_id": 0
+        },
+        {
+          "child_id": 100603,
+          "father_id": 0
+        },
+        {
+          "child_id": 100703,
+          "father_id": 0
+        },
+        {
+          "child_id": 101203,
+          "father_id": 0
+        },
+        {
+          "child_id": 100204,
+          "father_id": 0
+        },
+        {
+          "child_id": 100304,
+          "father_id": 0
+        },
+        {
+          "child_id": 100404,
+          "father_id": 0
+        },
+        {
+          "child_id": 100604,
+          "father_id": 0
+        },
+        {
+          "child_id": 100704,
+          "father_id": 0
+        },
+        {
+          "child_id": 101204,
+          "father_id": 0
+        },
+        {
+          "child_id": 100205,
+          "father_id": 0
+        },
+        {
+          "child_id": 100305,
+          "father_id": 0
+        },
+        {
+          "child_id": 100405,
+          "father_id": 0
+        },
+        {
+          "child_id": 100605,
+          "father_id": 0
+        },
+        {
+          "child_id": 100705,
+          "father_id": 0
+        },
+        {
+          "child_id": 101205,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1009,
+      "entries": [
+        {
+          "child_id": 100901,
+          "father_id": 0
+        },
+        {
+          "child_id": 100902,
+          "father_id": 0
+        },
+        {
+          "child_id": 100903,
+          "father_id": 0
+        },
+        {
+          "child_id": 100904,
+          "father_id": 0
+        },
+        {
+          "child_id": 100905,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1010,
+      "entries": [
+        {
+          "child_id": 101001,
+          "father_id": 0
+        },
+        {
+          "child_id": 101002,
+          "father_id": 0
+        },
+        {
+          "child_id": 101003,
+          "father_id": 0
+        },
+        {
+          "child_id": 101004,
+          "father_id": 0
+        },
+        {
+          "child_id": 101005,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1011,
+      "entries": [
+        {
+          "child_id": 101101,
+          "father_id": 0
+        },
+        {
+          "child_id": 101102,
+          "father_id": 0
+        },
+        {
+          "child_id": 101103,
+          "father_id": 0
+        },
+        {
+          "child_id": 101104,
+          "father_id": 0
+        },
+        {
+          "child_id": 101105,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1013,
+      "entries": [
+        {
+          "child_id": 101301,
+          "father_id": 0
+        },
+        {
+          "child_id": 101302,
+          "father_id": 0
+        },
+        {
+          "child_id": 101303,
+          "father_id": 0
+        },
+        {
+          "child_id": 101304,
+          "father_id": 0
+        },
+        {
+          "child_id": 101305,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1014,
+      "entries": [
+        {
+          "child_id": 101401,
+          "father_id": 0
+        },
+        {
+          "child_id": 101402,
+          "father_id": 0
+        },
+        {
+          "child_id": 101403,
+          "father_id": 0
+        },
+        {
+          "child_id": 101404,
+          "father_id": 0
+        },
+        {
+          "child_id": 101405,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1015,
+      "entries": [
+        {
+          "child_id": 101501,
+          "father_id": 0
+        },
+        {
+          "child_id": 101502,
+          "father_id": 0
+        },
+        {
+          "child_id": 101503,
+          "father_id": 0
+        },
+        {
+          "child_id": 101504,
+          "father_id": 0
+        },
+        {
+          "child_id": 101505,
+          "father_id": 0
+        },
+        {
+          "child_id": 101504,
+          "father_id": 107901
+        },
+        {
+          "child_id": 101505,
+          "father_id": 107902
+        }
+      ]
+    },
+    {
+      "logic_id": 1016,
+      "entries": [
+        {
+          "child_id": 101601,
+          "father_id": 0
+        },
+        {
+          "child_id": 101602,
+          "father_id": 0
+        },
+        {
+          "child_id": 101603,
+          "father_id": 0
+        },
+        {
+          "child_id": 101604,
+          "father_id": 0
+        },
+        {
+          "child_id": 101605,
+          "father_id": 0
+        },
+        {
+          "child_id": 101604,
+          "father_id": 108101
+        },
+        {
+          "child_id": 101605,
+          "father_id": 108102
+        },
+        {
+          "child_id": 101604,
+          "father_id": 108401
+        },
+        {
+          "child_id": 101605,
+          "father_id": 108402
+        }
+      ]
+    },
+    {
+      "logic_id": 1019,
+      "entries": [
+        {
+          "child_id": 101901,
+          "father_id": 0
+        },
+        {
+          "child_id": 101902,
+          "father_id": 0
+        },
+        {
+          "child_id": 101903,
+          "father_id": 0
+        },
+        {
+          "child_id": 101904,
+          "father_id": 0
+        },
+        {
+          "child_id": 101905,
+          "father_id": 0
+        },
+        {
+          "child_id": 101904,
+          "father_id": 107601
+        },
+        {
+          "child_id": 101905,
+          "father_id": 107602
+        }
+      ]
+    },
+    {
+      "logic_id": 1020,
+      "entries": [
+        {
+          "child_id": 102001,
+          "father_id": 0
+        },
+        {
+          "child_id": 102002,
+          "father_id": 0
+        },
+        {
+          "child_id": 102003,
+          "father_id": 0
+        },
+        {
+          "child_id": 102004,
+          "father_id": 0
+        },
+        {
+          "child_id": 102005,
+          "father_id": 0
+        },
+        {
+          "child_id": 102004,
+          "father_id": 108001
+        },
+        {
+          "child_id": 102005,
+          "father_id": 108002
+        }
+      ]
+    },
+    {
+      "logic_id": 1022,
+      "entries": [
+        {
+          "child_id": 102201,
+          "father_id": 0
+        },
+        {
+          "child_id": 102202,
+          "father_id": 0
+        },
+        {
+          "child_id": 102203,
+          "father_id": 0
+        },
+        {
+          "child_id": 102204,
+          "father_id": 0
+        },
+        {
+          "child_id": 102205,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1023,
+      "entries": [
+        {
+          "child_id": 102301,
+          "father_id": 0
+        },
+        {
+          "child_id": 102302,
+          "father_id": 0
+        },
+        {
+          "child_id": 102303,
+          "father_id": 0
+        },
+        {
+          "child_id": 102304,
+          "father_id": 0
+        },
+        {
+          "child_id": 102305,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1027,
+      "entries": [
+        {
+          "child_id": 102701,
+          "father_id": 0
+        },
+        {
+          "child_id": 102702,
+          "father_id": 0
+        },
+        {
+          "child_id": 102703,
+          "father_id": 0
+        },
+        {
+          "child_id": 102704,
+          "father_id": 0
+        },
+        {
+          "child_id": 102705,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1029,
+      "entries": [
+        {
+          "child_id": 102901,
+          "father_id": 0
+        },
+        {
+          "child_id": 102902,
+          "father_id": 0
+        },
+        {
+          "child_id": 102903,
+          "father_id": 0
+        },
+        {
+          "child_id": 102904,
+          "father_id": 0
+        },
+        {
+          "child_id": 102905,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1030,
+      "entries": [
+        {
+          "child_id": 103001,
+          "father_id": 0
+        },
+        {
+          "child_id": 103002,
+          "father_id": 0
+        },
+        {
+          "child_id": 103003,
+          "father_id": 0
+        },
+        {
+          "child_id": 103004,
+          "father_id": 0
+        },
+        {
+          "child_id": 103005,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1031,
+      "entries": [
+        {
+          "child_id": 103101,
+          "father_id": 0
+        },
+        {
+          "child_id": 103102,
+          "father_id": 0
+        },
+        {
+          "child_id": 103103,
+          "father_id": 0
+        },
+        {
+          "child_id": 103104,
+          "father_id": 0
+        },
+        {
+          "child_id": 103105,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1032,
+      "entries": [
+        {
+          "child_id": 103201,
+          "father_id": 0
+        },
+        {
+          "child_id": 103202,
+          "father_id": 0
+        },
+        {
+          "child_id": 103203,
+          "father_id": 0
+        },
+        {
+          "child_id": 103204,
+          "father_id": 0
+        },
+        {
+          "child_id": 103205,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1035,
+      "entries": [
+        {
+          "child_id": 103501,
+          "father_id": 0
+        },
+        {
+          "child_id": 103502,
+          "father_id": 0
+        },
+        {
+          "child_id": 103503,
+          "father_id": 0
+        },
+        {
+          "child_id": 103504,
+          "father_id": 0
+        },
+        {
+          "child_id": 103505,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1036,
+      "entries": [
+        {
+          "child_id": 103601,
+          "father_id": 0
+        },
+        {
+          "child_id": 103602,
+          "father_id": 0
+        },
+        {
+          "child_id": 103603,
+          "father_id": 0
+        },
+        {
+          "child_id": 103604,
+          "father_id": 0
+        },
+        {
+          "child_id": 103605,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1037,
+      "entries": [
+        {
+          "child_id": 103701,
+          "father_id": 0
+        },
+        {
+          "child_id": 103702,
+          "father_id": 0
+        },
+        {
+          "child_id": 103703,
+          "father_id": 0
+        },
+        {
+          "child_id": 103704,
+          "father_id": 0
+        },
+        {
+          "child_id": 103705,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1038,
+      "entries": [
+        {
+          "child_id": 103801,
+          "father_id": 0
+        },
+        {
+          "child_id": 103802,
+          "father_id": 0
+        },
+        {
+          "child_id": 103803,
+          "father_id": 0
+        },
+        {
+          "child_id": 103804,
+          "father_id": 0
+        },
+        {
+          "child_id": 103805,
+          "father_id": 0
+        },
+        {
+          "child_id": 103804,
+          "father_id": 107901
+        },
+        {
+          "child_id": 103805,
+          "father_id": 107902
+        },
+        {
+          "child_id": 103804,
+          "father_id": 108401
+        },
+        {
+          "child_id": 103805,
+          "father_id": 108402
+        }
+      ]
+    },
+    {
+      "logic_id": 1039,
+      "entries": [
+        {
+          "child_id": 103901,
+          "father_id": 0
+        },
+        {
+          "child_id": 103902,
+          "father_id": 0
+        },
+        {
+          "child_id": 103903,
+          "father_id": 0
+        },
+        {
+          "child_id": 103904,
+          "father_id": 0
+        },
+        {
+          "child_id": 103905,
+          "father_id": 0
+        },
+        {
+          "child_id": 106001,
+          "father_id": 0
+        },
+        {
+          "child_id": 106002,
+          "father_id": 0
+        },
+        {
+          "child_id": 106003,
+          "father_id": 0
+        },
+        {
+          "child_id": 106004,
+          "father_id": 0
+        },
+        {
+          "child_id": 106005,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1040,
+      "entries": [
+        {
+          "child_id": 104001,
+          "father_id": 0
+        },
+        {
+          "child_id": 104002,
+          "father_id": 0
+        },
+        {
+          "child_id": 104003,
+          "father_id": 0
+        },
+        {
+          "child_id": 104004,
+          "father_id": 0
+        },
+        {
+          "child_id": 104005,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1041,
+      "entries": [
+        {
+          "child_id": 104101,
+          "father_id": 0
+        },
+        {
+          "child_id": 104102,
+          "father_id": 0
+        },
+        {
+          "child_id": 104103,
+          "father_id": 0
+        },
+        {
+          "child_id": 104104,
+          "father_id": 0
+        },
+        {
+          "child_id": 104105,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1042,
+      "entries": [
+        {
+          "child_id": 104201,
+          "father_id": 0
+        },
+        {
+          "child_id": 104202,
+          "father_id": 0
+        },
+        {
+          "child_id": 104203,
+          "father_id": 0
+        },
+        {
+          "child_id": 104204,
+          "father_id": 0
+        },
+        {
+          "child_id": 104205,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1043,
+      "entries": [
+        {
+          "child_id": 104301,
+          "father_id": 0
+        },
+        {
+          "child_id": 104302,
+          "father_id": 0
+        },
+        {
+          "child_id": 104303,
+          "father_id": 0
+        },
+        {
+          "child_id": 104304,
+          "father_id": 0
+        },
+        {
+          "child_id": 104305,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1044,
+      "entries": [
+        {
+          "child_id": 104401,
+          "father_id": 0
+        },
+        {
+          "child_id": 104402,
+          "father_id": 0
+        },
+        {
+          "child_id": 104403,
+          "father_id": 0
+        },
+        {
+          "child_id": 104404,
+          "father_id": 0
+        },
+        {
+          "child_id": 104405,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1045,
+      "entries": [
+        {
+          "child_id": 104501,
+          "father_id": 0
+        },
+        {
+          "child_id": 104502,
+          "father_id": 0
+        },
+        {
+          "child_id": 104503,
+          "father_id": 0
+        },
+        {
+          "child_id": 104504,
+          "father_id": 0
+        },
+        {
+          "child_id": 104505,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1046,
+      "entries": [
+        {
+          "child_id": 104601,
+          "father_id": 0
+        },
+        {
+          "child_id": 104602,
+          "father_id": 0
+        },
+        {
+          "child_id": 104603,
+          "father_id": 0
+        },
+        {
+          "child_id": 104604,
+          "father_id": 0
+        },
+        {
+          "child_id": 104605,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1047,
+      "entries": [
+        {
+          "child_id": 104701,
+          "father_id": 0
+        },
+        {
+          "child_id": 104702,
+          "father_id": 0
+        },
+        {
+          "child_id": 104703,
+          "father_id": 0
+        },
+        {
+          "child_id": 104704,
+          "father_id": 0
+        },
+        {
+          "child_id": 104705,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1048,
+      "entries": [
+        {
+          "child_id": 104801,
+          "father_id": 0
+        },
+        {
+          "child_id": 104802,
+          "father_id": 0
+        },
+        {
+          "child_id": 104803,
+          "father_id": 0
+        },
+        {
+          "child_id": 104804,
+          "father_id": 0
+        },
+        {
+          "child_id": 104805,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1049,
+      "entries": [
+        {
+          "child_id": 104901,
+          "father_id": 0
+        },
+        {
+          "child_id": 104902,
+          "father_id": 0
+        },
+        {
+          "child_id": 104903,
+          "father_id": 0
+        },
+        {
+          "child_id": 104904,
+          "father_id": 0
+        },
+        {
+          "child_id": 104905,
+          "father_id": 0
+        },
+        {
+          "child_id": 104904,
+          "father_id": 107701
+        },
+        {
+          "child_id": 104905,
+          "father_id": 107702
+        }
+      ]
+    },
+    {
+      "logic_id": 1050,
+      "entries": [
+        {
+          "child_id": 105001,
+          "father_id": 0
+        },
+        {
+          "child_id": 105002,
+          "father_id": 0
+        },
+        {
+          "child_id": 105003,
+          "father_id": 0
+        },
+        {
+          "child_id": 105004,
+          "father_id": 0
+        },
+        {
+          "child_id": 105005,
+          "father_id": 0
+        },
+        {
+          "child_id": 105004,
+          "father_id": 108001
+        },
+        {
+          "child_id": 105005,
+          "father_id": 108002
+        }
+      ]
+    },
+    {
+      "logic_id": 1051,
+      "entries": [
+        {
+          "child_id": 105101,
+          "father_id": 0
+        },
+        {
+          "child_id": 105102,
+          "father_id": 0
+        },
+        {
+          "child_id": 105103,
+          "father_id": 0
+        },
+        {
+          "child_id": 105104,
+          "father_id": 0
+        },
+        {
+          "child_id": 105105,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1052,
+      "entries": [
+        {
+          "child_id": 105201,
+          "father_id": 0
+        },
+        {
+          "child_id": 105202,
+          "father_id": 0
+        },
+        {
+          "child_id": 105203,
+          "father_id": 0
+        },
+        {
+          "child_id": 105204,
+          "father_id": 0
+        },
+        {
+          "child_id": 105205,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1053,
+      "entries": [
+        {
+          "child_id": 105301,
+          "father_id": 0
+        },
+        {
+          "child_id": 105302,
+          "father_id": 0
+        },
+        {
+          "child_id": 105303,
+          "father_id": 0
+        },
+        {
+          "child_id": 105304,
+          "father_id": 0
+        },
+        {
+          "child_id": 105305,
+          "father_id": 0
+        },
+        {
+          "child_id": 105304,
+          "father_id": 108101
+        },
+        {
+          "child_id": 105305,
+          "father_id": 108102
+        }
+      ]
+    },
+    {
+      "logic_id": 1054,
+      "entries": [
+        {
+          "child_id": 105401,
+          "father_id": 0
+        },
+        {
+          "child_id": 105402,
+          "father_id": 0
+        },
+        {
+          "child_id": 105403,
+          "father_id": 0
+        },
+        {
+          "child_id": 105404,
+          "father_id": 0
+        },
+        {
+          "child_id": 105405,
+          "father_id": 0
+        },
+        {
+          "child_id": 105404,
+          "father_id": 108301
+        },
+        {
+          "child_id": 105405,
+          "father_id": 108302
+        },
+        {
+          "child_id": 105404,
+          "father_id": 108401
+        },
+        {
+          "child_id": 105405,
+          "father_id": 108402
+        }
+      ]
+    },
+    {
+      "logic_id": 1055,
+      "entries": [
+        {
+          "child_id": 105501,
+          "father_id": 0
+        },
+        {
+          "child_id": 105502,
+          "father_id": 0
+        },
+        {
+          "child_id": 105503,
+          "father_id": 0
+        },
+        {
+          "child_id": 105504,
+          "father_id": 0
+        },
+        {
+          "child_id": 105505,
+          "father_id": 0
+        },
+        {
+          "child_id": 106401,
+          "father_id": 0
+        },
+        {
+          "child_id": 106402,
+          "father_id": 0
+        },
+        {
+          "child_id": 106401,
+          "father_id": 107501
+        },
+        {
+          "child_id": 106402,
+          "father_id": 107502
+        },
+        {
+          "child_id": 106401,
+          "father_id": 107701
+        },
+        {
+          "child_id": 106402,
+          "father_id": 107702
+        }
+      ]
+    },
+    {
+      "logic_id": 1056,
+      "entries": [
+        {
+          "child_id": 105601,
+          "father_id": 0
+        },
+        {
+          "child_id": 105602,
+          "father_id": 0
+        },
+        {
+          "child_id": 105603,
+          "father_id": 0
+        },
+        {
+          "child_id": 105604,
+          "father_id": 0
+        },
+        {
+          "child_id": 105605,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1057,
+      "entries": [
+        {
+          "child_id": 105701,
+          "father_id": 0
+        },
+        {
+          "child_id": 105702,
+          "father_id": 0
+        },
+        {
+          "child_id": 105703,
+          "father_id": 0
+        },
+        {
+          "child_id": 105704,
+          "father_id": 0
+        },
+        {
+          "child_id": 105705,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1058,
+      "entries": [
+        {
+          "child_id": 105801,
+          "father_id": 0
+        },
+        {
+          "child_id": 105802,
+          "father_id": 0
+        },
+        {
+          "child_id": 105803,
+          "father_id": 0
+        },
+        {
+          "child_id": 105804,
+          "father_id": 0
+        },
+        {
+          "child_id": 105805,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1059,
+      "entries": [
+        {
+          "child_id": 105901,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1061,
+      "entries": [
+        {
+          "child_id": 106101,
+          "father_id": 0
+        },
+        {
+          "child_id": 106102,
+          "father_id": 0
+        },
+        {
+          "child_id": 106101,
+          "father_id": 107601
+        },
+        {
+          "child_id": 106102,
+          "father_id": 107602
+        }
+      ]
+    },
+    {
+      "logic_id": 1062,
+      "entries": [
+        {
+          "child_id": 106301,
+          "father_id": 0
+        },
+        {
+          "child_id": 106302,
+          "father_id": 0
+        },
+        {
+          "child_id": 106301,
+          "father_id": 107501
+        },
+        {
+          "child_id": 106302,
+          "father_id": 107502
+        },
+        {
+          "child_id": 106301,
+          "father_id": 107801
+        },
+        {
+          "child_id": 106302,
+          "father_id": 107802
+        },
+        {
+          "child_id": 106301,
+          "father_id": 108701
+        },
+        {
+          "child_id": 106302,
+          "father_id": 108702
+        }
+      ]
+    },
+    {
+      "logic_id": 1063,
+      "entries": [
+        {
+          "child_id": 106501,
+          "father_id": 0
+        },
+        {
+          "child_id": 106502,
+          "father_id": 0
+        },
+        {
+          "child_id": 106501,
+          "father_id": 108201
+        },
+        {
+          "child_id": 106502,
+          "father_id": 108202
+        }
+      ]
+    },
+    {
+      "logic_id": 1064,
+      "entries": [
+        {
+          "child_id": 106601,
+          "father_id": 0
+        },
+        {
+          "child_id": 106602,
+          "father_id": 0
+        },
+        {
+          "child_id": 106601,
+          "father_id": 108201
+        },
+        {
+          "child_id": 106602,
+          "father_id": 108202
+        }
+      ]
+    },
+    {
+      "logic_id": 1065,
+      "entries": [
+        {
+          "child_id": 106701,
+          "father_id": 0
+        },
+        {
+          "child_id": 106702,
+          "father_id": 0
+        },
+        {
+          "child_id": 106701,
+          "father_id": 107801
+        },
+        {
+          "child_id": 106702,
+          "father_id": 107802
+        }
+      ]
+    },
+    {
+      "logic_id": 1067,
+      "entries": [
+        {
+          "child_id": 106801,
+          "father_id": 0
+        },
+        {
+          "child_id": 106802,
+          "father_id": 0
+        },
+        {
+          "child_id": 106801,
+          "father_id": 108701
+        },
+        {
+          "child_id": 106802,
+          "father_id": 108702
+        }
+      ]
+    },
+    {
+      "logic_id": 1068,
+      "entries": [
+        {
+          "child_id": 106901,
+          "father_id": 0
+        },
+        {
+          "child_id": 106902,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1069,
+      "entries": [
+        {
+          "child_id": 107001,
+          "father_id": 0
+        },
+        {
+          "child_id": 107002,
+          "father_id": 0
+        },
+        {
+          "child_id": 107001,
+          "father_id": 108501
+        },
+        {
+          "child_id": 107002,
+          "father_id": 108502
+        }
+      ]
+    },
+    {
+      "logic_id": 1070,
+      "entries": [
+        {
+          "child_id": 107101,
+          "father_id": 0
+        },
+        {
+          "child_id": 107102,
+          "father_id": 0
+        },
+        {
+          "child_id": 107101,
+          "father_id": 108601
+        },
+        {
+          "child_id": 107102,
+          "father_id": 108602
+        }
+      ]
+    },
+    {
+      "logic_id": 1071,
+      "entries": [
+        {
+          "child_id": 107201,
+          "father_id": 0
+        },
+        {
+          "child_id": 107202,
+          "father_id": 0
+        },
+        {
+          "child_id": 107201,
+          "father_id": 108501
+        },
+        {
+          "child_id": 107202,
+          "father_id": 108502
+        }
+      ]
+    },
+    {
+      "logic_id": 1072,
+      "entries": [
+        {
+          "child_id": 107301,
+          "father_id": 0
+        },
+        {
+          "child_id": 107302,
+          "father_id": 0
+        },
+        {
+          "child_id": 107301,
+          "father_id": 108601
+        },
+        {
+          "child_id": 107302,
+          "father_id": 108602
+        }
+      ]
+    },
+    {
+      "logic_id": 1073,
+      "entries": [
+        {
+          "child_id": 107401,
+          "father_id": 0
+        },
+        {
+          "child_id": 107402,
+          "father_id": 0
+        },
+        {
+          "child_id": 107401,
+          "father_id": 108301
+        },
+        {
+          "child_id": 107402,
+          "father_id": 108302
+        }
+      ]
+    },
+    {
+      "logic_id": 1074,
+      "entries": [
+        {
+          "child_id": 106201,
+          "father_id": 0
+        },
+        {
+          "child_id": 106202,
+          "father_id": 0
+        },
+        {
+          "child_id": 106201,
+          "father_id": 107501
+        },
+        {
+          "child_id": 106202,
+          "father_id": 107502
+        }
+      ]
+    },
+    {
+      "logic_id": 1075,
+      "entries": [
+        {
+          "child_id": 107501,
+          "father_id": 0
+        },
+        {
+          "child_id": 107502,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1076,
+      "entries": [
+        {
+          "child_id": 107601,
+          "father_id": 0
+        },
+        {
+          "child_id": 107602,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1077,
+      "entries": [
+        {
+          "child_id": 107701,
+          "father_id": 0
+        },
+        {
+          "child_id": 107702,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1078,
+      "entries": [
+        {
+          "child_id": 107801,
+          "father_id": 0
+        },
+        {
+          "child_id": 107802,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1079,
+      "entries": [
+        {
+          "child_id": 107901,
+          "father_id": 0
+        },
+        {
+          "child_id": 107902,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1080,
+      "entries": [
+        {
+          "child_id": 108001,
+          "father_id": 0
+        },
+        {
+          "child_id": 108002,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1081,
+      "entries": [
+        {
+          "child_id": 108101,
+          "father_id": 0
+        },
+        {
+          "child_id": 108102,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1082,
+      "entries": [
+        {
+          "child_id": 108201,
+          "father_id": 0
+        },
+        {
+          "child_id": 108202,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1083,
+      "entries": [
+        {
+          "child_id": 108301,
+          "father_id": 0
+        },
+        {
+          "child_id": 108302,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1084,
+      "entries": [
+        {
+          "child_id": 108401,
+          "father_id": 0
+        },
+        {
+          "child_id": 108402,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1085,
+      "entries": [
+        {
+          "child_id": 108501,
+          "father_id": 0
+        },
+        {
+          "child_id": 108502,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1086,
+      "entries": [
+        {
+          "child_id": 108601,
+          "father_id": 0
+        },
+        {
+          "child_id": 108602,
+          "father_id": 0
+        }
+      ]
+    },
+    {
+      "logic_id": 1087,
+      "entries": [
+        {
+          "child_id": 108701,
+          "father_id": 0
+        },
+        {
+          "child_id": 108702,
+          "father_id": 0
+        }
+      ]
+    }
+  ],
+  "unknown": [
+    "real player spmoveIds source and lifetime",
+    "eligibility and ownership filters before the player inventory snapshot",
+    "odds and RNG behavior after collection",
+    "managed Dictionary.Values ordering in the original runtime",
+    "complete GetVHor/GetVVer/GetKickVelocity composition"
+  ],
+  "physics_v0_3_gate": "blocked"
+}

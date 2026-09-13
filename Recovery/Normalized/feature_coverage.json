@@ -72,16 +72,17 @@
     {
       "feature": "Final kick velocity and ball contact",
       "source_recovery": "partial",
-      "normalized": "partial",
-      "executable_reference": "partial_native_differential",
+      "normalized": "inventory_shape_confirmed_velocity_partial",
+      "executable_reference": "collection_shape_tested_plus_partial_native_differential",
       "unreal_integration": "guarded_contract_scaffolded",
       "runtime_validated": "blocked",
       "evidence": [
         "spmove branch/selection/producer native comparisons",
+        "290 enabled configs -> 346 open-all inventory entries in 68 logic buckets",
         "BallContact rejects unresolved velocity"
       ],
       "gaps": [
-        "full inventory eligibility/RNG",
+        "real-player inventory source/eligibility/RNG",
         "GetVHor/GetVVer bases",
         "GetKickVelocity composition",
         "BALL_CONTACT.velocity regression"

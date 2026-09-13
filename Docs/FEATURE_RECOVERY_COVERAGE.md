@@ -7,7 +7,7 @@ Gerado por Tools/audit_feature_coverage.py. Fonte recuperada, normalização, re
 | Sistema | Fonte | Normalizado | Executável | Unreal | Validação |
 |---|---|---|---|---|---|
 | Fixed-point physics and vectors | confirmed | confirmed | native differential green | contracts scaffolded | headless only |
-| Final kick velocity and ball contact | partial | partial | partial native differential | guarded contract scaffolded | blocked |
+| Final kick velocity and ball contact | partial | inventory shape confirmed velocity partial | collection shape tested plus partial native differential | guarded contract scaffolded | blocked |
 | Animation controller and COFMotion | confirmed data format | catalogued not runtime database | exporter and previews only | planned | not validated |
 | Collision, tackle, interception and goalkeeper | confirmed tables | archive schema only | simple authored headless behaviour | contracts scaffolded | not mobile equivalent |
 | Pass, shot, dribble and defense | confirmed source tables | partial | simple authored headless behaviour | input and simulation scaffolded | not mobile equivalent |
@@ -25,7 +25,7 @@ Gerado por Tools/audit_feature_coverage.py. Fonte recuperada, normalização, re
 
 ### Final kick velocity and ball contact
 
-- full inventory eligibility/RNG
+- real-player inventory source/eligibility/RNG
 - GetVHor/GetVVer bases
 - GetKickVelocity composition
 - BALL_CONTACT.velocity regression

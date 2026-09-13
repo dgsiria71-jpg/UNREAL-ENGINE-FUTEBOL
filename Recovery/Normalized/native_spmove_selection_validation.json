@@ -80,9 +80,10 @@
     "Reference/FootballPhysics/NativeSqrtTable.h": "fccea12b0e3881841c02bf27b302fa0f22e1c1fa65b9f6854f9b4e081d006ebb",
     "Reference/FootballPhysics/NativeVectorMath.h": "ec744857741b468f333a3a1dff10479e488d0c3369b3d41b08ba1bd939b82541",
     "Reference/FootballPhysics/SpmoveBranches.h": "7418cb3eec3882fad30efce110d56438445c827b5d13c9f74705ad19918b2afb",
+    "Reference/FootballPhysics/SpmoveInventoryCache.h": "2eff059154bb4501c9f569e1ec4584f4256bcb2171d72119365ec03df4510a0e",
     "Reference/FootballPhysics/SpmoveModifiers.h": "d33353920b7c1359028a3e1f74707cb0ed137a43a143b61855e4f3ec85dd4dfe",
     "Reference/FootballPhysics/SpmoveProducer.h": "e52f60dd5b409fa39fc60443882dac39fc526e06bc5aeec37cb482b38cedb461",
-    "Reference/FootballPhysics/SpmoveSelection.h": "51a57459edbe49ef8b89cd7857d81cc4065953ff2f8d6c56762e7187b1458123",
+    "Reference/FootballPhysics/SpmoveSelection.h": "e6ab6a8b58af2905ac59f42fd2d9faea3cc02de091de939390d12c0d1ad13435",
     "Tests/spmove_selection_probe.cpp": "94a7c17757eda9eadffdc368e253cc7660c66a298e05307c88658e24abb93c43"
   },
   "verification_source_sha256": {
@@ -94,7 +95,7 @@
     "Tools/disassemble_spmove_runtime.py": "5b160ac9ee83de68150fdb6c910dfe543c669508ddf2822fa5af9cea2e6df28f"
   },
   "normalized_config_sha256": "6f013b7f32dfcd329f389fea0ae75acf127a06d4e93b7447d7c7f099fb809414",
-  "cpp_executable_sha256": "8af1cdb8c55e3906511bb508b18df4cc7d2b96f1027643309a2c9366a0599810",
+  "cpp_executable_sha256": "017e9f778f67190125463a963d54267fb3f21db086dc96c733ce2ecddaa335af",
   "text_digest_canonicalization": "UTF-8 without BOM, LF line endings",
   "confirmed": [
     "highest signed child ID, not level/order/odds",

@@ -123,3 +123,18 @@ derivado de raiz quadrada; os demais entram em sequências de multiplicação
 fixed-point. Isso ainda não é a equação final nem fecha a seleção de nível,
 unidades ou comportamento; `behavior_validated=false` e o gate v0.3 continua
 bloqueado.
+
+
+## Checkpoint de coleta open-all — 2026-09-13
+
+A forma de `getSpmoveIdDict` foi ligada ao layout IL2CPP: childId `+0x10`,
+fatherId `+0x14`, config id `+0x18`, logicId `+0x20` e childSpmoveIds `+0x28`.
+A normalização canônica filtra os dois registros desabilitados pelo guard nativo
+de `SpmoveModule.OnGameStart` e produz 346 entradas em 68 buckets a partir de
+290 configs habilitadas e 56 referências filhas, sem filho ausente. O C++
+headless implementa as rotas open-all e player, com testes 21/21 GREEN.
+
+Isto fecha a forma de coleta e o fixture open-all. Não fecha a origem de
+spmoveIds de um jogador real, elegibilidade, odds/RNG, GetVHor/GetVVer,
+GetKickVelocity ou BALL_CONTACT. O próximo trabalho é separar as bases old/new
+de GetVHor e GetVVer usando o corpo ARM64 canônico.

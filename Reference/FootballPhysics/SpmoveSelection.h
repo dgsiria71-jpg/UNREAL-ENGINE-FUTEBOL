@@ -12,6 +12,10 @@ struct SpmoveConfigRecord {
     std::int32_t id{}, level{}, order{}, odds{}, enabled{};
     // Runtime list is explicit: null and an initialized empty list differ.
     std::optional<std::vector<std::int32_t>> runtime_parameters;
+    // Collector-only metadata from SpmoveConfigConfigItem. These fields are
+    // appended so existing recovered selector fixtures retain their layout.
+    std::int32_t logic_id{};
+    std::optional<std::vector<std::int32_t>> child_spmove_ids;
 };
 using SpmoveInventory = std::unordered_map<std::int32_t, std::vector<SpmoveIdCombine>>;
 using SpmoveConfigMap = std::unordered_map<std::int32_t, SpmoveConfigRecord>;

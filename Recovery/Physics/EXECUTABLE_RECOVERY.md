@@ -57,9 +57,9 @@ create false staleness; binary/executable hashes are byte-exact.
 
 ## Remaining work in order
 
-1. Recover `XSpmoveManager.GetSpmoveDataNoRatio`/selection and eligibility from
-   the existing canonical manager/producer disassembly. Keep selected fixtures
-   as the explicit boundary until source-backed tests replace them.
+1. Preserve the now implemented `getSpmoveIdDict` collection shape and the
+   complete canonical open-all fixture. Recover real-player spmoveIds sourcing,
+   eligibility and odds/RNG only when native evidence supports each boundary.
 2. Recover/reconstruct the missing GetVHor/GetVVer old/new base implementations
    and their config bindings. The historical 92/92 workspace has not been found;
    this checkpoint does not relabel current tests as 92/92.
@@ -105,7 +105,8 @@ Tool API references used for this work:
 SpmoveSelection.h recovers max signed child ID, positive father tie handling,
 config lookup and noRatio low-bit behavior. Level/order/odds fields do not pick
 the winner. A missing maximum config does not fall back. Null and empty parameter
-lists remain distinct. Inventory collection remains an explicit external snapshot.
+lists remain distinct. Real-player inventory sourcing and later eligibility remain explicit external
+boundaries; the open-all collection shape is now implemented separately.
 Original manager functions plus native modifiers match C++ across 4,672 cases.
 
 SpmoveProducer.h recovers calSpmoveInUse control flow with explicit context-query
@@ -146,3 +147,22 @@ cache key, explicit invalidation, and source snapshots without pretending to
 recover the upstream inventory provider or eligibility/RNG. Same-state calls are
 cache hits; changing open-all rebuilds the normalized dictionary. This adapter is
 safe to consume later from Unreal C++ and is covered by the reference regression.
+
+
+## 2026-09-13 open-all inventory collection
+
+The collector trace now binds 23 ARM64 instructions to dump.cs field layouts.
+`SpmoveIDCombine +0x10` is childId and `+0x14` is fatherId. Enabled root configs
+produce `(root.id, 0)` in the root logicId bucket; child references produce
+`(childId, root.id)` in the child config logicId bucket. The player path skips a
+root ID whose config does not resolve. Managed allocation/exception mechanics
+and the real player's spmoveIds source remain outside the normalized contract.
+
+`CollectAllSpmoves`, `CollectPlayerSpmoves` and `CollectSpmovesForManager` in
+SpmoveInventoryCache.h implement this engine-independent shape. Malformed child
+references return an incomplete result instead of being converted to zero or a
+synthetic config. The canonical open-all artifact contains 290 enabled configs,
+56 child references, 68 logic buckets and 346 entries with no missing children.
+It uses decoded-record order and does not claim the old managed Dictionary.Values
+iteration order. Reference regression is 21/21 GREEN; v0.3 remains blocked by
+base GetVHor/GetVVer, final GetKickVelocity and BALL_CONTACT.

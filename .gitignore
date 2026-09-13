@@ -24,3 +24,5 @@ _RELEASES/
 *.glb
 *.uasset
 *.umap
+/assets/generated/.game-dev/
+/assets/generated/.jobs/

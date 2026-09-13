@@ -79,6 +79,7 @@ result = {
     "source_of_truth": "mobile recovery archives plus Blender source assets",
     "normalized_artifacts": {
         "spmove": "Recovery/Normalized/spmove_normalized.json",
+        "spmove_collected_open_all": "Recovery/Normalized/spmove_collected_open_all.json",
         "physics_contract": "Recovery/Normalized/physics_runtime_contract.json",
         "native_static_trace": "Recovery/Normalized/native_static_trace.json",
         "cal_spmove_trace": "Recovery/Normalized/cal_spmove_static_trace.json",
