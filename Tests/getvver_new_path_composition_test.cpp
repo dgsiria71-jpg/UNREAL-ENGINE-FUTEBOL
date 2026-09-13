@@ -8,7 +8,7 @@ using namespace football::physics::recovered;
 
 int main() {
     // Protected-energy selection: early-out current-energy branches.
-    assert(SelectProtectedEnergy(Create(4000), Create(2500), Create(600), Create(1800)).raw == 2500);
+    assert(SelectProtectedEnergy(Create(4000), Create(2000), Create(600), Create(1800)).raw == 2000);
     assert(SelectProtectedEnergy(Create(4000), Create(5000), Create(600), Create(1800)).raw == 5000);
 
     // Transitional branch: max(current-tolerance, out-protect).
