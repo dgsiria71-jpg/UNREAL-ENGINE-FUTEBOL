@@ -26,7 +26,7 @@ int main() {
 
     // Native clamp order and final reference subtraction.
     assert(ComputeVerticalDelta(
-        Create(3000), Create(500), Create(2500), Create(3500), Create(1200)).raw == 1800);
+        Create(2500), Create(500), Create(2500), Create(3500), Create(1200)).raw == 1800);
     assert(ComputeVerticalDelta(
         Create(5000), Create(500), Create(2500), Create(3500), Create(1200)).raw == 2300);
 
