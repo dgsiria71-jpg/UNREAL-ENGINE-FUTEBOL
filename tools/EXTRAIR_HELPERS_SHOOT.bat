@@ -1,5 +1,5 @@
 @echo off
-setlocal EnableExtensions
+setlocal EnableExtensions EnableDelayedExpansion
 cd /d "%~dp0.."
 set "ROOT=%CD%"
 set "OUT=%ROOT%\.local\il2cpp\shoot_helper_disassembly.txt"
@@ -11,7 +11,7 @@ if not errorlevel 1 (
     if not errorlevel 1 (
         echo [1/2] Extraindo helpers ARM64 com py -3...
         py -3 "%ROOT%\Tools\disassemble_shoot_helpers.py"
-        set "RC=%ERRORLEVEL%"
+        set "RC=!ERRORLEVEL!"
         goto :after_extract
     )
 )
