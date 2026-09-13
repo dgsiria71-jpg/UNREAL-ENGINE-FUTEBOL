@@ -137,3 +137,12 @@ The same trace cross-checks generic helper names in the local Il2CppDumper
 `ModuleSingleton<SpmoveModule>::get_Instance` and `SpmoveModule::GetConfig`.
 This identifies call targets at the metadata layer only; it is not proof of
 managed object layout or eligibility behavior.
+
+## 2026-09-13 engine-independent cache adapter
+
+`Reference/FootballPhysics/SpmoveInventoryCache.h` now provides a small C++
+adapter for the proven collector boundary. It models the native initialized/open-all
+cache key, explicit invalidation, and source snapshots without pretending to
+recover the upstream inventory provider or eligibility/RNG. Same-state calls are
+cache hits; changing open-all rebuilds the normalized dictionary. This adapter is
+safe to consume later from Unreal C++ and is covered by the reference regression.

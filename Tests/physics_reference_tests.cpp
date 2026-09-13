@@ -5,6 +5,7 @@
 #include "../Reference/FootballSimulation/MatchSimulation.h"
 #include "../Reference/FootballGameplay/PlayableMatch.h"
 #include "../Reference/FootballPhysics/SpmoveBranches.h"
+#include "../Reference/FootballPhysics/SpmoveInventoryCache.h"
 #ifdef NDEBUG
 #error Reference tests require enabled assertions.
 #endif
@@ -318,6 +319,23 @@ static void test_spmove_selection_preserves_native_priority_and_nulls() {
     assert(selector.Config(12345) == nullptr);
 }
 
+static void test_spmove_inventory_cache_boundary() {
+    using namespace football::physics::recovered;
+    SpmoveInventoryCache cache;
+    SpmoveInventorySnapshot player{{{0x3FE, {{11, 0}}}}, "player_snapshot"};
+    SpmoveInventorySnapshot all{{{0x3FE, {{99, 0}}}}, "all_config_snapshot"};
+    assert(cache.Refresh(false, &player));
+    assert(cache.initialized() && !cache.open_all());
+    assert(cache.entries().at(0x3FE).front().child_id == 11);
+    assert(!cache.Refresh(false, &all));
+    assert(cache.entries().at(0x3FE).front().child_id == 11);
+    assert(cache.Refresh(true, &all));
+    assert(cache.open_all());
+    assert(cache.entries().at(0x3FE).front().child_id == 99);
+    cache.Invalidate();
+    assert(!cache.initialized() && cache.entries().empty());
+}
+
 static void test_spmove_producer_strict_boundaries_and_reset() {
     using namespace football::physics::recovered;
     SpmoveProducerContext c;
@@ -340,6 +358,7 @@ static void test_spmove_producer_strict_boundaries_and_reset() {
 
 int main() {
     test_spmove_producer_strict_boundaries_and_reset();
+    test_spmove_inventory_cache_boundary();
     test_spmove_selection_preserves_native_priority_and_nulls();
     test_recovered_fractional_rounding();
     test_recovered_vector_math_is_not_floating_sqrt();
@@ -357,5 +376,5 @@ int main() {
     test_tackle_wins_possession_from_nearby_opponent();
     test_goalkeeper_save_captures_nearby_ball();
     test_goal_and_restart_are_deterministic();
-    std::cout << "FOOTBALL_REFERENCE_TESTS: 18/18 GREEN\n";
+    std::cout << "FOOTBALL_REFERENCE_TESTS: 19/19 GREEN\n";
 }

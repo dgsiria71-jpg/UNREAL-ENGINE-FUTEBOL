@@ -214,3 +214,8 @@ against local Il2CppDumper script metadata (ContainsKey, GetEnumerator,
 constructor/Add/get_Item, SpmoveModule singleton and GetConfig). Metadata names
 are persisted with script SHA; helper object layout and eligibility remain
 unvalidated. Python inventory trace tests pass 4/4; v0.3 gate remains blocked.
+
+E0058: Added engine-independent SpmoveInventoryCache adapter. It mirrors only
+proven cache invalidation (initialized +0x29/open-all +0x28) and accepts explicit
+unresolved source snapshots; no eligibility or RNG behavior is invented. MSVC
+reference regression is now 19/19 GREEN.
