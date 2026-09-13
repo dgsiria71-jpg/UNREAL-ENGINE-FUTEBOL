@@ -4,7 +4,7 @@
   "repository_portability": "fresh_checkout_supported",
   "engine_target": "Unreal Engine 5.x",
   "mobile_source": "football-dream-be-a-pro-1-221-5",
-  "normalization_status": "shoot_velocity_static_dataflow_bound_full_equations_unresolved",
+  "normalization_status": "schema_confirmed_velocity_unresolved",
   "source_of_truth": "verified mobile recovery archives plus committed normalized evidence and Blender source assets",
   "normalized_artifacts": {
     "spmove_collected_open_all": "Recovery/Normalized/spmove_collected_open_all.json",
@@ -88,7 +88,7 @@
     }
   ],
   "semantic_gates": {
-    "physics_v0_3": "blocked_until_full_GetVVer_helpers_GetKickVelocity_BALL_CONTACT_regression",
+    "physics_v0_3": "blocked_until_spmove_VHor_VVer_GetVHor_GetVVer_GetKickVelocity_BALL_CONTACT_regression",
     "vertical_accel_field": "vertical_accel_raw",
     "neymar": "v1.9_preserved_paused"
   }
