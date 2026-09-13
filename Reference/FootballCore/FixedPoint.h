@@ -54,17 +54,7 @@ inline XNumber Clamp(XNumber value, XNumber lo, XNumber hi) noexcept {
 }
 inline XNumber RemapClamped(XNumber in, XNumber inMin, XNumber inMax,
                             XNumber outMin, XNumber outMax) {
-    // Native helper 0x126BF1C has an explicit equal-input-range return and
-    // clamps the source value before constructing the fixed-point ratio.
-    // Keep the comparison order byte-for-byte equivalent to the ARM64 dataflow
-    // rather than relying on a generic clamp for potentially reversed bounds.
-    if (inMin.raw == inMax.raw) return outMin;
-    const XNumber bounded = in.raw < inMin.raw ? inMin
-        : (in.raw > inMax.raw ? inMax : in);
-    const XNumber numerator = Subtract(bounded, inMin);
-    const XNumber denominator = Subtract(inMax, inMin);
-    const XNumber ratio = numerator.raw == 0 ? Create(0) : Divide(numerator, denominator);
-    return Lerp(outMin, outMax, Clamp(ratio, Create(0), Create(kOne)));
+    return Lerp(outMin, outMax, Clamp(InverseLerp(inMin, inMax, in), Create(0), Create(kOne)));
 }
 struct XVector2 {
     XNumber x{};
