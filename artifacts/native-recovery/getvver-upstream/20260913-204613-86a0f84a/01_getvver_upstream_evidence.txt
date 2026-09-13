@@ -1,0 +1,85 @@
+FOOTBALL GETVVER UPSTREAM STATIC EVIDENCE
+POLICY: READ_ONLY; metadata names are copied, not inferred; exact=false means bounded inspection window only
+CANONICAL_BUILD: football-dream-be-a-pro-1-221-5
+METADATA_SOURCE: .local/tools/Il2CppDumper/script.json
+
+## SOURCE_IDENTITIES
+dump.cs: 4ba445977f2b0854b19375d69c5b30275fe36d06518efe2c5028097868579fbe
+script.json: d15222efc79ebfe50074f385c0f5e5af4960fb43c5cf55a383ea32cba34ae799
+global-metadata.dat: 92fae52ec4dc570929eb7b99d2083fd6ab6016cbbaa30f87e87ac6732bb1e42e
+libil2cpp.so: 2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496
+
+## SHOOT_SPEED_CONFIG_ITEM_FIELDS_0x18_0x108
+0x18 | List<XNumber> | Flist_vHor | public List<XNumber> Flist_vHor; // 0x18
+0x20 | List<XNumber> | vHorList | public List<XNumber> vHorList; // 0x20
+0x28 | List<XNumber> | Flist_vVer | public List<XNumber> Flist_vVer; // 0x28
+0x30 | List<XNumber> | vVerList | public List<XNumber> vVerList; // 0x30
+0x38 | List<XNumber> | vRefList | public List<XNumber> vRefList; // 0x38
+0x40 | List<XNumber> | aAirList | public List<XNumber> aAirList; // 0x40
+0x48 | List<XNumber> | curlList_hor | public List<XNumber> curlList_hor; // 0x48
+0x50 | List<XNumber> | curlList_ver | public List<XNumber> curlList_ver; // 0x50
+0x58 | XNumber | paramA | public XNumber paramA; // 0x58
+0x5C | XNumber | s_a | public XNumber s_a; // 0x5C
+0x60 | XNumber | s_b | public XNumber s_b; // 0x60
+0x64 | XNumber | F_a | public XNumber F_a; // 0x64
+0x68 | XNumber | F_b | public XNumber F_b; // 0x68
+0x6C | XNumber | s_Z_max | public XNumber s_Z_max; // 0x6C
+0x70 | XNumber | s_Z_min | public XNumber s_Z_min; // 0x70
+0x74 | XNumber | speed_vHor | public XNumber speed_vHor; // 0x74
+0x78 | XNumber | speed_vHorMin | public XNumber speed_vHorMin; // 0x78
+0x7C | XNumber | speed_vHorMax | public XNumber speed_vHorMax; // 0x7C
+0x80 | XNumber | speed_vVer | public XNumber speed_vVer; // 0x80
+0x84 | XNumber | maxRotateRatio | public XNumber maxRotateRatio; // 0x84
+0x88 | List<XNumber> | maxRotateDis | public List<XNumber> maxRotateDis; // 0x88
+0x90 | bool | useNewMethod | public bool useNewMethod; // 0x90
+0x94 | XNumber | energyNeedProtect | public XNumber energyNeedProtect; // 0x94
+0x98 | XNumber | ySpeedMin | public XNumber ySpeedMin; // 0x98
+0xA0 | List<XNumber> | ySpeedMax | public List<XNumber> ySpeedMax; // 0xA0
+0xA8 | XVector2 | xSpeed | public XVector2 xSpeed; // 0xA8
+0xB0 | XVector2 | shootPointH | public XVector2 shootPointH; // 0xB0
+0xB8 | List<XNumber> | energyMapNew | public List<XNumber> energyMapNew; // 0xB8
+0xC0 | List<XNumber> | vHorMapNew | public List<XNumber> vHorMapNew; // 0xC0
+0xC8 | List<XNumber> | shootStrongMapNew | public List<XNumber> shootStrongMapNew; // 0xC8
+0xD0 | List<XNumber> | vHorRateNew | public List<XNumber> vHorRateNew; // 0xD0
+0xD8 | List<XNumber> | shootPropertyMapNew | public List<XNumber> shootPropertyMapNew; // 0xD8
+0xE0 | List<XNumber> | energyToleranceMap | public List<XNumber> energyToleranceMap; // 0xE0
+0xE8 | List<XNumber> | shootDisMap | public List<XNumber> shootDisMap; // 0xE8
+0xF0 | List<XNumber> | shootPointHDownMap | public List<XNumber> shootPointHDownMap; // 0xF0
+0xF8 | List<XNumber> | shootPointHUpMap | public List<XNumber> shootPointHUpMap; // 0xF8
+0x100 | List<XNumber> | outEnergyMaxMap | public List<XNumber> outEnergyMaxMap; // 0x100
+0x108 | List<List<int>> | shootDisAndTime | public List<List<int>> shootDisAndTime; // 0x108
+
+## REQUESTED_HELPERS
+### base_target_height_14DEFDC start=0x014DEFDC end=0x014DEFE8 boundary=script.json:next-method exact=true
+METADATA_NAME: GoalDoor$$get_Height
+014DEFDC: ldr      x8, [x0, #0x18]
+014DEFE0: ldr      w0, [x8, #0x24]
+014DEFE4: ret     
+DIRECT_CALL_TARGETS: NONE
+
+### downward_random_1B60CC8 start=0x01B60CC8 end=0x01B60D14 boundary=script.json:next-method exact=true
+METADATA_NAME: XNumber$$create
+01B60CC8: cmp      w0, #0
+01B60CCC: eor      w8, w1, w0
+01B60CD0: cneg     w10, w0, mi
+01B60CD4: cmp      w1, #0
+01B60CD8: cneg     w11, w1, mi
+01B60CDC: cmp      w8, #0
+01B60CE0: mov      w8, #0x200
+01B60CE4: bfi      w8, w11, #0xa, #0x16
+01B60CE8: mov      w11, #0x4dd3
+01B60CEC: movk     w11, #0x1062, lsl #16
+01B60CF0: smull    x8, w8, w11
+01B60CF4: lsr      x11, x8, #0x3f
+01B60CF8: asr      x8, x8, #0x26
+01B60CFC: mov      w9, #1
+01B60D00: add      w8, w8, w11
+01B60D04: cneg     w9, w9, lt
+01B60D08: add      w8, w8, w10, lsl #10
+01B60D0C: mul      w0, w8, w9
+01B60D10: ret     
+DIRECT_CALL_TARGETS: NONE
+
+## FIRST_LEVEL_DIRECT_CALLEE_WINDOWS
+## SUMMARY_JSON
+{"field_count": 38, "policy": "read-only extraction; only ScriptMethod can establish exact native boundaries", "schema_version": "football.recovery.getvver_upstream_evidence.v1", "source_sha256": {"dump.cs": "4ba445977f2b0854b19375d69c5b30275fe36d06518efe2c5028097868579fbe", "global-metadata.dat": "92fae52ec4dc570929eb7b99d2083fd6ab6016cbbaa30f87e87ac6732bb1e42e", "libil2cpp.so": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496", "script.json": "d15222efc79ebfe50074f385c0f5e5af4960fb43c5cf55a383ea32cba34ae799"}, "targets": [{"boundary_source": "script.json:next-method", "direct_calls": [], "end": "0x014DEFE8", "exact_function_boundary": true, "metadata_name": "GoalDoor$$get_Height", "name": "base_target_height_14DEFDC", "start": "0x014DEFDC"}, {"boundary_source": "script.json:next-method", "direct_calls": [], "end": "0x01B60D14", "exact_function_boundary": true, "metadata_name": "XNumber$$create", "name": "downward_random_1B60CC8", "start": "0x01B60CC8"}]}

@@ -1,0 +1,18 @@
+﻿{
+    "schema_version":  "football.github_handoff.v1",
+    "upload_id":  "20260913-204613-86a0f84a",
+    "created_utc":  "2026-09-13T23:48:40.8734357Z",
+    "repository":  "dgsiria71-jpg/UNREAL-ENGINE-FUTEBOL",
+    "destination_root":  "artifacts/native-recovery/getvver-upstream",
+    "preservation_rule":  "Source files are copied/zipped; originals are not modified or deleted.",
+    "files":  [
+                  {
+                      "source_name":  "getvver_upstream_evidence.txt",
+                      "source_kind":  "file",
+                      "repository_path":  "artifacts/native-recovery/getvver-upstream/20260913-204613-86a0f84a/01_getvver_upstream_evidence.txt",
+                      "bytes":  5491,
+                      "sha256":  "416a4f3abef88c117aa21bb66c4500f83474442e6e78a494d84ac1b4914d224f",
+                      "git_lfs":  false
+                  }
+              ]
+}
