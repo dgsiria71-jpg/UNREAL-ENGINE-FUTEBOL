@@ -46,5 +46,23 @@ int main() {
     assert(after_41a.y.raw == 1024);
     assert(after_41a.z.raw == -2048);
 
+    ShootDisAndTimeTable one_second = {
+        {1000, 1000},
+        {1000, 1000},
+    };
+    RecoveredXVector3 composed = ComposeNewGetVVerFromResolvedScalars(
+        one_second,
+        Create(512), Create(512),
+        Create(4000), Create(5000), Create(600), Create(1800),
+        Create(512), Create(256), 0,
+        Create(3000), Create(2500), Create(5000), Create(1200),
+        Create(0), Create(0), Create(10000),
+        RecoveredXVector3{Create(1024), Create(0), Create(0)},
+        true, Create(512),
+        true, Create(2048));
+    assert(composed.x.raw == 2300);
+    assert(composed.y.raw == 0);
+    assert(composed.z.raw == 0);
+
     return 0;
 }
