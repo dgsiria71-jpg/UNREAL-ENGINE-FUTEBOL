@@ -109,8 +109,8 @@ The next local evidence acquisition step is now implemented without changing run
 - optional Il2CppDumper metadata: `.local/il2cpp/script.json` or `.local/tools/Il2CppDumper/script.json`
 - local output: `.local/il2cpp/shoot_helper_disassembly.txt`
 - primary targets: `0x126BF1C`, `0x1968E24`, and `0x196807C`
-- first-level direct callees are also emitted, capped at 48, using 0x200-byte bounded windows when an exact metadata boundary is unavailable
-- an exact function boundary is claimed only when the target itself exists in `script.json` and the next-method boundary is sane/aligned; every fallback is labelled `exact=false`
+- first-level `bl` targets observed inside the extracted primary windows are also emitted, capped at 48, using 0x200-byte bounded windows when an exact method boundary is unavailable
+- an exact function boundary is claimed only from Il2CppDumper `ScriptMethod` entries when the target itself is present and the next-method boundary is sane/aligned; address-bearing `ScriptMetadata` and other groups are ignored for method boundaries; every fallback is labelled `exact=false`
 - the ELF is validated as 64-bit little-endian AArch64 before extraction
 - the mobile binary is read only; it is never executed or modified
 - the BAT supports both the Windows `py -3` launcher and a `python` fallback, propagates the real runtime exit code, verifies that the TXT was produced, and then calls `PUBLICAR_INBOX_NO_GITHUB.ps1`
@@ -125,6 +125,8 @@ TDD evidence for this handoff:
 - `a91311615fc8eb8e5ba8249f177043e7c2a48a44`: callee extraction + launcher fallback GREEN, Actions `34781221264`.
 - `790ba3a1aeadf354d5419c8ad52bd89fdfe637a4`: RED exposing stale `%ERRORLEVEL%` capture inside the parenthesized `py -3` branch, Actions `34781298854`.
 - `43b315125309f1a771caff6037e9c29ddd2832cc`: runtime errorlevel capture fixed with delayed expansion; Actions `34781345344` SUCCESS.
+- `fc4e6974819cbed75b426d2699e966bf285a1eab`: RED proving generic address-bearing metadata could be mistaken for a method boundary, Actions `34781471122`.
+- `40bee53e0573f2b59956d8bce69976354933638f`: exact-boundary candidates restricted to `ScriptMethod`; Actions `34781512632` SUCCESS.
 
 This tool has **not yet been executed against the user's local `libil2cpp.so` in this checkpoint**. Therefore no new helper body, helper semantic identity, or physics equation is claimed here. The next user-side action after pulling `main` is exactly:
 
