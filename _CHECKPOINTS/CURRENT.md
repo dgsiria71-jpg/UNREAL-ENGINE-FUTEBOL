@@ -11,7 +11,7 @@ Official remote: https://github.com/dgsiria71-jpg/UNREAL-ENGINE-FUTEBOL.git, mai
 Reconciled remote history from 6760d3d with local c0d761c; no history rewritten.
 Bible text and its policies preserved in Docs/Bible_v3. Raw master LFS upload
 remains unperformed; code publication does not claim binary publication.
-Remote publication confirmed via GitHub API: main -> 982f5b7dfa401ea8b390cd92e16ab3ed86a1a930.
+Remote publication confirmed via GitHub API: main -> 99a84ad70001e9a8bd07940d74328f2beacf7953.
 
 ## Authority
 
@@ -98,3 +98,4 @@ Reuse selected-modifier kernels. Complete old/new VHor/VVer base helpers before
 joining GetKickVelocity and BALL_CONTACT. Do not create Physics v0.3 until the
 full documented gate and regression pass. Build the UE match once toolchain is
 available; do not treat current fixtures/scaffold as completed football product.\n
+
