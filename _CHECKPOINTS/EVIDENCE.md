@@ -256,3 +256,8 @@ with packaged content SHA-256 e11d373f4aef10e10b13f1aa2a1d00e2a467373951ecfe839c
 The npm registry package returned 404, so installation used the official Git tag.
 Upstream full tests are not GREEN on Windows: 387 passed, 78 failed, 22 skipped;
 failures include POSIX process fixtures, directory fsync EPERM and missing openssl.
+
+E0064: Published the spmove inventory collection increment to official GitHub
+main through the GitHub API as c1c2a452c9e1abb27c38a2e5cff9f85a2e2a06d1.
+The local terminal credential still identifies as dgrich33 and returned HTTP 403;
+the authorized GitHub connector completed a non-force fast-forward from 1044d028.

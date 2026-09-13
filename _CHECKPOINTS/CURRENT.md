@@ -2,7 +2,8 @@
 
 Updated: 2026-09-13. Project NOT COMPLETE.
 Branch: codex/unreal-football-foundation.
-HEAD before this increment: 62aaa05428b217b60926663f18b2641e5b15f074 (run `git rev-parse HEAD` for the current checkpoint commit).
+Implementation commit: 5c67263fc6c25edfd0a688adf74237c720ce9662.
+HEAD before publication metadata commit: 5c67263fc6c25edfd0a688adf74237c720ce9662 (run `git rev-parse HEAD` for the current checkpoint commit).
 Continuation base: 4d672ab5dccbe7ba9b238de9b8202086e759931e.
 
 ## GitHub publication
@@ -11,7 +12,7 @@ Official remote: https://github.com/dgsiria71-jpg/UNREAL-ENGINE-FUTEBOL.git, mai
 Reconciled remote history from 6760d3d with local c0d761c; no history rewritten.
 Bible text and its policies are preserved in Docs/Bible_v3. Raw master LFS upload
 remains unperformed; code publication does not claim binary publication.
-Remote publication before this increment: main -> 1044d0285aee91a324df47ebb529956142d4e59d.
+Remote publication confirmed through the GitHub API: main -> c1c2a452c9e1abb27c38a2e5cff9f85a2e2a06d1.
 
 ## Authority
 
@@ -46,7 +47,7 @@ eligibility/ownership, odds and RNG remain explicit unresolved inputs.
 - python Tools/check_native_evidence.py: CURRENT source bindings.
 - python -m unittest discover -s Tests -p "test_*.py": 58/58 OK.
 - python Tools/Unreal/validate_content.py: GREEN (provenance only).
-- Original v0.2 07_TESTS: 67/67 OK in 6.600s.
+- Original v0.2 07_TESTS: 67/67 OK in 7.057s.
 - Earlier preserved native evidence: kernels 13,685, vectors 15,956, branches 7,776.
   These older suites were not rerun in this increment; their bound sources remain current.
 
