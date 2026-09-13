@@ -11,9 +11,11 @@ class SpmoveCollectedInventoryTests(unittest.TestCase):
             (ROOT / "Recovery/Normalized/spmove_collected_open_all.json")
             .read_text(encoding="utf-8")
         )
-        self.source = json.loads(
-            (ROOT / "Recovery/Normalized/spmove_normalized.json")
-            .read_text(encoding="utf-8")
+        source_path = ROOT / "Recovery/Normalized/spmove_normalized.json"
+        self.source = (
+            json.loads(source_path.read_text(encoding="utf-8"))
+            if source_path.is_file()
+            else None
         )
 
     def test_all_canonical_children_resolve_into_complete_inventory(self):
@@ -33,8 +35,13 @@ class SpmoveCollectedInventoryTests(unittest.TestCase):
         self.assertEqual(self.report["physics_v0_3_gate"], "blocked")
 
     def test_every_self_and_child_relation_matches_normalized_configs(self):
+        if self.source is None:
+            self.skipTest(
+                "full spmove_normalized snapshot requires preserved local source archive"
+            )
         records = [
-            item for item in self.source["canonical_source"]["config"]["records"]
+            item
+            for item in self.source["canonical_source"]["config"]["records"]
             if item["enable"] != 0
         ]
         by_id = {item["id"]: item for item in records}
@@ -53,12 +60,16 @@ class SpmoveCollectedInventoryTests(unittest.TestCase):
 
     def test_velocity_logic_buckets_are_available_without_closing_velocity(self):
         buckets = {item["logic_id"]: item["entries"] for item in self.report["buckets"]}
-        self.assertEqual([item["child_id"] for item in buckets[0x3FE]],
-                         [102201, 102202, 102203, 102204, 102205])
+        self.assertEqual(
+            [item["child_id"] for item in buckets[0x3FE]],
+            [102201, 102202, 102203, 102204, 102205],
+        )
         self.assertIn({"child_id": 102004, "father_id": 108001}, buckets[0x3FC])
         self.assertIn({"child_id": 105004, "father_id": 108001}, buckets[0x41A])
-        self.assertIn("complete GetVHor/GetVVer/GetKickVelocity composition",
-                      self.report["unknown"])
+        self.assertIn(
+            "complete GetVHor/GetVVer/GetKickVelocity composition",
+            self.report["unknown"],
+        )
 
 
 if __name__ == "__main__":

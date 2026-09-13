@@ -3,14 +3,16 @@ from pathlib import Path
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
+SOURCE = ROOT / "Recovery" / "Normalized" / "spmove_normalized.json"
 
 
+@unittest.skipUnless(
+    SOURCE.is_file(),
+    "spmove_normalized.json is a local regeneration artifact; preserved source archive required",
+)
 class SpmoveNormalizedTests(unittest.TestCase):
     def setUp(self):
-        self.report = json.loads(
-            (ROOT / "Recovery" / "Normalized" / "spmove_normalized.json")
-            .read_text(encoding="utf-8")
-        )
+        self.report = json.loads(SOURCE.read_text(encoding="utf-8"))
 
     def test_canonical_tables_are_decoded_and_schema_bounded(self):
         canonical = self.report["canonical_source"]

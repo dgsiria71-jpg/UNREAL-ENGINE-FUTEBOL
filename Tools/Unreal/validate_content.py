@@ -3,6 +3,10 @@
 Run with Unreal's embedded Python (or from the Output Log Python console).
 This tool is deliberately read-only: it checks provenance and gate status and
 does not mutate the preserved mobile archives or the paused Neymar line.
+
+Fresh GitHub checkouts validate only committed evidence.  Full local source
+snapshots (spmove_normalized/archive_catalog) are optional regeneration artifacts
+and are validated when present.
 """
 from __future__ import annotations
 
@@ -22,6 +26,9 @@ EXPECTED_GATE = (
     "blocked_until_spmove_VHor_VVer_GetVHor_GetVVer_GetKickVelocity_"
     "BALL_CONTACT_regression"
 )
+EXPECTED_SPMOVE_SHA256 = (
+    "6f013b7f32dfcd329f389fea0ae75acf127a06d4e93b7447d7c7f099fb809414"
+)
 
 
 def _log(message: str) -> None:
@@ -31,6 +38,15 @@ def _log(message: str) -> None:
         print(message)
 
 
+def _local_artifact_is_declared(manifest: dict, key: str, path: str) -> bool:
+    item = manifest.get("local_regeneration_artifacts", {}).get(key, {})
+    return (
+        item.get("path") == path
+        and item.get("status") == "local_source_required"
+        and item.get("required_for_fresh_checkout_ci") is False
+    )
+
+
 def validate_manifest(project_dir: Path) -> list[str]:
     errors: list[str] = []
     manifest_path = project_dir / "Recovery" / "Normalized" / "recovery_manifest.json"
@@ -38,6 +54,9 @@ def validate_manifest(project_dir: Path) -> list[str]:
         return [f"missing manifest: {manifest_path}"]
 
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if manifest.get("repository_portability") != "fresh_checkout_supported":
+        errors.append("manifest does not declare fresh-checkout portability")
+
     sources = {
         item.get("source_id"): item
         for item in manifest.get("sources", [])
@@ -61,9 +80,7 @@ def validate_manifest(project_dir: Path) -> list[str]:
         errors.append("normalization status is not the reviewed schema-confirmed unresolved state")
 
     normalized_path = project_dir / "Recovery" / "Normalized" / "spmove_normalized.json"
-    if not normalized_path.is_file():
-        errors.append("missing normalized spmove schema report")
-    else:
+    if normalized_path.is_file():
         normalized = json.loads(normalized_path.read_text(encoding="utf-8"))
         canonical = normalized.get("canonical_source", {})
         if canonical.get("action", {}).get("record_count") != 48:
@@ -72,31 +89,51 @@ def validate_manifest(project_dir: Path) -> list[str]:
             errors.append("canonical spmoveconfig record count changed")
         if normalized.get("semantic_status") != "record_schema_confirmed_velocity_semantics_unresolved":
             errors.append("spmove semantic gate changed without review")
+    elif not _local_artifact_is_declared(
+        manifest, "spmove", "Recovery/Normalized/spmove_normalized.json"
+    ):
+        errors.append("missing normalized spmove schema report without local-only declaration")
+
     collected_path = project_dir / "Recovery" / "Normalized" / "spmove_collected_open_all.json"
     if not collected_path.is_file():
         errors.append("missing normalized open-all spmove inventory")
+        collected = {}
     else:
         collected = json.loads(collected_path.read_text(encoding="utf-8"))
         counts = collected.get("counts", {})
+        if counts.get("serialized_config_records") != 292:
+            errors.append("serialized open-all spmove count changed")
         if counts.get("enabled_config_records") != 290:
             errors.append("enabled open-all spmove count changed")
         if counts.get("missing_child_configs") != 0:
             errors.append("open-all spmove inventory has missing child configs")
         if collected.get("physics_v0_3_gate") != "blocked":
             errors.append("collected inventory overclaims the physics gate")
+        if collected.get("source", {}).get("sha256") != EXPECTED_SPMOVE_SHA256:
+            errors.append("persisted spmove source provenance hash changed")
 
-    if not (project_dir / "Recovery" / "Normalized" / "native_static_trace.json").is_file():
-        errors.append("missing native static trace report")
-    if not (project_dir / "Recovery" / "Normalized" / "cal_spmove_static_trace.json").is_file():
-        errors.append("missing calSpmoveInUse producer trace")
-    if not (project_dir / "Recovery" / "Normalized" / "spmove_manager_static_trace.json").is_file():
-        errors.append("missing spmove manager static trace")
-    if not (project_dir / "Recovery" / "Normalized" / "spmove_deserialize_static_trace.json").is_file():
-        errors.append("missing spmove deserializer static trace")
-    if not (project_dir / "Recovery" / "Normalized" / "spmove_runtime_static_trace.json").is_file():
-        errors.append("missing spmove runtime static trace")
-    if not (project_dir / "Recovery" / "Normalized" / "spmove_modifier_access_static_trace.json").is_file():
-        errors.append("missing spmove modifier access static trace")
+    selection_path = project_dir / "Recovery" / "Normalized" / "native_spmove_selection_validation.json"
+    if not selection_path.is_file():
+        errors.append("missing native spmove selection validation")
+    else:
+        selection = json.loads(selection_path.read_text(encoding="utf-8"))
+        if selection.get("normalized_config_sha256") != EXPECTED_SPMOVE_SHA256:
+            errors.append("native selection report points at a different normalized config")
+        if collected and selection.get("normalized_config_sha256") != collected.get("source", {}).get("sha256"):
+            errors.append("persisted spmove evidence disagrees on normalized source hash")
+
+    required_reports = [
+        "native_static_trace.json",
+        "cal_spmove_static_trace.json",
+        "spmove_manager_static_trace.json",
+        "spmove_deserialize_static_trace.json",
+        "spmove_runtime_static_trace.json",
+        "spmove_modifier_access_static_trace.json",
+    ]
+    for name in required_reports:
+        if not (project_dir / "Recovery" / "Normalized" / name).is_file():
+            errors.append("missing persisted recovery report: " + name)
+
     velocity_trace_path = project_dir / "Recovery" / "Normalized" / "velocity_base_regions_static_trace.json"
     if not velocity_trace_path.is_file():
         errors.append("missing velocity base regions static trace")
@@ -106,6 +143,7 @@ def validate_manifest(project_dir: Path) -> list[str]:
             errors.append("velocity base path split is not source-confirmed")
         if velocity_trace.get("behavior_validated") is not False or velocity_trace.get("physics_gate") != "blocked":
             errors.append("velocity base trace overclaims runtime validation")
+
     gameplay_contract_path = project_dir / "Recovery" / "Normalized" / "playable_match_contract.json"
     if not gameplay_contract_path.is_file():
         errors.append("missing playable match contract")
@@ -115,13 +153,25 @@ def validate_manifest(project_dir: Path) -> list[str]:
             errors.append("playable match authority is not server_authoritative")
         if gameplay.get("performance", {}).get("target_fps") != 120:
             errors.append("playable match target FPS changed unexpectedly")
+
     catalog_path = project_dir / "Recovery" / "Normalized" / "archive_catalog.json"
-    if not catalog_path.is_file():
-        errors.append("missing football archive catalog")
-    else:
+    if catalog_path.is_file():
         catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
         if catalog.get("workspace_finding", {}).get("advanced_92_92_workspace") != "not present in catalog entries":
             errors.append("archive catalog workspace finding changed unexpectedly")
+    elif not _local_artifact_is_declared(
+        manifest, "archive_catalog", "Recovery/Normalized/archive_catalog.json"
+    ):
+        errors.append("missing archive catalog without local-only declaration")
+
+    reassembly_path = project_dir / "Recovery" / "Normalized" / "original_reassembly.json"
+    if not reassembly_path.is_file():
+        errors.append("missing original master reassembly evidence")
+    else:
+        reassembly = json.loads(reassembly_path.read_text(encoding="utf-8"))
+        if reassembly.get("historical_92_workspace_present") is not False:
+            errors.append("reassembly evidence unexpectedly claims the historical 92/92 workspace")
+
     if not (project_dir / "Recovery" / "Physics" / "NATIVE_STATIC_EVIDENCE.md").is_file():
         errors.append("missing durable native static evidence record")
 
@@ -150,7 +200,7 @@ def run() -> int:
         for error in errors:
             _log("FOOTBALL_CONTENT_ERROR: " + error)
         return 1
-    _log("FOOTBALL_CONTENT_VALIDATION: GREEN (read-only provenance checks)")
+    _log("FOOTBALL_CONTENT_VALIDATION: GREEN (read-only persisted provenance checks)")
     return 0
 
 
