@@ -267,3 +267,7 @@ at +0x90 and bound 26 instructions to dump.cs fields. Zero selects the legacy
 Flist/vList/scalar families; nonzero selects the recovered map-driven fields.
 This is static field-family proof only. Equations, units, runtime output,
 GetKickVelocity and BALL_CONTACT remain blocked.
+
+E0066: Published the GetVHor/GetVVer old/new config-path split and its 26-anchor
+static trace to official GitHub main through the authorized connector as
+36365baf382afd1a3b375280cd13a5f0c0b73291, fast-forward from 294c322c.

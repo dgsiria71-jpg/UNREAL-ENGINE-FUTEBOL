@@ -2,8 +2,8 @@
 
 Updated: 2026-09-13. Project NOT COMPLETE.
 Branch: codex/unreal-football-foundation.
-Implementation commit: 5c67263fc6c25edfd0a688adf74237c720ce9662.
-HEAD before publication metadata commit: 5c67263fc6c25edfd0a688adf74237c720ce9662 (run `git rev-parse HEAD` for the current checkpoint commit).
+Implementation commits: collector 5c67263fc6c25edfd0a688adf74237c720ce9662; velocity path split 045cc8e3970583b650ead8a0dc9381c73461b3ac.
+HEAD before final publication metadata commit: 045cc8e3970583b650ead8a0dc9381c73461b3ac (run `git rev-parse HEAD` for the current checkpoint commit).
 Continuation base: 4d672ab5dccbe7ba9b238de9b8202086e759931e.
 
 ## GitHub publication
@@ -14,6 +14,7 @@ Bible text and its policies are preserved in Docs/Bible_v3. Raw master LFS uploa
 remains unperformed; code publication does not claim binary publication.
 Published spmove collector content: c1c2a452c9e1abb27c38a2e5cff9f85a2e2a06d1.
 Published checkpoint metadata: 294c322cc2953a283d9792c514cefb1924a27d0e.
+Published velocity path split content: 36365baf382afd1a3b375280cd13a5f0c0b73291.
 
 ## Authority
 
