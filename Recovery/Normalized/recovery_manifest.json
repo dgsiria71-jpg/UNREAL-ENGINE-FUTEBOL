@@ -1,6 +1,6 @@
 {
   "schema_version": "football.recovery.inventory.v2",
-  "generated_at_utc": "2026-09-13T20:09:00Z",
+  "generated_at_utc": "2026-09-13T21:35:00Z",
   "repository_portability": "fresh_checkout_supported",
   "engine_target": "Unreal Engine 5.x",
   "mobile_source": "football-dream-be-a-pro-1-221-5",
@@ -19,6 +19,7 @@
     "spmove_inventory": "Recovery/Normalized/spmove_inventory.json",
     "velocity_base_regions_trace": "Recovery/Normalized/velocity_base_regions_static_trace.json",
     "shoot_velocity_dataflow_trace": "Recovery/Normalized/shoot_velocity_dataflow_static_trace.json",
+    "shoot_helper_semantics_trace": "Recovery/Normalized/shoot_helper_semantics_static_trace.json",
     "native_sqrt_table": "Recovery/Normalized/native_sqrt_table.json",
     "native_kernel_validation": "Recovery/Normalized/native_kernel_validation.json",
     "native_vector_validation": "Recovery/Normalized/native_vector_validation.json",
@@ -85,6 +86,13 @@
       "status": "committed_text_evidence",
       "sha256_original_windows": "ef1b41f609e49f2d831a16f69b82e227a967c914a4ee3748cfbfbdccd161ba58",
       "sha256_git_lf": "c695472c6bb7820f71c334407c4998149d8f3646bc5f0614d30f3adf80f670c4"
+    },
+    {
+      "source_id": "canonical_shoot_helper_disassembly",
+      "filename": "artifacts/native-recovery/shoot-helpers/20260913-175551-3fafba6a/01_shoot_helper_disassembly.txt",
+      "status": "committed_text_evidence",
+      "sha256": "284964d94f4544b37612f87e79b5daec41b064d5802be1a4c8a767f37e166d58",
+      "binary_sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496"
     }
   ],
   "semantic_gates": {
