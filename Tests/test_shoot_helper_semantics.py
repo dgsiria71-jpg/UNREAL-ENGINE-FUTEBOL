@@ -1,5 +1,6 @@
 import importlib.util
 from pathlib import Path
+import sys
 import unittest
 
 
@@ -22,6 +23,7 @@ def load_tool():
     spec = importlib.util.spec_from_file_location("analyze_shoot_helper_semantics", TOOL)
     assert spec and spec.loader
     module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
     spec.loader.exec_module(module)
     return module
 
