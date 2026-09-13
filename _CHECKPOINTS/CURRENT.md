@@ -11,7 +11,7 @@ Official remote: https://github.com/dgsiria71-jpg/UNREAL-ENGINE-FUTEBOL.git, mai
 Reconciled remote history from 6760d3d with local c0d761c; no history rewritten.
 Bible text and its policies preserved in Docs/Bible_v3. Raw master LFS upload
 remains unperformed; code publication does not claim binary publication.
-Remote publication confirmed via GitHub API: main -> 99a84ad70001e9a8bd07940d74328f2beacf7953.
+Remote publication confirmed via GitHub API: main -> 4f6b5f35235c59730da1476e1635e332a3bac138.
 
 ## Authority
 
