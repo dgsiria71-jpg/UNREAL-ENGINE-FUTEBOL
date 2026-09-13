@@ -98,3 +98,4 @@ Reuse selected-modifier kernels. Complete old/new VHor/VVer base helpers before
 joining GetKickVelocity and BALL_CONTACT. Do not create Physics v0.3 until the
 full documented gate and regression pass. Build the UE match once toolchain is
 available; do not treat current fixtures/scaffold as completed football product.\n
+
