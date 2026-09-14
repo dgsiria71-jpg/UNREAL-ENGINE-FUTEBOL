@@ -39,8 +39,9 @@ from disassemble_shoot_helpers import (  # noqa: E402
 )
 
 REQUESTED_TARGETS = (
-    Target("base_target_height_14DEFDC", 0x14DEFDC, 0x1000),
-    Target("downward_random_1B60CC8", 0x1B60CC8, 0x1000),
+    Target("goal_door_height_14DEFDC", 0x14DEFDC, 0x1000),
+    Target("xnumber_create_1B60CC8", 0x1B60CC8, 0x1000),
+    Target("shoot_property_1968398", 0x1968398, 0x1000),
 )
 
 FIELD_RE = re.compile(
