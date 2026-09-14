@@ -63,39 +63,39 @@ public class Next // TypeDefIndex: 2
         self.assertEqual(fields[0]["name"], "energyMapNew")
         self.assertEqual(fields[-1]["name"], "shootDisAndTime")
 
-    def test_extracts_ai_and_player_property_metadata_fields_by_exact_class_name(self):
+    def test_extracts_shoot_config_and_football_metadata_fields_by_exact_class_name(self):
         module = load_tool()
         dump = """
-public class AIParameterConfig // TypeDefIndex: 10
+public class ShootConfig : XBaseLocalSetting<ShootConfig> // TypeDefIndex: 10
 {
-    public XNumber positionGate; // 0x24
+    public XNumber shootAirBallHeighLimit; // 0x24
     public int ignored; // 0x30
-    public XNumber farGate; // 0x148
-    public XNumber nearGate; // 0x14C
+    public XNumber dis_shootlong; // 0x148
+    public XNumber dis_shoot; // 0x14C
 }
-public class PlayerProperty // TypeDefIndex: 11
+public class Football // TypeDefIndex: 11
 {
     public int before; // 0x90
-    public CollectionBonusState bonusState; // 0x98
+    public BallKickParam lastKickParam; // 0x98
     public int after; // 0xA0
 }
-public class CollectionBonusState // TypeDefIndex: 12
+public class BallKickParam // TypeDefIndex: 12
 {
-    public bool enabled; // 0x40
-    public int value; // 0x44
+    public BiographyUtility.BiographyPointType biographyPointType; // 0x40
+    public XNumber BiographyPassProperty; // 0x44
 }
 """
-        ai = module.extract_class_fields(dump, "AIParameterConfig", 0x20, 0x150)
-        self.assertEqual([(x["offset"], x["name"]) for x in ai], [
-            ("0x24", "positionGate"), ("0x30", "ignored"),
-            ("0x148", "farGate"), ("0x14C", "nearGate"),
+        shoot = module.extract_class_fields(dump, "ShootConfig", 0x20, 0x150)
+        self.assertEqual([(x["offset"], x["name"]) for x in shoot], [
+            ("0x24", "shootAirBallHeighLimit"), ("0x30", "ignored"),
+            ("0x148", "dis_shootlong"), ("0x14C", "dis_shoot"),
         ])
-        player = module.extract_class_fields(dump, "PlayerProperty", 0x90, 0xA0)
-        self.assertEqual(player[1]["offset"], "0x98")
-        self.assertEqual(player[1]["type"], "CollectionBonusState")
-        nested = module.extract_fields_for_declared_type(dump, player[1]["type"], 0x40, 0x44)
+        football = module.extract_class_fields(dump, "Football", 0x90, 0xA0)
+        self.assertEqual(football[1]["offset"], "0x98")
+        self.assertEqual(football[1]["type"], "BallKickParam")
+        nested = module.extract_fields_for_declared_type(dump, football[1]["type"], 0x40, 0x44)
         self.assertEqual([(x["offset"], x["name"]) for x in nested], [
-            ("0x40", "enabled"), ("0x44", "value"),
+            ("0x40", "biographyPointType"), ("0x44", "BiographyPassProperty"),
         ])
 
     def test_target_ranges_only_claim_exact_when_scriptmethod_proves_it(self):
@@ -145,16 +145,16 @@ public class CollectionBonusState // TypeDefIndex: 12
     def test_render_marks_sources_read_only_and_includes_deeper_metadata(self):
         module = load_tool()
         fields = [{"type": "List<XNumber>", "name": "shootDisMap", "offset": "0xE8", "line": "public List<XNumber> shootDisMap; // 0xE8"}]
-        ai_fields = [{"type": "XNumber", "name": "farGate", "offset": "0x148", "line": "public XNumber farGate; // 0x148"}]
-        player_fields = [{"type": "CollectionBonusState", "name": "bonusState", "offset": "0x98", "line": "public CollectionBonusState bonusState; // 0x98"}]
-        nested_fields = [{"type": "bool", "name": "enabled", "offset": "0x40", "line": "public bool enabled; // 0x40"}]
+        shoot_fields = [{"type": "XNumber", "name": "dis_shootlong", "offset": "0x148", "line": "public XNumber dis_shootlong; // 0x148"}]
+        football_fields = [{"type": "BallKickParam", "name": "lastKickParam", "offset": "0x98", "line": "public BallKickParam lastKickParam; // 0x98"}]
+        nested_fields = [{"type": "XNumber", "name": "BiographyPassProperty", "offset": "0x44", "line": "public XNumber BiographyPassProperty; // 0x44"}]
         ranges = module.resolve_requested_targets([])
         text = module.render_report(
             identities={"dump.cs": "a", "script.json": "b", "global-metadata.dat": "c", "libil2cpp.so": "d"},
             fields=fields,
-            ai_fields=ai_fields,
-            player_property_fields=player_fields,
-            nested_bonus_type="CollectionBonusState",
+            shoot_config_fields=shoot_fields,
+            football_fields=football_fields,
+            nested_bonus_type="BallKickParam",
             nested_bonus_fields=nested_fields,
             metadata_path=Path("script.json"),
             resolved_ranges=ranges,
@@ -162,11 +162,11 @@ public class CollectionBonusState // TypeDefIndex: 12
             direct_calls={item.target.name: [] for item in ranges},
         )
         self.assertIn("POLICY: READ_ONLY", text)
-        self.assertIn("AI_PARAMETER_CONFIG_FIELDS", text)
-        self.assertIn("farGate", text)
-        self.assertIn("PLAYER_PROPERTY_FIELDS", text)
-        self.assertIn("bonusState", text)
-        self.assertIn("NESTED_BONUS_TYPE: CollectionBonusState", text)
+        self.assertIn("SHOOT_CONFIG_FIELDS", text)
+        self.assertIn("dis_shootlong", text)
+        self.assertIn("FOOTBALL_FIELDS", text)
+        self.assertIn("lastKickParam", text)
+        self.assertIn("NESTED_BONUS_TYPE: BallKickParam", text)
         self.assertIn("0x01967D38", text)
         self.assertIn("0x01B718D8", text)
         self.assertNotIn("downward_random_1B60CC8", text)

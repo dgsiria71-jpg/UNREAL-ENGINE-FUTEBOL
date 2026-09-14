@@ -170,8 +170,8 @@ def render_report(
     *,
     identities: dict[str, str],
     fields: list[dict[str, str]],
-    ai_fields: list[dict[str, str]] | None = None,
-    player_property_fields: list[dict[str, str]] | None = None,
+    shoot_config_fields: list[dict[str, str]] | None = None,
+    football_fields: list[dict[str, str]] | None = None,
     nested_bonus_type: str | None = None,
     nested_bonus_fields: list[dict[str, str]] | None = None,
     metadata_path: Path | None,
@@ -180,8 +180,8 @@ def render_report(
     direct_calls: dict[str, list[int]],
     callee_sections: list[dict[str, Any]] | None = None,
 ) -> str:
-    ai_fields = ai_fields or []
-    player_property_fields = player_property_fields or []
+    shoot_config_fields = shoot_config_fields or []
+    football_fields = football_fields or []
     nested_bonus_fields = nested_bonus_fields or []
     lines = [
         "FOOTBALL GETVVER UPSTREAM STATIC EVIDENCE",
@@ -195,8 +195,8 @@ def render_report(
         lines.append(f"{key}: {identities[key]}")
 
     _append_fields(lines, "## SHOOT_SPEED_CONFIG_ITEM_FIELDS_0x18_0x108", fields)
-    _append_fields(lines, "## AI_PARAMETER_CONFIG_FIELDS_0x20_0x160", ai_fields)
-    _append_fields(lines, "## PLAYER_PROPERTY_FIELDS_0x90_0xA0", player_property_fields)
+    _append_fields(lines, "## SHOOT_CONFIG_FIELDS_0x20_0x160", shoot_config_fields)
+    _append_fields(lines, "## FOOTBALL_FIELDS_0x90_0xA0", football_fields)
     lines.extend(["", f"NESTED_BONUS_TYPE: {nested_bonus_type or 'NONE'}"])
     _append_fields(lines, "## NESTED_BONUS_FIELDS_0x40_0x44", nested_bonus_fields)
 
@@ -229,8 +229,8 @@ def render_report(
         "policy": "read-only extraction; only ScriptMethod can establish exact native boundaries",
         "source_sha256": identities,
         "field_count": len(fields),
-        "ai_parameter_field_count": len(ai_fields),
-        "player_property_field_count": len(player_property_fields),
+        "shoot_config_field_count": len(shoot_config_fields),
+        "football_field_count": len(football_fields),
         "nested_bonus_type": nested_bonus_type,
         "nested_bonus_field_count": len(nested_bonus_fields),
         "targets": [
@@ -262,12 +262,15 @@ def main() -> int:
 
     dump_text = sources["dump.cs"].read_text(encoding="utf-8-sig")
     fields = extract_shoot_speed_fields(dump_text)
-    ai_fields = extract_class_fields(dump_text, "AIParameterConfig", 0x20, 0x160)
-    player_property_fields = extract_class_fields(dump_text, "PlayerProperty", 0x90, 0xA0)
+    # GetShootProperty loads x22 from the ShootConfig singleton and then reads
+    # +0x24/+0x148/+0x14C. Its x21 value is a Football instance (proven by
+    # Football.get_position2D) and +0x98 is Football.lastKickParam.
+    shoot_config_fields = extract_class_fields(dump_text, "ShootConfig", 0x20, 0x160)
+    football_fields = extract_class_fields(dump_text, "Football", 0x90, 0xA0)
 
     nested_bonus_type: str | None = None
     nested_bonus_fields: list[dict[str, str]] = []
-    bonus_candidates = [item for item in player_property_fields if item["offset"] == "0x98"]
+    bonus_candidates = [item for item in football_fields if item["offset"] == "0x98"]
     if bonus_candidates:
         nested_bonus_type = bonus_candidates[0]["type"]
         try:
@@ -319,8 +322,8 @@ def main() -> int:
     report = render_report(
         identities=identities,
         fields=fields,
-        ai_fields=ai_fields,
-        player_property_fields=player_property_fields,
+        shoot_config_fields=shoot_config_fields,
+        football_fields=football_fields,
         nested_bonus_type=nested_bonus_type,
         nested_bonus_fields=nested_bonus_fields,
         metadata_path=Path(".local/tools/Il2CppDumper/script.json"),
@@ -332,7 +335,7 @@ def main() -> int:
     write_output(OUTPUT, report)
     print(
         "GETVVER_UPSTREAM_EXTRACTION: GREEN "
-        f"fields={len(fields)} ai_fields={len(ai_fields)} player_fields={len(player_property_fields)} "
+        f"fields={len(fields)} shoot_config_fields={len(shoot_config_fields)} football_fields={len(football_fields)} "
         f"targets={len(resolved)} callees={len(callee_sections)} output={OUTPUT}"
     )
     return 0
