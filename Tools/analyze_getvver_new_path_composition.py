@@ -296,7 +296,8 @@ def analyze(source: Path = SOURCE, upstream: Path = UPSTREAM) -> dict:
             "claim": "branch-level PlayerProperty.GetShootProperty selection can now feed the recovered raw maps and fixed-point GetVVer composition; whole-function native differential equivalence is not yet claimed",
         },
         "physics_v0_3_gate": "BLOCKED",
-        "next_gate": "bind runtime 0x3FC/0x41A activation/parameter[2] ratios and execute whole-function GetVVer differential validation",
+        "runtime_modifier_trace": "Recovery/Normalized/getvver_spmove_runtime_ratios.json",
+        "next_gate": "build representative GetVVer differential vectors for no modifier, 0x3FC, 0x41A, and both using explicit eligible inventories",
     }
 
 
