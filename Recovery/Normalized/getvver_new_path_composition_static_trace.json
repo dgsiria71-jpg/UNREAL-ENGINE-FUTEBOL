@@ -1,25 +1,70 @@
 {
-  "analysis_status": "raw-map producers and resolved-scalar composition instruction-bound",
+  "analysis_status": "raw-map composition plus PlayerProperty.GetShootProperty branch selector instruction-bound",
   "behavior_validated": false,
   "executable_boundary": {
-    "claim": "raw ShootSpeedConfigItem map production is executable for canonical covered intervals, then feeds the recovered resolved-scalar composition; not yet a whole-function native differential clone",
-    "composition_entry": "ComposeNewGetVVerFromResolvedScalars",
-    "composition_header": "Reference/FootballPhysics/GetVVerNewPath.h",
+    "claim": "branch-level PlayerProperty.GetShootProperty selection can now feed the recovered raw maps and fixed-point GetVVer composition; whole-function native differential equivalence is not yet claimed",
+    "composition_entry": "ComposeNewGetVVerFromPlayerProperty",
     "inputs_still_resolved_upstream": [
-      "shoot_property_input from call 0x1968398",
+      "property-value lookup internals behind 0x1967D38 / 0x1B718D8",
+      "AIParameterConfig threshold semantic names and units",
+      "collection bonus runtime producer",
       "GoalDoor instance supplying GoalDoor.get_Height",
+      "runtime Football/GoalDoor object wiring",
       "vertical_direction and modifier activation/ratios from caller/runtime state"
     ],
     "map_entry": "ResolveNewGetVVerMapOutputs",
-    "map_header": "Reference/FootballPhysics/GetVVerNewPathConfig.h"
+    "map_header": "Reference/FootballPhysics/GetVVerNewPathConfig.h",
+    "property_entry": "ResolvePlayerProperty",
+    "property_header": "Reference/FootballPhysics/PlayerPropertySelector.h"
   },
-  "next_gate": "identify 0x1968398 and bind runtime modifier activation/ratios, then differential-validate complete new-path GetVVer",
+  "next_gate": "recover GetShootProperty second-level property lookup/AI threshold field identities and bind runtime 0x3FC/0x41A activation/ratios before whole-function differential validation",
   "physics_v0_3_gate": "BLOCKED",
+  "player_property_selector": {
+    "blend_equation": "fixed_mul(near_property, ratio) + fixed_mul(far_property, 1024-ratio)",
+    "blend_ratio": "(upper_threshold-distance)/(upper_threshold-lower_threshold) in XNumber raw with q + trunc(2*r/d); zero numerator/denominator -> 0",
+    "boundary_source": "script.json:next-method",
+    "collection_bonus": "optional PropertySingle.calMain(0x30, runtime value) added after property 0x14",
+    "collection_id": "0x13",
+    "collection_property": "0x14",
+    "distance_source": "2D Football position to GoalDoor center followed by XIntMath.Sqrt_Long",
+    "exact_first_level_value_callees": [
+      "Football$$get_position2D",
+      "GoalDoor$$getCenter",
+      "XIntMath$$Sqrt_Long",
+      "XGoalExtension$$InCollection",
+      "PropertySingle$$calMain",
+      "PlayerProperty$$getShootPropertyWithSpmove",
+      "XBaseLocalSetting<AIParameterConfig>$$get_Singleton"
+    ],
+    "executable_entry": "ResolvePlayerProperty",
+    "executable_header": "Reference/FootballPhysics/PlayerPropertySelector.h",
+    "far_property": "0x10",
+    "getvver_argument": "original GetVVer w1 stored at 0x016E84EC and reloaded at 0x016E8DC4",
+    "getvver_call": "0x016E8DCC",
+    "metadata_name": "PlayerProperty$$GetShootProperty",
+    "position_properties": {
+      "threshold_ge_position_y": "0x0F",
+      "threshold_lt_position_y": "0x11"
+    },
+    "range": "0x01968398..0x019687C8",
+    "special_action_properties": {
+      "0x16B3": "0x15",
+      "0x22C5": "0x16"
+    },
+    "unresolved_internal_sources": [
+      "PlayerProperty.getShootPropertyWithSpmove second-level callee 0x1967D38",
+      "fallback property lookup 0x1B718D8",
+      "semantic field names/units for AIParameterConfig +0x24/+0x148/+0x14C",
+      "collection bonus producer object/fields +0x98/+0x40/+0x44",
+      "runtime Football/GoalDoor object wiring"
+    ],
+    "whole_function_equivalent": false
+  },
   "raw_map_producers": {
     "energy_tolerance": {
       "axis": "shootPropertyMapNew +0xD8",
       "call": "0x016E8FA8",
-      "input": "shoot_property_input_from_0x1968398",
+      "input": "PlayerProperty.GetShootProperty result",
       "values": "energyToleranceMap +0xE0"
     },
     "executable_header": "Reference/FootballPhysics/GetVVerNewPathConfig.h",
@@ -42,7 +87,6 @@
       "input": "horizontal_distance",
       "values": "shootPointHUpMap +0xF8"
     },
-    "unresolved_runtime_input": "0x1968398 output",
     "y_speed_max": {
       "axis": "energyMapNew +0xB8",
       "call": "0x016E89F4",
@@ -50,13 +94,13 @@
       "values": "ySpeedMax +0xA0"
     }
   },
-  "schema_version": "football.recovery.getvver_new_path_composition.v2",
+  "schema_version": "football.recovery.getvver_new_path_composition.v3",
   "source": {
     "binary_sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496",
     "shoot_disassembly": "artifacts/native-recovery/20260913-163217-9cdb54d0/01_disassembly_shoot.txt",
     "shoot_disassembly_lf_sha256": "c695472c6bb7820f71c334407c4998149d8f3646bc5f0614d30f3adf80f670c4",
-    "upstream_evidence": "artifacts/native-recovery/getvver-upstream/20260913-204613-86a0f84a/01_getvver_upstream_evidence.txt",
-    "upstream_evidence_sha256": "416a4f3abef88c117aa21bb66c4500f83474442e6e78a494d84ac1b4914d224f"
+    "upstream_evidence": "artifacts/native-recovery/getvver-upstream/20260913-234939-ff28866f/01_getvver_upstream_evidence.txt",
+    "upstream_evidence_sha256": "4a71aa5b3e6fa94414e789f5c779d710f94d9ca082d14b746b9979b3bc679ec3"
   },
   "target_height_path": {
     "base_target_height_call": "0x016E91B8 -> 0x14DEFDC",
