@@ -1,36 +1,75 @@
 {
-  "analysis_status": "resolved-scalar composition instruction-bound",
+  "analysis_status": "raw-map producers and resolved-scalar composition instruction-bound",
   "behavior_validated": false,
   "executable_boundary": {
-    "claim": "complete arithmetic composition from already-resolved scalar/map outputs through shootDisAndTime, base vector, and surviving modifiers; not yet a raw-config whole-function GetVVer differential clone",
-    "entry": "ComposeNewGetVVerFromResolvedScalars",
-    "header": "Reference/FootballPhysics/GetVVerNewPath.h",
+    "claim": "raw ShootSpeedConfigItem map production is executable for canonical covered intervals, then feeds the recovered resolved-scalar composition; not yet a whole-function native differential clone",
+    "composition_entry": "ComposeNewGetVVerFromResolvedScalars",
+    "composition_header": "Reference/FootballPhysics/GetVVerNewPath.h",
     "inputs_still_resolved_upstream": [
-      "out_energy from shootDisMap/outEnergyMaxMap interpolation",
-      "energy_tolerance from shootPropertyMapNew/energyToleranceMap interpolation",
-      "point_up_rate and point_down_rate map outputs",
-      "downward_random_offset_raw from call 0x1B60CC8",
-      "base_target_height from call 0x14DEFDC",
+      "shoot_property_input from call 0x1968398",
+      "GoalDoor instance supplying GoalDoor.get_Height",
       "vertical_direction and modifier activation/ratios from caller/runtime state"
-    ]
+    ],
+    "map_entry": "ResolveNewGetVVerMapOutputs",
+    "map_header": "Reference/FootballPhysics/GetVVerNewPathConfig.h"
   },
-  "next_gate": "bind/normalize the remaining upstream map-output production and activation inputs, then differential-validate complete new-path GetVVer",
+  "next_gate": "identify 0x1968398 and bind runtime modifier activation/ratios, then differential-validate complete new-path GetVVer",
   "physics_v0_3_gate": "BLOCKED",
-  "schema_version": "football.recovery.getvver_new_path_composition.v1",
+  "raw_map_producers": {
+    "energy_tolerance": {
+      "axis": "shootPropertyMapNew +0xD8",
+      "call": "0x016E8FA8",
+      "input": "shoot_property_input_from_0x1968398",
+      "values": "energyToleranceMap +0xE0"
+    },
+    "executable_header": "Reference/FootballPhysics/GetVVerNewPathConfig.h",
+    "host_guard_policy": "canonical ascending equal-length paired maps only; malformed/out-of-coverage native behavior is not claimed",
+    "out_energy": {
+      "axis": "shootDisMap +0xE8",
+      "call": "0x016E8804",
+      "input": "horizontal_distance",
+      "values": "outEnergyMaxMap +0x100"
+    },
+    "point_down_rate": {
+      "axis": "shootDisMap +0xE8",
+      "call": "0x016E8DA4",
+      "input": "horizontal_distance",
+      "values": "shootPointHDownMap +0xF0"
+    },
+    "point_up_rate": {
+      "axis": "shootDisMap +0xE8",
+      "call": "0x016E8BC8",
+      "input": "horizontal_distance",
+      "values": "shootPointHUpMap +0xF8"
+    },
+    "unresolved_runtime_input": "0x1968398 output",
+    "y_speed_max": {
+      "axis": "energyMapNew +0xB8",
+      "call": "0x016E89F4",
+      "input": "current_energy",
+      "values": "ySpeedMax +0xA0"
+    }
+  },
+  "schema_version": "football.recovery.getvver_new_path_composition.v2",
   "source": {
     "binary_sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496",
     "shoot_disassembly": "artifacts/native-recovery/20260913-163217-9cdb54d0/01_disassembly_shoot.txt",
-    "shoot_disassembly_lf_sha256": "c695472c6bb7820f71c334407c4998149d8f3646bc5f0614d30f3adf80f670c4"
+    "shoot_disassembly_lf_sha256": "c695472c6bb7820f71c334407c4998149d8f3646bc5f0614d30f3adf80f670c4",
+    "upstream_evidence": "artifacts/native-recovery/getvver-upstream/20260913-204613-86a0f84a/01_getvver_upstream_evidence.txt",
+    "upstream_evidence_sha256": "416a4f3abef88c117aa21bb66c4500f83474442e6e78a494d84ac1b4914d224f"
   },
   "target_height_path": {
-    "base_target_height_call": "0x016E91B8 -> 0x14DEFDC; caller-visible return is accepted as resolved scalar input",
-    "downward_random_call": "0x016E9198 -> 0x1B60CC8 with integer arguments 0 and 100; helper identity/state remains outside this slice",
+    "base_target_height_call": "0x016E91B8 -> 0x14DEFDC",
+    "base_target_height_helper": "GoalDoor$$get_Height",
+    "downward_bias_call": "XNumber.create(0,100)",
+    "downward_bias_helper": "XNumber$$create",
+    "downward_bias_raw": 102,
     "energy_need_protect_offset": "+0x94",
-    "height_adjustment_nonpositive": "-(fixed_mul(abs(selected_energy-out_energy), point_down_rate) + downward_random_offset_raw)",
+    "height_adjustment_nonpositive": "-(fixed_mul(abs(selected_energy-out_energy), point_down_rate) + XNumber.create(0,100))",
     "height_adjustment_positive": "fixed_mul(selected_energy-out_energy, point_up_rate)",
-    "point_h_bounds_load": "0x016E91E4, ShootSpeedConfigItem +0xB0/+0xB4 pair",
+    "point_h_bounds_load": "0x016E91E4, ShootSpeedConfigItem shootPointH +0xB0/+0xB4 pair",
     "selected_energy_equation": "if out_energy-energy_need_protect >= current_energy or current_energy >= out_energy+energy_tolerance: current_energy; else max(current_energy-energy_tolerance, out_energy-energy_need_protect)",
-    "vertical_delta": "native_clamp(base_target_height + height_adjustment, point_h_min, point_h_max) - reference_y"
+    "vertical_delta": "native_clamp(GoalDoor.get_Height + height_adjustment, point_h_min, point_h_max) - reference_y"
   },
   "vector_composition": {
     "base_vector": "vertical_direction * solved_y_speed using native fixed_mul",
