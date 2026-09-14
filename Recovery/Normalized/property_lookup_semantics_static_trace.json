@@ -11,8 +11,8 @@
   "evidence": {
     "binary_sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496",
     "boundary_policy": "exact only when established by script.json ScriptMethod metadata",
-    "path": "artifacts/native-recovery/getvver-upstream/20260914-010116-072c3bfd/01_getvver_upstream_evidence.txt",
-    "sha256_lf": "67cfe74d604f63656d8f9e1767b0a0ff7405f67541b1fbc88a57b08bee2ca2f9"
+    "path": "artifacts/native-recovery/getvver-upstream/20260914-011043-a18f1783/01_getvver_upstream_evidence.txt",
+    "sha256_lf": "7053c4a888ac29355b83cea7ecc71f582a71fc2e3e6731f146a9ee569dcb6784"
   },
   "physics_v0_3_gate": "BLOCKED",
   "player_property_lookup": {

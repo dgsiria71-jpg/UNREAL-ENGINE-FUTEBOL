@@ -44,10 +44,10 @@ def load_json(path: Path):
 
 
 def _require_upstream_evidence(path: Path) -> tuple[str, dict[int, str]]:
-    digest = hashlib.sha256(path.read_bytes()).hexdigest()
+    digest = hashlib.sha256(_lf_bytes(path)).hexdigest()
     if digest != UPSTREAM_SHA256:
         raise ValueError(f"GetVVer upstream evidence SHA mismatch: {digest}")
-    text = path.read_text(encoding="utf-8")
+    text = _lf_bytes(path).decode("utf-8")
     required_text = (
         "METADATA_NAME: GoalDoor$$get_Height",
         "METADATA_NAME: XNumber$$create",
@@ -205,8 +205,8 @@ def analyze(source: Path = SOURCE, upstream: Path = UPSTREAM) -> dict:
         require(ins, address, expected)
 
     return {
-        "schema_version": "football.recovery.getvver_new_path_composition.v3",
-        "analysis_status": "raw-map composition plus PlayerProperty.GetShootProperty branch selector instruction-bound",
+        "schema_version": "football.recovery.getvver_new_path_composition.v4",
+        "analysis_status": "raw-map composition plus shoot-property selection and second-level property lookup instruction-bound",
         "behavior_validated": False,
         "source": {
             "shoot_disassembly": source.relative_to(ROOT).as_posix(),
@@ -250,13 +250,13 @@ def analyze(source: Path = SOURCE, upstream: Path = UPSTREAM) -> dict:
             ],
             "executable_header": "Reference/FootballPhysics/PlayerPropertySelector.h",
             "executable_entry": "ResolvePlayerProperty",
+            "property_lookup_trace": "Recovery/Normalized/property_lookup_semantics_static_trace.json",
+            "threshold_config": {"+0x24": "ShootConfig.shootAirBallHeighLimit", "+0x148": "ShootConfig.dis_shootlong", "+0x14C": "ShootConfig.dis_shoot"},
+            "collection_bonus_source": "Football.lastKickParam.BiographyPassProperty when biographyPointType is nonzero",
             "whole_function_equivalent": False,
             "unresolved_internal_sources": [
-                "PlayerProperty.getShootPropertyWithSpmove second-level callee 0x1967D38",
-                "fallback property lookup 0x1B718D8",
-                "semantic field names/units for AIParameterConfig +0x24/+0x148/+0x14C",
-                "collection bonus producer object/fields +0x98/+0x40/+0x44",
                 "runtime Football/GoalDoor object wiring",
+                "runtime spmove modifier activation and parameter ratios",
             ],
         },
         "target_height_path": {
@@ -288,9 +288,7 @@ def analyze(source: Path = SOURCE, upstream: Path = UPSTREAM) -> dict:
             "property_entry": "ResolvePlayerProperty",
             "composition_entry": "ComposeNewGetVVerFromPlayerProperty",
             "inputs_still_resolved_upstream": [
-                "property-value lookup internals behind 0x1967D38 / 0x1B718D8",
-                "AIParameterConfig threshold semantic names and units",
-                "collection bonus runtime producer",
+                "runtime property arrays and selected spmove buffer contents",
                 "GoalDoor instance supplying GoalDoor.get_Height",
                 "runtime Football/GoalDoor object wiring",
                 "vertical_direction and modifier activation/ratios from caller/runtime state",
@@ -298,7 +296,7 @@ def analyze(source: Path = SOURCE, upstream: Path = UPSTREAM) -> dict:
             "claim": "branch-level PlayerProperty.GetShootProperty selection can now feed the recovered raw maps and fixed-point GetVVer composition; whole-function native differential equivalence is not yet claimed",
         },
         "physics_v0_3_gate": "BLOCKED",
-        "next_gate": "recover GetShootProperty second-level property lookup/AI threshold field identities and bind runtime 0x3FC/0x41A activation/ratios before whole-function differential validation",
+        "next_gate": "bind runtime 0x3FC/0x41A activation/parameter[2] ratios and execute whole-function GetVVer differential validation",
     }
 
 

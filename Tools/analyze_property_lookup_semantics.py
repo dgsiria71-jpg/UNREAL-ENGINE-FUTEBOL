@@ -6,9 +6,9 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-EVIDENCE = ROOT / "artifacts/native-recovery/getvver-upstream/20260914-010116-072c3bfd/01_getvver_upstream_evidence.txt"
+EVIDENCE = ROOT / "artifacts/native-recovery/getvver-upstream/20260914-011043-a18f1783/01_getvver_upstream_evidence.txt"
 OUTPUT = ROOT / "Recovery/Normalized/property_lookup_semantics_static_trace.json"
-EXPECTED_LF_SHA256 = "67cfe74d604f63656d8f9e1767b0a0ff7405f67541b1fbc88a57b08bee2ca2f9"
+EXPECTED_LF_SHA256 = "7053c4a888ac29355b83cea7ecc71f582a71fc2e3e6731f146a9ee569dcb6784"
 
 
 def canonical_lf(raw: bytes) -> bytes:
@@ -48,6 +48,17 @@ def analyze() -> dict:
         "01B7192C: ldr      x8, [x8, #0x20]",
         "01B71934: ldr      w0, [x8, #0x14]",
     ), "XPropertyManager.GetPropertyValue")
+    require_all(text, (
+        "## SHOOT_CONFIG_FIELDS_0x20_0x160",
+        "0x24 | XNumber | shootAirBallHeighLimit",
+        "0x148 | XNumber | dis_shootlong",
+        "0x14C | XNumber | dis_shoot",
+        "## FOOTBALL_FIELDS_0x90_0xA0",
+        "0x98 | BallKickParam | lastKickParam",
+        "NESTED_BONUS_TYPE: BallKickParam",
+        "0x40 | BiographyUtility.BiographyPointType | biographyPointType",
+        "0x44 | XNumber | BiographyPassProperty",
+    ), "GetShootProperty metadata bindings")
     require_all(text, (
         "METADATA_NAME: PlayerProperty$$getShootPropertyWithSpmove",
         "01968888: bl       #0x1967d38",
