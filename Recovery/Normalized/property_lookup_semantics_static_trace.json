@@ -1,0 +1,55 @@
+{
+  "corrected_metadata_bindings": {
+    "BallKickParam+0x40": "biographyPointType",
+    "BallKickParam+0x44": "BiographyPassProperty",
+    "Football+0x98": "lastKickParam",
+    "ShootConfig+0x148": "dis_shootlong",
+    "ShootConfig+0x14C": "dis_shoot",
+    "ShootConfig+0x24": "shootAirBallHeighLimit",
+    "threshold_config": "ShootConfig"
+  },
+  "evidence": {
+    "binary_sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496",
+    "boundary_policy": "exact only when established by script.json ScriptMethod metadata",
+    "path": "artifacts/native-recovery/getvver-upstream/20260914-011043-a18f1783/01_getvver_upstream_evidence.txt",
+    "sha256_lf": "7053c4a888ac29355b83cea7ecc71f582a71fc2e3e6731f146a9ee569dcb6784"
+  },
+  "physics_v0_3_gate": "BLOCKED",
+  "player_property_lookup": {
+    "arguments": [
+      "property_type",
+      "spmove_logic_id"
+    ],
+    "buffer_manager_offset": "0x20",
+    "fallback": "manager_property.GetPropertyValue(property_type)",
+    "metadata_name": "PlayerProperty$$GetPropertyValue",
+    "property_manager_offset": "0x10",
+    "range": "0x01967D38..0x01967DC4",
+    "spmove_manager_offset": "0x28",
+    "spmove_path": "if enabled config exists and logic check passes, resolve buffer property using config field +0x40"
+  },
+  "property_manager_lookup": {
+    "array_data_offset": "0x20",
+    "array_length_offset": "0x18",
+    "array_offset": "0x10",
+    "element_stride_bytes": 8,
+    "invalid_access": "native managed null/range exception paths; no synthetic fallback value",
+    "metadata_name": "XProperty.XPropertyManager$$GetPropertyValue",
+    "range": "0x01B718D8..0x01B71958",
+    "value_field_offset": "0x14"
+  },
+  "remaining_unknowns": [
+    "runtime spmove modifier 0x3FC/0x41A activation and parameter[2] ratios",
+    "whole-function native differential vectors across GetVVer branches",
+    "caller-visible final GetKickVelocity behavior and BALL_CONTACT.velocity binding"
+  ],
+  "schema_version": "football.recovery.property_lookup_semantics.v1",
+  "shoot_property_with_spmove": {
+    "fallback": "manager_property.GetPropertyValue(property_type)",
+    "fallback_condition": "resolved raw XNumber <= 0",
+    "primary": "GetPropertyValue(property_type, mapped_spmove_logic_id)",
+    "range": "0x019687C8..0x019688DC"
+  },
+  "source_build": "football-dream-be-a-pro-1-221-5",
+  "whole_getvver_equivalent": false
+}

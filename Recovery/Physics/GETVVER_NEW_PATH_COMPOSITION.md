@@ -52,11 +52,11 @@ The exact first-level value-producing callees visible in the published body incl
 - `XGoalExtension$$InCollection`
 - `PropertySingle$$calMain`
 - `PlayerProperty$$getShootPropertyWithSpmove`
-- `XBaseLocalSetting<AIParameterConfig>$$get_Singleton`
+- `XBaseLocalSetting<AIParameterConfig>$$get_Singleton` (shared generic body label; the caller-visible object fields are bound to `ShootConfig` by `dump.cs`)
 
 ## Recovered branch-level PlayerProperty selector
 
-`Reference/FootballPhysics/PlayerPropertySelector.h` implements the branch/value selection that is directly instruction-bound in `PlayerProperty.GetShootProperty` while leaving unresolved property-value lookup internals behind a resolver callback.
+`Reference/FootballPhysics/PlayerPropertySelector.h` implements the branch/value selection that is directly instruction-bound in `PlayerProperty.GetShootProperty`. `Reference/FootballPhysics/PropertyLookup.h` now implements the caller-visible spmove-buffer/base-property decision behind that resolver callback.
 
 Confirmed branches:
 
@@ -228,13 +228,17 @@ The v3 trace is now persisted at `Recovery/Normalized/getvver_new_path_compositi
 
 ## Remaining gate
 
-Do **not** claim complete GetVVer equivalence yet. Remaining source gaps include:
+Do **not** claim complete GetVVer equivalence yet. The corrected upload `20260914-011043-a18f1783` closed these earlier gaps:
 
-- `PlayerProperty.getShootPropertyWithSpmove` second-level callee `0x1967D38`;
-- fallback property lookup `0x1B718D8`;
-- semantic names/units for `AIParameterConfig +0x24/+0x148/+0x14C`;
-- runtime producer behind collection-bonus object/fields `+0x98/+0x40/+0x44`;
+- `0x1967D38` is exactly `PlayerProperty.GetPropertyValue(PropertyType, SpmoveLogicId)`;
+- `0x1B718D8` is exactly `XProperty.XPropertyManager.GetPropertyValue(PropertyType)`;
+- thresholds are `ShootConfig.shootAirBallHeighLimit`, `dis_shootlong`, and `dis_shoot`;
+- the collection bonus is `Football.lastKickParam.BiographyPassProperty`, gated by `BallKickParam.biographyPointType`.
+
+Remaining source/runtime gaps include:
+
 - runtime Football/GoalDoor object wiring;
+- concrete property arrays and selected spmove buffer contents;
 - real activation and concrete ratio production for `0x3FC` and `0x41A`;
 - whole-function native/original differential vectors for the composed new path.
 

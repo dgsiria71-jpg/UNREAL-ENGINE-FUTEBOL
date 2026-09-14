@@ -1,6 +1,6 @@
 {
   "schema_version": "football.recovery.inventory.v2",
-  "generated_at_utc": "2026-09-14T00:42:00Z",
+  "generated_at_utc": "2026-09-14T04:16:41Z",
   "repository_portability": "fresh_checkout_supported",
   "engine_target": "Unreal Engine 5.x",
   "mobile_source": "football-dream-be-a-pro-1-221-5",
@@ -34,7 +34,8 @@
     "feature_coverage": "Recovery/Normalized/feature_coverage.json",
     "playable_match_contract": "Recovery/Normalized/playable_match_contract.json",
     "unreal_import_plan": "Recovery/Normalized/unreal_import_plan.json",
-    "original_reassembly": "Recovery/Normalized/original_reassembly.json"
+    "original_reassembly": "Recovery/Normalized/original_reassembly.json",
+    "property_lookup_semantics_trace": "Recovery/Normalized/property_lookup_semantics_static_trace.json"
   },
   "local_regeneration_artifacts": {
     "spmove": {
@@ -137,6 +138,21 @@
       "decoded_source_bytes": 133872,
       "decoded_source_sha256": "f437f83465a541bc85f07e1cab655afd59a2fb927233302a40a1d09b6355d0ad",
       "record_count": 28
+    },
+    {
+      "source_id": "getvver_upstream_evidence_corrected_metadata",
+      "filename": "artifacts/native-recovery/getvver-upstream/20260914-011043-a18f1783/01_getvver_upstream_evidence.txt",
+      "status": "committed_text_evidence",
+      "sha256_lf": "7053c4a888ac29355b83cea7ecc71f582a71fc2e3e6731f146a9ee569dcb6784",
+      "dump_cs_sha256": "4ba445977f2b0854b19375d69c5b30275fe36d06518efe2c5028097868579fbe",
+      "script_json_sha256": "d15222efc79ebfe50074f385c0f5e5af4960fb43c5cf55a383ea32cba34ae799",
+      "global_metadata_sha256": "92fae52ec4dc570929eb7b99d2083fd6ab6016cbbaa30f87e87ac6732bb1e42e",
+      "binary_sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496",
+      "metadata_corrections": [
+        "ShootConfig +0x24/+0x148/+0x14C",
+        "Football +0x98",
+        "BallKickParam +0x40/+0x44"
+      ]
     }
   ],
   "semantic_gates": {
