@@ -3,39 +3,44 @@
 Updated: 2026-09-14. Project **NOT COMPLETE**.  
 GitHub `main` is the canonical source of truth.
 
-## Canonical baseline entering this increment
+## Canonical main baseline
 
-The latest user-published main commit is `e74afbcd3c311d1bafdee1044d2a3280d5f2ce23` (`Publish GetVVer upstream native evidence`). It added canonical upload:
+PR #13, `Recover source-bound GetVVer player property selector`, merged as:
+
+`c12e61cf21b070f15860346e283c2cb92a9d5bd6`
+
+Post-merge `Reference code validation` run #183 / `34802035409` completed **SUCCESS**: C++ compile, all 6 CTests, Python contracts, persisted-evidence checks, and content validation passed.
+
+The canonical upstream evidence consumed by this merge is:
 
 - upload ID `20260913-234939-ff28866f`
 - `artifacts/native-recovery/getvver-upstream/20260913-234939-ff28866f/01_getvver_upstream_evidence.txt`
 - bytes `59637`
 - SHA-256 `4a71aa5b3e6fa94414e789f5c779d710f94d9ca082d14b746b9979b3bc679ec3`
-
-Canonical ARM64 source identity remains `libil2cpp.so` SHA-256 `2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496`.
+- canonical ARM64 binary SHA-256 `2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496`
 
 Physics v0.3 remains **BLOCKED**. Build `1-226-19` remains **isolated / not consumed**.
 
-## Active bounded slice
+## What PR #13 closed
 
-PR #13: `Recover source-bound GetVVer player property selector`  
-Branch: `chatgpt/getvver-property-semantics`.
-
-The new publication closes the previous anonymous native target:
+The previous anonymous native target is now exact:
 
 ```text
 0x01968398..0x019687C8
 PlayerProperty$$GetShootProperty
-exact boundary: script.json:next-method
+boundary: script.json:next-method
 ```
 
-GetVVer stores original `w1` at `0x016E84EC`, reloads it at `0x016E8DC4`, and calls `PlayerProperty.GetShootProperty` at `0x016E8DCC`. The result feeds `shootPropertyMapNew(+0xD8) -> energyToleranceMap(+0xE0)` before the existing energy-protection/vertical solve.
+GetVVer stores original `w1` at `0x016E84EC`, reloads it at `0x016E8DC4`, and calls `PlayerProperty.GetShootProperty` at `0x016E8DCC`. Its result feeds:
 
-## Newly executable selector boundary
+```text
+shootPropertyMapNew(+0xD8)
+    -> energyToleranceMap(+0xE0)
+```
 
-`Reference/FootballPhysics/PlayerPropertySelector.h` now implements the instruction-bound branch/value selection while keeping actual property-value lookup behind a resolver callback.
+`Reference/FootballPhysics/PlayerPropertySelector.h` now implements the instruction-bound branch/value selector, and `ComposeNewGetVVerFromPlayerProperty` feeds that selector directly into the recovered raw-map and fixed-point new-path GetVVer composition.
 
-Confirmed branches:
+Confirmed branch-level selector behavior:
 
 ```text
 action 0x16B3 -> property 0x15
@@ -46,7 +51,7 @@ if InCollection(action, 0x13):
     + optional PropertySingle.calMain(0x30, runtime value)
 
 else:
-    distance = 2D Football.position to GoalDoor.center
+    distance = |Football.position2D - GoalDoor.center|
 
     distance > AI +0x148 -> property 0x10
 
@@ -56,7 +61,7 @@ else:
 
     distance < AI +0x14C -> near property
 
-    middle interval -> fixed-point blend:
+    middle interval:
         ratio = (upper-distance)/(upper-lower)
         using q + trunc(2*r/d)
         zero numerator/denominator -> 0
@@ -64,7 +69,7 @@ else:
                + fixed_mul(far, 1024-ratio)
 ```
 
-Exact first-level value callees in the published body include:
+Exact first-level value callees published for `GetShootProperty` include:
 
 - `Football$$get_position2D`
 - `GoalDoor$$getCenter`
@@ -74,7 +79,7 @@ Exact first-level value callees in the published body include:
 - `PlayerProperty$$getShootPropertyWithSpmove`
 - `XBaseLocalSetting<AIParameterConfig>$$get_Singleton`
 
-`Reference/FootballPhysics/GetVVerNewPathConfig.h` now exposes `ComposeNewGetVVerFromPlayerProperty`, which resolves this selector and feeds the scalar into the already recovered raw-map and fixed-point GetVVer composition.
+The persisted trace is now schema `football.recovery.getvver_new_path_composition.v3`, and the recovery manifest points to the 59,637-byte upstream publication.
 
 ## Current executable new-path chain
 
@@ -96,68 +101,54 @@ resolved map outputs
     -> fixed XNumber.create(0,100) bias on nonpositive branch
     -> GoalDoor.get_Height
     -> shootPointH clamp - reference_y
-    -> shootDisAndTime ballistic solve
+    -> recovered shootDisAndTime ballistic solve
     -> ySpeedMin / ySpeedMax clamp
     -> vertical_direction * solved_y_speed
-    -> 0x3FC parameter[2]
-    -> 0x41A parameter[2]
+    -> surviving 0x3FC parameter[2]
+    -> surviving 0x41A parameter[2]
     -> shared GetVVer return
 ```
 
-The highest-level recovered host entry in this slice is `ComposeNewGetVVerFromPlayerProperty`.
+Highest recovered host entry for this path:
 
-## TDD evidence in PR #13
+`ComposeNewGetVVerFromPlayerProperty`.
 
-Selector RED:
+This is still **not** a whole-function native differential clone.
 
-- commit `93cf1edd5408c54b6528d374bc731d6398311efa`
-- Actions run `34801287309`
-- expected compile failure: `PlayerPropertySelector.h` absent
+## PR #13 TDD / verification trail
 
-Selector GREEN after correcting only a C `assert` macro test syntax issue:
-
-- commit `29ac8e76373fc07df9765963c99e0775715eecd4`
-- Actions run `34801381432` — **SUCCESS**
-
-Integration RED:
-
-- commit `df459ab5b7afe7bb216b187069e97f8f2426a14d`
-- Actions run `34801475096`
-- expected compile failure: `ComposeNewGetVVerFromPlayerProperty` absent
-
-Integration GREEN:
-
-- commit `28251f4cb56602ed64ec14542ba6b21606d66da7`
-- Actions run `34801518576` — **SUCCESS**
-
-Evidence-rebinding RED:
-
-- commit `ed4d797dcebeb4248419389b8f5757ff9ade5b35`
-- Actions run `34801599176`
-- C++ `6/6` GREEN; Python failed only on old upstream evidence SHA binding
-
-Analyzer/anchor GREEN candidate:
-
-- commit `0ff9a744831c637bcdd158ec555ef5cb80ea923e`
-- Actions run `34801770214`
-- all C++ `6/6` and new ARM64/metadata anchors passed; only the intentionally stale persisted v2 trace remained failing
-
-The persisted trace is now schema `football.recovery.getvver_new_path_composition.v3` and points at the 59,637-byte upload. A fresh full CI run after documentation/manifest updates is required before merge.
+- RED `93cf1edd5408c54b6528d374bc731d6398311efa`, run `34801287309`: selector production header absent.
+- selector GREEN `29ac8e76373fc07df9765963c99e0775715eecd4`, run `34801381432`: **SUCCESS**.
+- integration RED `df459ab5b7afe7bb216b187069e97f8f2426a14d`, run `34801475096`: `ComposeNewGetVVerFromPlayerProperty` absent.
+- integration GREEN `28251f4cb56602ed64ec14542ba6b21606d66da7`, run `34801518576`: **SUCCESS**.
+- evidence RED `ed4d797dcebeb4248419389b8f5757ff9ade5b35`, run `34801599176`: C++ 6/6 GREEN; old upstream SHA binding rejected.
+- analyzer candidate `0ff9a744831c637bcdd158ec555ef5cb80ea923e`, run `34801770214`: all new ARM64/metadata anchors and C++ 6/6 passed; only stale persisted v2 trace remained RED.
+- final PR head `c2870faeede01128ee77f8351b96e2ba98c4bd2a`, run `34801960638`: **SUCCESS**.
+- merge `c12e61cf21b070f15860346e283c2cb92a9d5bd6`, post-merge run `34802035409`: **SUCCESS**.
 
 ## Still unresolved before complete GetVVer equivalence
 
-Do **not** label GetVVer whole-function equivalent yet. Still open:
+Do **not** claim whole-function GetShootProperty or GetVVer equivalence. Still open:
 
 - `PlayerProperty.getShootPropertyWithSpmove` second-level callee `0x1967D38`;
 - fallback property lookup `0x1B718D8`;
 - semantic field names/units for `AIParameterConfig +0x24/+0x148/+0x14C`;
-- collection bonus runtime producer behind `+0x98/+0x40/+0x44`;
+- collection bonus runtime producer behind `PlayerProperty +0x98` and nested `+0x40/+0x44`;
 - runtime Football/GoalDoor object wiring;
-- real runtime activation and ratio production for `0x3FC` and `0x41A`;
-- native/original differential vectors for the whole composed new path;
-- old-path GetVVer remains a separately preserved track.
+- real runtime activation and concrete ratio production for `0x3FC` and `0x41A`;
+- native/original whole-path differential vectors;
+- old-path GetVVer remains a separately preserved recovery track.
 
-Do **not** advance final GetKickVelocity or `BALL_CONTACT.velocity` until this gate closes.
+Do **not** advance final `GetKickVelocity` or `BALL_CONTACT.velocity` until this gate closes.
+
+## Next bounded recovery target
+
+1. source-bind `0x1967D38` and `0x1B718D8` without guessing identities;
+2. copy exact metadata fields for `AIParameterConfig` around `+0x24/+0x148/+0x14C`;
+3. identify the `PlayerProperty +0x98` collection-bonus object and nested `+0x40/+0x44` fields where metadata permits;
+4. then bind real runtime activation/ratios for `0x3FC` and `0x41A`;
+5. build native/original differential vectors for complete new-path GetVVer;
+6. only after that proceed to `GetKickVelocity -> BALL_CONTACT.velocity -> full regression -> Physics v0.3`.
 
 ## Stable preserved baseline
 
@@ -168,18 +159,7 @@ Do **not** advance final GetKickVelocity or `BALL_CONTACT.velocity` until this g
 - spmove selection `4,672/4,672`
 - spmove producer `2,640/2,640`
 
-Historical original 92/92 advanced-workspace bytes are still **not** proven recovered.
-
-## Next bounded recovery target
-
-After PR #13 closes GREEN:
-
-1. source-bind `0x1967D38` and `0x1B718D8` without guessing names;
-2. recover exact metadata identities for AI threshold fields around `+0x24/+0x148/+0x14C` if available;
-3. identify the collection-bonus producer fields;
-4. bind real runtime activation/ratios for `0x3FC` and `0x41A`;
-5. build native/original differential vectors for complete new-path GetVVer;
-6. only then proceed to complete `GetKickVelocity -> BALL_CONTACT.velocity -> regression -> Physics v0.3`.
+Historical original 92/92 advanced-workspace bytes remain **not proven recovered**.
 
 ## Workspace safety
 
