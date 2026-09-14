@@ -1,6 +1,7 @@
 #include "../Reference/FootballCore/FixedPoint.h"
 #include "../Reference/FootballPhysics/GetVVerNewPath.h"
 #include "../Reference/FootballPhysics/GetVVerNewPathConfig.h"
+#include "../Reference/FootballPhysics/PlayerPropertySelector.h"
 
 #include <cassert>
 
@@ -52,7 +53,7 @@ int main() {
 
     // Raw new-method maps must be paired exactly as the native GetVVer dataflow:
     // distance -> outEnergyMax/point-up/point-down,
-    // current-energy -> ySpeedMax, shoot-property -> energyTolerance.
+    // current-energy -> ySpeedMax, player-property -> energyTolerance.
     ShootSpeedNewMethodMaps maps{
         /* shootDisMap */ {Create(1000), Create(2000)},
         /* outEnergyMaxMap */ {Create(2000), Create(4000)},
@@ -89,8 +90,6 @@ int main() {
     assert(composed.y.raw == 0);
     assert(composed.z.raw == 0);
 
-    // The raw-map front end must resolve the recovered maps and feed the same
-    // fixed-point composition without reintroducing caller-supplied bias.
     ShootSpeedNewMethodConfig raw_config{
         maps,
         /* energyNeedProtect */ Create(1800),
@@ -104,19 +103,46 @@ int main() {
     };
     RecoveredXVector3 from_raw = ComposeNewGetVVerFromRawMaps(
         raw_config,
-        Create(512),       // vHor magnitude
-        Create(1500),      // horizontal distance
-        Create(2000),      // current energy
-        Create(512),       // unresolved 0x1968398 caller-visible output
-        Create(3000),      // GoalDoor.get_Height
-        Create(1200),      // reference y
-        Create(0),         // vertical acceleration
+        Create(512),
+        Create(1500),
+        Create(2000),
+        Create(512),
+        Create(3000),
+        Create(1200),
+        Create(0),
         RecoveredXVector3{Create(1024), Create(0), Create(0)},
         false, Create(1024),
         false, Create(1024));
     assert(from_raw.x.raw == 1300);
     assert(from_raw.y.raw == 0);
     assert(from_raw.z.raw == 0);
+
+    // The recovered property selector can now supply the map input directly
+    // instead of requiring the final scalar to be injected by the caller.
+    PlayerPropertyInputs property_inputs{};
+    property_inputs.action_id = 4660;
+    property_inputs.distance = Create(3500);
+    property_inputs.upper_threshold = Create(3000);
+    property_inputs.lower_threshold = Create(1000);
+    auto property_resolver = [](std::int32_t property_id, std::int32_t) {
+        return property_id == 16 ? Create(512) : Create(0);
+    };
+    RecoveredXVector3 from_property = ComposeNewGetVVerFromPlayerProperty(
+        raw_config,
+        Create(512),
+        Create(1500),
+        Create(2000),
+        property_inputs,
+        property_resolver,
+        Create(3000),
+        Create(1200),
+        Create(0),
+        RecoveredXVector3{Create(1024), Create(0), Create(0)},
+        false, Create(1024),
+        false, Create(1024));
+    assert(from_property.x.raw == from_raw.x.raw);
+    assert(from_property.y.raw == from_raw.y.raw);
+    assert(from_property.z.raw == from_raw.z.raw);
 
     return 0;
 }

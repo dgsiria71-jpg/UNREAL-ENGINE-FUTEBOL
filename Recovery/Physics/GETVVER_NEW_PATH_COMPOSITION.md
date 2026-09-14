@@ -1,71 +1,113 @@
 # New-path GetVVer composition recovery
 
-Status: raw new-method map producers plus resolved-scalar composition are instruction-bound and executable for the canonical covered data contract. Physics v0.3 remains **BLOCKED**.
+Status: the canonical new-method raw-map chain, branch-level `PlayerProperty.GetShootProperty` selector, target-height path, `shootDisAndTime` ballistic solve, base vertical vector, and surviving `0x3FC` / `0x41A` scaling are source-bound and executable within the recovered boundary. **Whole-function GetVVer native differential equivalence is not yet claimed.** Physics v0.3 remains **BLOCKED**.
 
-## Evidence boundary
+## Canonical evidence
 
-Canonical mobile baseline remains build `1-221-5`.
+Mobile baseline: `football-dream-be-a-pro-1-221-5`.
 
-Primary native listing:
+Primary GetVVer listing:
 
-- `GetVVer`: `0x016E84A4..0x016EA55C`
 - `artifacts/native-recovery/20260913-163217-9cdb54d0/01_disassembly_shoot.txt`
+- GetVVer native range: `0x016E84A4..0x016EA55C`
 - normalized-LF SHA-256: `c695472c6bb7820f71c334407c4998149d8f3646bc5f0614d30f3adf80f670c4`
-- originating ARM64 `libil2cpp.so` SHA-256: `2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496`
+- canonical ARM64 `libil2cpp.so` SHA-256: `2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496`
 
-Published upstream metadata/helper evidence:
+Current upstream metadata/native evidence:
 
-- `artifacts/native-recovery/getvver-upstream/20260913-204613-86a0f84a/01_getvver_upstream_evidence.txt`
-- published SHA-256: `416a4f3abef88c117aa21bb66c4500f83474442e6e78a494d84ac1b4914d224f`
-- source identities inside the report are the canonical `dump.cs`, `script.json`, `global-metadata.dat`, and `libil2cpp.so` hashes already used by the recovery chain.
+- upload ID `20260913-234939-ff28866f`
+- `artifacts/native-recovery/getvver-upstream/20260913-234939-ff28866f/01_getvver_upstream_evidence.txt`
+- bytes `59637`
+- SHA-256 `4a71aa5b3e6fa94414e789f5c779d710f94d9ca082d14b746b9979b3bc679ec3`
+- exact source identities inside the report:
+  - `dump.cs` `4ba445977f2b0854b19375d69c5b30275fe36d06518efe2c5028097868579fbe`
+  - `script.json` `d15222efc79ebfe50074f385c0f5e5af4960fb43c5cf55a383ea32cba34ae799`
+  - `global-metadata.dat` `92fae52ec4dc570929eb7b99d2083fd6ab6016cbbaa30f87e87ac6732bb1e42e`
+  - `libil2cpp.so` `2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496`
 
-This report resolved two previously opaque callees and provided exact metadata field names for the new-method config. The recovery below supersedes the earlier temporary `downward_random_offset_raw` interpretation.
+The earlier 5,491-byte upload remains historical evidence, but this 59,637-byte publication supersedes it for the current new-path GetVVer trace.
 
-## Corrected helper identities
+## Exact helper identities already closed
 
-### `0x1B60CC8` is `XNumber.create`
+`0x14DEFDC..0x14DEFE8` is exactly `GoalDoor$$get_Height`.
 
-The helper has an exact `ScriptMethod` boundary `0x01B60CC8..0x01B60D14` and metadata name `XNumber$$create`.
+`0x1B60CC8..0x1B60D14` is exactly `XNumber$$create`. The observed GetVVer call `XNumber.create(0,100)` returns raw `102`, so the nonpositive target-height branch uses a fixed downward bias, not randomness.
 
-The GetVVer caller at `0x016E9188..0x016E9198` passes:
+## `0x1968398` is now identified
 
-```text
-w0 = 0
-w1 = 100
-x2 = 0
-call XNumber.create
-```
-
-For this exact observed call, the recovered helper body produces fixed-point raw `102`, i.e. the native representation used here for `0.1` on the 1024 scale. The reference deliberately exposes only this bounded observed constant through `GetVVerDownwardBias()`; it does **not** claim a complete generic clone of `XNumber.create`.
-
-Therefore the nonpositive target-height branch is corrected to:
+The new publication gives an exact ScriptMethod boundary:
 
 ```text
-height_adjustment = -(
-    fixed_mul(abs(selected_energy - out_energy), point_down_rate)
-    + XNumber.create(0, 100)
-)
+0x01968398 .. 0x019687C8
+PlayerProperty$$GetShootProperty
 ```
 
-There is no recovered RNG/random input in this block.
+GetVVer preserves its original `w1` at `0x016E84EC`, reloads that same value at `0x016E8DC4`, and calls `PlayerProperty.GetShootProperty` at `0x016E8DCC`. Therefore the scalar sent into `shootPropertyMapNew` is no longer an anonymous caller-supplied value.
 
-### `0x14DEFDC` is `GoalDoor.get_Height`
+The exact first-level value-producing callees visible in the published body include:
 
-The helper has exact boundary `0x014DEFDC..0x014DEFE8` and metadata name `GoalDoor$$get_Height`.
+- `Football$$get_position2D`
+- `GoalDoor$$getCenter`
+- `XIntMath$$Sqrt_Long`
+- `XGoalExtension$$InCollection`
+- `PropertySingle$$calMain`
+- `PlayerProperty$$getShootPropertyWithSpmove`
+- `XBaseLocalSetting<AIParameterConfig>$$get_Singleton`
 
-Its body is only:
+## Recovered branch-level PlayerProperty selector
+
+`Reference/FootballPhysics/PlayerPropertySelector.h` implements the branch/value selection that is directly instruction-bound in `PlayerProperty.GetShootProperty` while leaving unresolved property-value lookup internals behind a resolver callback.
+
+Confirmed branches:
 
 ```text
-ldr x8, [x0, #0x18]
-ldr w0, [x8, #0x24]
-ret
+action 0x16B3 -> property id 0x15
+action 0x22C5 -> property id 0x16
+
+otherwise:
+    if XGoalExtension.InCollection(action, 0x13):
+        base = property id 0x14
+        optional runtime bonus = PropertySingle.calMain(0x30, runtime value)
+        return base + bonus when enabled
+
+    distance = |Football.position2D - GoalDoor.center|
+
+    if distance > AI threshold at +0x148:
+        return property id 0x10
+
+    near property depends on position-Y comparison against AI field +0x24:
+        threshold >= positionY -> property id 0x0F
+        threshold <  positionY -> property id 0x11
+
+    if distance < AI threshold at +0x14C:
+        return near property
+
+    otherwise blend near property with property 0x10
 ```
 
-So the scalar entering the target-height clamp is the caller-visible result of `GoalDoor.get_Height`, not an unidentified generic height helper.
+The mid-interval ratio is fixed-point:
 
-## Exact new-method config fields used by GetVVer
+```text
+numerator   = upper_threshold - distance
+denominator = upper_threshold - lower_threshold
 
-The published `ShootSpeedConfigItem` metadata establishes these relevant fields without name inference:
+if numerator == 0 or denominator == 0:
+    ratio = 0
+else:
+    n = numerator * 1024
+    q = trunc(n / denominator)
+    r = n - q * denominator
+    ratio = q + trunc(2*r / denominator)
+
+result = fixed_mul(near_value, ratio)
+       + fixed_mul(far_value, 1024 - ratio)
+```
+
+This is executable through `ResolvePlayerProperty`, but it is deliberately **not** labeled whole-function equivalent yet because the actual property-value resolver internals and some runtime source fields are still unresolved.
+
+## Exact new-method config fields
+
+Published metadata establishes:
 
 ```text
 +0x94  energyNeedProtect      XNumber
@@ -82,176 +124,120 @@ The published `ShootSpeedConfigItem` metadata establishes these relevant fields 
 +0x108 shootDisAndTime       List<List<int>>
 ```
 
-`ySpeedMax` is therefore a map/list producer output in the new path, not a scalar config field.
-
 ## Raw-map producer chain
 
-The five recovered `0x126BF1C` remap stages are now bound to exact metadata fields and executable through `Reference/FootballPhysics/GetVVerNewPathConfig.h`.
-
-For canonical ascending paired maps and inputs inside a covered interval:
+The five source-bound remap stages are:
 
 ```text
-out_energy = remap(
-    horizontal_distance,
-    shootDisMap,
-    outEnergyMaxMap)
+horizontal_distance + shootDisMap(+0xE8)
+    -> outEnergyMaxMap(+0x100)      => out_energy
 
-y_speed_max = remap(
-    current_energy,
-    energyMapNew,
-    ySpeedMax)
+current_energy + energyMapNew(+0xB8)
+    -> ySpeedMax(+0xA0)             => y_speed_max
 
-point_up_rate = remap(
-    horizontal_distance,
-    shootDisMap,
-    shootPointHUpMap)
+horizontal_distance + shootDisMap(+0xE8)
+    -> shootPointHUpMap(+0xF8)      => point_up_rate
 
-point_down_rate = remap(
-    horizontal_distance,
-    shootDisMap,
-    shootPointHDownMap)
+horizontal_distance + shootDisMap(+0xE8)
+    -> shootPointHDownMap(+0xF0)    => point_down_rate
 
-energy_tolerance = remap(
-    shoot_property_input,
-    shootPropertyMapNew,
-    energyToleranceMap)
+PlayerProperty.GetShootProperty result + shootPropertyMapNew(+0xD8)
+    -> energyToleranceMap(+0xE0)    => energy_tolerance
 ```
 
-Instruction-bound call sites are respectively:
+Native remap calls: `0x016E8804`, `0x016E89F4`, `0x016E8BC8`, `0x016E8DA4`, `0x016E8FA8`.
+
+`ComposeNewGetVVerFromPlayerProperty` now resolves the recovered PlayerProperty selector and feeds that result into the existing raw-map composition.
+
+## Downstream vertical composition
+
+The already recovered downstream path remains:
 
 ```text
-0x016E8804
-0x016E89F4
-0x016E8BC8
-0x016E8DA4
-0x016E8FA8
+protected-energy selection
+    -> point-up / point-down target-height adjustment
+    -> fixed XNumber.create(0,100) downward bias on nonpositive branch
+    -> GoalDoor.get_Height + adjustment
+    -> shootPointH min/max clamp
+    -> subtract reference_y
+    -> recovered shootDisAndTime lookup / ballistic solve
+    -> ySpeedMin / resolved ySpeedMax clamp
+    -> vertical_direction * solved_y_speed
+    -> optional 0x3FC parameter[2]
+    -> optional 0x41A parameter[2]
+    -> shared GetVVer return
 ```
 
-The last producer's scalar input is returned by native call `0x1968398` at `0x016E8DCC`. Its identity/semantics are still unresolved, so `shoot_property_input` remains an explicit runtime input. No name is fabricated for `0x1968398`.
+The `0x3FC` and `0x41A` modifiers both survive the normal new-path return and scale all three live vector components using native fixed-point multiplication.
 
-`RemapPairedShootMapCanonical` uses the already source-bound `ShootRemapClamped`. Its equal-length/ascending/out-of-range checks are **host guards for canonical recovered data**, not claims about malformed/null native exception behavior.
+## Current executable boundary
 
-## Energy protection and target height
+Executable source-bound pieces now include:
 
-With the raw producer outputs resolved:
+- `Reference/FootballPhysics/ShootRemap.h`
+- `Reference/FootballPhysics/ShootDisAndTime.h`
+- `Reference/FootballPhysics/GetVVerNewPath.h`
+- `Reference/FootballPhysics/GetVVerNewPathConfig.h`
+- `Reference/FootballPhysics/PlayerPropertySelector.h`
+
+The highest-level recovered entry in this slice is:
 
 ```text
-protected_floor = out_energy - energyNeedProtect
-
-if protected_floor >= current_energy:
-    selected_energy = current_energy
-else if current_energy >= out_energy + energy_tolerance:
-    selected_energy = current_energy
-else:
-    selected_energy = max(
-        current_energy - energy_tolerance,
-        protected_floor)
+ComposeNewGetVVerFromPlayerProperty
 ```
 
-Then:
+This closes the previous anonymous `0x1968398` scalar boundary, but still accepts runtime/environment inputs that have not yet been source-bound end-to-end.
 
-```text
-delta = selected_energy - out_energy
+## TDD evidence for PlayerProperty increment
 
-if delta > 0:
-    height_adjustment = fixed_mul(delta, point_up_rate)
-else:
-    height_adjustment = -(
-        fixed_mul(abs(delta), point_down_rate)
-        + XNumber.create(0, 100)
-    )
+Selector RED:
 
-vertical_delta = native_clamp(
-    GoalDoor.get_Height + height_adjustment,
-    shootPointH.min,
-    shootPointH.max
-) - reference_y
-```
+- commit `93cf1edd5408c54b6528d374bc731d6398311efa`
+- Actions run `34801287309`
+- expected failure: missing `PlayerPropertySelector.h`
 
-## Recovered ballistic and vector composition
+Selector implementation exposed only a test-macro syntax problem; after correcting the test expression, the first selector GREEN was:
 
-`vertical_delta` feeds the already recovered `shootDisAndTime` kernel in `Reference/FootballPhysics/ShootDisAndTime.h`:
+- commit `29ac8e76373fc07df9765963c99e0775715eecd4`
+- Actions run `34801381432` — **SUCCESS**
 
-```text
-flight_time = lookup shootDisAndTime(vHor magnitude, horizontal distance)
-solved_y_speed = (vertical_delta - vertical_accel_raw*t*t/2) / t
-solved_y_speed = native clamp(ySpeedMin, resolved ySpeedMax)
-```
+Integration RED:
 
-The base vector at `0x016E9D08..0x016E9D48` is:
+- commit `df459ab5b7afe7bb216b187069e97f8f2426a14d`
+- Actions run `34801475096`
+- expected failure: `ComposeNewGetVVerFromPlayerProperty` absent
 
-```text
-base_vver = vertical_direction * solved_y_speed
-```
+Integration GREEN:
 
-using native fixed-point multiplication.
+- commit `28251f4cb56602ed64ec14542ba6b21606d66da7`
+- Actions run `34801518576` — **SUCCESS**
 
-The normal new path then applies surviving post-vector spmove modifiers in native order:
+Evidence rebinding RED:
 
-```text
-0x3FC parameter[2]
-0x41A parameter[2]
-```
+- commit `ed4d797dcebeb4248419389b8f5757ff9ade5b35`
+- Actions run `34801599176`
+- C++ `6/6` GREEN; Python failed only because analyzer was still bound to the old 5,491-byte evidence SHA.
 
-Both scale all three live vector components and survive into the shared GetVVer return.
+Analyzer GREEN candidate:
 
-## Executable boundaries
+- commit `0ff9a744831c637bcdd158ec555ef5cb80ea923e`
+- Actions run `34801770214`
+- all native/metadata anchors and C++ `6/6` passed; only the intentionally stale persisted v2 JSON remained RED.
 
-`Reference/FootballPhysics/GetVVerNewPath.h` contains:
-
-- `SelectProtectedEnergy`
-- `GetVVerDownwardBias`
-- `ComputePointHeightAdjustment`
-- `ComputeVerticalDelta`
-- `BuildVerticalVector`
-- `ApplyGetVVerModifier`
-- `ComposeNewGetVVerFromResolvedScalars`
-
-`Reference/FootballPhysics/GetVVerNewPathConfig.h` contains:
-
-- exact-name `ShootSpeedNewMethodMaps`
-- bounded `ShootSpeedNewMethodConfig`
-- `RemapPairedShootMapCanonical`
-- `ResolveNewGetVVerMapOutputs`
-- `ComposeNewGetVVerFromRawMaps`
-
-The raw-map front end now resolves the five recovered map outputs and feeds them directly into the previously recovered fixed-point composition. It still accepts the unresolved `0x1968398` caller-visible output, `GoalDoor.get_Height`, vertical direction, and spmove activation/ratios as runtime inputs.
-
-## TDD / CI evidence for the upstream producer increment
-
-First RED:
-
-- commit `9dca5cd40d347a0eae6be6ba981b7472b960be4c`
-- Actions run `34793147491`
-- failure: the test required missing production header `GetVVerNewPathConfig.h`
-
-First GREEN after map producers, fixed `XNumber.create(0,100)` bias, analyzer and persisted trace:
-
-- commit `15bfad43a374d6b64976aada6c09d68b44afb913`
-- Actions run `34793282267` — **SUCCESS**
-
-Second RED required integration of the raw producers into the vertical composition:
-
-- commit `dfc1ee97c45e9097232968d99960f7d7c685ea5a`
-- Actions run `34793403729`
-- failure: `ShootSpeedNewMethodConfig` and `ComposeNewGetVVerFromRawMaps` did not yet exist
-
-Second GREEN:
-
-- commit `87aed845f02e997e9634147fbcafab62442933e8`
-- Actions run `34793434887` — **SUCCESS**
-- C++ build/CTest and Python/persisted-evidence validation passed.
-
-A fresh CI run is required after documentation/checkpoint changes before merge.
+The v3 trace is now persisted at `Recovery/Normalized/getvver_new_path_composition_static_trace.json`; a fresh full CI run is required after documentation/checkpoint updates before merge.
 
 ## Remaining gate
 
-This still does **not** establish whole-function/native differential equivalence for GetVVer. Remaining requirements are:
+Do **not** claim complete GetVVer equivalence yet. Remaining source gaps include:
 
-- identify and recover enough behavior for call `0x1968398` to produce the shoot-property input rather than passing it in;
-- bind real runtime activation and concrete recovered ratios for `0x3FC` and `0x41A` from canonical state;
-- construct native/original differential vectors for the complete new path;
-- preserve the old GetVVer path separately;
-- only after complete GetVVer validation advance final `GetKickVelocity` behavior and `BALL_CONTACT.velocity`.
+- `PlayerProperty.getShootPropertyWithSpmove` second-level callee `0x1967D38`;
+- fallback property lookup `0x1B718D8`;
+- semantic names/units for `AIParameterConfig +0x24/+0x148/+0x14C`;
+- runtime producer behind collection-bonus object/fields `+0x98/+0x40/+0x44`;
+- runtime Football/GoalDoor object wiring;
+- real activation and concrete ratio production for `0x3FC` and `0x41A`;
+- whole-function native/original differential vectors for the composed new path.
 
-Physics v0.3 remains **BLOCKED**. No fallback or approximate ball velocity is permitted to bypass this gate.
+Only after those gates close should work advance to complete `GetKickVelocity`, `BALL_CONTACT.velocity`, full regression, and Physics v0.3.
+
+Physics v0.3 remains **BLOCKED**. Build `1-226-19` remains **isolated / not consumed**.

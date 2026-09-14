@@ -7,10 +7,11 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 TOOL = ROOT / "Tools" / "analyze_getvver_new_path_composition.py"
 SOURCE = ROOT / "artifacts" / "native-recovery" / "20260913-163217-9cdb54d0" / "01_disassembly_shoot.txt"
-UPSTREAM = ROOT / "artifacts" / "native-recovery" / "getvver-upstream" / "20260913-204613-86a0f84a" / "01_getvver_upstream_evidence.txt"
+UPSTREAM = ROOT / "artifacts" / "native-recovery" / "getvver-upstream" / "20260913-234939-ff28866f" / "01_getvver_upstream_evidence.txt"
 OUTPUT = ROOT / "Recovery" / "Normalized" / "getvver_new_path_composition_static_trace.json"
 HEADER = ROOT / "Reference" / "FootballPhysics" / "GetVVerNewPath.h"
 CONFIG_HEADER = ROOT / "Reference" / "FootballPhysics" / "GetVVerNewPathConfig.h"
+PROPERTY_HEADER = ROOT / "Reference" / "FootballPhysics" / "PlayerPropertySelector.h"
 
 
 def load_tool():
@@ -29,6 +30,7 @@ class GetVVerNewPathCompositionTests(unittest.TestCase):
         self.assertTrue(TOOL.is_file(), "GetVVer new-path analyzer is missing")
         self.assertTrue(HEADER.is_file(), "GetVVer new-path C++ reference is missing")
         self.assertTrue(CONFIG_HEADER.is_file(), "GetVVer raw-map producer reference is missing")
+        self.assertTrue(PROPERTY_HEADER.is_file(), "PlayerProperty selector reference is missing")
         self.assertTrue(UPSTREAM.is_file(), "published GetVVer upstream evidence is missing")
 
     def test_energy_protection_target_height_and_native_bias_are_instruction_bound(self):
@@ -77,9 +79,25 @@ class GetVVerNewPathCompositionTests(unittest.TestCase):
         )
         self.assertEqual(
             producers["energy_tolerance"],
-            {"input": "shoot_property_input_from_0x1968398", "axis": "shootPropertyMapNew +0xD8", "values": "energyToleranceMap +0xE0", "call": "0x016E8FA8"},
+            {"input": "PlayerProperty.GetShootProperty result", "axis": "shootPropertyMapNew +0xD8", "values": "energyToleranceMap +0xE0", "call": "0x016E8FA8"},
         )
-        self.assertEqual(producers["unresolved_runtime_input"], "0x1968398 output")
+
+    def test_player_property_selector_is_exactly_identified_and_executable_at_branch_level(self):
+        trace = load_tool().analyze(SOURCE, UPSTREAM)
+        selector = trace["player_property_selector"]
+        self.assertEqual(selector["metadata_name"], "PlayerProperty$$GetShootProperty")
+        self.assertEqual(selector["range"], "0x01968398..0x019687C8")
+        self.assertEqual(selector["getvver_call"], "0x016E8DCC")
+        self.assertEqual(selector["getvver_argument"], "original GetVVer w1 stored at 0x016E84EC and reloaded at 0x016E8DC4")
+        self.assertEqual(selector["special_action_properties"], {"0x16B3": "0x15", "0x22C5": "0x16"})
+        self.assertEqual(selector["collection_id"], "0x13")
+        self.assertEqual(selector["collection_property"], "0x14")
+        self.assertEqual(selector["far_property"], "0x10")
+        self.assertEqual(selector["position_properties"], {"threshold_ge_position_y": "0x0F", "threshold_lt_position_y": "0x11"})
+        self.assertEqual(selector["blend_ratio"], "(upper_threshold-distance)/(upper_threshold-lower_threshold) in XNumber raw with q + trunc(2*r/d); zero numerator/denominator -> 0")
+        self.assertEqual(selector["executable_header"], "Reference/FootballPhysics/PlayerPropertySelector.h")
+        self.assertEqual(selector["executable_entry"], "ResolvePlayerProperty")
+        self.assertFalse(selector["whole_function_equivalent"])
 
     def test_base_vector_and_surviving_modifiers_are_bound(self):
         trace = load_tool().analyze(SOURCE, UPSTREAM)

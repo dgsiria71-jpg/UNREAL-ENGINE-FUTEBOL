@@ -2,10 +2,12 @@
 
 #include "../FootballCore/FixedPoint.h"
 #include "GetVVerNewPath.h"
+#include "PlayerPropertySelector.h"
 #include "ShootRemap.h"
 
 #include <cstddef>
 #include <stdexcept>
+#include <utility>
 #include <vector>
 
 namespace football::physics::recovered {
@@ -116,6 +118,42 @@ inline RecoveredXVector3 ComposeNewGetVVerFromRawMaps(
         vertical_accel_raw,
         config.ySpeedMin,
         resolved.y_speed_max,
+        vertical_direction,
+        apply_spmove_3fc,
+        spmove_3fc_ratio,
+        apply_spmove_41a,
+        spmove_41a_ratio);
+}
+
+template <typename Resolver>
+inline RecoveredXVector3 ComposeNewGetVVerFromPlayerProperty(
+    const ShootSpeedNewMethodConfig& config,
+    football::core::XNumber vhor_magnitude,
+    football::core::XNumber horizontal_distance,
+    football::core::XNumber current_energy,
+    const PlayerPropertyInputs& property_inputs,
+    Resolver&& property_resolver,
+    football::core::XNumber goal_door_height,
+    football::core::XNumber reference_y,
+    football::core::XNumber vertical_accel_raw,
+    RecoveredXVector3 vertical_direction,
+    bool apply_spmove_3fc,
+    football::core::XNumber spmove_3fc_ratio,
+    bool apply_spmove_41a,
+    football::core::XNumber spmove_41a_ratio) {
+    const football::core::XNumber property_input = ResolvePlayerProperty(
+        property_inputs,
+        std::forward<Resolver>(property_resolver));
+
+    return ComposeNewGetVVerFromRawMaps(
+        config,
+        vhor_magnitude,
+        horizontal_distance,
+        current_energy,
+        property_input,
+        goal_door_height,
+        reference_y,
+        vertical_accel_raw,
         vertical_direction,
         apply_spmove_3fc,
         spmove_3fc_ratio,
