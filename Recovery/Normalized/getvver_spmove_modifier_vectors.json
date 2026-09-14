@@ -1,0 +1,94 @@
+{
+  "base_vector_raw": [
+    -3000,
+    1537,
+    777
+  ],
+  "cases": {
+    "0x3FC": {
+      "active": [
+        "0x3FC"
+      ],
+      "output_raw": [
+        -2051,
+        1051,
+        531
+      ]
+    },
+    "0x41A": {
+      "active": [
+        "0x41A"
+      ],
+      "output_raw": [
+        -2344,
+        1201,
+        607
+      ]
+    },
+    "both": {
+      "active": [
+        "0x3FC",
+        "0x41A"
+      ],
+      "output_raw": [
+        -1602,
+        821,
+        415
+      ],
+      "rounding": "fixed_mul is committed after 0x3FC and before 0x41A"
+    },
+    "none": {
+      "active": [],
+      "output_raw": [
+        -3000,
+        1537,
+        777
+      ]
+    }
+  },
+  "combined_ratio_shortcut": {
+    "allowed": false,
+    "native_order_output_x_raw": -1602,
+    "output_x_raw": -1603,
+    "ratio_raw": 547
+  },
+  "executable_reference": {
+    "adapter": "Reference/FootballPhysics/GetVVerSpmoveRuntime.h",
+    "test": "Tests/getvver_spmove_modifier_vectors_test.cpp"
+  },
+  "explicit_post_eligibility_inventories": {
+    "0x3FC": {
+      "eligible_child_ids": [
+        102001,
+        102003
+      ],
+      "param2_raw": 700,
+      "selected_child_id": 102003,
+      "selected_level": 3
+    },
+    "0x41A": {
+      "eligible_child_ids": [
+        105001,
+        105002
+      ],
+      "param2_raw": 800,
+      "selected_child_id": 105002,
+      "selected_level": 2
+    }
+  },
+  "flags": {
+    "0x3FC": "byte 5 nonzero",
+    "0x41A": "byte 0 nonzero"
+  },
+  "native_differential_validated": false,
+  "next_gate": "capture or execute matching canonical ARM64 GetVVer cases and compare whole-function outputs",
+  "physics_v0_3_gate": "BLOCKED",
+  "schema_version": "football.recovery.getvver_spmove_modifier_vectors.v1",
+  "scope": "representative source-bound host vectors using explicit post-eligibility inventories",
+  "source": {
+    "canonical_lf_sha256": "02a3ac8d3766db2016499ae3cef6a195afe043fa8a4a7c0c2955376001905875",
+    "path": "Recovery/Normalized/getvver_spmove_runtime_ratios.json"
+  },
+  "source_build": "football-dream-be-a-pro-1-221-5",
+  "whole_getvver_equivalent": false
+}
