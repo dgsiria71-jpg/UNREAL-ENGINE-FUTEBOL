@@ -4,9 +4,9 @@ Updated: 2026-09-14. Project **NOT COMPLETE**. Physics v0.3 is **BLOCKED**. GitH
 
 ## Branch and HEAD
 
-- working branch: `codex/getvver-property-lookup`
-- validated branch head before this checkpoint-only commit: `e522bb05403a6d2226fb63f8e1ef9d46b1c4d942`
-- branch base: GitHub `main` commit `642888c9c64470f7f027aba4a0bec412e9f31e00`
+- working branch: `codex/getvver-spmove-runtime-ratios`
+- canonical merged baseline: `9e31b7908dfd91d0b99b81fd3b82e75e3f250f3d` (PR #15)
+- branch base: GitHub `main` commit `9e31b7908dfd91d0b99b81fd3b82e75e3f250f3d`
 - canonical build: `football-dream-be-a-pro-1-221-5`
 - build `1-226-19`: isolated and not consumed
 - Neymar v1.9: preserved and paused
@@ -27,27 +27,20 @@ The canonical root checkout still contains exactly four protected user modificat
 - property lookup static analyzer: GREEN; gate remains BLOCKED
 - GetVVer new-path analyzer: GREEN after canonical-LF SHA validation fix on Windows
 
-GitHub Actions pull-request run #203 / `34805614471` for `e522bb05403a6d2226fb63f8e1ef9d46b1c4d942` completed **SUCCESS**.
+PR #15 final run #205 / `34805749973` and post-merge main run #206 / `34805792714` completed **SUCCESS**.
 
 ## Current task
 
-Close the second-level property lookup boundary used by `PlayerProperty.GetShootProperty`, correct the metadata-class bindings in the upstream extractor, and preserve an executable reference without claiming whole-function `GetVVer` equivalence.
+Join the validated spmove activation, selection, and parameter traces to bind the runtime ratio matrix for the surviving `0x3FC` and `0x41A` GetVVer modifiers.
 
 ## Files changed by the current increment
 
-- `Tools/extract_getvver_upstream_evidence.py`
-- `Tools/analyze_property_lookup_semantics.py`
-- `Tools/analyze_getvver_new_path_composition.py`
-- `Reference/FootballPhysics/PropertyLookup.h`
-- `Tests/property_lookup_test.cpp`
-- `Tests/test_property_lookup_semantics.py`
-- `Tests/test_getvver_upstream_extractor.py`
-- `Tests/CMakeLists.txt`
-- `Recovery/Normalized/property_lookup_semantics_static_trace.json`
+- `Tools/analyze_getvver_spmove_runtime_ratios.py`
+- `Tests/test_getvver_spmove_runtime_ratios.py`
+- `Recovery/Normalized/getvver_spmove_runtime_ratios.json`
 - `Recovery/Normalized/getvver_new_path_composition_static_trace.json`
 - `Recovery/Normalized/recovery_manifest.json`
-- `Recovery/Physics/PROPERTY_LOOKUP_SEMANTICS.md`
-- `Recovery/Physics/GETVVER_NEW_PATH_COMPOSITION.md`
+- `Recovery/Physics/GETVVER_SPMOVE_RUNTIME_RATIOS.md`
 - `_CHECKPOINTS/CURRENT.md`
 
 ## CONFIRMED
@@ -70,6 +63,11 @@ Close the second-level property lookup boundary used by `PlayerProperty.GetShoot
   - `BallKickParam +0x44` = `BiographyPassProperty`
 - raw checkout CRLF must be normalized to LF before comparing the documented upstream evidence SHA on Windows.
 
+- `0x3FC` and `0x41A` level 1..5 param `[2]` values are exactly `900, 800, 700, 600, 500` in the recovered canonical records.
+- open-all selection chooses child `102005` for `0x3FC` and `105005` for `0x41A`, both yielding raw factor `500/1024`.
+- activation is `ShootLongKick` for `0x3FC` and `shootPush` for `0x41A`; GetVVer also requires magnitude >= 1 and a non-null selected list.
+- when both activate, native order is `0x3FC` then `0x41A`, with fixed-point rounding after each component multiplication.
+
 ## INFERRED
 
 - The Il2CppDumper label `XBaseLocalSetting<AIParameterConfig>.get_Singleton` is a shared generic native body label at this callsite; caller-visible offsets and exact `dump.cs` fields prove the object consumed by `GetShootProperty` is `ShootConfig`. This is an evidence-based callsite inference, not a rename of the shared native body.
@@ -77,7 +75,7 @@ Close the second-level property lookup boundary used by `PlayerProperty.GetShoot
 ## UNKNOWN
 
 - concrete runtime property arrays and the selected spmove buffer contents for representative players/actions;
-- runtime activation and parameter `[2]` ratio producers for `0x3FC` and `0x41A`;
+- actual eligible spmove inventory for each runtime player/action; open-all is only a deterministic fixture;
 - whole-function native differential vectors for the complete new-path `GetVVer` composition;
 - final caller-visible `GetKickVelocity` behavior beyond the static vector join;
 - final `BALL_CONTACT.velocity` binding.
@@ -87,7 +85,7 @@ Close the second-level property lookup boundary used by `PlayerProperty.GetShoot
 Physics v0.3 remains blocked until the full gate is satisfied:
 
 ```text
-runtime 0x3FC / 0x41A activation and ratios
+explicit eligible inventories + representative modifier vectors
  -> whole GetVVer differential validation
  -> complete GetKickVelocity
  -> BALL_CONTACT.velocity
@@ -101,12 +99,12 @@ Do not rename `vertical_accel_raw` without proof. Do not fabricate the historica
 ## Exact resume command
 
 ```powershell
-cd "C:\Users\dg71\Documents\ChatGPT\JOGO DE FUTEBOL\.local\worktrees\getvver-property-lookup"
+cd "C:\Users\dg71\Documents\ChatGPT\JOGO DE FUTEBOL\.local\worktrees\getvver-spmove-runtime-ratios"
 git status --short
 py -3 -m unittest discover -s Tests -p "test_*.py"
-& "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\ctest.exe" --test-dir .local/build-property-lookup -C Release --output-on-failure
+py -3 Tools/analyze_getvver_spmove_runtime_ratios.py
 ```
 
 ## Next exact step
 
-PR #15 is open and its engineering head is GREEN. Merge only after this checkpoint-only update also passes GitHub Actions. Then trace the runtime producers that feed `GetSpmoveDataRatio(0x3FC/0x41A)` and extract representative parameter `[2]` values for native differential vectors.
+Commit and publish this bounded runtime-ratio increment. Then build representative GetVVer differential vectors for none, `0x3FC`, `0x41A`, and both, using explicit eligible inventories; do not treat open-all as every player runtime state.
