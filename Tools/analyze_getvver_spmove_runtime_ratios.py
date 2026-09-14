@@ -59,7 +59,8 @@ def analyze():
       'confirmed_scope':'activation gates, selection rule, level matrix, open-all selected records, and raw param[2] factors',
       'unknown':['actual eligible inventory for each runtime player/action','representative whole-GetVVer native output vectors','final GetKickVelocity and BALL_CONTACT binding'],
       'whole_getvver_equivalent':False,'physics_v0_3_gate':'BLOCKED',
-      'next_gate':'build representative GetVVer differential vectors for none/0x3FC/0x41A/both using recovered upstream inputs and selected runtime inventories',
+      'representative_host_vectors':'Recovery/Normalized/getvver_spmove_modifier_vectors.json',
+      'next_gate':'capture or execute matching canonical ARM64 GetVVer cases and compare whole-function outputs',
     }
 
 def main():

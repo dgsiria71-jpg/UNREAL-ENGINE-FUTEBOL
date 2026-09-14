@@ -1,6 +1,6 @@
 {
   "schema_version": "football.recovery.inventory.v2",
-  "generated_at_utc": "2026-09-14T04:24:55Z",
+  "generated_at_utc": "2026-09-14T04:35:00Z",
   "repository_portability": "fresh_checkout_supported",
   "engine_target": "Unreal Engine 5.x",
   "mobile_source": "football-dream-be-a-pro-1-221-5",
@@ -36,7 +36,8 @@
     "unreal_import_plan": "Recovery/Normalized/unreal_import_plan.json",
     "original_reassembly": "Recovery/Normalized/original_reassembly.json",
     "property_lookup_semantics_trace": "Recovery/Normalized/property_lookup_semantics_static_trace.json",
-    "getvver_spmove_runtime_ratios": "Recovery/Normalized/getvver_spmove_runtime_ratios.json"
+    "getvver_spmove_runtime_ratios": "Recovery/Normalized/getvver_spmove_runtime_ratios.json",
+    "getvver_spmove_modifier_vectors": "Recovery/Normalized/getvver_spmove_modifier_vectors.json"
   },
   "local_regeneration_artifacts": {
     "spmove": {

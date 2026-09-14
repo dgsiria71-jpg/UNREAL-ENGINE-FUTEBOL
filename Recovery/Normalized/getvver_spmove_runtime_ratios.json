@@ -83,7 +83,7 @@
       "selection_rule": "highest signed child_id in the eligible runtime inventory; level/order/odds do not choose the winner"
     }
   },
-  "next_gate": "build representative GetVVer differential vectors for none/0x3FC/0x41A/both using recovered upstream inputs and selected runtime inventories",
+  "next_gate": "capture or execute matching canonical ARM64 GetVVer cases and compare whole-function outputs",
   "open_all_selection": {
     "0x3FC": {
       "factor": 0.48828125,
@@ -105,6 +105,7 @@
     "0x41A"
   ],
   "physics_v0_3_gate": "BLOCKED",
+  "representative_host_vectors": "Recovery/Normalized/getvver_spmove_modifier_vectors.json",
   "schema_version": "football.recovery.getvver_spmove_runtime_ratios.v1",
   "source_build": "football-dream-be-a-pro-1-221-5",
   "sources": {

@@ -1,110 +1,105 @@
 # Current checkpoint
 
-Updated: 2026-09-14. Project **NOT COMPLETE**. Physics v0.3 is **BLOCKED**. GitHub `main` is canonical.
+Updated: 2026-09-14. Project **NOT COMPLETE**. Physics v0.3 is **BLOCKED**. GitHub main is canonical.
 
 ## Branch and HEAD
 
-- working branch: `codex/getvver-spmove-runtime-ratios`
-- canonical merged baseline: `9e31b7908dfd91d0b99b81fd3b82e75e3f250f3d` (PR #15)
-- branch base: GitHub `main` commit `9e31b7908dfd91d0b99b81fd3b82e75e3f250f3d`
-- canonical build: `football-dream-be-a-pro-1-221-5`
-- build `1-226-19`: isolated and not consumed
+- working branch: codex/getvver-modifier-vectors
+- canonical merged baseline: ce8d9c2415fc37f68ed227c34b1a164cc1a91de2 (PR #16)
+- branch base: GitHub main commit ce8d9c2415fc37f68ed227c34b1a164cc1a91de2
+- canonical build: football-dream-be-a-pro-1-221-5
+- build 1-226-19: isolated and not consumed
 - Neymar v1.9: preserved and paused
 
-The canonical root checkout still contains exactly four protected user modifications and they were not staged or rewritten:
+The canonical root checkout contains exactly four protected user modifications; they were not staged or rewritten:
 
-- `Tools/PUBLICAR_MASTER_NO_GITHUB.bat`
-- `Tools/PUBLICAR_MASTER_NO_GITHUB.ps1`
-- `docs/ARCHIVE_LINEAGE_AND_HASHES.md`
-- `docs/PROJECT_SOURCE_OF_TRUTH.md`
+- Tools/PUBLICAR_MASTER_NO_GITHUB.bat
+- Tools/PUBLICAR_MASTER_NO_GITHUB.ps1
+- docs/ARCHIVE_LINEAGE_AND_HASHES.md
+- docs/PROJECT_SOURCE_OF_TRUTH.md
 
 ## Last GREEN tests
 
-- focused Python: `9/9` GREEN
-- complete Python discovery: `115` run, `110` GREEN, `5` optional skips, zero failures
-- C++ CTest Release/MSVC: `7/7` GREEN
-- new `PropertyLookupTest`: GREEN
-- property lookup static analyzer: GREEN; gate remains BLOCKED
-- GetVVer new-path analyzer: GREEN after canonical-LF SHA validation fix on Windows
-
-PR #15 final run #205 / `34805749973` and post-merge main run #206 / `34805792714` completed **SUCCESS**.
+- focused Python modifier-vector test: 1/1 GREEN
+- complete Python discovery: 117 run, 112 GREEN, 5 optional skips, zero failures
+- C++ CTest Release/MSVC: 8/8 GREEN
+- direct MSVC C++17 /W4 /WX modifier-vector executable: GREEN
+- native evidence bindings: CURRENT
+- Unreal persisted content validation: GREEN
+- PR #16 run #216 / 34806239926: SUCCESS
+- post-merge main run #217 / 34806276146: SUCCESS
 
 ## Current task
 
-Join the validated spmove activation, selection, and parameter traces to bind the runtime ratio matrix for the surviving `0x3FC` and `0x41A` GetVVer modifiers.
+Connect the recovered GetVVer XNumber result to explicit runtime spmove inventories and produce deterministic representative vectors for no modifier, 0x3FC, 0x41A, and both in native order.
 
 ## Files changed by the current increment
 
-- `Tools/analyze_getvver_spmove_runtime_ratios.py`
-- `Tests/test_getvver_spmove_runtime_ratios.py`
-- `Recovery/Normalized/getvver_spmove_runtime_ratios.json`
-- `Recovery/Normalized/getvver_new_path_composition_static_trace.json`
-- `Recovery/Normalized/recovery_manifest.json`
-- `Recovery/Physics/GETVVER_SPMOVE_RUNTIME_RATIOS.md`
-- `_CHECKPOINTS/CURRENT.md`
+- Reference/FootballPhysics/GetVVerSpmoveRuntime.h
+- Tests/getvver_spmove_modifier_vectors_test.cpp
+- Tests/test_getvver_spmove_modifier_vectors.py
+- Tests/CMakeLists.txt
+- Tools/build_getvver_modifier_vectors.py
+- Tools/analyze_getvver_spmove_runtime_ratios.py
+- Tools/analyze_getvver_new_path_composition.py
+- Recovery/Normalized/getvver_spmove_modifier_vectors.json
+- Recovery/Normalized/getvver_spmove_runtime_ratios.json
+- Recovery/Normalized/getvver_new_path_composition_static_trace.json
+- Recovery/Normalized/recovery_manifest.json
+- Recovery/Physics/GETVVER_SPMOVE_MODIFIER_VECTORS.md
+- _CHECKPOINTS/EVIDENCE.md
+- _CHECKPOINTS/CURRENT.md
 
 ## CONFIRMED
 
-- upload `20260914-010116-072c3bfd` identified exact ScriptMethod boundaries:
-  - `0x01967D38..0x01967DC4` = `PlayerProperty.GetPropertyValue(PropertyType, SpmoveLogicId)`
-  - `0x01B718D8..0x01B71958` = `XProperty.XPropertyManager.GetPropertyValue(PropertyType)`
-- the corrected metadata upload is `20260914-011043-a18f1783`, 88,994 bytes, canonical LF SHA-256 `7053c4a888ac29355b83cea7ecc71f582a71fc2e3e6731f146a9ee569dcb6784`.
-- `PlayerProperty.GetPropertyValue` selects the spmove buffer path only when an enabled config exists and its logic check passes; otherwise it reads the base property manager.
-- selected spmove buffer property id is loaded from the config at `+0x40`.
-- `XPropertyManager.GetPropertyValue` indexes its entry array and returns the raw `XNumber` at entry `+0x14`; invalid storage follows managed exception paths.
-- `getShootPropertyWithSpmove` falls back to the base property when the spmove-aware raw value is `<= 0`.
-- GetShootProperty threshold fields are:
-  - `ShootConfig +0x24` = `shootAirBallHeighLimit`
-  - `ShootConfig +0x148` = `dis_shootlong`
-  - `ShootConfig +0x14C` = `dis_shoot`
-- collection bonus fields are:
-  - `Football +0x98` = `lastKickParam`
-  - `BallKickParam +0x40` = `biographyPointType`
-  - `BallKickParam +0x44` = `BiographyPassProperty`
-- raw checkout CRLF must be normalized to LF before comparing the documented upstream evidence SHA on Windows.
-
-- `0x3FC` and `0x41A` level 1..5 param `[2]` values are exactly `900, 800, 700, 600, 500` in the recovered canonical records.
-- open-all selection chooses child `102005` for `0x3FC` and `105005` for `0x41A`, both yielding raw factor `500/1024`.
-- activation is `ShootLongKick` for `0x3FC` and `shootPush` for `0x41A`; GetVVer also requires magnitude >= 1 and a non-null selected list.
-- when both activate, native order is `0x3FC` then `0x41A`, with fixed-point rounding after each component multiplication.
+- PR #16 merged the source-bound runtime ratio matrix into GitHub main at ce8d9c2415fc37f68ed227c34b1a164cc1a91de2.
+- 0x3FC is gated by ShootLongKick / flag byte 5 and 0x41A by shootPush / flag byte 0.
+- both modifiers use recovered param[2] matrices 900, 800, 700, 600, 500 across levels 1..5.
+- highest signed eligible child_id selects the runtime record; level, order and odds do not select it.
+- the new adapter passes the recovered GetVVer vector through the validated flag, magnitude, inventory, maximum-child and non-null parameter-list guards.
+- representative explicit inventory selects child 102003 / level 3 / ratio 700 for 0x3FC and child 105002 / level 2 / ratio 800 for 0x41A.
+- base raw vector [-3000,1537,777] produces:
+  - none: [-3000,1537,777]
+  - 0x3FC: [-2051,1051,531]
+  - 0x41A: [-2344,1201,607]
+  - both, in native order: [-1602,821,415]
+- precombining ratios would produce x=-1603. The native two-step fixed-point chain produces x=-1602, proving that intermediate rounding must be preserved.
+- absent selected config/list and a zero vector preserve the input under the recovered guards.
 
 ## INFERRED
 
-- The Il2CppDumper label `XBaseLocalSetting<AIParameterConfig>.get_Singleton` is a shared generic native body label at this callsite; caller-visible offsets and exact `dump.cs` fields prove the object consumed by `GetShootProperty` is `ShootConfig`. This is an evidence-based callsite inference, not a rename of the shared native body.
+- The representative inventories are plausible post-eligibility fixtures built only from canonical recovered records. They are suitable for deterministic host validation but do not assert ownership for a specific real player/action.
 
 ## UNKNOWN
 
-- concrete runtime property arrays and the selected spmove buffer contents for representative players/actions;
-- actual eligible spmove inventory for each runtime player/action; open-all is only a deterministic fixture;
-- whole-function native differential vectors for the complete new-path `GetVVer` composition;
-- final caller-visible `GetKickVelocity` behavior beyond the static vector join;
-- final `BALL_CONTACT.velocity` binding.
+- actual eligible spmove inventory for each runtime player/action;
+- matching canonical ARM64 outputs for the four representative cases;
+- whole-function native differential equivalence for the complete new-path GetVVer composition;
+- final caller-visible GetKickVelocity behavior beyond the static vector join;
+- final BALL_CONTACT.velocity binding.
 
 ## Blockers
 
 Physics v0.3 remains blocked until the full gate is satisfied:
 
-```text
-explicit eligible inventories + representative modifier vectors
+explicit eligible inventories and host vectors
+ -> matching native ARM64 GetVVer execution/capture
  -> whole GetVVer differential validation
  -> complete GetKickVelocity
  -> BALL_CONTACT.velocity
  -> no unresolved/pending impulse
  -> full regression
  -> Physics Recovery v0.3
-```
 
-Do not rename `vertical_accel_raw` without proof. Do not fabricate the historical 92/92 workspace.
+Do not rename vertical_accel_raw without proof. Do not fabricate the historical 92/92 workspace.
 
 ## Exact resume command
 
-```powershell
-cd "C:\Users\dg71\Documents\ChatGPT\JOGO DE FUTEBOL\.local\worktrees\getvver-spmove-runtime-ratios"
+cd "C:\Users\dg71\Documents\ChatGPT\JOGO DE FUTEBOL\.local\worktrees\getvver-modifier-vectors"
 git status --short
-py -3 -m unittest discover -s Tests -p "test_*.py"
-py -3 Tools/analyze_getvver_spmove_runtime_ratios.py
-```
+python -m unittest discover -s Tests -p "test_*.py"
+& "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\ctest.exe" --test-dir .local/build/cmake -C Release --output-on-failure
 
 ## Next exact step
 
-Commit and publish this bounded runtime-ratio increment. Then build representative GetVVer differential vectors for none, `0x3FC`, `0x41A`, and both, using explicit eligible inventories; do not treat open-all as every player runtime state.
+Commit and publish this bounded modifier-vector increment. Then build the canonical ARM64 differential harness or capture path for matching none/0x3FC/0x41A/both cases. Do not label the host vectors as native outputs.

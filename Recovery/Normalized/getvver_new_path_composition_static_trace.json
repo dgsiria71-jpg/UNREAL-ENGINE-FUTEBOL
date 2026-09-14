@@ -13,9 +13,10 @@
     "map_entry": "ResolveNewGetVVerMapOutputs",
     "map_header": "Reference/FootballPhysics/GetVVerNewPathConfig.h",
     "property_entry": "ResolvePlayerProperty",
-    "property_header": "Reference/FootballPhysics/PlayerPropertySelector.h"
+    "property_header": "Reference/FootballPhysics/PlayerPropertySelector.h",
+    "spmove_runtime_adapter": "Reference/FootballPhysics/GetVVerSpmoveRuntime.h"
   },
-  "next_gate": "build representative GetVVer differential vectors for no modifier, 0x3FC, 0x41A, and both using explicit eligible inventories",
+  "next_gate": "capture or execute matching canonical ARM64 GetVVer cases and compare whole-function outputs",
   "physics_v0_3_gate": "BLOCKED",
   "player_property_selector": {
     "blend_equation": "fixed_mul(near_property, ratio) + fixed_mul(far_property, 1024-ratio)",
@@ -96,6 +97,7 @@
       "values": "ySpeedMax +0xA0"
     }
   },
+  "representative_spmove_vectors": "Recovery/Normalized/getvver_spmove_modifier_vectors.json",
   "runtime_modifier_trace": "Recovery/Normalized/getvver_spmove_runtime_ratios.json",
   "schema_version": "football.recovery.getvver_new_path_composition.v4",
   "source": {
