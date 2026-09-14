@@ -74,6 +74,13 @@ public class Next // TypeDefIndex: 2
         self.assertFalse(fallback.exact_function_boundary)
         self.assertEqual(fallback.boundary_source, "bounded-fallback-window")
 
+    def test_known_target_labels_follow_published_exact_identities(self):
+        module = load_tool()
+        ranges = {item.start: item for item in module.resolve_requested_targets([])}
+        self.assertEqual(ranges[0x14DEFDC].target.name, "goal_door_height_14DEFDC")
+        self.assertEqual(ranges[0x1B60CC8].target.name, "xnumber_create_1B60CC8")
+        self.assertNotIn("random", ranges[0x1B60CC8].target.name.lower())
+
     def test_requests_unresolved_shoot_property_producer_without_guessing_identity(self):
         module = load_tool()
         ranges = module.resolve_requested_targets([])
@@ -111,6 +118,7 @@ public class Next // TypeDefIndex: 2
         self.assertIn("0x01B60CC8", text)
         self.assertIn("0x01968398", text)
         self.assertIn("shoot_property_1968398", text)
+        self.assertNotIn("downward_random_1B60CC8", text)
 
 
 if __name__ == "__main__":
