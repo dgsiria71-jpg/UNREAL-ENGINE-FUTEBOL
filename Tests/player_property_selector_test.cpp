@@ -27,13 +27,15 @@ int main() {
     PlayerPropertyInputs input{};
     input.action_id = 5811;
     assert(ResolvePlayerProperty(input, resolver).raw == 4000);
-    assert(calls.back() == std::make_pair<std::int32_t, std::int32_t>(21, 5811));
+    assert(calls.back().first == 21);
+    assert(calls.back().second == 5811);
 
     calls.clear();
     input = {};
     input.action_id = 8901;
     assert(ResolvePlayerProperty(input, resolver).raw == 5000);
-    assert(calls.back() == std::make_pair<std::int32_t, std::int32_t>(22, 8901));
+    assert(calls.back().first == 22);
+    assert(calls.back().second == 8901);
 
     calls.clear();
     input = {};
@@ -43,7 +45,8 @@ int main() {
     input.collection_bonus = Create(250);
     assert(ResolvePlayerProperty(input, resolver).raw == 3250);
     assert(calls.size() == 1);
-    assert(calls[0] == std::make_pair<std::int32_t, std::int32_t>(20, 4660));
+    assert(calls[0].first == 20);
+    assert(calls[0].second == 4660);
 
     calls.clear();
     input = {};
@@ -53,7 +56,8 @@ int main() {
     input.lower_threshold = Create(1000);
     assert(ResolvePlayerProperty(input, resolver).raw == 1000);
     assert(calls.size() == 1);
-    assert(calls[0] == std::make_pair<std::int32_t, std::int32_t>(16, 4660));
+    assert(calls[0].first == 16);
+    assert(calls[0].second == 4660);
 
     calls.clear();
     input.distance = Create(500);
@@ -80,8 +84,10 @@ int main() {
                                            input.lower_threshold).raw == 512);
     assert(ResolvePlayerProperty(input, resolver).raw == 1500);
     assert(calls.size() == 2);
-    assert(calls[0] == std::make_pair<std::int32_t, std::int32_t>(17, 4660));
-    assert(calls[1] == std::make_pair<std::int32_t, std::int32_t>(16, 4660));
+    assert(calls[0].first == 17);
+    assert(calls[0].second == 4660);
+    assert(calls[1].first == 16);
+    assert(calls[1].second == 4660);
 
     assert(ComputePlayerPropertyBlendRatio(Create(3000), Create(3000), Create(1000)).raw == 0);
     assert(ComputePlayerPropertyBlendRatio(Create(2000), Create(3000), Create(3000)).raw == 0);
