@@ -89,5 +89,34 @@ int main() {
     assert(composed.y.raw == 0);
     assert(composed.z.raw == 0);
 
+    // The raw-map front end must resolve the recovered maps and feed the same
+    // fixed-point composition without reintroducing caller-supplied bias.
+    ShootSpeedNewMethodConfig raw_config{
+        maps,
+        /* energyNeedProtect */ Create(1800),
+        /* ySpeedMin */ Create(0),
+        /* shootPointHMin */ Create(2500),
+        /* shootPointHMax */ Create(5000),
+        /* shootDisAndTime */ {
+            {1000, 1000, 1000, 1000},
+            {1000, 1000, 1000, 1000},
+        },
+    };
+    RecoveredXVector3 from_raw = ComposeNewGetVVerFromRawMaps(
+        raw_config,
+        Create(512),       // vHor magnitude
+        Create(1500),      // horizontal distance
+        Create(2000),      // current energy
+        Create(512),       // unresolved 0x1968398 caller-visible output
+        Create(3000),      // GoalDoor.get_Height
+        Create(1200),      // reference y
+        Create(0),         // vertical acceleration
+        RecoveredXVector3{Create(1024), Create(0), Create(0)},
+        false, Create(1024),
+        false, Create(1024));
+    assert(from_raw.x.raw == 1300);
+    assert(from_raw.y.raw == 0);
+    assert(from_raw.z.raw == 0);
+
     return 0;
 }
