@@ -1,7 +1,9 @@
 import importlib.util
 from pathlib import Path
 import sys
+import tempfile
 import unittest
+from unittest import mock
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -119,6 +121,14 @@ public class Next // TypeDefIndex: 2
         self.assertIn("0x01968398", text)
         self.assertIn("shoot_property_1968398", text)
         self.assertNotIn("downward_random_1B60CC8", text)
+
+    def test_write_output_survives_path_write_text_bad_fd_and_emits_utf8_lf(self):
+        module = load_tool()
+        with tempfile.TemporaryDirectory() as temp_dir:
+            output = Path(temp_dir) / "nested" / "report.txt"
+            with mock.patch.object(Path, "write_text", side_effect=OSError(9, "Bad file descriptor")):
+                module.write_output(output, "alpha\r\nbeta\rgamma\n")
+            self.assertEqual(output.read_bytes(), b"alpha\nbeta\ngamma\n")
 
 
 if __name__ == "__main__":
