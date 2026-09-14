@@ -5,7 +5,7 @@ Updated: 2026-09-14. Project **NOT COMPLETE**. Physics v0.3 is **BLOCKED**. GitH
 ## Branch and HEAD
 
 - working branch: `codex/getvver-property-lookup`
-- branch HEAD before this checkpoint update: `bdfc20c` (`Recover GetVVer property lookup semantics`)
+- validated branch head before this checkpoint-only commit: `e522bb05403a6d2226fb63f8e1ef9d46b1c4d942`
 - branch base: GitHub `main` commit `642888c9c64470f7f027aba4a0bec412e9f31e00`
 - canonical build: `football-dream-be-a-pro-1-221-5`
 - build `1-226-19`: isolated and not consumed
@@ -27,7 +27,7 @@ The canonical root checkout still contains exactly four protected user modificat
 - property lookup static analyzer: GREEN; gate remains BLOCKED
 - GetVVer new-path analyzer: GREEN after canonical-LF SHA validation fix on Windows
 
-GitHub Actions for this branch is pending until the branch is pushed. Do not replace this statement with success until the remote run completes.
+GitHub Actions pull-request run #203 / `34805614471` for `e522bb05403a6d2226fb63f8e1ef9d46b1c4d942` completed **SUCCESS**.
 
 ## Current task
 
@@ -109,4 +109,4 @@ py -3 -m unittest discover -s Tests -p "test_*.py"
 
 ## Next exact step
 
-Finish validation, commit the checkpoint-bound increment, push `codex/getvver-property-lookup`, open a PR, require GitHub Actions GREEN, and merge. Then trace the runtime producers that feed `GetSpmoveDataRatio(0x3FC/0x41A)` and extract representative parameter `[2]` values for native differential vectors.
+PR #15 is open and its engineering head is GREEN. Merge only after this checkpoint-only update also passes GitHub Actions. Then trace the runtime producers that feed `GetSpmoveDataRatio(0x3FC/0x41A)` and extract representative parameter `[2]` values for native differential vectors.
