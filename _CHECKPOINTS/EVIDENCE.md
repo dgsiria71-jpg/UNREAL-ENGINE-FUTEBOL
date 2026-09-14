@@ -271,3 +271,18 @@ GetKickVelocity and BALL_CONTACT remain blocked.
 E0066: Published the GetVHor/GetVVer old/new config-path split and its 26-anchor
 static trace to official GitHub main through the authorized connector as
 36365baf382afd1a3b375280cd13a5f0c0b73291, fast-forward from 294c322c.
+
+
+E0067: PR #16 bound GetVVer runtime spmove ratios to recovered activation,
+selection and param[2] evidence. GitHub PR run #216 / 34806239926 and post-merge
+main run #217 / 34806276146 completed SUCCESS. Canonical main advanced to
+ce8d9c2415fc37f68ed227c34b1a164cc1a91de2. Physics v0.3 remains blocked.
+
+E0068: The follow-up executable adapter passes the recovered GetVVer vector
+through explicit runtime inventories and the validated selector guards.
+Representative base [-3000,1537,777] yields none [-3000,1537,777], 0x3FC
+[-2051,1051,531], 0x41A [-2344,1201,607], and ordered both [-1602,821,415].
+Precombining factors yields x=-1603, proving intermediate fixed-point rounding.
+This is host reference evidence, not a canonical ARM64 differential capture.
+Python 117 tests passed with 5 optional skips; MSVC Release CTest 8/8 passed;
+native bindings are CURRENT and persisted Unreal content validation is GREEN.
