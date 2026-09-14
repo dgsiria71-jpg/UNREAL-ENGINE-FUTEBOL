@@ -1,6 +1,6 @@
 {
   "schema_version": "football.recovery.inventory.v2",
-  "generated_at_utc": "2026-09-13T23:10:00Z",
+  "generated_at_utc": "2026-09-14T00:42:00Z",
   "repository_portability": "fresh_checkout_supported",
   "engine_target": "Unreal Engine 5.x",
   "mobile_source": "football-dream-be-a-pro-1-221-5",
@@ -119,6 +119,16 @@
       "status": "committed_text_evidence",
       "sha256_lf": "2368fbaaee1a3bae0461a31603ad578adf76a963c97f9131982faa78a9838478",
       "dump_cs_sha256": "4ba445977f2b0854b19375d69c5b30275fe36d06518efe2c5028097868579fbe"
+    },
+    {
+      "source_id": "getvver_upstream_evidence",
+      "filename": "artifacts/native-recovery/getvver-upstream/20260913-204613-86a0f84a/01_getvver_upstream_evidence.txt",
+      "status": "committed_text_evidence",
+      "sha256": "416a4f3abef88c117aa21bb66c4500f83474442e6e78a494d84ac1b4914d224f",
+      "dump_cs_sha256": "4ba445977f2b0854b19375d69c5b30275fe36d06518efe2c5028097868579fbe",
+      "script_json_sha256": "d15222efc79ebfe50074f385c0f5e5af4960fb43c5cf55a383ea32cba34ae799",
+      "global_metadata_sha256": "92fae52ec4dc570929eb7b99d2083fd6ab6016cbbaa30f87e87ac6732bb1e42e",
+      "binary_sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496"
     },
     {
       "source_id": "shootspeed_config_5800",
