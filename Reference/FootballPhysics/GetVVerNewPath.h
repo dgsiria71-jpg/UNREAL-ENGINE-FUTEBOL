@@ -35,12 +35,19 @@ inline football::core::XNumber SelectProtectedEnergy(
     return tolerance_floor.raw > protected_floor.raw ? tolerance_floor : protected_floor;
 }
 
+inline football::core::XNumber GetVVerDownwardBias() noexcept {
+    // Canonical 1-221-5 caller 0x016E9188..0x016E9198 invokes the exact
+    // XNumber$$create helper with (0, 100). Its exact ARM64 body returns raw
+    // 102 for this observed call. Keep this bounded constant here instead of
+    // claiming a complete generic XNumber.create implementation.
+    return football::core::Create(102);
+}
+
 inline football::core::XNumber ComputePointHeightAdjustment(
     football::core::XNumber selected_energy,
     football::core::XNumber out_energy,
     football::core::XNumber point_up_rate,
-    football::core::XNumber point_down_rate,
-    std::int32_t downward_random_offset_raw) noexcept {
+    football::core::XNumber point_down_rate) noexcept {
     using namespace football::core;
 
     const XNumber delta = Subtract(selected_energy, out_energy);
@@ -50,8 +57,9 @@ inline football::core::XNumber ComputePointHeightAdjustment(
 
     const XNumber magnitude = Create(WrapInt32(-static_cast<std::int64_t>(delta.raw)));
     const XNumber authored_down = Multiply(magnitude, point_down_rate);
+    const XNumber native_bias = GetVVerDownwardBias();
     return Create(WrapInt32(
-        -static_cast<std::int64_t>(authored_down.raw) - downward_random_offset_raw));
+        -static_cast<std::int64_t>(authored_down.raw) - native_bias.raw));
 }
 
 inline football::core::XNumber ComputeVerticalDelta(
@@ -102,7 +110,6 @@ inline RecoveredXVector3 ComposeNewGetVVerFromResolvedScalars(
     football::core::XNumber energy_need_protect,
     football::core::XNumber point_up_rate,
     football::core::XNumber point_down_rate,
-    std::int32_t downward_random_offset_raw,
     football::core::XNumber base_target_height,
     football::core::XNumber point_h_min,
     football::core::XNumber point_h_max,
@@ -121,8 +128,7 @@ inline RecoveredXVector3 ComposeNewGetVVerFromResolvedScalars(
         selected_energy,
         out_energy,
         point_up_rate,
-        point_down_rate,
-        downward_random_offset_raw);
+        point_down_rate);
     const football::core::XNumber vertical_delta = ComputeVerticalDelta(
         base_target_height,
         height_adjustment,
