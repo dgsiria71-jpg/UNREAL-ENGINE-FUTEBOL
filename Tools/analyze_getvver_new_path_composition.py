@@ -293,11 +293,13 @@ def analyze(source: Path = SOURCE, upstream: Path = UPSTREAM) -> dict:
                 "runtime Football/GoalDoor object wiring",
                 "vertical_direction and modifier activation/ratios from caller/runtime state",
             ],
+            "spmove_runtime_adapter": "Reference/FootballPhysics/GetVVerSpmoveRuntime.h",
             "claim": "branch-level PlayerProperty.GetShootProperty selection can now feed the recovered raw maps and fixed-point GetVVer composition; whole-function native differential equivalence is not yet claimed",
         },
         "physics_v0_3_gate": "BLOCKED",
         "runtime_modifier_trace": "Recovery/Normalized/getvver_spmove_runtime_ratios.json",
-        "next_gate": "build representative GetVVer differential vectors for no modifier, 0x3FC, 0x41A, and both using explicit eligible inventories",
+        "representative_spmove_vectors": "Recovery/Normalized/getvver_spmove_modifier_vectors.json",
+        "next_gate": "capture or execute matching canonical ARM64 GetVVer cases and compare whole-function outputs",
     }
 
 
