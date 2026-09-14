@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../FootballCore/FixedPoint.h"
+#include "GetVVerNewPath.h"
 #include "ShootRemap.h"
 
 #include <cstddef>
@@ -16,7 +17,7 @@ struct ShootSpeedNewMethodMaps {
     std::vector<football::core::XNumber> shootDisMap;            // +0xE8
     std::vector<football::core::XNumber> outEnergyMaxMap;        // +0x100
     std::vector<football::core::XNumber> energyMapNew;           // +0xB8
-    std::vector<football::core::XNumber> ySpeedMax;               // +0xA0
+    std::vector<football::core::XNumber> ySpeedMax;              // +0xA0
     std::vector<football::core::XNumber> shootPointHUpMap;       // +0xF8
     std::vector<football::core::XNumber> shootPointHDownMap;     // +0xF0
     std::vector<football::core::XNumber> shootPropertyMapNew;    // +0xD8
@@ -29,6 +30,15 @@ struct ResolvedNewGetVVerMapOutputs {
     football::core::XNumber point_up_rate{};
     football::core::XNumber point_down_rate{};
     football::core::XNumber energy_tolerance{};
+};
+
+struct ShootSpeedNewMethodConfig {
+    ShootSpeedNewMethodMaps maps{};
+    football::core::XNumber energyNeedProtect{};                 // +0x94
+    football::core::XNumber ySpeedMin{};                         // +0x98
+    football::core::XNumber shootPointHMin{};                    // +0xB0 low32
+    football::core::XNumber shootPointHMax{};                    // +0xB0 high32 / +0xB4
+    ShootDisAndTimeTable shootDisAndTime{};                      // +0x108
 };
 
 inline football::core::XNumber RemapPairedShootMapCanonical(
@@ -67,6 +77,50 @@ inline ResolvedNewGetVVerMapOutputs ResolveNewGetVVerMapOutputs(
         RemapPairedShootMapCanonical(horizontal_distance, config.shootDisMap, config.shootPointHDownMap),
         RemapPairedShootMapCanonical(shoot_property_input, config.shootPropertyMapNew, config.energyToleranceMap),
     };
+}
+
+inline RecoveredXVector3 ComposeNewGetVVerFromRawMaps(
+    const ShootSpeedNewMethodConfig& config,
+    football::core::XNumber vhor_magnitude,
+    football::core::XNumber horizontal_distance,
+    football::core::XNumber current_energy,
+    football::core::XNumber shoot_property_input,
+    football::core::XNumber goal_door_height,
+    football::core::XNumber reference_y,
+    football::core::XNumber vertical_accel_raw,
+    RecoveredXVector3 vertical_direction,
+    bool apply_spmove_3fc,
+    football::core::XNumber spmove_3fc_ratio,
+    bool apply_spmove_41a,
+    football::core::XNumber spmove_41a_ratio) {
+    const ResolvedNewGetVVerMapOutputs resolved = ResolveNewGetVVerMapOutputs(
+        config.maps,
+        horizontal_distance,
+        current_energy,
+        shoot_property_input);
+
+    return ComposeNewGetVVerFromResolvedScalars(
+        config.shootDisAndTime,
+        vhor_magnitude,
+        horizontal_distance,
+        resolved.out_energy,
+        current_energy,
+        resolved.energy_tolerance,
+        config.energyNeedProtect,
+        resolved.point_up_rate,
+        resolved.point_down_rate,
+        goal_door_height,
+        config.shootPointHMin,
+        config.shootPointHMax,
+        reference_y,
+        vertical_accel_raw,
+        config.ySpeedMin,
+        resolved.y_speed_max,
+        vertical_direction,
+        apply_spmove_3fc,
+        spmove_3fc_ratio,
+        apply_spmove_41a,
+        spmove_41a_ratio);
 }
 
 }  // namespace football::physics::recovered
