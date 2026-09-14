@@ -197,7 +197,12 @@ def render_report(
 
 def write_output(path: Path, text: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(text, encoding="utf-8", newline="\n")
+    # Avoid pathlib/text-IO newline translation here. A real Windows Python
+    # 3.11 run failed at Path.write_text(..., newline="\\n") with Errno 9
+    # after extraction had already completed. Canonicalize newline bytes
+    # explicitly and write UTF-8 bytes directly instead.
+    canonical_text = text.replace("\r\n", "\n").replace("\r", "\n")
+    path.write_bytes(canonical_text.encode("utf-8"))
 
 
 def main() -> int:
