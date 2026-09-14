@@ -15,7 +15,7 @@
     "property_entry": "ResolvePlayerProperty",
     "property_header": "Reference/FootballPhysics/PlayerPropertySelector.h"
   },
-  "next_gate": "bind runtime 0x3FC/0x41A activation/parameter[2] ratios and execute whole-function GetVVer differential validation",
+  "next_gate": "build representative GetVVer differential vectors for no modifier, 0x3FC, 0x41A, and both using explicit eligible inventories",
   "physics_v0_3_gate": "BLOCKED",
   "player_property_selector": {
     "blend_equation": "fixed_mul(near_property, ratio) + fixed_mul(far_property, 1024-ratio)",
@@ -96,6 +96,7 @@
       "values": "ySpeedMax +0xA0"
     }
   },
+  "runtime_modifier_trace": "Recovery/Normalized/getvver_spmove_runtime_ratios.json",
   "schema_version": "football.recovery.getvver_new_path_composition.v4",
   "source": {
     "binary_sha256": "2a3ffe74b6c2d195b54db5b1c2616d289ab19d27426a4c4de041a916c214d496",
