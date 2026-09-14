@@ -1,0 +1,122 @@
+{
+  "activation": {
+    "0x3FC": {
+      "cal_spmove_condition": "interpolated distance threshold, InCollection(goal_child, 0x0F), and GetSpmoveData(0x3FC) is non-null",
+      "data_guard": "GetSpmoveDataRatio(logic_id, noRatio=true) returns a non-null list with index 2",
+      "flag": "ShootLongKick",
+      "flag_byte_offset": 5,
+      "getvver_additional_guard": "base vector magnitude >= 1 raw"
+    },
+    "0x41A": {
+      "cal_spmove_condition": "InCollection(goal_child, 0x20) and GetSpmoveData(0x41A) is non-null",
+      "data_guard": "GetSpmoveDataRatio(logic_id, noRatio=true) returns a non-null list with index 2",
+      "flag": "shootPush",
+      "flag_byte_offset": 0,
+      "getvver_additional_guard": "base vector magnitude >= 1 raw"
+    }
+  },
+  "composition": "each active modifier scales x/y/z independently with native fixed_mul; when both are active rounding occurs after each ordered multiply",
+  "confirmed_scope": "activation gates, selection rule, level matrix, open-all selected records, and raw param[2] factors",
+  "modifiers": {
+    "0x3FC": {
+      "levels": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "logic_id": 1020,
+      "param2_factor_by_level": [
+        0.87890625,
+        0.78125,
+        0.68359375,
+        0.5859375,
+        0.48828125
+      ],
+      "param2_raw_by_level": [
+        900,
+        800,
+        700,
+        600,
+        500
+      ],
+      "record_ids": [
+        102001,
+        102002,
+        102003,
+        102004,
+        102005
+      ],
+      "selection_rule": "highest signed child_id in the eligible runtime inventory; level/order/odds do not choose the winner"
+    },
+    "0x41A": {
+      "levels": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "logic_id": 1050,
+      "param2_factor_by_level": [
+        0.87890625,
+        0.78125,
+        0.68359375,
+        0.5859375,
+        0.48828125
+      ],
+      "param2_raw_by_level": [
+        900,
+        800,
+        700,
+        600,
+        500
+      ],
+      "record_ids": [
+        105001,
+        105002,
+        105003,
+        105004,
+        105005
+      ],
+      "selection_rule": "highest signed child_id in the eligible runtime inventory; level/order/odds do not choose the winner"
+    }
+  },
+  "next_gate": "build representative GetVVer differential vectors for none/0x3FC/0x41A/both using recovered upstream inputs and selected runtime inventories",
+  "open_all_selection": {
+    "0x3FC": {
+      "factor": 0.48828125,
+      "param2_raw": 500,
+      "scope": "open-all collected inventory fixture, not every player runtime inventory",
+      "selected_child_id": 102005,
+      "selected_level": 5
+    },
+    "0x41A": {
+      "factor": 0.48828125,
+      "param2_raw": 500,
+      "scope": "open-all collected inventory fixture, not every player runtime inventory",
+      "selected_child_id": 105005,
+      "selected_level": 5
+    }
+  },
+  "order": [
+    "0x3FC",
+    "0x41A"
+  ],
+  "physics_v0_3_gate": "BLOCKED",
+  "schema_version": "football.recovery.getvver_spmove_runtime_ratios.v1",
+  "source_build": "football-dream-be-a-pro-1-221-5",
+  "sources": {
+    "Recovery/Normalized/cal_spmove_static_trace.json": "a850c8ed5a99e76fd9d14573691df7c07e36c5d472f999f1fdacdf1aacf9b53d",
+    "Recovery/Normalized/spmove_collected_open_all.json": "e51a1e69e59a302c7e095aee2d34eaa365b3850263e61e2e3d8e8b955e7d1a59",
+    "Recovery/Normalized/spmove_modifier_access_static_trace.json": "12431f1bb15ee1fe46d80373b6cca7a88427d671481ef5d83bfb0bc7cc06e035",
+    "Recovery/Normalized/spmove_runtime_static_trace.json": "f48f008db9a5d2fcb05c743670be6ca9de7a06c195c8d404c872d930a29e320f"
+  },
+  "unknown": [
+    "actual eligible inventory for each runtime player/action",
+    "representative whole-GetVVer native output vectors",
+    "final GetKickVelocity and BALL_CONTACT binding"
+  ],
+  "whole_getvver_equivalent": false
+}
