@@ -74,6 +74,24 @@ public class Next // TypeDefIndex: 2
         self.assertFalse(fallback.exact_function_boundary)
         self.assertEqual(fallback.boundary_source, "bounded-fallback-window")
 
+    def test_requests_unresolved_shoot_property_producer_without_guessing_identity(self):
+        module = load_tool()
+        ranges = module.resolve_requested_targets([])
+        by_start = {item.start: item for item in ranges}
+        self.assertIn(0x1968398, by_start)
+        self.assertEqual(by_start[0x1968398].target.name, "shoot_property_1968398")
+        self.assertFalse(by_start[0x1968398].exact_function_boundary)
+        self.assertIsNone(by_start[0x1968398].metadata_name)
+
+        methods = [
+            (0x1968398, "Exact.Metadata.Name"),
+            (0x1968400, "Next.Method"),
+        ]
+        exact = {item.start: item for item in module.resolve_requested_targets(methods)}[0x1968398]
+        self.assertTrue(exact.exact_function_boundary)
+        self.assertEqual(exact.metadata_name, "Exact.Metadata.Name")
+        self.assertEqual(exact.end, 0x1968400)
+
     def test_render_marks_sources_read_only_and_includes_helper_boundaries(self):
         module = load_tool()
         fields = [{"type": "List<XNumber>", "name": "shootDisMap", "offset": "0xE8", "line": "public List<XNumber> shootDisMap; // 0xE8"}]
@@ -91,6 +109,8 @@ public class Next // TypeDefIndex: 2
         self.assertIn("exact=false", text)
         self.assertIn("0x014DEFDC", text)
         self.assertIn("0x01B60CC8", text)
+        self.assertIn("0x01968398", text)
+        self.assertIn("shoot_property_1968398", text)
 
 
 if __name__ == "__main__":
